@@ -1,0 +1,1054 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.useso.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Linux,VirtualBox,LVS," />
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="Wenyu's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="系统架构 虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR  【注】所有连接方式都采用桥接方式    主机 IP 角色     Client 192.168.33.145 客户机，用来访问网页   VS 192.168.33.150 VIP，Virtual Ip对外提供的IP   VS 192.168.33.149 DIP，Director">
+<meta name="keywords" content="Linux,VirtualBox,LVS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Virtualbox 下LVS-NAT模式集群部署">
+<meta property="og:url" content="https://tianwenyu.github.io/linux-lvs/index.html">
+<meta property="og:site_name" content="Wenyu&#39;s Blog">
+<meta property="og:description" content="系统架构 虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR  【注】所有连接方式都采用桥接方式    主机 IP 角色     Client 192.168.33.145 客户机，用来访问网页   VS 192.168.33.150 VIP，Virtual Ip对外提供的IP   VS 192.168.33.149 DIP，Director">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20171204231827222?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171204231840284?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171204231850568?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171204232024897?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171204232111043?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171204232138345?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171204232204048?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171204232221573?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171204232238350?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171204232312949?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171204232326590?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2018-01-05T05:07:01.137Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Virtualbox 下LVS-NAT模式集群部署">
+<meta name="twitter:description" content="系统架构 虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR  【注】所有连接方式都采用桥接方式    主机 IP 角色     Client 192.168.33.145 客户机，用来访问网页   VS 192.168.33.150 VIP，Virtual Ip对外提供的IP   VS 192.168.33.149 DIP，Director">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171204231827222?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://tianwenyu.github.io/linux-lvs/"/>
+
+  <title> Virtualbox 下LVS-NAT模式集群部署 | Wenyu's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s6.cnzz.com/stat.php?id=1271854965&web_id=1271854965" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader" style="background-image: url('/images/home_bg.jpg');">
+      <div class="header-inner"><a class="site-home" href="/">Wenyu's Blog</a>
+
+<div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <div href="/"  class="brand">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wenyu's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </div>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            博文归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签云
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <input type="text" id="local-search-input">
+ <span class="search-icon fa fa-search"></span>
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+      <div class="header-post"> 
+  <div class="post-header">
+      <div class="tags">
+      
+        <a href="/tags/Linux/" rel="tag" title="Linux">Linux</a>
+      
+        <a href="/tags/VirtualBox/" rel="tag" title="VirtualBox">VirtualBox</a>
+      
+        <a href="/tags/LVS/" rel="tag" title="LVS">LVS</a>
+      
+      </div>
+      <h1>Virtualbox 下LVS-NAT模式集群部署</h1>
+      <h2 class="subtitle"></h2>
+      <div class="post-time">
+        <span class="post-meta-item-text">发表于 </span>
+        <time itemprop="dateCreated" datetime="2017-12-01T20:29:30+08:00" content="2017-12-01" title="2017-12-01 20:29:30">
+          2017-12-01
+        </time>
+      </div>
+  </div>
+ </div>
+    </header>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Virtualbox 下LVS-NAT模式集群部署
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-12-01T20:29:30+08:00" content="2017-12-01">
+              2017-12-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <!-- 
+            
+           -->
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h2><ul>
+<li>虚拟机环境：VirtualBox</li>
+<li>Linux系统：CentOS 7</li>
+<li>模型：LVS-NAT</li>
+<li>调度算法：RR</li>
+</ul>
+<p>【注】所有连接方式都采用<code>桥接</code>方式</p>
+<table>
+<thead>
+<tr>
+<th>主机</th>
+<th>IP</th>
+<th>角色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client</td>
+<td>192.168.33.145</td>
+<td>客户机，用来访问网页</td>
+</tr>
+<tr>
+<td>VS</td>
+<td>192.168.33.150</td>
+<td>VIP，Virtual Ip对外提供的IP</td>
+</tr>
+<tr>
+<td>VS</td>
+<td>192.168.33.149</td>
+<td>DIP，Director IP</td>
+</tr>
+<tr>
+<td>RS1</td>
+<td>192.168.33.148</td>
+<td>Real Server IP，安装Nginx</td>
+</tr>
+<tr>
+<td>RS2</td>
+<td>192.168.33.147</td>
+<td>Real Server IP，安装Nginx</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h2 id="客户机配置"><a href="#客户机配置" class="headerlink" title="客户机配置"></a>客户机配置</h2><h3 id="桥接IP设置"><a href="#桥接IP设置" class="headerlink" title="桥接IP设置"></a>桥接IP设置</h3><ol>
+<li><p>打开<code>网络与共享中心</code></p>
+</li>
+<li><p>点击<code>更改适配器设置</code> </p>
+<p><img src="http://img.blog.csdn.net/20171204231827222?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+</li>
+<li><p>选择客户机（即物理机）网卡</p>
+</li>
+</ol>
+<p><img src="http://img.blog.csdn.net/20171204231840284?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>4.打开<code>属性</code>，设置IPV4地址</p>
+<p><img src="http://img.blog.csdn.net/20171204231850568?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<h2 id="虚拟机环境配置"><a href="#虚拟机环境配置" class="headerlink" title="虚拟机环境配置"></a>虚拟机环境配置</h2><h3 id="1-网卡模式设置"><a href="#1-网卡模式设置" class="headerlink" title="1.网卡模式设置"></a>1.网卡模式设置</h3><p>【注】所有Virtual Box虚拟机网络设置都要设置为<code>桥接</code>方式</p>
+<ol>
+<li><p>打开<code>控制-&gt;设置-&gt;网络</code></p>
+</li>
+<li><p><code>连接方式</code>选择<code>桥接网卡</code>，<code>高级-&gt;混杂模式</code>选<code>全部允许</code> </p>
+<p><img src="http://img.blog.csdn.net/20171204232024897?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+</li>
+</ol>
+<h3 id="2-sudo命令配置"><a href="#2-sudo命令配置" class="headerlink" title="2.sudo命令配置"></a>2.<code>sudo</code>命令配置</h3><p>【注】以一台虚拟机为例，其余虚拟机与此类似</p>
+<ol>
+<li><p>切换到<code>root</code>用户</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">su <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加<code>/etc/sudoers</code>文件写权限</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">chmod u+w <span class="regexp">/etc/</span>sudoers1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑<code>/etc/sudoers</code></p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>sudoers1</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>找到<code>root ALL=(ALL) ALL</code>在下面添加<code>21751096_1 ALL=(ALL) ALL</code>，并保存退出</p>
+<p><img src="http://img.blog.csdn.net/20171204232111043?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>4.撤销<code>/etc/sudoers</code>文件的写权限</p>
+<p><code>bash chmod u-w /etc/sudoers</code></p>
+<h2 id="Director配置"><a href="#Director配置" class="headerlink" title="Director配置"></a>Director配置</h2><h3 id="1-安装ipvsadm"><a href="#1-安装ipvsadm" class="headerlink" title="1.安装ipvsadm"></a>1.安装<code>ipvsadm</code></h3><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> -y ipvsadm1</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20171204232138345?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<h3 id="2-建立一个虚拟IP地址进行广播"><a href="#2-建立一个虚拟IP地址进行广播" class="headerlink" title="2.建立一个虚拟IP地址进行广播"></a>2.建立一个虚拟IP地址进行广播</h3><figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">sudo ifconfig enp<span class="number">0s3:0 192</span>.<span class="number">168.33.150/24</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-将该虚拟机地址添加到路由表"><a href="#3-将该虚拟机地址添加到路由表" class="headerlink" title="3.将该虚拟机地址添加到路由表"></a>3.将该虚拟机地址添加到路由表</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">sudo<span class="built_in"> route </span><span class="builtin-name">add</span> -host 192.168.33.150 dev enp0s31</span><br></pre></td></tr></table></figure>
+<h3 id="4-使用ipvsadm安装LVS服务"><a href="#4-使用ipvsadm安装LVS服务" class="headerlink" title="4.使用ipvsadm安装LVS服务"></a>4.使用<code>ipvsadm</code>安装LVS服务</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">ipvsadm</span> <span class="selector-tag">-At</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.150</span><span class="selector-pseudo">:80</span> <span class="selector-tag">-s</span> <span class="selector-tag">rr1</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-增加真实服务器"><a href="#5-增加真实服务器" class="headerlink" title="5.增加真实服务器"></a>5.增加真实服务器</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">ipvsadm</span> <span class="selector-tag">-at</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.150</span><span class="selector-pseudo">:80</span> <span class="selector-tag">-r</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.148</span> <span class="selector-tag">-g</span></span><br><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">ipvsadm</span> <span class="selector-tag">-at</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.150</span><span class="selector-pseudo">:80</span> <span class="selector-tag">-r</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.147</span> <span class="selector-tag">-g12</span></span><br></pre></td></tr></table></figure>
+<h3 id="6-设置DirectorIP"><a href="#6-设置DirectorIP" class="headerlink" title="6.设置DirectorIP"></a>6.设置DirectorIP</h3><figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">sudo ifconfig enp0s3 <span class="number">192.168</span><span class="number">.33</span><span class="number">.149</span>/<span class="number">241</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-查看ifconfig设置"><a href="#7-查看ifconfig设置" class="headerlink" title="7.查看ifconfig设置"></a>7.查看<code>ifconfig</code>设置</h3><figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">sudo ifco<span class="symbol">nfig1</span></span><br></pre></td></tr></table></figure>
+<p>所有设置如图</p>
+<p><img src="http://img.blog.csdn.net/20171204232204048?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<h2 id="Real-Server配置"><a href="#Real-Server配置" class="headerlink" title="Real Server配置"></a>Real Server配置</h2><h3 id="1-安装nginx服务"><a href="#1-安装nginx服务" class="headerlink" title="1.安装nginx服务"></a>1.安装<code>nginx</code>服务</h3><p>【注】需要在<code>21751096_2</code>和<code>21751096_3</code>两台RealServer上安装<code>nginx</code>服务，以其中一台为例</p>
+<ol>
+<li><p>使用<code>yum</code>安装<code>nginx</code>,需要安装<code>nginx</code>的库</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">cd /etc/yum<span class="selector-class">.repos</span><span class="selector-class">.d</span>/nginx.repo</span><br><span class="line">sudo rpm -Uvh http:<span class="comment">//nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm12</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑<code>nginx.repo</code>文件</p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/yum.repos.d/nginx.repo</span><br><span class="line"></span><br><span class="line">name=nginx repo</span><br><span class="line">baseurl=http://nginx.org/packages/centos/7/x86_64/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1123456</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>yum</code>安装<code>nginx</code></p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> nginx1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装完成后启动<code>nginx</code>服务</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>nginx start1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改<code>index.html</code>首页区分两个nginx服务器</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sudo vim <span class="regexp">/usr/</span>share<span class="regexp">/nginx/</span>html<span class="regexp">/index.html1</span></span><br></pre></td></tr></table></figure>
+<p>修改内容如下</p>
+</li>
+</ol>
+<p>   <img src="http://img.blog.csdn.net/20171204232221573?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<ol>
+<li><p>查看是否启动服务</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">curl -<span class="selector-tag">i</span> localhost1</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="2-IP设置"><a href="#2-IP设置" class="headerlink" title="2.IP设置"></a>2.IP设置</h3><ol>
+<li>切换到<code>root</code>账户</li>
+</ol>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">su <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>设置虚拟IP</li>
+</ol>
+<figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">ifconfig lo:<span class="number">0 192.168.33</span>.<span class="number">150/361</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>添加到路由表</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">route</span> <span class="selector-tag">add</span> <span class="selector-tag">-host</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.150</span> <span class="selector-tag">dev</span> <span class="selector-tag">lo</span><span class="selector-pseudo">:01</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>设置IPV4转发</li>
+</ol>
+<p><code>bash echo &quot;1&quot; &gt;/proc/sys/net/ipv4/ip_forward</code></p>
+<ol>
+<li>设置RS1的IP</li>
+</ol>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">ifconfig enp0s3 <span class="number">192.168</span><span class="number">.33</span><span class="number">.148</span>/<span class="number">241</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>查看<code>ifconfig</code>设置</li>
+</ol>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">ifco<span class="symbol">nfig1</span></span><br></pre></td></tr></table></figure>
+<p>全部设置如图所示</p>
+<p><img src="http://img.blog.csdn.net/20171204232238350?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<h2 id="运行测试"><a href="#运行测试" class="headerlink" title="运行测试"></a>运行测试</h2><p>在浏览器中输入<code>192.168.33.150</code></p>
+<p>第一次显示Real Sever 1的页面</p>
+<p><img src="http://img.blog.csdn.net/20171204232312949?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>刷新后显示Real Server 2的页面</p>
+<p><img src="http://img.blog.csdn.net/20171204232326590?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
+          
+            <a href="/tags/VirtualBox/" rel="tag">#VirtualBox</a>
+          
+            <a href="/tags/LVS/" rel="tag">#LVS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/centos-nginx/" rel="next" title="CentOS 7 yum安装nginx-1.12.0">
+                <i class="fa fa-chevron-left"></i> CentOS 7 yum安装nginx-1.12.0
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/text-classification/" rel="prev" title="【评论文本分类】1.爬取评论数据">
+                【评论文本分类】1.爬取评论数据 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签云</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/rss2.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/tianwenyu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统架构"><span class="nav-text">系统架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户机配置"><span class="nav-text">客户机配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#桥接IP设置"><span class="nav-text">桥接IP设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机环境配置"><span class="nav-text">虚拟机环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-网卡模式设置"><span class="nav-text">1.网卡模式设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-sudo命令配置"><span class="nav-text">2.sudo命令配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Director配置"><span class="nav-text">Director配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装ipvsadm"><span class="nav-text">1.安装ipvsadm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-建立一个虚拟IP地址进行广播"><span class="nav-text">2.建立一个虚拟IP地址进行广播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-将该虚拟机地址添加到路由表"><span class="nav-text">3.将该虚拟机地址添加到路由表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-使用ipvsadm安装LVS服务"><span class="nav-text">4.使用ipvsadm安装LVS服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-增加真实服务器"><span class="nav-text">5.增加真实服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-设置DirectorIP"><span class="nav-text">6.设置DirectorIP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-查看ifconfig设置"><span class="nav-text">7.查看ifconfig设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Real-Server配置"><span class="nav-text">Real Server配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装nginx服务"><span class="nav-text">1.安装nginx服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-IP设置"><span class="nav-text">2.IP设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行测试"><span class="nav-text">运行测试</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/BearD01001/hexo-theme-nextd">
+    NexTD
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+    <link rel='stylesheet' href='https://imsun.github.io/gitment/style/default.css'>
+    <style>
+        .gitment-editor-avatar {
+            border-bottom: none !important;
+        }
+        .gitment-container a:hover {
+            text-decoration: none !important;
+        }
+        .gitment-markdown a,
+        .gitment-footer-project-link {
+            color: #555 !important;
+        }
+        .gitment-footer-project-link:hover,
+        .gitment-editor-logout-link:hover,
+        .gitment-editor-footer-tip:hover,
+        .gitment-header-issue-link:hover,
+        .gitment-comment-name:hover,
+        .gitment-markdown a:hover {
+            color: #222 !important;
+        }
+    </style>
+    <script src='https://imsun.github.io/gitment/dist/gitment.browser.js'></script>
+    <script type='text/javascript'>
+        (function() {
+            var id = window.location.pathname.replace(/(\/$)/g, '');
+            var owner = 'tianwenyu';
+            var repo = 'tianwenyu.github.io';
+            var clientId = '7e6796bf4bd74a25333f';
+            var clientSecret = 'd190223868b2175fbce4094e6485195cef7d3e8a';
+
+            var gitment = new Gitment({
+                id: id,
+                owner: owner,
+                repo: repo,
+                oauth: {
+                    client_id: clientId,
+                    client_secret: clientSecret,
+                },
+            });
+            gitment.render('comments');
+        })();
+    </script>
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').fadeToggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ decodeURIComponent(data_url) +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').fadeOut(function() {
+          $(".popoverlay").remove();
+          $('body').css('overflow', '');
+      });
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

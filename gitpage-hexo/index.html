@@ -1,0 +1,1045 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.useso.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo,GitPage," />
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="Wenyu's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="技术简介Github PagesGitHub Pages 本来用于介绍托管在Github上的项目，由于它的空间免费稳定，因此适合用来搭建博客。 每个帐号只能有一个仓库来存放个人主页，且仓库的名字必须是username/username.github.io。你可以通过http://username.github.io来访问你的个人主页 个人主页的网站内容是在master分支下">
+<meta name="keywords" content="Hexo,GitPage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用Github Pages+Hexo搭建个人博客">
+<meta property="og:url" content="https://tianwenyu.github.io/gitpage-hexo/index.html">
+<meta property="og:site_name" content="Wenyu&#39;s Blog">
+<meta property="og:description" content="技术简介Github PagesGitHub Pages 本来用于介绍托管在Github上的项目，由于它的空间免费稳定，因此适合用来搭建博客。 每个帐号只能有一个仓库来存放个人主页，且仓库的名字必须是username/username.github.io。你可以通过http://username.github.io来访问你的个人主页 个人主页的网站内容是在master分支下">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/171220/H7LkIa35Gb.jpg?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/171220/Fg6728KdiK.jpg?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/171220/B7lkme9mkb.jpg?imageslim">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/695365-65754452ea96e1cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/695365-e4fb878d83a8a2e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/171220/5hEC4d6K1m.jpg?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/171220/8HbiiJFCgB.jpg?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/171220/CgdkDEDim9.jpg?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/171220/dLaLgf5B36.jpg?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/171220/CDcaJlKgEI.jpg?imageslim">
+<meta property="og:image" content="https://mpic.kf5.com/attachments/download/1171222/0015808404e34f1e31116ea6cd92ed2/">
+<meta property="og:image" content="https://mpic.kf5.com/attachments/download/1171231/001580840995e265db04376c8e74582/">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180116/ifG5beD76H.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180116/BkGJII7KJI.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180116/LJ0Fi6jG0e.png?imageslim">
+<meta property="og:updated_time" content="2018-01-16T03:32:00.591Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用Github Pages+Hexo搭建个人博客">
+<meta name="twitter:description" content="技术简介Github PagesGitHub Pages 本来用于介绍托管在Github上的项目，由于它的空间免费稳定，因此适合用来搭建博客。 每个帐号只能有一个仓库来存放个人主页，且仓库的名字必须是username/username.github.io。你可以通过http://username.github.io来访问你的个人主页 个人主页的网站内容是在master分支下">
+<meta name="twitter:image" content="http://p15qizl76.bkt.clouddn.com/blog/171220/H7LkIa35Gb.jpg?imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://tianwenyu.github.io/gitpage-hexo/"/>
+
+  <title> 利用Github Pages+Hexo搭建个人博客 | Wenyu's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s6.cnzz.com/stat.php?id=1271854965&web_id=1271854965" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader" style="background-image: url('/images/home_bg.jpg');">
+      <div class="header-inner"><a class="site-home" href="/">Wenyu's Blog</a>
+
+<div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <div href="/"  class="brand">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wenyu's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </div>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            博文归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签云
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <input type="text" id="local-search-input">
+ <span class="search-icon fa fa-search"></span>
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+      <div class="header-post"> 
+  <div class="post-header">
+      <div class="tags">
+      
+        <a href="/tags/Hexo/" rel="tag" title="Hexo">Hexo</a>
+      
+        <a href="/tags/GitPage/" rel="tag" title="GitPage">GitPage</a>
+      
+      </div>
+      <h1>利用Github Pages+Hexo搭建个人博客</h1>
+      <h2 class="subtitle"></h2>
+      <div class="post-time">
+        <span class="post-meta-item-text">发表于 </span>
+        <time itemprop="dateCreated" datetime="2017-12-20T19:29:36+08:00" content="2017-12-20" title="2017-12-20 19:29:36">
+          2017-12-20
+        </time>
+      </div>
+  </div>
+ </div>
+    </header>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                利用Github Pages+Hexo搭建个人博客
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-12-20T19:29:36+08:00" content="2017-12-20">
+              2017-12-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/个人建站/" itemprop="url" rel="index">
+                    <span itemprop="name">个人建站</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <!-- 
+            
+           -->
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="技术简介"><a href="#技术简介" class="headerlink" title="技术简介"></a>技术简介</h2><h3 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a>Github Pages</h3><p><a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a> 本来用于介绍托管在Github上的项目，由于它的空间免费稳定，因此适合用来搭建博客。</p>
+<p>每个帐号只能有一个仓库来存放个人主页，且仓库的名字必须是<code>username/username.github.io</code>。你可以通过<code>http://username.github.io</code>来访问你的个人主页</p>
+<p>个人主页的网站内容是在master分支下</p>
+<a id="more"></a>
+<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>Hexo是一个快速、简洁高效的博客框架，具有如下特点：</p>
+<ul>
+<li>生成静态网页</li>
+<li>支持Markdown</li>
+<li>一键部署博客到Github Pages</li>
+<li>丰富插件</li>
+</ul>
+<h3 id="七牛云"><a href="#七牛云" class="headerlink" title="七牛云"></a>七牛云</h3><p>使用七牛云作为图床。</p>
+<p>认证后的七牛云存储提供10G的免费空间以及每月10G的流量</p>
+<h3 id="MPic"><a href="#MPic" class="headerlink" title="MPic"></a>MPic</h3><p>用于方便上传图片到七牛云的一款工具</p>
+<p><a href="http://ojalbwkyk.bkt.clouddn.com/MPic%202.2.1.3.rar" target="_blank" rel="external">点击下载</a></p>
+<h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><h4 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h4><p>进入网站<code>https://git-scm.com/</code>下载安装即可</p>
+<h3 id="Node-JS"><a href="#Node-JS" class="headerlink" title="Node.JS"></a>Node.JS</h3><h4 id="安装Node-JS"><a href="#安装Node-JS" class="headerlink" title="安装Node.JS"></a>安装Node.JS</h4><p>进入网站<code>https://nodejs.org/en/</code>，下载安装即可</p>
+<h3 id="Hexo-1"><a href="#Hexo-1" class="headerlink" title="Hexo"></a>Hexo</h3><h4 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h4><p>在任意位置右键点击<code>Git Bash Here</code></p>
+<p>使用<code>npm</code>安装<code>hexo</code>，可以先切换npm源，加速安装过程</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
+<p>【注】若安装不成功，可以使用<code>npm install hexo --save</code>再次安装</p>
+<p>出现以下图示表示安装完成。</p>
+<p>【注】若提示<code>This package is no longer maintained</code>，耐心等待安装即可。</p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/171220/H7LkIa35Gb.jpg?imageslim" alt="mark"></p>
+<h4 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h4><h5 id="创建hexo文件夹"><a href="#创建hexo文件夹" class="headerlink" title="创建hexo文件夹"></a>创建hexo文件夹</h5><p>在某一文件夹下如<code>F:\hexo\blog</code>，右键<code>Git Bash Here</code>，使用以下命令创建建立网站需要的文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/171220/Fg6728KdiK.jpg?imageslim" alt="mark"></p>
+<h5 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/171220/B7lkme9mkb.jpg?imageslim" alt="mark"></p>
+<h5 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo generate <span class="comment">#生成静态文件，会在当前目录下生成一个新的名为public的文件夹</span></span><br></pre></td></tr></table></figure>
+<h5 id="启动Hexo"><a href="#启动Hexo" class="headerlink" title="启动Hexo"></a>启动Hexo</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo server -p 5000 <span class="comment">#使用hexo server 默认端口4000，会无法访问localhost:4000，因此改为5000端口</span></span><br></pre></td></tr></table></figure>
+<h5 id="常用hexo命令"><a href="#常用hexo命令" class="headerlink" title="常用hexo命令"></a>常用hexo命令</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo <span class="built_in">help</span> <span class="comment">#查看帮助</span></span><br><span class="line">hexo -v <span class="comment">#查看本地环境</span></span><br><span class="line">hexo init <span class="comment">#初始化一个目录</span></span><br><span class="line">hexo new <span class="string">"postName"</span> <span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">"pageName"</span> <span class="comment">#新建页面</span></span><br><span class="line">hexo gernerate <span class="comment">#生成网页，可以在public目录查看整个网站的文件</span></span><br><span class="line">hexo server <span class="comment">#本地预览 Ctrl+C关闭</span></span><br><span class="line">hexo deploy <span class="comment">#或hexo d 部署到远端如github、heroku</span></span><br><span class="line">hexo clean <span class="comment">#清除缓存 建议每次执行命令前先清理缓存，每次部署前先删除 .deploy文件夹</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#常用缩写</span></span><br><span class="line">hexo n  <span class="comment">#hexo new</span></span><br><span class="line">hexo g  <span class="comment">#hexo generate</span></span><br><span class="line">hexo s  <span class="comment">#hexo server</span></span><br><span class="line">hexo d  <span class="comment">#hexo deploy</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#常用组合</span></span><br><span class="line">hexo d -g <span class="comment">#生成部署</span></span><br><span class="line">hexo s -g <span class="comment">#生成预览</span></span><br></pre></td></tr></table></figure>
+<h2 id="操作流程"><a href="#操作流程" class="headerlink" title="操作流程"></a>操作流程</h2><h3 id="Github-Pages-1"><a href="#Github-Pages-1" class="headerlink" title="Github  Pages"></a>Github  Pages</h3><h4 id="创建页面仓库"><a href="#创建页面仓库" class="headerlink" title="创建页面仓库"></a>创建页面仓库</h4><p>创建一个仓库，需要和帐号对应，格式<code>yourname.github.io</code>，创建仓库</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/695365-65754452ea96e1cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/695365-e4fb878d83a8a2e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
+<h4 id="生成SSH密钥"><a href="#生成SSH密钥" class="headerlink" title="生成SSH密钥"></a>生成SSH密钥</h4><p>任意地方右键<code>Git Bash Here</code>,执行以下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"你的邮箱地址"</span></span><br></pre></td></tr></table></figure>
+<p>出现<code>Enter file in which to save the key (.....)</code>直接回车选择默认位置</p>
+<p>出现<code>Enter passphrase(empty for no passphrase)</code>直接两次回车不设密码以及确认</p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/171220/5hEC4d6K1m.jpg?imageslim" alt="mark"></p>
+<h4 id="在Github上添加SSH密钥"><a href="#在Github上添加SSH密钥" class="headerlink" title="在Github上添加SSH密钥"></a>在Github上添加SSH密钥</h4><p>打开<code>id_rsa.pub</code>，复制内容。</p>
+<p>进入<code>https://github.com/settings/ssh</code>。</p>
+<p>点击<code>New SSH key</code></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/171220/8HbiiJFCgB.jpg?imageslim" alt="mark"></p>
+<p>填写后点击<code>Add SSH key</code></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/171220/CgdkDEDim9.jpg?imageslim" alt="mark"></p>
+<h3 id="Hexo-2"><a href="#Hexo-2" class="headerlink" title="Hexo"></a>Hexo</h3><h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><p><img src="http://p15qizl76.bkt.clouddn.com/blog/171220/dLaLgf5B36.jpg?imageslim" alt="mark"></p>
+<ul>
+<li><code>deploy</code> #需要部署的文件</li>
+<li><code>node_modules</code> #Hexo插件</li>
+<li><code>public</code> #生成的静态网页文件</li>
+<li><code>scaffolds</code> #模板</li>
+<li><code>source</code> #博客正文和其他源文件</li>
+<li><code>drafs</code> #草稿</li>
+<li><code>posts</code>#文章</li>
+<li><code>themes</code> #主题</li>
+<li><code>config.yml</code> #配置文件</li>
+</ul>
+<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><h5 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h5><ol>
+<li>上述步骤中在Github上创建的那个仓库<code>username.github.io</code>，可以通过该链接访问</li>
+<li>Hexo -g 会生成一个静态网站，第一次会生成一个public目录，这个静态文件可以直接访问</li>
+<li>需要将Hexo生成的静态网站，提交(git commit)到github上</li>
+</ol>
+<h5 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h5><p>需要在<code>_config.yml</code>中修改</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repository</span>: <span class="attribute">http</span>:<span class="comment">//github.com/tianwenyu/tianwenyu.github.io.git</span></span><br><span class="line">  <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
+<p>【注】</p>
+<ul>
+<li><code>repository:</code>后面的<code>tianwenyu/tainwenyu.github.io.git</code>要与自己创建的仓库名保持一致</li>
+</ul>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/171220/CDcaJlKgEI.jpg?imageslim" alt="mark"></p>
+<ul>
+<li><code>.yml</code>文件对格式要求严格，<code>type:</code> <code>repository:</code> <code>branch:</code> 前面两个空格，冒号后面一个空格</li>
+</ul>
+<p>安装依赖包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>配置好之后执行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo genearte</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<p>【注】以上命令执行的环境必须在执行<code>hexo init</code>创建的文件夹下执行</p>
+<p>执行完以上命令，会出现页面输入你的github用户名和密码，验证后就可以上传成功</p>
+<p>访问<code>tianwenyu.github.io</code>，成功打开页面即部署成功。</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>选择的主题为<a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="external">indigo</a>，具体问题可以看链接。</p>
+<h5 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h5><p>安装前确认你的Hexo版本在3.0以上，以及Node版本为6.x以上，在Hexo根目录，执行以下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:yscoder/hexo-theme-indigo.git themes/indigo</span><br></pre></td></tr></table></figure>
+<h5 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h5><ul>
+<li><p>安装<code>Less</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-less --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装<code>Feed</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装<code>Json-content</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-json-content --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装<code>QRCode</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-helper-qrcode --save</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="启用主题"><a href="#启用主题" class="headerlink" title="启用主题"></a>启用主题</h5><p>编辑站点配置文件<code>hexo/_config.yml</code></p>
+<p>搜索<code>theme</code>，修改为<code>theme: indigo</code></p>
+<h5 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h5><p>修改以下内容</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">your</span> <span class="string">title</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">your</span> <span class="string">subtitle</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">your</span> <span class="string">description</span></span><br><span class="line"><span class="attr">keywords:</span> <span class="string">your</span> <span class="string">keywords</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">your</span> <span class="string">name</span></span><br><span class="line"><span class="attr">email:</span> <span class="string">your</span> <span class="string">email</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">your</span> <span class="string">site</span> <span class="string">url</span></span><br></pre></td></tr></table></figure>
+<h5 id="indigo主题配置"><a href="#indigo主题配置" class="headerlink" title="indigo主题配置"></a><code>indigo</code>主题配置</h5><p>编辑主题配置文件<code>hexo/themes/_config.yml</code></p>
+<p>详情见<a href="https://github.com/yscoder/hexo-theme-indigo/wiki/%E9%85%8D%E7%BD%AE" target="_blank" rel="external">indigo主题配置</a></p>
+<h5 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h5><p><code>hexo new &quot;postname&quot;</code></p>
+<p>该命令会自动在<code>hexo/source/_post</code>文件夹下创建一个名为<code>postname</code>的<code>markdown</code>文件，会自动在文件开头添加</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 你的题目</span><br><span class="line">tags: 你的标签</span><br><span class="line">category: 你的分类</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>填写<code>tags</code>,<code>category</code>，新建标签页面和分类页面后即可以显示相应的标签和分类</p>
+<h5 id="新建标签页面"><a href="#新建标签页面" class="headerlink" title="新建标签页面"></a>新建标签页面</h5><p><code>hexo new page tags</code></p>
+<p>该命令会自动在<code>hexo/source</code>文件夹下创建<code>tags</code>文件夹并在该文件夹下创建<code>index.md</code>文件。</p>
+<p>修改<code>index.md</code>文件，添加以下两项</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">layout: tags</span><br><span class="line">comments: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h5 id="新建分类页面"><a href="#新建分类页面" class="headerlink" title="新建分类页面"></a>新建分类页面</h5><p><code>hexo new page categories</code></p>
+<p>该命令会自动在<code>hexo/source</code>文件夹下创建<code>categories</code>文件夹并在该文件夹下创建<code>index.md</code>文件</p>
+<p>修改<code>index.md</code>文件，添加以下两项：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">layout: categories</span><br><span class="line">comments: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h3 id="Mpic"><a href="#Mpic" class="headerlink" title="Mpic"></a>Mpic</h3><ol>
+<li><p>点击<code>设置账号</code></p>
+<p><img src="https://mpic.kf5.com/attachments/download/1171222/0015808404e34f1e31116ea6cd92ed2/" alt=""></p>
+</li>
+<li><p>将七牛云对应信息填入</p>
+<p><img src="https://mpic.kf5.com/attachments/download/1171231/001580840995e265db04376c8e74582/" alt=""></p>
+<ul>
+<li><p><code>空间名称</code>：七牛存储文件的空间名，这里选择<code>tpic</code></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180116/ifG5beD76H.png?imageslim" alt="mark"></p>
+</li>
+<li><p><code>SecretKey&amp;AccessKey</code>：点击<code>个人面板-密钥管理</code></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180116/BkGJII7KJI.png?imageslim" alt="mark"></p>
+</li>
+<li><p><code>域名</code>：点击<code>对象存储</code>，在<code>空间概览</code>页面</p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180116/LJ0Fi6jG0e.png?imageslim" alt="mark"></p>
+</li>
+</ul>
+<p>​</p>
+</li>
+</ol>
+
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+          
+            <a href="/tags/GitPage/" rel="tag">#GitPage</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/hexo-indigo/" rel="next" title="Hexo之Indigo主题配置">
+                <i class="fa fa-chevron-left"></i> Hexo之Indigo主题配置
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/java-polymorphism/" rel="prev" title="深入理解Java多态性">
+                深入理解Java多态性 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签云</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/rss2.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/tianwenyu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#技术简介"><span class="nav-text">技术简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Github-Pages"><span class="nav-text">Github Pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo"><span class="nav-text">Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七牛云"><span class="nav-text">七牛云</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MPic"><span class="nav-text">MPic</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置环境"><span class="nav-text">配置环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git"><span class="nav-text">Git</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Git"><span class="nav-text">安装Git</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-JS"><span class="nav-text">Node.JS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Node-JS"><span class="nav-text">安装Node.JS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-1"><span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Hexo"><span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置Hexo"><span class="nav-text">配置Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建hexo文件夹"><span class="nav-text">创建hexo文件夹</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装依赖包"><span class="nav-text">安装依赖包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#生成静态文件"><span class="nav-text">生成静态文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启动Hexo"><span class="nav-text">启动Hexo</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常用hexo命令"><span class="nav-text">常用hexo命令</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作流程"><span class="nav-text">操作流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Github-Pages-1"><span class="nav-text">Github  Pages</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建页面仓库"><span class="nav-text">创建页面仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成SSH密钥"><span class="nav-text">生成SSH密钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在Github上添加SSH密钥"><span class="nav-text">在Github上添加SSH密钥</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-2"><span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目录结构"><span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#部署"><span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#原理"><span class="nav-text">原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#过程"><span class="nav-text">过程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装主题"><span class="nav-text">安装主题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装依赖"><span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启用主题"><span class="nav-text">启用主题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基本配置"><span class="nav-text">基本配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#indigo主题配置"><span class="nav-text">indigo主题配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#新建文章"><span class="nav-text">新建文章</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#新建标签页面"><span class="nav-text">新建标签页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#新建分类页面"><span class="nav-text">新建分类页面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mpic"><span class="nav-text">Mpic</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/BearD01001/hexo-theme-nextd">
+    NexTD
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+    <link rel='stylesheet' href='https://imsun.github.io/gitment/style/default.css'>
+    <style>
+        .gitment-editor-avatar {
+            border-bottom: none !important;
+        }
+        .gitment-container a:hover {
+            text-decoration: none !important;
+        }
+        .gitment-markdown a,
+        .gitment-footer-project-link {
+            color: #555 !important;
+        }
+        .gitment-footer-project-link:hover,
+        .gitment-editor-logout-link:hover,
+        .gitment-editor-footer-tip:hover,
+        .gitment-header-issue-link:hover,
+        .gitment-comment-name:hover,
+        .gitment-markdown a:hover {
+            color: #222 !important;
+        }
+    </style>
+    <script src='https://imsun.github.io/gitment/dist/gitment.browser.js'></script>
+    <script type='text/javascript'>
+        (function() {
+            var id = window.location.pathname.replace(/(\/$)/g, '');
+            var owner = 'tianwenyu';
+            var repo = 'tianwenyu.github.io';
+            var clientId = '7e6796bf4bd74a25333f';
+            var clientSecret = 'd190223868b2175fbce4094e6485195cef7d3e8a';
+
+            var gitment = new Gitment({
+                id: id,
+                owner: owner,
+                repo: repo,
+                oauth: {
+                    client_id: clientId,
+                    client_secret: clientSecret,
+                },
+            });
+            gitment.render('comments');
+        })();
+    </script>
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').fadeToggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ decodeURIComponent(data_url) +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').fadeOut(function() {
+          $(".popoverlay").remove();
+          $('body').css('overflow', '');
+      });
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

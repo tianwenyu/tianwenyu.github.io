@@ -1,0 +1,1168 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.useso.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Intellij," />
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="Wenyu's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="快捷键设置 如 Gif 所示，在没有对 Ctrl + D 快捷键进行修改前，此快捷键将是用来复制并黏贴所选的内容的，但是黏贴的位置是补充在原来的位置后，我个人不喜欢这种风格，我喜欢复制所选的行数完整内容，所以进行了修改，修改后的效果如上图 Gif 演示。">
+<meta name="keywords" content="Intellij">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Intellij idea使用教程">
+<meta property="og:url" content="https://tianwenyu.github.io/intellij-tutorial/index.html">
+<meta property="og:site_name" content="Wenyu&#39;s Blog">
+<meta property="og:description" content="快捷键设置 如 Gif 所示，在没有对 Ctrl + D 快捷键进行修改前，此快捷键将是用来复制并黏贴所选的内容的，但是黏贴的位置是补充在原来的位置后，我个人不喜欢这种风格，我喜欢复制所选的行数完整内容，所以进行了修改，修改后的效果如上图 Gif 演示。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-12.gif">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-13.gif">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-27.gif">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-32.gif">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-35.gif">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-36.gif">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-37.jpg">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-39.jpg">
+<meta property="og:image" content="http://img.blog.csdn.net/20171109162841934?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-20.gif">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-21.jpg">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-42.jpg">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-43.jpg">
+<meta property="og:image" content="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-44.gif">
+<meta property="og:updated_time" content="2017-12-25T10:25:22.698Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Intellij idea使用教程">
+<meta name="twitter:description" content="快捷键设置 如 Gif 所示，在没有对 Ctrl + D 快捷键进行修改前，此快捷键将是用来复制并黏贴所选的内容的，但是黏贴的位置是补充在原来的位置后，我个人不喜欢这种风格，我喜欢复制所选的行数完整内容，所以进行了修改，修改后的效果如上图 Gif 演示。">
+<meta name="twitter:image" content="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-12.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://tianwenyu.github.io/intellij-tutorial/"/>
+
+  <title> Intellij idea使用教程 | Wenyu's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s6.cnzz.com/stat.php?id=1271854965&web_id=1271854965" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader" style="background-image: url('/images/home_bg.jpg');">
+      <div class="header-inner"><a class="site-home" href="/">Wenyu's Blog</a>
+
+<div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <div href="/"  class="brand">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wenyu's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </div>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            博文归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签云
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <input type="text" id="local-search-input">
+ <span class="search-icon fa fa-search"></span>
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+      <div class="header-post"> 
+  <div class="post-header">
+      <div class="tags">
+      
+        <a href="/tags/Intellij/" rel="tag" title="Intellij">Intellij</a>
+      
+      </div>
+      <h1>Intellij idea使用教程</h1>
+      <h2 class="subtitle"></h2>
+      <div class="post-time">
+        <span class="post-meta-item-text">发表于 </span>
+        <time itemprop="dateCreated" datetime="2017-11-09T20:29:30+08:00" content="2017-11-09" title="2017-11-09 20:29:30">
+          2017-11-09
+        </time>
+      </div>
+  </div>
+ </div>
+    </header>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Intellij idea使用教程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-11-09T20:29:30+08:00" content="2017-11-09">
+              2017-11-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/IDE/" itemprop="url" rel="index">
+                    <span itemprop="name">IDE</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <!-- 
+            
+           -->
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h2><ul>
+<li><p>如 Gif 所示，在没有对 Ctrl + D 快捷键进行修改前，此快捷键将是用来复制并黏贴所选的内容的，但是黏贴的位置是补充在原来的位置后，我个人不喜欢这种风格，我喜欢复制所选的行数完整内容，所以进行了修改，修改后的效果如上图 Gif 演示。 </p>
+<a id="more"></a>
+<p><img src="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-12.gif" alt="img"></p>
+</li>
+<li><p>如Gif 所示，默认 Ctrl + 空格 快捷键是基础代码提示、补充快捷键，但是由于我们中文系统基本这个快捷键都被输入法占用了，所以我们发现不管怎么按都是没有提示代码效果的，原因就是在此。我个人建议修改此快捷键为 Ctrl + 逗号。<br><img src="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-13.gif" alt="img"></p>
+</li>
+</ul>
+<h3 id="Ctrl"><a href="#Ctrl" class="headerlink" title="Ctrl"></a>Ctrl</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl+,</code></td>
+<td>代码补全，自定义</td>
+</tr>
+<tr>
+<td><code>Ctrl+F</code></td>
+<td>当前文件文本查找</td>
+</tr>
+<tr>
+<td><code>Ctrl+R</code></td>
+<td>当前文件文本替换</td>
+</tr>
+<tr>
+<td><code>Ctrl+Y</code></td>
+<td>删除光标所在行或选中行</td>
+</tr>
+<tr>
+<td><code>Ctrl+D</code></td>
+<td>复制光标所在行</td>
+</tr>
+<tr>
+<td><code>Ctrl+U</code></td>
+<td>前往光标所在方法的父类方法或接口</td>
+</tr>
+<tr>
+<td><code>Ctrl+E</code></td>
+<td>显示最近打开的文件记录列表</td>
+</tr>
+<tr>
+<td><code>Ctrl+J</code></td>
+<td>插入自定义动态代码模板</td>
+</tr>
+<tr>
+<td><code>Ctrl+P</code></td>
+<td>方法参数提示</td>
+</tr>
+<tr>
+<td><code>Ctrl+W</code></td>
+<td>递进式选择代码块。</td>
+</tr>
+<tr>
+<td><code>Ctrl+Q</code></td>
+<td>光标所在的变量、类名、方法名上显示文档内容</td>
+</tr>
+<tr>
+<td><code>Ctrl+N</code></td>
+<td>根据输入的类名查找类文件</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Alt"><a href="#Alt" class="headerlink" title="Alt"></a>Alt</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Alt+Enter</code></td>
+<td>快速修复</td>
+</tr>
+<tr>
+<td><code>Alt+Insert</code></td>
+<td>代码自动生成，如set/get方法，构造函数</td>
+</tr>
+<tr>
+<td><code>Alt+前方向键</code></td>
+<td>当前光标跳转到当前文件的前一个方法名位置</td>
+</tr>
+<tr>
+<td><code>Alt+后方向键</code></td>
+<td>当前光标跳转到当前文件的后一个方法名位置</td>
+</tr>
+<tr>
+<td><code>Alt+1</code></td>
+<td>显示/隐藏 导航栏</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Shift"><a href="#Shift" class="headerlink" title="Shift"></a>Shift</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Shift+F6</code></td>
+<td>重命名文件/文件夹</td>
+</tr>
+<tr>
+<td><code>Shift+Tab</code></td>
+<td>取消缩进</td>
+</tr>
+<tr>
+<td><code>Shift+End</code></td>
+<td>使光标到当前行尾位置</td>
+</tr>
+<tr>
+<td><code>Shift+Home</code></td>
+<td>使光标到当前行首位置</td>
+</tr>
+<tr>
+<td><code>Shift+滚轮滚动</code></td>
+<td>当前文件的横向滚动</td>
+</tr>
+<tr>
+<td><code>Shift+Enter</code></td>
+<td>开始新的一行</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Ctrl-Alt"><a href="#Ctrl-Alt" class="headerlink" title="Ctrl+Alt"></a>Ctrl+Alt</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl+Alt+L</code></td>
+<td>格式化代码，可以对当前文件和整个包目录使用</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+O</code></td>
+<td>优化导入的类</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+I</code></td>
+<td>光标所在行代码缩进</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+S</code></td>
+<td>打开系统设置</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Ctrl-Shift"><a href="#Ctrl-Shift" class="headerlink" title="Ctrl+Shift"></a>Ctrl+Shift</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl+Shift+F</code></td>
+<td>查找整个项目</td>
+</tr>
+<tr>
+<td><code>Ctril+Shift+R</code></td>
+<td>在整个项目范围内替换</td>
+</tr>
+<tr>
+<td><code>Ctrl+Shift+J</code></td>
+<td>自动将下一行合并到当前行末尾</td>
+</tr>
+<tr>
+<td><code>Ctrl+Shift+Z</code></td>
+<td>取消撤销</td>
+</tr>
+<tr>
+<td><code>Ctrl+Shift+W</code></td>
+<td>递进式取消选择代码快</td>
+</tr>
+<tr>
+<td><code>Ctrl+Shift+T</code></td>
+<td>对当前类生成单元测试类</td>
+</tr>
+<tr>
+<td><code>Ctrl+Shift+C</code></td>
+<td>复制当前文件磁盘路径到剪切板</td>
+</tr>
+<tr>
+<td><code>Ctrl+Shift+B</code></td>
+<td>跳转到类型声明处</td>
+</tr>
+<tr>
+<td><code>Ctrl+Shift+/</code></td>
+<td>代码块注释</td>
+</tr>
+<tr>
+<td><code>Ctrl+Shift+Space</code></td>
+<td>智能代码提示</td>
+</tr>
+<tr>
+<td><code>Ctrl+Shift+Enter</code></td>
+<td>自动结束代码，行末自动添加分号`</td>
+</tr>
+<tr>
+<td><code>Ctrl+Shift+Backspace</code></td>
+<td>退回到上次修改的地方</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Ctrl-Shift-Alt"><a href="#Ctrl-Shift-Alt" class="headerlink" title="Ctrl+Shift+Alt"></a>Ctrl+Shift+Alt</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl+Shift+Alt+S</code></td>
+<td>打开当前项目设置</td>
+</tr>
+</tbody>
+</table>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>F2</code></td>
+<td>跳转到下一个高亮错误或警告位置</td>
+</tr>
+<tr>
+<td><code>F4</code></td>
+<td>编辑源</td>
+</tr>
+<tr>
+<td><code>Shift连按两次</code></td>
+<td>弹出<code>Search Everywhere</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="常用设置"><a href="#常用设置" class="headerlink" title="常用设置"></a>常用设置</h2><ul>
+<li>如Gif 所示，我们可以勾选此设置后，增加 Ctrl + 鼠标滚轮 快捷键来控制代码字体大小显示。<br><code>Editor-&gt;General-&gt;Change font size(Zoom) with Ctrl+Mouse Wheel</code><br><img src="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-27.gif" alt="img"></li>
+<li>可以勾选此设置后，增加 Ctrl + 鼠标滚轮 快捷键来控制图片的大小显示。<br><code>Editor-&gt;Images-&gt;Zoom image with mouse wheel(Ctrl+Mouse Wheel)</code></li>
+<li>显示方法线<br><code>Eidtor-&gt;General-&gt;Apperance-&gt;Show method separators</code></li>
+<li>如Gif 所示，即使我们项目没有使用版本控制功能，IntelliJ IDEA 也给我们提供了本地文件历史记录。除了简单的记录之外，我们还可以给当前版本加标签。<br><img src="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-32.gif" alt="img"></li>
+<li>如Gif 所示，IntelliJ IDEA 自带模拟请求工具 Rest Client，在开发时用来模拟请求是非常好用的。<br><img src="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-35.gif" alt="img"></li>
+<li>如Gif 所示，IntelliJ IDEA 的自定义 TODO 功能非常好用，强烈建议平时开发要经常使用上。<br><img src="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-36.gif" alt="img"></li>
+<li>如图箭头所示，在 Debug 状态下，如果我们要批量删除断点，可以点击图上箭头所示的按钮，然后选中要删除的断点按断点上面的减号进行删除。<br><img src="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-37.jpg" alt="img"></li>
+<li>如图所示，不管是用 IntelliJ IDEA 打开新文件，或是在安装本地插件，在弹出的窗口中，图 1 按钮支持快速定位到系统桌面目录，图 2 按钮支持快速定位到当前项目目录。<br><img src="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-39.jpg" alt="img"></li>
+<li>如图所示，默认 IntelliJ IDEA 对于 Java 代码的单行注释是把注释的斜杠放在行数的最开头，我个人觉得这样的单行注释非常丑，整个代码风格很难看，所以一般会设置为单行注释的两个斜杠跟随在代码的头部。<br><code>Editor-&gt;Code Style-&gt;Java-&gt;Code Generation-&gt;Line comment at fisrt勾掉</code><br><img src="http://img.blog.csdn.net/20171109162841934?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
+<li>如图 Gif 所示，对于横向太长的代码我们可以进行软分行查看。软分行引起的分行效果是 IntelliJ IDEA 设置的，本质代码是没有真的分行的。<br><img src="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-20.gif" alt="img"></li>
+<li>如图箭头所示，该设置可以增加 Ctrl + E 弹出层显示的记录文件个数。<br><img src="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-21.jpg" alt="img"></li>
+<li>默认 IntelliJ IDEA 是没有开启自动帮你生成 serialVersionUID 的，需要我们自行设置。<br>如图第一张，需要先勾选：Serializable class without serialVersionUID<br>如图第二张，在已经继承了 Serializable 接口的类名上，把光标放在类名上（必须这样做），按 Alt + Enter，即可提示帮你生成 serialVersionUID 功能。<br><img src="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-42.jpg" alt="img"><br><img src="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-43.jpg" alt="img"></li>
+<li>如图 gif 演示的：Load/Unload Modules 是 2017.2 引入的新特性，对于多模块的项目开发 Unload 部分少用到的模块可以减少计算机 CPU 和内存的消耗。<br><img src="http://wiki.jikexueyuan.com/project/intellij-idea-tutorial/images/xxvi-a-settings-introduce-44.gif" alt="img"></li>
+</ul>
+
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Intellij/" rel="tag">#Intellij</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/ubuntu-intellij/" rel="next" title="Ubuntu中安装Intellij Idea">
+                <i class="fa fa-chevron-left"></i> Ubuntu中安装Intellij Idea
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/pycharm-config/" rel="prev" title="PyCharm设置">
+                PyCharm设置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签云</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/rss2.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/tianwenyu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#快捷键设置"><span class="nav-text">快捷键设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ctrl"><span class="nav-text">Ctrl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Alt"><span class="nav-text">Alt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shift"><span class="nav-text">Shift</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ctrl-Alt"><span class="nav-text">Ctrl+Alt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ctrl-Shift"><span class="nav-text">Ctrl+Shift</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ctrl-Shift-Alt"><span class="nav-text">Ctrl+Shift+Alt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用设置"><span class="nav-text">常用设置</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/BearD01001/hexo-theme-nextd">
+    NexTD
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+    <link rel='stylesheet' href='https://imsun.github.io/gitment/style/default.css'>
+    <style>
+        .gitment-editor-avatar {
+            border-bottom: none !important;
+        }
+        .gitment-container a:hover {
+            text-decoration: none !important;
+        }
+        .gitment-markdown a,
+        .gitment-footer-project-link {
+            color: #555 !important;
+        }
+        .gitment-footer-project-link:hover,
+        .gitment-editor-logout-link:hover,
+        .gitment-editor-footer-tip:hover,
+        .gitment-header-issue-link:hover,
+        .gitment-comment-name:hover,
+        .gitment-markdown a:hover {
+            color: #222 !important;
+        }
+    </style>
+    <script src='https://imsun.github.io/gitment/dist/gitment.browser.js'></script>
+    <script type='text/javascript'>
+        (function() {
+            var id = window.location.pathname.replace(/(\/$)/g, '');
+            var owner = 'tianwenyu';
+            var repo = 'tianwenyu.github.io';
+            var clientId = '7e6796bf4bd74a25333f';
+            var clientSecret = 'd190223868b2175fbce4094e6485195cef7d3e8a';
+
+            var gitment = new Gitment({
+                id: id,
+                owner: owner,
+                repo: repo,
+                oauth: {
+                    client_id: clientId,
+                    client_secret: clientSecret,
+                },
+            });
+            gitment.render('comments');
+        })();
+    </script>
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').fadeToggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ decodeURIComponent(data_url) +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').fadeOut(function() {
+          $(".popoverlay").remove();
+          $('body').css('overflow', '');
+      });
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

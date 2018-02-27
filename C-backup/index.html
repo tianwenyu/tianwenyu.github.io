@@ -1,0 +1,1259 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.useso.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C," />
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="Wenyu's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="常量整型常量（Integer）整形常量的表示形式   整型常量的表示形式 特点 举例     十进制 0-9的数字序列组成，数字前可带正负号 256,-128,0,+7   八进制 以0开头，后跟0-7的数字序列组成，0前可带正负号 021，-017   十六进制 以0x开头，后跟0-9,a-f的数字序列组成 0x12,-0x1F    整型常量的类型 长整形：l，如：-256L，1024l 无符">
+<meta name="keywords" content="C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言基础语法备忘">
+<meta property="og:url" content="https://tianwenyu.github.io/C-backup/index.html">
+<meta property="og:site_name" content="Wenyu&#39;s Blog">
+<meta property="og:description" content="常量整型常量（Integer）整形常量的表示形式   整型常量的表示形式 特点 举例     十进制 0-9的数字序列组成，数字前可带正负号 256,-128,0,+7   八进制 以0开头，后跟0-7的数字序列组成，0前可带正负号 021，-017   十六进制 以0x开头，后跟0-9,a-f的数字序列组成 0x12,-0x1F    整型常量的类型 长整形：l，如：-256L，1024l 无符">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-24T14:01:22.489Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C语言基础语法备忘">
+<meta name="twitter:description" content="常量整型常量（Integer）整形常量的表示形式   整型常量的表示形式 特点 举例     十进制 0-9的数字序列组成，数字前可带正负号 256,-128,0,+7   八进制 以0开头，后跟0-7的数字序列组成，0前可带正负号 021，-017   十六进制 以0x开头，后跟0-9,a-f的数字序列组成 0x12,-0x1F    整型常量的类型 长整形：l，如：-256L，1024l 无符">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://tianwenyu.github.io/C-backup/"/>
+
+  <title> C语言基础语法备忘 | Wenyu's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s6.cnzz.com/stat.php?id=1271854965&web_id=1271854965" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader" style="background-image: url('/images/home_bg.jpg');">
+      <div class="header-inner"><a class="site-home" href="/">Wenyu's Blog</a>
+
+<div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <div href="/"  class="brand">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wenyu's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </div>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            博文归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签云
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <input type="text" id="local-search-input">
+ <span class="search-icon fa fa-search"></span>
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+      <div class="header-post"> 
+  <div class="post-header">
+      <div class="tags">
+      
+        <a href="/tags/C/" rel="tag" title="C">C</a>
+      
+      </div>
+      <h1>C语言基础语法备忘</h1>
+      <h2 class="subtitle"></h2>
+      <div class="post-time">
+        <span class="post-meta-item-text">发表于 </span>
+        <time itemprop="dateCreated" datetime="2017-06-22T19:29:30+08:00" content="2017-06-22" title="2017-06-22 19:29:30">
+          2017-06-22
+        </time>
+      </div>
+  </div>
+ </div>
+    </header>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                C语言基础语法备忘
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-22T19:29:30+08:00" content="2017-06-22">
+              2017-06-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <!-- 
+            
+           -->
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><h3 id="整型常量（Integer）"><a href="#整型常量（Integer）" class="headerlink" title="整型常量（Integer）"></a>整型常量（Integer）</h3><h4 id="整形常量的表示形式"><a href="#整形常量的表示形式" class="headerlink" title="整形常量的表示形式"></a>整形常量的表示形式</h4><table>
+<thead>
+<tr>
+<th>整型常量的表示形式</th>
+<th>特点</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>十进制</td>
+<td><code>0-9</code>的数字序列组成，数字前可带正负号</td>
+<td>256,-128,0,+7</td>
+</tr>
+<tr>
+<td>八进制</td>
+<td>以<code>0</code>开头，后跟<code>0-7</code>的数字序列组成，<code>0</code>前可带正负号</td>
+<td>021，-017</td>
+</tr>
+<tr>
+<td>十六进制</td>
+<td>以<code>0x</code>开头，后跟<code>0-9</code>,<code>a-f</code>的数字序列组成</td>
+<td>0x12,-0x1F</td>
+</tr>
+</tbody>
+</table>
+<h4 id="整型常量的类型"><a href="#整型常量的类型" class="headerlink" title="整型常量的类型"></a>整型常量的类型</h4><ul>
+<li>长整形：<code>l</code>，如：-256L，1024l</li>
+<li>无符号整形：<code>u</code>，如：30u，256U，<br>不能表示成小于0的数，如-30u非法</li>
+<li>无符号长整形：<code>lu</code>，30lu<a id="more"></a>
+<h3 id="实型常量（Float）"><a href="#实型常量（Float）" class="headerlink" title="实型常量（Float）"></a>实型常量（Float）</h3></li>
+</ul>
+<h4 id="指数形式"><a href="#指数形式" class="headerlink" title="指数形式"></a>指数形式</h4><p><code>0.345e-5</code>=<code>0.00000345</code></p>
+<h4 id="实型常量的类型"><a href="#实型常量的类型" class="headerlink" title="实型常量的类型"></a>实型常量的类型</h4><ul>
+<li>实型常量隐含按双精度型（double）</li>
+<li>单精度：<code>f</code></li>
+<li>长双精度(long double)：<code>l</code></li>
+</ul>
+<h3 id="字符常量"><a href="#字符常量" class="headerlink" title="字符常量"></a>字符常量</h3><h4 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h4><table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\n</code></td>
+<td>换行(new line)</td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>回车（不换行）(carriage return)</td>
+</tr>
+<tr>
+<td><code>\0</code></td>
+<td>空字符，代表ASCII码值为0的字符</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>水平制表(horizontal tabulation)</td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>退格(backspace)</td>
+</tr>
+<tr>
+<td><code>\&quot;</code></td>
+<td>双引号(double quotation mark)</td>
+</tr>
+<tr>
+<td><code>\&#39;</code></td>
+<td>单引号(single quotation mark)</td>
+</tr>
+<tr>
+<td><code>\\</code></td>
+<td>反斜线(backslash)</td>
+</tr>
+<tr>
+<td><code>\?</code></td>
+<td>问号</td>
+</tr>
+</tbody>
+</table>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><ul>
+<li>局部变量定义时不会自动初始化，若未赋初值，则取随机值</li>
+</ul>
+<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><p>*全局变量定义时未赋初值则初始化为0</p>
+<h3 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h3><ul>
+<li>静态变量会保持上一次的值</li>
+<li>若未赋初值，则初始化为0</li>
+</ul>
+<h3 id="const类型修饰符"><a href="#const类型修饰符" class="headerlink" title="const类型修饰符"></a>const类型修饰符</h3><ul>
+<li>const常量只能在定义时赋初值，不能再程序中改变其值。</li>
+</ul>
+<h3 id="char类型与int类型的关系"><a href="#char类型与int类型的关系" class="headerlink" title="char类型与int类型的关系"></a><code>char</code>类型与<code>int</code>类型的关系</h3><ul>
+<li><code>char</code>型可看作一种特殊的<code>int</code>型。</li>
+<li>在C语言中，只要在ASCII码取值范围内，<code>char</code>型数据和<code>int</code>型数据可以相互转换，即<strong>char型数据可以参与任何int型数据的运算</strong><br>例：<br>一个<code>char</code>型变量既可以以字符格式输出，也可以以整形格式输出，以整形格式输出即输出其ASCII码的十进制值。</li>
+</ul>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="built_in">char</span> ch=<span class="string">'a'</span>;</span><br><span class="line">printf(<span class="string">"%c,%d\n"</span>,ch,ch);</span><br><span class="line"></span><br><span class="line"><span class="comment">--&gt;a,971234</span></span><br></pre></td></tr></table></figure>
+<h3 id="变量Tips"><a href="#变量Tips" class="headerlink" title="变量Tips"></a>变量Tips</h3><ul>
+<li><p><code>char</code>型数据在内存中只占1个字节<br><code>int</code>型与程序执行环境的字长有关。16位下占16位，即2个字节；32位下占32位，即4个字节。<br>可以使用<code>sizeof</code>计算类型的字节数</p>
+</li>
+<li><p>对于实数，无论是小数表示形式还是指数表示形式，在计算机内部都是采用浮点数方式来存储。</p>
+</li>
+<li><p>*</p>
+</li>
+</ul>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><ul>
+<li>两个整数相除的结果仍为整数，舍去小数部分的值。</li>
+<li>整数与实数原酸的结果为<code>double</code>型</li>
+<li>求余运算限定参与运算的两个操作数为整数。余数的符号与被除数的符号相同。</li>
+</ul>
+<h3 id="常用的标准数学函数"><a href="#常用的标准数学函数" class="headerlink" title="常用的标准数学函数"></a>常用的标准数学函数</h3><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sqrt(x)</td>
+<td>计算平方根</td>
+</tr>
+<tr>
+<td>fabs(x)</td>
+<td>计算绝对值</td>
+</tr>
+<tr>
+<td>log(x)</td>
+<td>计算lnX的值</td>
+</tr>
+<tr>
+<td>log10(x)</td>
+<td>计算lgX的值</td>
+</tr>
+<tr>
+<td>exp(x)</td>
+<td>计算e^x的值</td>
+</tr>
+<tr>
+<td>pow(x,y)</td>
+<td>计算x^y的值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><ul>
+<li><code>=</code>左侧只能是变量名</li>
+</ul>
+<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><ul>
+<li>位运算符的操作对象只能是<code>char</code>和<code>int</code>类型</li>
+<li><code>&amp;</code>：按位与，一种对某位清零的手段，即两个操作数中任意一位为0，则结果置0</li>
+<li><code>|</code>:按位或，一种对某位置1的手段，即两个操作数中任意一位为1，则置1</li>
+<li><code>^</code>：按位异或，两个操作数位不同，则置1</li>
+<li><code>&lt;&lt;</code>：左移位，每左移一位相当于乘2</li>
+<li><code>&gt;&gt;</code>：右移位，每右移一位相当于除2</li>
+</ul>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h3 id="赋值中的类型转换"><a href="#赋值中的类型转换" class="headerlink" title="赋值中的类型转换"></a>赋值中的类型转换</h3><ul>
+<li>C语言支持类型自动转换机制</li>
+</ul>
+<h3 id="表达式中的类型转换"><a href="#表达式中的类型转换" class="headerlink" title="表达式中的类型转换"></a>表达式中的类型转换</h3><ul>
+<li>表达式中若混有不同类型的常量及变量，则先要全部转换为同一类型，再进行运算。</li>
+<li>类型提升(Type Promotion)：把所有操作数都转换成占内存字节数最大的操作数类型。</li>
+</ul>
+<h2 id="输入-输出"><a href="#输入-输出" class="headerlink" title="输入/输出"></a>输入/输出</h2><h3 id="printf"><a href="#printf" class="headerlink" title="printf()"></a><code>printf()</code></h3><ul>
+<li>格式转换符</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>格式转换符</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%d</td>
+<td>带符号的十进制整数</td>
+</tr>
+<tr>
+<td>%u</td>
+<td>无符号的十进制整数</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>无符号的八进制整数，不输出前导符0</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>无符号的十六进制整数（小写），不输出前导符<code>0x</code></td>
+</tr>
+<tr>
+<td>%c</td>
+<td>输出一个字符</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>输出字符串</td>
+</tr>
+<tr>
+<td>%%</td>
+<td>百分号%</td>
+</tr>
+</tbody>
+</table>
+<p>* 格式修饰符</p>
+<table>
+<thead>
+<tr>
+<th>格式修饰符</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>英文字母<code>l</code></td>
+<td>输出long型数据</td>
+</tr>
+<tr>
+<td>最小域宽<code>m</code></td>
+<td>指定输出项输出时所占的列数。若m为正整数，向右靠齐。若m为负整数，向左靠齐。</td>
+</tr>
+<tr>
+<td><strong>显示精度.n</strong></td>
+<td>对于浮点数，指定输出的浮点数的小数位数。对于字符串，指定输出截取的子串字符个数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scanf"><a href="#scanf" class="headerlink" title="scanf()"></a><code>scanf()</code></h3><ul>
+<li>格式转换符</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>格式转换符</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%d</td>
+<td>十进制整数</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>八进制整数</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>十六进制整数</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>字符，空白字符（空格、回车、制表符）也作为有效输入</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>字符串，遇到第一个空白字符输入结束</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>实数</td>
+</tr>
+<tr>
+<td>%%</td>
+<td>百分号</td>
+</tr>
+</tbody>
+</table>
+<p>* 格式修饰符</p>
+<table>
+<thead>
+<tr>
+<th>格式修饰符</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>忽略输入修饰符<code>*</code></td>
+<td>表示对应的输入项在读入后不赋给相应的变量</td>
+</tr>
+<tr>
+<td>域宽<code>m</code></td>
+<td>指定输入的数据的宽度，按此宽度截取所需数据</td>
+</tr>
+</tbody>
+</table>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li>宏是预处理阶段替换，函数是运行时调用。</li>
+</ul>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><ul>
+<li>定义数组的大小必须使用整型常量或整型常量表达式。<br>如<code>int score[100]</code>合法，而<code>int score[n]</code>非法</li>
+<li>C语言的数组在内存中是按行存放的。</li>
+<li>数组名代表数组的首地址</li>
+<li>数组不能整体引用，每次只能引用数组的一个元素</li>
+<li>不能用赋值表达式对数组元素进行整体赋值。如<code>score={1,2,3,4,5};</code>非法</li>
+</ul>
+<h3 id="数组的初始化"><a href="#数组的初始化" class="headerlink" title="数组的初始化"></a>数组的初始化</h3><ul>
+<li>引用数组前，必须保证数组的元素被赋以确定的</li>
+<li>二维数组，既可以按元素初始化，也可以按行初始化<br>如：<code>int matrix[3][2]={(1,2,3,4),{5,6,7,8}};//按行初始化</code><br><code>int matrix[3][2]={1,2,3,4,5,6,7,8};//按元素初始化</code></li>
+<li>当初始化列表中提供的初值个数少于数组元素个数时，自动给后面的元素赋值为0<br>如</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">int matrix[<span class="string">1</span>][<span class="symbol">2</span>]=&#123;0&#125;;</span><br><span class="line">等价于</span><br><span class="line">int matrix[<span class="string">1</span>][<span class="symbol">2</span>]=&#123;0,0&#125;;123</span><br></pre></td></tr></table></figure>
+<ul>
+<li>当数组被声明为static(静态)类型或外部存储类型（即在所有函数外部定义时），则在不显式给出初值的情况下，数组元素将在程序编译阶段自动初始化为0。</li>
+</ul>
+<h3 id="向函数传递一维数组"><a href="#向函数传递一维数组" class="headerlink" title="向函数传递一维数组"></a>向函数传递一维数组</h3><ul>
+<li>可以用数组名作为函数参数</li>
+<li>在接收一维数组的函数中，在声明一维数组的形参时，可以省略数组的长度<br>如：</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span> arr[<span class="number">10</span>])</span></span>;</span><br><span class="line">等价于</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span> arr[])</span></span>;<span class="number">123</span></span><br></pre></td></tr></table></figure>
+<h3 id="向函数传递二维数组"><a href="#向函数传递二维数组" class="headerlink" title="向函数传递二维数组"></a>向函数传递二维数组</h3><ul>
+<li>在接收二维数组的函数中，在声明二维数组形参时，不能省略数组第二维的长度。<br>如:</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">void func(int arr[<span class="string">4</span>][<span class="symbol">3</span>]);</span><br><span class="line">void func(int arr[][3]);</span><br><span class="line">都合法，但</span><br><span class="line">void func(int arr[][]);</span><br><span class="line">非法12345</span><br></pre></td></tr></table></figure>
+<h3 id="字符数组"><a href="#字符数组" class="headerlink" title="字符数组"></a>字符数组</h3><h4 id="字符数组与字符串关系"><a href="#字符数组与字符串关系" class="headerlink" title="字符数组与字符串关系"></a>字符数组与字符串关系</h4><ul>
+<li>字符串由若干有效字符及字符<code>&#39;\0&#39;</code>作为结束标志的一个字符序列。</li>
+<li>字符串借助字符型一维数组存储。</li>
+<li>最后一个<code>&#39;\0&#39;</code>占用一字节的存储单元，但是不计入字符串的实际长度。</li>
+<li>每个字符串在内存中占用一串连续的存储空间，而且这段连续的存储空间有唯一的首地址。</li>
+<li><strong>如果一个字符串只是字符串常量，则这个字符串常量本身代表的是该字符串在内存中所占连续存储空间的首地址，是一个地址常量。</strong></li>
+<li>一维字符数组可存放一个字符串，二维字符数组可存放多个字符串。</li>
+</ul>
+<h4 id="字符串赋值给字符数组"><a href="#字符串赋值给字符数组" class="headerlink" title="字符串赋值给字符数组"></a>字符串赋值给字符数组</h4><h5 id="1-用char数据对数组初始化"><a href="#1-用char数据对数组初始化" class="headerlink" title="1.用char数据对数组初始化"></a>1.用<code>char</code>数据对数组初始化</h5><p><code>char str[6]={&#39;C&#39;,&#39;h&#39;,&#39;i&#39;,&#39;n&#39;,&#39;a&#39;,&#39;\0&#39;};</code><br>此种方式赋初值，必须人为的加入<code>&#39;\0&#39;</code></p>
+<h5 id="2-用字符串常量对数组初始化"><a href="#2-用字符串常量对数组初始化" class="headerlink" title="2.用字符串常量对数组初始化"></a>2.用字符串常量对数组初始化</h5><p><code>char str[]=&quot;China&quot;;</code><br>* 对于二维字符数组存放多个字符串，第二维的长度不能省略，应该按最长的字符串长度设定。<br><code>char weekday[][10]={&quot;Sunday&quot;,&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wednesday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;,&quot;Saturday&quot;};</code></p>
+<h4 id="字符数组的输入-输出"><a href="#字符数组的输入-输出" class="headerlink" title="字符数组的输入/输出"></a>字符数组的输入/输出</h4><h5 id="1-以c格式字符一个个单独输入-输出"><a href="#1-以c格式字符一个个单独输入-输出" class="headerlink" title="1.以c格式字符一个个单独输入/输出"></a>1.以<code>c</code>格式字符一个个单独输入/输出</h5><figure class="highlight axapta"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">    scanf(<span class="string">"%c"</span>,&amp;<span class="keyword">str</span>[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;<span class="keyword">str</span>[i]!=<span class="string">'\0'</span>;i++)&#123;</span><br><span class="line">    printf(<span class="string">"%c"</span>,<span class="keyword">str</span>[i]);</span><br><span class="line">&#125;<span class="number">123456</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-以s格式作为字符串整体输入-输出"><a href="#2-以s格式作为字符串整体输入-输出" class="headerlink" title="2.以s格式作为字符串整体输入/输出"></a>2.以<code>s</code>格式作为字符串整体输入/输出</h5><figure class="highlight perl"><table><tr><td class="code"><pre><span class="line">scanf(<span class="string">"%s"</span>,str);</span><br><span class="line"><span class="keyword">printf</span>(<span class="string">"%s"</span>,str);<span class="number">12</span></span><br></pre></td></tr></table></figure>
+<p>【注】<br><code>space</code>、<code>enter</code>、<code>tab</code>作为以<code>%s</code>格式输入字符串的分隔符，因而不能被读入，遇到这些字符即结束输入。</p>
+<h5 id="3-用gets-或puts-输出-输出"><a href="#3-用gets-或puts-输出-输出" class="headerlink" title="3.用gets()或puts()输出/输出"></a>3.用gets()或puts()输出/输出</h5><ul>
+<li>gets()从键盘读入一个字符串（包括空格符）</li>
+<li>puts()输出一个字符串，当遇见第一个<code>&#39;\0&#39;</code>时输出结果，并自动输出一个换行符</li>
+</ul>
+<h4 id="字符串处理函数"><a href="#字符串处理函数" class="headerlink" title="字符串处理函数"></a>字符串处理函数</h4><ul>
+<li>需要<strong>#include</strong></li>
+</ul>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><ul>
+<li>指针：是一种特殊的数据类型，只存放地址型数据</li>
+<li>直接寻址：按变量名来存取变量内容的访问方式</li>
+<li>间接寻址：通过指针变量间接存取指向的变量的访问方式</li>
+</ul>
+<h3 id="指针Tips"><a href="#指针Tips" class="headerlink" title="指针Tips"></a>指针Tips</h3><ul>
+<li><code>a=*p++;</code>，其中<code>++</code>与<code>*</code>优先级相同，且是右结合的。<br>相当于<code>a=*(p++);</code>,而<code>++</code>又位于变量<code>p</code>之后，即相当于</li>
+</ul>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">a</span>=*p;</span><br><span class="line"><span class="attr">p</span>=p+<span class="number">1</span>;<span class="number">12</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>a=(*p)++</code>相当于</li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="attribute">a</span>=*p;</span><br><span class="line">*<span class="attribute">p</span>=*p+1;12</span><br></pre></td></tr></table></figure>
+<h3 id="字符指针"><a href="#字符指针" class="headerlink" title="字符指针"></a>字符指针</h3><h4 id="字符指针与字符数组的区别"><a href="#字符指针与字符数组的区别" class="headerlink" title="字符指针与字符数组的区别"></a>字符指针与字符数组的区别</h4><h5 id="1-初始化含义不同"><a href="#1-初始化含义不同" class="headerlink" title="1. 初始化含义不同"></a>1. 初始化含义不同</h5><ul>
+<li><code>char str[10]=&quot;China&quot;;</code><br>表示定义一个字符数组<code>str</code>,数组名<code>str</code>代表字符串<code>&quot;China&quot;</code>在内存中存放的首地址。</li>
+<li><code>char *ptr=&quot;China&quot;;</code><br>表示定义一个字符指针<code>ptr</code>，并在定义时用字符串<code>&quot;China&quot;</code>在内存中的首地址为指针变量<code>ptr</code>赋初值。</li>
+</ul>
+<h5 id="2-赋值方法和含义不同。"><a href="#2-赋值方法和含义不同。" class="headerlink" title="2. 赋值方法和含义不同。"></a>2. 赋值方法和含义不同。</h5><ul>
+<li>指针赋值</li>
+</ul>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">char *ptr<span class="comment">;</span></span><br><span class="line"><span class="attribute">ptr</span>=<span class="string">"China"</span><span class="comment">;        //正确12</span></span><br></pre></td></tr></table></figure>
+<p>字符串中的一个字符的地址赋给<code>ptr</code>，相当于用地址值对<code>ptr</code>赋初值。<br>* 字符数组赋值</p>
+<figure class="highlight axapta"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> <span class="keyword">str</span>[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">str</span>=<span class="string">"China"</span>;<span class="comment">//错误12</span></span><br></pre></td></tr></table></figure>
+<p>以上方法是错误的，数组名是<strong>数组元素的首地址，是一个常量值</strong>，无法被改变。<br>将一个字符串赋值给字符数组必须使用<code>strcpy</code><br><code>strcpy(str,&quot;China&quot;);</code></p>
+<h5 id="3-输入方式不同"><a href="#3-输入方式不同" class="headerlink" title="3. 输入方式不同"></a>3. 输入方式不同</h5><ul>
+<li>字符数组输入</li>
+</ul>
+<figure class="highlight axapta"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> <span class="keyword">str</span>[<span class="number">10</span>];</span><br><span class="line">scanf(<span class="string">"%s"</span>,<span class="keyword">str</span>);<span class="number">12</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>字符指针<br><strong>必须保证字符指针事先已经指向一个数组的首地址</strong></li>
+</ul>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line">char *<span class="built_in">ptr</span>,<span class="keyword">str</span>[<span class="number">10</span>]<span class="comment">;</span></span><br><span class="line"><span class="built_in">ptr</span>=<span class="keyword">str</span><span class="comment">;</span></span><br><span class="line">scanf(<span class="string">"%s"</span>,<span class="built_in">ptr</span>)<span class="comment">;123</span></span><br></pre></td></tr></table></figure>
+<p>4.类型不同<br>* 字符数组的数组名是一个地址常量，值不能改变<br>* 字符指针是一个变量，值可以被改变</p>
+<p>【注】<br>由于数组名作函数形参与指针变量作函数形参的等价性。因此，在用数组名作函数形参的函数体内部可以对该声明为形参的数组名进行和指针一样的自增、自减运算。除此之外的数组名都是一个指针常量，不能进行自增、自减的运算。</p>
+
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag">#C</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/linux-C/" rel="next" title="Linux中C编程编译与调试">
+                <i class="fa fa-chevron-left"></i> Linux中C编程编译与调试
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/yum-lock/" rel="prev" title="CentOS yum install Another app is currently holding the yum lock解决方法">
+                CentOS yum install Another app is currently holding the yum lock解决方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签云</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/rss2.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/tianwenyu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常量"><span class="nav-text">常量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整型常量（Integer）"><span class="nav-text">整型常量（Integer）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#整形常量的表示形式"><span class="nav-text">整形常量的表示形式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#整型常量的类型"><span class="nav-text">整型常量的类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实型常量（Float）"><span class="nav-text">实型常量（Float）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指数形式"><span class="nav-text">指数形式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实型常量的类型"><span class="nav-text">实型常量的类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符常量"><span class="nav-text">字符常量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#转义字符"><span class="nav-text">转义字符</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#局部变量"><span class="nav-text">局部变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量"><span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态变量"><span class="nav-text">静态变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const类型修饰符"><span class="nav-text">const类型修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#char类型与int类型的关系"><span class="nav-text">char类型与int类型的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量Tips"><span class="nav-text">变量Tips</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算术运算符"><span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的标准数学函数"><span class="nav-text">常用的标准数学函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#赋值运算符"><span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位运算符"><span class="nav-text">位运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#赋值中的类型转换"><span class="nav-text">赋值中的类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表达式中的类型转换"><span class="nav-text">表达式中的类型转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入-输出"><span class="nav-text">输入/输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#printf"><span class="nav-text">printf()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scanf"><span class="nav-text">scanf()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的初始化"><span class="nav-text">数组的初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向函数传递一维数组"><span class="nav-text">向函数传递一维数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向函数传递二维数组"><span class="nav-text">向函数传递二维数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符数组"><span class="nav-text">字符数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符数组与字符串关系"><span class="nav-text">字符数组与字符串关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串赋值给字符数组"><span class="nav-text">字符串赋值给字符数组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-用char数据对数组初始化"><span class="nav-text">1.用char数据对数组初始化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-用字符串常量对数组初始化"><span class="nav-text">2.用字符串常量对数组初始化</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符数组的输入-输出"><span class="nav-text">字符数组的输入/输出</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-以c格式字符一个个单独输入-输出"><span class="nav-text">1.以c格式字符一个个单独输入/输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-以s格式作为字符串整体输入-输出"><span class="nav-text">2.以s格式作为字符串整体输入/输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-用gets-或puts-输出-输出"><span class="nav-text">3.用gets()或puts()输出/输出</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串处理函数"><span class="nav-text">字符串处理函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针"><span class="nav-text">指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#指针Tips"><span class="nav-text">指针Tips</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符指针"><span class="nav-text">字符指针</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符指针与字符数组的区别"><span class="nav-text">字符指针与字符数组的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-初始化含义不同"><span class="nav-text">1. 初始化含义不同</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-赋值方法和含义不同。"><span class="nav-text">2. 赋值方法和含义不同。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-输入方式不同"><span class="nav-text">3. 输入方式不同</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/BearD01001/hexo-theme-nextd">
+    NexTD
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+    <link rel='stylesheet' href='https://imsun.github.io/gitment/style/default.css'>
+    <style>
+        .gitment-editor-avatar {
+            border-bottom: none !important;
+        }
+        .gitment-container a:hover {
+            text-decoration: none !important;
+        }
+        .gitment-markdown a,
+        .gitment-footer-project-link {
+            color: #555 !important;
+        }
+        .gitment-footer-project-link:hover,
+        .gitment-editor-logout-link:hover,
+        .gitment-editor-footer-tip:hover,
+        .gitment-header-issue-link:hover,
+        .gitment-comment-name:hover,
+        .gitment-markdown a:hover {
+            color: #222 !important;
+        }
+    </style>
+    <script src='https://imsun.github.io/gitment/dist/gitment.browser.js'></script>
+    <script type='text/javascript'>
+        (function() {
+            var id = window.location.pathname.replace(/(\/$)/g, '');
+            var owner = 'tianwenyu';
+            var repo = 'tianwenyu.github.io';
+            var clientId = '7e6796bf4bd74a25333f';
+            var clientSecret = 'd190223868b2175fbce4094e6485195cef7d3e8a';
+
+            var gitment = new Gitment({
+                id: id,
+                owner: owner,
+                repo: repo,
+                oauth: {
+                    client_id: clientId,
+                    client_secret: clientSecret,
+                },
+            });
+            gitment.render('comments');
+        })();
+    </script>
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').fadeToggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ decodeURIComponent(data_url) +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').fadeOut(function() {
+          $(".popoverlay").remove();
+          $('body').css('overflow', '');
+      });
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
