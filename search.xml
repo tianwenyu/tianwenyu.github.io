@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Windows10下Docker简明教程]]></title>
-    <url>%2Fwindows-docker%2F</url>
-    <content type="text"><![CDATA[概述Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。 Docker通常用于如下场景： web应用的自动化打包和发布； 自动化测试和持续集成、发布； 在服务型环境中部署和调整数据库或其他的后台应用； 从头编译或者扩展现有的OpenShift或Cloud Foundry平台来搭建自己的PaaS环境。 内部结构 Docker使用C/S架构模式，Docker客户端会与Docker守护进程通信。Docker守护进程会处理复杂繁重的任务，例如建立、运行、发布你的 Docker 容器。Docker 客户端和守护进程可以运行在同一个系统上，当然你也可以使用 Docker 客户端去连接一个远程的 Docker 守护进程。Docker 客户端和守护进程之间通过 socket 或者 RESTful API 进行通信。 Docker分为三种部件： Docker镜像-Docker Images Docker容器-Docker Containers Docker仓库-Docker Registeries Docker镜像Docker运行容器前需要本地存在对应的镜像。Docker镜像可以用来创建Docker容器，一个镜像可以包含一个完整的操作系统环境和用户需要的其他应用程序。 Docker镜像是只可读的，一个镜像可以创建多个容器。 通俗说，Images是已经打包好的环境文件，我们运行的时候把Images加载运行在本地容器中，你在这个容器中可以进行一些修改重新打包成新镜像上传。 分层存储因为镜像包含操作系统完整的root文件系统，其体积往往是巨大的，因此Docker设计时，就充分利用Union FS技术，将其设计为分层存储的架构。 分层存储的特征使得镜像并非像一个ISO类似的打包文件，而是由一组文件系统组成。 Docker容器Docker利用容器来开发、运行应用。容器是镜像创建的实例，可以被开始、启动、停止、删除。每个容器都是相互隔离的。 Docker仓库仓库是集中存放镜像文件的场所。每个仓库中包含了多个镜像，每个镜像有不同的标签。 最大的公开仓库是DockerHub)，因为墙的原因，可以使用DaoCloud、阿里云)加速下载。 安装 Win10版本Docker安装以下版本Docker Community Edition 17.12.0-ce Win10之前版本安装Docker ToolBox，官方文档 安装之前，需要开启Windows10的Hpyer-V。 控制面板-程序-启用或关闭Windows功能 本文以Docker Community Edition为例，开启Hpyer-V后直接安装Docker Community Edition即可。 安装成功后，运行cmd,执行docker version，安装成功则显示下图 设置Docker任务栏鲸鱼图标右键-Settings打开设置界面 Shared Drivers：可以将主机（即Windows）中的驱动器共享到Docker Container中 Advanced：用于配置运行Docker Daemon的虚拟机环境的CPU和内存和镜像路径 Network：配置Docker的网络环境 Proxies：代理的配置 Docker Daemon：使用JSON格式的设置，对Docker Daemon进行设置，类似于在Linux中利用conf文件对Docker设置。 修改CPU数目及内存点击Advanced，如下图修改参数即可 修改代理Docker Hub速度较慢，修改为阿里云镜像。 登陆容器Hub服务，找到以下链接 点击Daemon设置镜像，直接在Registry mirrors中填写阿里云的镜像地址，点击Apply重启应用即可。 更改镜像默认存储路径打开Docker的Settings，点击Advanced，在Images and volumes VHD location选择新的路径。重启后即可更新设置。 常用命令查看Docker版本docker version 查看本机已安装镜像docker images 查看所有容器docker ps -a 拉取镜像docker pull Name:Tag 【例】 docker pull sameersbn/redmine:latest 删除单个容器docker rm Name/ID 删除所有的容器docker rm docker ps -a -q 停止、启动、杀死一个容器docker stop Name/IDdocker start Name/IDdocker kill Name/ID 参考 【Docker】windows10 docker 使用 Docker on Windows初体验 Docker for Windows使用简介 Docker的Windows容器初体验]]></content>
+    <title><![CDATA[安装Docker CE for Windows后VirtualBox无法启动问题解决]]></title>
+    <url>%2Fdocker-virtualbox-problem%2F</url>
+    <content type="text"><![CDATA[原因在Windows上运行Docker需要借助虚拟机来运行一个简化的Linux系统，Docker CE for Windows使用的是Windows系统自带的Hyper-V（从Win8开始）虚拟机组件。 因此在安装Docker CE for Windows时，会打开Hyper-V组件（默认是关闭的），会和Virtual Box冲突。 解决方案关闭Hyper-V组件控制面板-程序和功能-启用或关闭Windows功能，去掉Hpyer-V功能。重启。 打开Virtualbox依然报错 这是因为vboxdrv服务没有安装或成功启动，在Virtualbox安装目录下的drivers\vobxdrv文件夹下，右击VBoxDrv.inf，选择安装，然后重启。 如果还是失败，则直接重新安装即可。 安装老版Docker Toolbox老版Docker Toolbox使用的时Virtualbox虚拟机。]]></content>
       <categories>
         <category>运维技术</category>
       </categories>
       <tags>
-        <tag>Docker</tag>
         <tag>Windows</tag>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -20,8 +20,20 @@
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>Docker</tag>
         <tag>Windows</tag>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Windows10下Docker简明教程]]></title>
+    <url>%2Fwindows-docker%2F</url>
+    <content type="text"><![CDATA[概述Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。 Docker通常用于如下场景： web应用的自动化打包和发布； 自动化测试和持续集成、发布； 在服务型环境中部署和调整数据库或其他的后台应用； 从头编译或者扩展现有的OpenShift或Cloud Foundry平台来搭建自己的PaaS环境。 内部结构 Docker使用C/S架构模式，Docker客户端会与Docker守护进程通信。Docker守护进程会处理复杂繁重的任务，例如建立、运行、发布你的 Docker 容器。Docker 客户端和守护进程可以运行在同一个系统上，当然你也可以使用 Docker 客户端去连接一个远程的 Docker 守护进程。Docker 客户端和守护进程之间通过 socket 或者 RESTful API 进行通信。 Docker分为三种部件： Docker镜像-Docker Images Docker容器-Docker Containers Docker仓库-Docker Registeries Docker镜像Docker运行容器前需要本地存在对应的镜像。Docker镜像可以用来创建Docker容器，一个镜像可以包含一个完整的操作系统环境和用户需要的其他应用程序。 Docker镜像是只可读的，一个镜像可以创建多个容器。 通俗说，Images是已经打包好的环境文件，我们运行的时候把Images加载运行在本地容器中，你在这个容器中可以进行一些修改重新打包成新镜像上传。 分层存储因为镜像包含操作系统完整的root文件系统，其体积往往是巨大的，因此Docker设计时，就充分利用Union FS技术，将其设计为分层存储的架构。 分层存储的特征使得镜像并非像一个ISO类似的打包文件，而是由一组文件系统组成。 Docker容器Docker利用容器来开发、运行应用。容器是镜像创建的实例，可以被开始、启动、停止、删除。每个容器都是相互隔离的。 Docker仓库仓库是集中存放镜像文件的场所。每个仓库中包含了多个镜像，每个镜像有不同的标签。 最大的公开仓库是DockerHub)，因为墙的原因，可以使用DaoCloud、阿里云)加速下载。 安装 Win10版本Docker安装以下版本Docker Community Edition 17.12.0-ce Win10之前版本安装Docker ToolBox，官方文档 安装之前，需要开启Windows10的Hpyer-V。 控制面板-程序-启用或关闭Windows功能 本文以Docker Community Edition为例，开启Hpyer-V后直接安装Docker Community Edition即可。 安装成功后，运行cmd,执行docker version，安装成功则显示下图 设置Docker任务栏鲸鱼图标右键-Settings打开设置界面 Shared Drivers：可以将主机（即Windows）中的驱动器共享到Docker Container中 Advanced：用于配置运行Docker Daemon的虚拟机环境的CPU和内存和镜像路径 Network：配置Docker的网络环境 Proxies：代理的配置 Docker Daemon：使用JSON格式的设置，对Docker Daemon进行设置，类似于在Linux中利用conf文件对Docker设置。 修改CPU数目及内存点击Advanced，如下图修改参数即可 修改代理Docker Hub速度较慢，修改为阿里云镜像。 登陆容器Hub服务，找到以下链接 点击Daemon设置镜像，直接在Registry mirrors中填写阿里云的镜像地址，点击Apply重启应用即可。 更改镜像默认存储路径打开Docker的Settings，点击Advanced，在Images and volumes VHD location选择新的路径。重启后即可更新设置。 常用命令查看Docker版本docker version 查看本机已安装镜像docker images 查看所有容器docker ps -a 拉取镜像docker pull Name:Tag 【例】 docker pull sameersbn/redmine:latest 删除单个容器docker rm Name/ID 删除所有的容器docker rm docker ps -a -q 停止、启动、杀死一个容器docker stop Name/IDdocker start Name/IDdocker kill Name/ID 参考 【Docker】windows10 docker 使用 Docker on Windows初体验 Docker for Windows使用简介 Docker的Windows容器初体验]]></content>
+      <categories>
+        <category>运维技术</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -37,6 +49,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Windows下安装Jupyter Notebook]]></title>
+    <url>%2Fwindows-jupyter-notebook%2F</url>
+    <content type="text"><![CDATA[简介文学编程文学编程(Literate Programming)是由Donald Knuth提出的编程方法。传统的结构化编程，人要按照计算机的逻辑顺序来编写代码，而文学编程则可以让人们按照自己的逻辑来开发程序。 Jupyter NotebookJupyter Notebook是一个交互式笔记本，支持运行40多种编程语言。它的本质是一个Web应用程序，便于创建和共享文学化程序文档，支持实时代码、数学方程、可视化和markdown。 Jupyter Notebook优点： 适合数据分析 支持多语言 分享便捷 远程运行 交互式展示 ##安装 安装Anaconda即自带，不需要安装 启动点击Jupyter Notebook即可启动，或在cmd中输入jupyter notebook 默认地址为http:localhost:8888 使用更改Jupyter Notebook工作空间最新版Ipython和Jupyter配置文件是分开的，需要分别配置文件。 打开cmd输入命令jupyter notebook --generate-config 【注】-config之前没有空格 打开该目录下的文件，改文件夹路径 【注】若存在编码问题，可改成f://file//jupyter_notebook 启动Jupyter Notebook 新建Notebook点击new创建新的Notebook 界面 菜单栏各项功能概述 File Save and Checkpoint 保存并记录点，类似于不同版本 Revert to Checkpoint返回到某一记录点 View Toggle Header是否显示头部信息，包括文件名和上次保存时间 Toggle ToolBar是否显示工具栏 Kernel Change kernel更换内核环境 Notebook文档由一系列单元(cell),主要有两种形式的单元： 代码状态单元：编写代码的区域，使用Shift+Enter运行代码，结果显示在本单元下方。代码单元左边有In[1]：类似的序列标记，方便人们查看代码的执行次序。 Markdown状态单元：编写文本的区域，使用Shift+Enter显示格式化的文本。 模式 编辑模式：编辑文本和代码。选中单元按Enter进入编辑模式，单元左侧显示绿色竖线 命令模式：执行输入的命令。按Esc进入命令模式，单元左侧显示蓝色竖线 快捷键命令模式 查看快捷键：H 执行当前单元，并自动跳到下一个单元：Shift+Enter 执行当前单元，不自动跳到下一个单元：Ctrl+Enter 进入编辑模式：Enter 进入命令模式：Esc 删除当前单元：双击D 变为代码状态：Y 变为Markdown状态：M 在下方插入新单元：B 剪切选中单元：X 复制选中单元：C 粘贴到下方单元：V 选中上方单元：J 选中下方单元：K 恢复删除的最后一个单元：Z 保存当前Notebook：Ctrl+S 编辑模式 代码缩进或补全：Tab 代码提示：Shift+Tab 注释：Ctrl+/ Magic命令Magic命令以%或%%开头 %：行命令 %%：单元命令。必须出现在单元第一行。 以下为常用Magic命令 %lsmagic：列举所有Magic命令 %magic：查看Magic命令说明 %timeit：代码运行时间 %matplotlib inline：显示matplotlib包生成的图形 使用技巧运行Python文件运行以下命令 %run xxx.py 【注】xxx.py是当前工作空间下的一个python文件 导入代码运行以下命令 %load xxx.py 【注】xxx.py是当前工作空间下的一个python文件 重置单元格序号重置单元格In[x]序号 点击Kernel-Restart即可。 使用Seaborn绘图需要使用%matplotlib inline命令。]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>Notebook</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Ubuntu下安装Anaconda]]></title>
     <url>%2Fubuntu-ancaconda%2F</url>
     <content type="text"><![CDATA[Anaconda安装下载使用Python3.6版本的Anaconda 5.1，点击下载 安装 进入到下载后的文件目录，执行 bash Anaconda3-5.1.0-Linux-x86_64.sh 根据提示输入回车 查看注册信息，一直回车到输入yes 输入安装目录路径，默认回车即可 是否加入环境变量，输入yes 安装成功后，新打开一个终端输入以下命令查看版本号 anaconda -V 使用Jupyter Notebook输入以下命令则能够使用Jupyter Notebook ipython notebook]]></content>
@@ -49,14 +72,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Windows下安装Jupyter Notebook]]></title>
-    <url>%2Fwindows-jupyter-notebook%2F</url>
-    <content type="text"><![CDATA[简介文学编程文学编程(Literate Programming)是由Donald Knuth提出的编程方法。传统的结构化编程，人要按照计算机的逻辑顺序来编写代码，而文学编程则可以让人们按照自己的逻辑来开发程序。 Jupyter NotebookJupyter Notebook是一个交互式笔记本，支持运行40多种编程语言。它的本质是一个Web应用程序，便于创建和共享文学化程序文档，支持实时代码、数学方程、可视化和markdown。 Jupyter Notebook优点： 适合数据分析 支持多语言 分享便捷 远程运行 交互式展示 ##安装 安装Anaconda即自带，不需要安装 启动点击Jupyter Notebook即可启动，或在cmd中输入jupyter notebook 默认地址为http:localhost:8888 使用更改Jupyter Notebook工作空间最新版Ipython和Jupyter配置文件是分开的，需要分别配置文件。 打开cmd输入命令jupyter notebook --generate-config 【注】-config之前没有空格 打开该目录下的文件，改文件夹路径 【注】若存在编码问题，可改成f://file//jupyter_notebook 启动Jupyter Notebook 新建Notebook点击new创建新的Notebook 界面 菜单栏各项功能概述 File Save and Checkpoint 保存并记录点，类似于不同版本 Revert to Checkpoint返回到某一记录点 View Toggle Header是否显示头部信息，包括文件名和上次保存时间 Toggle ToolBar是否显示工具栏 Kernel Change kernel更换内核环境 Notebook文档由一系列单元(cell),主要有两种形式的单元： 代码状态单元：编写代码的区域，使用Shift+Enter运行代码，结果显示在本单元下方。代码单元左边有In[1]：类似的序列标记，方便人们查看代码的执行次序。 Markdown状态单元：编写文本的区域，使用Shift+Enter显示格式化的文本。 模式 编辑模式：编辑文本和代码。选中单元按Enter进入编辑模式，单元左侧显示绿色竖线 命令模式：执行输入的命令。按Esc进入命令模式，单元左侧显示蓝色竖线 快捷键命令模式 查看快捷键：H 执行当前单元，并自动跳到下一个单元：Shift+Enter 执行当前单元，不自动跳到下一个单元：Ctrl+Enter 进入编辑模式：Enter 进入命令模式：Esc 删除当前单元：双击D 变为代码状态：Y 变为Markdown状态：M 在下方插入新单元：B 剪切选中单元：X 复制选中单元：C 粘贴到下方单元：V 选中上方单元：J 选中下方单元：K 恢复删除的最后一个单元：Z 保存当前Notebook：Ctrl+S 编辑模式 代码缩进或补全：Tab 代码提示：Shift+Tab 注释：Ctrl+/ Magic命令Magic命令以%或%%开头 %：行命令 %%：单元命令。必须出现在单元第一行。 以下为常用Magic命令 %lsmagic：列举所有Magic命令 %magic：查看Magic命令说明 %timeit：代码运行时间 %matplotlib inline：显示matplotlib包生成的图形 使用技巧运行Python文件运行以下命令 %run xxx.py 【注】xxx.py是当前工作空间下的一个python文件 导入代码运行以下命令 %load xxx.py 【注】xxx.py是当前工作空间下的一个python文件 重置单元格序号重置单元格In[x]序号 点击Kernel-Restart即可。 使用Seaborn绘图需要使用%matplotlib inline命令。]]></content>
+    <title><![CDATA[【Python Trick】Python中字典常用方法]]></title>
+    <url>%2Fpython-dict%2F</url>
+    <content type="text"><![CDATA[字典常用操作定义空字典dic=&#123;&#125; 键值对的添加dic['name']='zhangsan' 字典遍历通过items()方法返回的元组列表进行序列解包 for key,value in dic.items(): print('&#123;&#125;:&#123;&#125;'.format(key,value)) #print('%s:%s' %(key,value)) 字典排序字典按键排序第一类dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;print(key,dic[key] for key in sorted(dic.keys)) 第二类dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#升序排序dic=dict(sorted(dic.items(),key=lambda x:x[0]))#降序排序dic=dict(sorted(dic.itmes(),key=lambda x:x[0],reverse=True)) sorted(iterable,key,reverse) iterable参数代表可以迭代的对象，例如可以是dict.items()，dict.keys() key参数是一个函数，用来选取参与比较的元素 reverse参数用来指定是升序还是降序 dic=dict(sorted(dic.items(),key=lambda x:x[0])) dic.items()将dic转换为可迭代对象，迭代对象的元素为该字典元素，将其转换为元组 key参数对应的lambda表达式即选取元组中的第一个元素作为比较参数，即键。 lambda x:yx表示输出参数，y表示lambda函数的返回值. sorted()函数返回值是list类型。 字典按值排序并输出Top K个元素dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#升序排序dic=dict(sorted(dic.items(),key=lambda x:x[1]))#降序排序dic=dict(sorted(dic.itmes(),key=lambda x:x[1],reverse=True))#输出Top K个cnt=0k=10for key,value in dic.items(): cnt+=1 if cnt&gt;k: break print('&#123;&#125;:&#123;&#125;'.format(key,value)) 字典对象写入Json文件import jsondic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#中文字符需要设置ensure_ascii属性为False，否则输出为ASII码data=json.dumps(dic,ensure_ascii=False)with open('xxx.json','w',encoding='utf-8') as f: f.write(data)]]></content>
       <categories>
-        <category>机器学习</category>
+        <category>Python</category>
       </categories>
       <tags>
-        <tag>Notebook</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -68,17 +91,6 @@
       </categories>
       <tags>
         <tag>杂七杂八</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[【Python Trick】Python中字典常用方法]]></title>
-    <url>%2Fpython-dict%2F</url>
-    <content type="text"><![CDATA[字典常用操作定义空字典dic=&#123;&#125; 键值对的添加dic['name']='zhangsan' 字典遍历通过items()方法返回的元组列表进行序列解包 for key,value in dic.items(): print('&#123;&#125;:&#123;&#125;'.format(key,value)) #print('%s:%s' %(key,value)) 字典排序字典按键排序第一类dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;print(key,dic[key] for key in sorted(dic.keys)) 第二类dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#升序排序dic=dict(sorted(dic.items(),key=lambda x:x[0]))#降序排序dic=dict(sorted(dic.itmes(),key=lambda x:x[0],reverse=True)) sorted(iterable,key,reverse) iterable参数代表可以迭代的对象，例如可以是dict.items()，dict.keys() key参数是一个函数，用来选取参与比较的元素 reverse参数用来指定是升序还是降序 dic=dict(sorted(dic.items(),key=lambda x:x[0])) dic.items()将dic转换为可迭代对象，迭代对象的元素为该字典元素，将其转换为元组 key参数对应的lambda表达式即选取元组中的第一个元素作为比较参数，即键。 lambda x:yx表示输出参数，y表示lambda函数的返回值. sorted()函数返回值是list类型。 字典按值排序并输出Top K个元素dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#升序排序dic=dict(sorted(dic.items(),key=lambda x:x[1]))#降序排序dic=dict(sorted(dic.itmes(),key=lambda x:x[1],reverse=True))#输出Top K个cnt=0k=10for key,value in dic.items(): cnt+=1 if cnt&gt;k: break print('&#123;&#125;:&#123;&#125;'.format(key,value)) 字典对象写入Json文件import jsondic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#中文字符需要设置ensure_ascii属性为False，否则输出为ASII码data=json.dumps(dic,ensure_ascii=False)with open('xxx.json','w',encoding='utf-8') as f: f.write(data)]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -358,17 +370,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PyCharm设置]]></title>
-    <url>%2Fpycharm-config%2F</url>
-    <content type="text"><![CDATA[使用Tab缩进Editor-&gt;Code Style-&gt;Python-&gt;Tabs and Indents勾选Use tab character和Smart tabs 取消自动更新Appearance&amp;Behavior-&gt;System Settings-&gt;Updates勾掉Automatically check updates for和Use secure connection]]></content>
-      <categories>
-        <category>IDE</category>
-      </categories>
-      <tags>
-        <tag>PyCharm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Intellij idea使用教程]]></title>
     <url>%2Fintellij-tutorial%2F</url>
     <content type="text"><![CDATA[快捷键设置 如 Gif 所示，在没有对 Ctrl + D 快捷键进行修改前，此快捷键将是用来复制并黏贴所选的内容的，但是黏贴的位置是补充在原来的位置后，我个人不喜欢这种风格，我喜欢复制所选的行数完整内容，所以进行了修改，修改后的效果如上图 Gif 演示。 如Gif 所示，默认 Ctrl + 空格 快捷键是基础代码提示、补充快捷键，但是由于我们中文系统基本这个快捷键都被输入法占用了，所以我们发现不管怎么按都是没有提示代码效果的，原因就是在此。我个人建议修改此快捷键为 Ctrl + 逗号。 Ctrl 快捷键 介绍 Ctrl+, 代码补全，自定义 Ctrl+F 当前文件文本查找 Ctrl+R 当前文件文本替换 Ctrl+Y 删除光标所在行或选中行 Ctrl+D 复制光标所在行 Ctrl+U 前往光标所在方法的父类方法或接口 Ctrl+E 显示最近打开的文件记录列表 Ctrl+J 插入自定义动态代码模板 Ctrl+P 方法参数提示 Ctrl+W 递进式选择代码块。 Ctrl+Q 光标所在的变量、类名、方法名上显示文档内容 Ctrl+N 根据输入的类名查找类文件 Alt 快捷键 介绍 Alt+Enter 快速修复 Alt+Insert 代码自动生成，如set/get方法，构造函数 Alt+前方向键 当前光标跳转到当前文件的前一个方法名位置 Alt+后方向键 当前光标跳转到当前文件的后一个方法名位置 Alt+1 显示/隐藏 导航栏 Shift 快捷键 介绍 Shift+F6 重命名文件/文件夹 Shift+Tab 取消缩进 Shift+End 使光标到当前行尾位置 Shift+Home 使光标到当前行首位置 Shift+滚轮滚动 当前文件的横向滚动 Shift+Enter 开始新的一行 Ctrl+Alt 快捷键 介绍 Ctrl+Alt+L 格式化代码，可以对当前文件和整个包目录使用 Ctrl+Alt+O 优化导入的类 Ctrl+Alt+I 光标所在行代码缩进 Ctrl+Alt+S 打开系统设置 Ctrl+Shift 快捷键 介绍 Ctrl+Shift+F 查找整个项目 Ctril+Shift+R 在整个项目范围内替换 Ctrl+Shift+J 自动将下一行合并到当前行末尾 Ctrl+Shift+Z 取消撤销 Ctrl+Shift+W 递进式取消选择代码快 Ctrl+Shift+T 对当前类生成单元测试类 Ctrl+Shift+C 复制当前文件磁盘路径到剪切板 Ctrl+Shift+B 跳转到类型声明处 Ctrl+Shift+/ 代码块注释 Ctrl+Shift+Space 智能代码提示 Ctrl+Shift+Enter 自动结束代码，行末自动添加分号` Ctrl+Shift+Backspace 退回到上次修改的地方 Ctrl+Shift+Alt 快捷键 介绍 Ctrl+Shift+Alt+S 打开当前项目设置 其他 快捷键 介绍 F2 跳转到下一个高亮错误或警告位置 F4 编辑源 Shift连按两次 弹出Search Everywhere 常用设置 如Gif 所示，我们可以勾选此设置后，增加 Ctrl + 鼠标滚轮 快捷键来控制代码字体大小显示。Editor-&gt;General-&gt;Change font size(Zoom) with Ctrl+Mouse Wheel 可以勾选此设置后，增加 Ctrl + 鼠标滚轮 快捷键来控制图片的大小显示。Editor-&gt;Images-&gt;Zoom image with mouse wheel(Ctrl+Mouse Wheel) 显示方法线Eidtor-&gt;General-&gt;Apperance-&gt;Show method separators 如Gif 所示，即使我们项目没有使用版本控制功能，IntelliJ IDEA 也给我们提供了本地文件历史记录。除了简单的记录之外，我们还可以给当前版本加标签。 如Gif 所示，IntelliJ IDEA 自带模拟请求工具 Rest Client，在开发时用来模拟请求是非常好用的。 如Gif 所示，IntelliJ IDEA 的自定义 TODO 功能非常好用，强烈建议平时开发要经常使用上。 如图箭头所示，在 Debug 状态下，如果我们要批量删除断点，可以点击图上箭头所示的按钮，然后选中要删除的断点按断点上面的减号进行删除。 如图所示，不管是用 IntelliJ IDEA 打开新文件，或是在安装本地插件，在弹出的窗口中，图 1 按钮支持快速定位到系统桌面目录，图 2 按钮支持快速定位到当前项目目录。 如图所示，默认 IntelliJ IDEA 对于 Java 代码的单行注释是把注释的斜杠放在行数的最开头，我个人觉得这样的单行注释非常丑，整个代码风格很难看，所以一般会设置为单行注释的两个斜杠跟随在代码的头部。Editor-&gt;Code Style-&gt;Java-&gt;Code Generation-&gt;Line comment at fisrt勾掉 如图 Gif 所示，对于横向太长的代码我们可以进行软分行查看。软分行引起的分行效果是 IntelliJ IDEA 设置的，本质代码是没有真的分行的。 如图箭头所示，该设置可以增加 Ctrl + E 弹出层显示的记录文件个数。 默认 IntelliJ IDEA 是没有开启自动帮你生成 serialVersionUID 的，需要我们自行设置。如图第一张，需要先勾选：Serializable class without serialVersionUID如图第二张，在已经继承了 Serializable 接口的类名上，把光标放在类名上（必须这样做），按 Alt + Enter，即可提示帮你生成 serialVersionUID 功能。 如图 gif 演示的：Load/Unload Modules 是 2017.2 引入的新特性，对于多模块的项目开发 Unload 部分少用到的模块可以减少计算机 CPU 和内存的消耗。]]></content>
@@ -377,6 +378,17 @@
       </categories>
       <tags>
         <tag>Intellij</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PyCharm设置]]></title>
+    <url>%2Fpycharm-config%2F</url>
+    <content type="text"><![CDATA[使用Tab缩进Editor-&gt;Code Style-&gt;Python-&gt;Tabs and Indents勾选Use tab character和Smart tabs 取消自动更新Appearance&amp;Behavior-&gt;System Settings-&gt;Updates勾掉Automatically check updates for和Use secure connection]]></content>
+      <categories>
+        <category>IDE</category>
+      </categories>
+      <tags>
+        <tag>PyCharm</tag>
       </tags>
   </entry>
   <entry>
@@ -555,6 +567,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Win10利用DiskGenius重建分区表]]></title>
+    <url>%2Fwin10-diskgenius-partition%2F</url>
+    <content type="text"><![CDATA[安装DiskGenius 工具--&gt;搜索已丢失的分区界面如下： 开始搜索后，如果找到一个分区，会提示你忽略还是保留。【注】搜索到的第一个结果一般是系统盘C盘，这个结果需要忽略，否则后面无法找到其他分区。后面搜索到的分区需要确认其中是否为你原来分区中保存的文件之后才选择保留。 搜索完成后，点击硬盘--&gt;保存分区表.win10系统保存为GUID格式。]]></content>
+      <categories>
+        <category>运维技术</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>DiskGenius</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[VirtualBox Ubuntu 16.04安装Tensorflow]]></title>
     <url>%2Ftensorflow-ubuntu-install%2F</url>
     <content type="text"><![CDATA[1.安装python-pip和python-devsudo apt-get install python-pip python-dev2.安装Tensroflow sudo pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.8.0-cp27-none-linux_x86_64.whl 【注】如果有错误，可以尝试使用上述命令重新安装 3.安装完成。出现以下界面表示安装完成。 测试 $ python&gt;&gt;&gt;import tensorflow as tf&gt;&gt;&gt;hello=tf.constant('hello')&gt;&gt;&gt;sess=tf.Session()&gt;&gt;&gt;print(sess.run(hello))hello&gt;&gt;&gt;a=tf.constant(10)&gt;&gt;&gt;b=tf.constant(32)&gt;&gt;&gt;print(sess.run(a+b))4212345678910 5.安装IDE安装的IDE为Komodo Edit链接：http://komodoide.com/download/edit-linux64/#解压缩后界面如下：安装步骤： 进入到该文件解压缩的文件夹中 运行./install.sh,界面如下：]]></content>
@@ -576,18 +600,6 @@
       </categories>
       <tags>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Win10利用DiskGenius重建分区表]]></title>
-    <url>%2Fwin10-diskgenius-partition%2F</url>
-    <content type="text"><![CDATA[安装DiskGenius 工具--&gt;搜索已丢失的分区界面如下： 开始搜索后，如果找到一个分区，会提示你忽略还是保留。【注】搜索到的第一个结果一般是系统盘C盘，这个结果需要忽略，否则后面无法找到其他分区。后面搜索到的分区需要确认其中是否为你原来分区中保存的文件之后才选择保留。 搜索完成后，点击硬盘--&gt;保存分区表.win10系统保存为GUID格式。]]></content>
-      <categories>
-        <category>运维技术</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-        <tag>DiskGenius</tag>
       </tags>
   </entry>
   <entry>
@@ -648,17 +660,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[【Python】两个txt文件通过某一字段关联]]></title>
-    <url>%2Fpython-txt%2F</url>
-    <content type="text"><![CDATA[背景将两个txt文件通过两者共有的某一项进行关联，类似于数据库中的不同表通过id相关联。txt1:#checkins(userID/venueID/time/offset)txt2:#pois(venueID/latitude/longtitude/words/country)通过共有项venueID，将txt1的数据以及txt2的数据关联起来，写入一个新的文件txt3。格式如userID/venueID/time/offset/latitude/longitude/words/country 思路将txt2文件的venueID作为字典的key，然后将latitude,longtitude,words,country写入一个列表里作为字典的值。 比对txt1中的venueID，相同则直接将txt1的此行写入txt3，同时将字典中的venueID对应的值——latitude,longtitude,words,country写入txt3 代码f1=open('f:\checkins.txt','r')f2=open('f:\pois.txt','r')fout=open('f:\dataset.txt','a+')dicc=dict()for line in f2: #将pois.txt截取出各个字段，写入字典中,key为venueID,value为[latitude,longitutde,words,country] line=line.strip().split('\t') values=[] latitude=line[1] longitutde=line[2] words=line[3] country=line[4] values.append(latitude) values.append(longitutde) values.append(words) values.append(country) dicc[line[0]]=values #venueID:[latitude,longitutde,words,country]#venueID_list=[]for line1 in f1: venueID=line1.split('\t')[1] if(dicc.get(venueID) != None): #if(venueID not in venueID_list): #去掉重复，不需要则注释掉 #venueID_list.append(venueID) fout.write(line1.strip('\n')+'\t'+dicc[venueID][0]+'\t'+dicc[venueID][1]+'\t'+dicc[venueID][2]+'\t'+dicc[venueID][3]) fout.write('\n')f1.close()f2.close()fout.close()]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Notepad++编译、运行Java]]></title>
     <url>%2Fnotepad-java%2F</url>
     <content type="text"><![CDATA[Plugins--&gt;Plugin Manager--&gt;Show Plugin Manager 安装NppExec Plugins--&gt;NppExec 输入以下参数 NPP_SAVE cd "$(CURRENT_DIRECTORY)" javac.exe "$(FILE_NAME)" java.exe "$(NAME_PART)" 1234 5.定义快捷键5.1 Plugins--&gt;NppExec--&gt;Advanced Options5.2 Associated script选择保存的脚本名5.3 点击Add/Modify5.4 勾选Place to the Macros submenu5.5点击OK 重启Notepad++ Run--&gt;Modify Shortcut/Delete Command--&gt;Plugin Command7.1找到自定的脚本名，更改快捷键]]></content>
@@ -667,6 +668,17 @@
       </categories>
       <tags>
         <tag>Notepad++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Python】两个txt文件通过某一字段关联]]></title>
+    <url>%2Fpython-txt%2F</url>
+    <content type="text"><![CDATA[背景将两个txt文件通过两者共有的某一项进行关联，类似于数据库中的不同表通过id相关联。txt1:#checkins(userID/venueID/time/offset)txt2:#pois(venueID/latitude/longtitude/words/country)通过共有项venueID，将txt1的数据以及txt2的数据关联起来，写入一个新的文件txt3。格式如userID/venueID/time/offset/latitude/longitude/words/country 思路将txt2文件的venueID作为字典的key，然后将latitude,longtitude,words,country写入一个列表里作为字典的值。 比对txt1中的venueID，相同则直接将txt1的此行写入txt3，同时将字典中的venueID对应的值——latitude,longtitude,words,country写入txt3 代码f1=open('f:\checkins.txt','r')f2=open('f:\pois.txt','r')fout=open('f:\dataset.txt','a+')dicc=dict()for line in f2: #将pois.txt截取出各个字段，写入字典中,key为venueID,value为[latitude,longitutde,words,country] line=line.strip().split('\t') values=[] latitude=line[1] longitutde=line[2] words=line[3] country=line[4] values.append(latitude) values.append(longitutde) values.append(words) values.append(country) dicc[line[0]]=values #venueID:[latitude,longitutde,words,country]#venueID_list=[]for line1 in f1: venueID=line1.split('\t')[1] if(dicc.get(venueID) != None): #if(venueID not in venueID_list): #去掉重复，不需要则注释掉 #venueID_list.append(venueID) fout.write(line1.strip('\n')+'\t'+dicc[venueID][0]+'\t'+dicc[venueID][1]+'\t'+dicc[venueID][2]+'\t'+dicc[venueID][3]) fout.write('\n')f1.close()f2.close()fout.close()]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>

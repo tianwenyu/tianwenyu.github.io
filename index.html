@@ -280,8 +280,8 @@
             
               
                 
-                <a class="post-title-link" href="/windows-docker/" itemprop="url">
-                  Windows10下Docker简明教程
+                <a class="post-title-link" href="/docker-virtualbox-problem/" itemprop="url">
+                  安装Docker CE for Windows后VirtualBox无法启动问题解决
                 </a>
               
             
@@ -294,8 +294,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-03-01T19:29:36+08:00" content="2018-03-01">
-              2018-03-01
+            <time itemprop="dateCreated" datetime="2018-03-10T19:29:36+08:00" content="2018-03-10">
+              2018-03-10
             </time>
           </span>
 
@@ -342,18 +342,18 @@
 
       
         
-          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、<a href="http://www.whatis.com.cn/word_5275.htm" target="_blank" rel="external">bare metal</a>、OpenStack 集群和其他的基础应用平台。 </p>
-<h4 id="Docker通常用于如下场景："><a href="#Docker通常用于如下场景：" class="headerlink" title="Docker通常用于如下场景："></a>Docker通常用于如下场景：</h4><ul>
-<li>web应用的自动化打包和发布；</li>
-<li>自动化测试和持续集成、发布；</li>
-<li>在服务型环境中部署和调整数据库或其他的后台应用；</li>
-<li>从头编译或者扩展现有的OpenShift或Cloud Foundry平台来搭建自己的PaaS环境。</li>
-</ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/windows-docker/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>在Windows上运行Docker需要借助虚拟机来运行一个简化的Linux系统，Docker CE for Windows使用的是Windows系统自带的<code>Hyper-V</code>（从Win8开始）虚拟机组件。</p>
+<p>因此在安装Docker CE for Windows时，会打开<code>Hyper-V</code>组件（默认是关闭的），会和Virtual Box冲突。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="关闭Hyper-V组件"><a href="#关闭Hyper-V组件" class="headerlink" title="关闭Hyper-V组件"></a>关闭<code>Hyper-V</code>组件</h3><p><code>控制面板-程序和功能-启用或关闭Windows功能</code>，去掉<code>Hpyer-V</code>功能。重启。</p>
+<p><img src="http://img.blog.csdn.net/20171127124402922" alt="img"></p>
+<p>打开Virtualbox依然报错</p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180312/EkIhhCAAbd.png?imageslim" alt="mark"></p>
+<p>这是因为<code>vboxdrv</code>服务没有安装或成功启动，在Virtualbox安装目录下的<code>drivers\vobxdrv</code>文件夹下，右击<code>VBoxDrv.inf</code>，选择安装，然后重启。</p>
+<p>如果还是失败，则直接重新安装即可。</p>
+<h2 id="安装老版Docker-Toolbox"><a href="#安装老版Docker-Toolbox" class="headerlink" title="安装老版Docker Toolbox"></a>安装老版Docker Toolbox</h2><p>老版Docker Toolbox使用的时Virtualbox虚拟机。</p>
+
+          
         
       
     </div>
@@ -529,6 +529,128 @@
             
               
                 
+                <a class="post-title-link" href="/windows-docker/" itemprop="url">
+                  Windows10下Docker简明教程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-03-01T19:29:36+08:00" content="2018-03-01">
+              2018-03-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/运维技术/" itemprop="url" rel="index">
+                    <span itemprop="name">运维技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <!-- 
+            
+           -->
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、<a href="http://www.whatis.com.cn/word_5275.htm" target="_blank" rel="external">bare metal</a>、OpenStack 集群和其他的基础应用平台。 </p>
+<p>Docker通常用于如下场景：</p>
+<ul>
+<li>web应用的自动化打包和发布；</li>
+<li>自动化测试和持续集成、发布；</li>
+<li>在服务型环境中部署和调整数据库或其他的后台应用；</li>
+<li>从头编译或者扩展现有的OpenShift或Cloud Foundry平台来搭建自己的PaaS环境。</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/windows-docker/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/hexo-solve/" itemprop="url">
                   Hexo常见问题解决方法
                 </a>
@@ -597,124 +719,6 @@
 <p>改成<code>repository: git@github.com:username/username.github.io.git</code></p>
 
           
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/ubuntu-ancaconda/" itemprop="url">
-                  Ubuntu下安装Anaconda
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-09T20:29:30+08:00" content="2018-02-09">
-              2018-02-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          <!-- 
-            
-           -->
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Anaconda安装"><a href="#Anaconda安装" class="headerlink" title="Anaconda安装"></a>Anaconda安装</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>使用<code>Python3.6</code>版本的<code>Anaconda 5.1</code>，<a href="https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh" target="_blank" rel="external">点击下载</a></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
-<li><p>进入到下载后的文件目录，执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash Anaconda3-5.1.0-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/ubuntu-ancaconda/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -885,8 +889,8 @@
             
               
                 
-                <a class="post-title-link" href="/whu-plants/" itemprop="url">
-                  武大植物分布
+                <a class="post-title-link" href="/ubuntu-ancaconda/" itemprop="url">
+                  Ubuntu下安装Anaconda
                 </a>
               
             
@@ -899,8 +903,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-08T20:29:30+08:00" content="2018-02-08">
-              2018-02-08
+            <time itemprop="dateCreated" datetime="2018-02-09T20:29:30+08:00" content="2018-02-09">
+              2018-02-09
             </time>
           </span>
 
@@ -913,8 +917,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/杂七杂八/" itemprop="url" rel="index">
-                    <span itemprop="name">杂七杂八</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -947,28 +951,12 @@
 
       
         
-          <h2 id="文理学部李达塑像"><a href="#文理学部李达塑像" class="headerlink" title="文理学部李达塑像"></a>文理学部李达塑像</h2><ul>
-<li>樟树</li>
-<li>蝴蝶花：4月，鸢尾科</li>
-<li>鸢尾</li>
-<li>吉祥草：百合科，秋花</li>
-<li>南天竹：小檗科</li>
-<li>锦绣杜鹃：杜鹃科</li>
-<li>麦冬：百合科，6月开花</li>
-<li>池衫</li>
-<li>羊蹄：蓼科，酸模属</li>
-<li>车前</li>
-<li>蛇莓：蔷薇科，果不能吃</li>
-<li>扬子毛茛</li>
-<li>何首乌：蓼科</li>
-<li>鸡矢藤：蓼科</li>
-<li>海仙花</li>
-<li>紫丁香</li>
-<li>厚萼凌霄：位于亭子，6月开花</li>
-<li>紫荆：苏木亚科，早春</li>
-</ul>
+          <h2 id="Anaconda安装"><a href="#Anaconda安装" class="headerlink" title="Anaconda安装"></a>Anaconda安装</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>使用<code>Python3.6</code>版本的<code>Anaconda 5.1</code>，<a href="https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh" target="_blank" rel="external">点击下载</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
+<li><p>进入到下载后的文件目录，执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash Anaconda3-5.1.0-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/whu-plants/" rel="contents">
+            <a class="btn" href="/ubuntu-ancaconda/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1084,6 +1072,140 @@
           <h2 id="字典常用操作"><a href="#字典常用操作" class="headerlink" title="字典常用操作"></a>字典常用操作</h2><h3 id="定义空字典"><a href="#定义空字典" class="headerlink" title="定义空字典"></a>定义空字典</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic=&#123;&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/python-dict/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/whu-plants/" itemprop="url">
+                  武大植物分布
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-02-08T20:29:30+08:00" content="2018-02-08">
+              2018-02-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/杂七杂八/" itemprop="url" rel="index">
+                    <span itemprop="name">杂七杂八</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <!-- 
+            
+           -->
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="文理学部李达塑像"><a href="#文理学部李达塑像" class="headerlink" title="文理学部李达塑像"></a>文理学部李达塑像</h2><ul>
+<li>樟树</li>
+<li>蝴蝶花：4月，鸢尾科</li>
+<li>鸢尾</li>
+<li>吉祥草：百合科，秋花</li>
+<li>南天竹：小檗科</li>
+<li>锦绣杜鹃：杜鹃科</li>
+<li>麦冬：百合科，6月开花</li>
+<li>池衫</li>
+<li>羊蹄：蓼科，酸模属</li>
+<li>车前</li>
+<li>蛇莓：蔷薇科，果不能吃</li>
+<li>扬子毛茛</li>
+<li>何首乌：蓼科</li>
+<li>鸡矢藤：蓼科</li>
+<li>海仙花</li>
+<li>紫丁香</li>
+<li>厚萼凌霄：位于亭子，6月开花</li>
+<li>紫荆：苏木亚科，早春</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/whu-plants/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1960,129 +2082,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/virtualbox-haddop/" itemprop="url">
-                  【分布式编程】一——基于VirtualBox的Hadoop完全分布式环境搭建
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-01-02T20:29:30+08:00" content="2018-01-02">
-              2018-01-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Hadoop/" itemprop="url" rel="index">
-                    <span itemprop="name">Hadoop</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          <!-- 
-            
-           -->
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h2><ul>
-<li><p>虚拟机环境：VirtualBox</p>
-</li>
-<li><p>Linux系统：Ubuntu 16.04 LTS</p>
-</li>
-<li><p>工具包</p>
-<ul>
-<li>JDK1.8</li>
-<li>Hadoop 2.7.5
-          <div class="post-more-link text-center">
-            <a class="btn" href="/virtualbox-haddop/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2128,7 +2127,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">72</span>
+              <span class="site-state-item-count">73</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

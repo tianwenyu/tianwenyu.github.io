@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Docker,Windows," />
+  <meta name="keywords" content="Windows,Docker," />
 
 
 
@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="概述Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。  Docker通常用于如下场景： web应用的自动化打包和发布； 自动化测试和持续集成、发布； 在服务型环境中部署和调整数据库或其他的后台应用； 从">
-<meta name="keywords" content="Docker,Windows">
+<meta name="description" content="概述Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。  Docker通常用于如下场景：  web应用的自动化打包和发布； 自动化测试和持续集成、发布； 在服务型环境中部署和调整数据库或其他的后台应用；">
+<meta name="keywords" content="Windows,Docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows10下Docker简明教程">
 <meta property="og:url" content="https://tianwenyu.github.io/windows-docker/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="概述Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。  Docker通常用于如下场景： web应用的自动化打包和发布； 自动化测试和持续集成、发布； 在服务型环境中部署和调整数据库或其他的后台应用； 从">
+<meta property="og:description" content="概述Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。  Docker通常用于如下场景：  web应用的自动化打包和发布； 自动化测试和持续集成、发布； 在服务型环境中部署和调整数据库或其他的后台应用；">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180305/Cg78lC6082.png?imageslim">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180305/G8GkJmK19j.png?imageslim">
@@ -102,10 +102,10 @@
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180307/0kJ3JeB7fI.png?imageslim">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180307/BH74glgG0L.png?imageslim">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180306/32EJFIc6bB.png?imageslim">
-<meta property="og:updated_time" content="2018-03-08T02:16:25.082Z">
+<meta property="og:updated_time" content="2018-03-12T07:23:26.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows10下Docker简明教程">
-<meta name="twitter:description" content="概述Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。  Docker通常用于如下场景： web应用的自动化打包和发布； 自动化测试和持续集成、发布； 在服务型环境中部署和调整数据库或其他的后台应用； 从">
+<meta name="twitter:description" content="概述Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。  Docker通常用于如下场景：  web应用的自动化打包和发布； 自动化测试和持续集成、发布； 在服务型环境中部署和调整数据库或其他的后台应用；">
 <meta name="twitter:image" content="http://p15qizl76.bkt.clouddn.com/blog/180305/Cg78lC6082.png?imageslim">
 
 
@@ -265,9 +265,9 @@
   <div class="post-header">
       <div class="tags">
       
-        <a href="/tags/Docker/" rel="tag" title="Docker">Docker</a>
-      
         <a href="/tags/Windows/" rel="tag" title="Windows">Windows</a>
+      
+        <a href="/tags/Docker/" rel="tag" title="Docker">Docker</a>
       
       </div>
       <h1>Windows10下Docker简明教程</h1>
@@ -370,7 +370,8 @@
 
       
         <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、<a href="http://www.whatis.com.cn/word_5275.htm" target="_blank" rel="external">bare metal</a>、OpenStack 集群和其他的基础应用平台。 </p>
-<h4 id="Docker通常用于如下场景："><a href="#Docker通常用于如下场景：" class="headerlink" title="Docker通常用于如下场景："></a>Docker通常用于如下场景：</h4><ul>
+<p>Docker通常用于如下场景：</p>
+<ul>
 <li>web应用的自动化打包和发布；</li>
 <li>自动化测试和持续集成、发布；</li>
 <li>在服务型环境中部署和调整数据库或其他的后台应用；</li>
@@ -465,9 +466,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Docker/" rel="tag">#Docker</a>
-          
             <a href="/tags/Windows/" rel="tag">#Windows</a>
+          
+            <a href="/tags/Docker/" rel="tag">#Docker</a>
           
         </div>
       
@@ -476,13 +477,17 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/docker-deeplearning/" rel="next" title="Windows10下Docker搭建深度学习框架">
-                <i class="fa fa-chevron-left"></i> Windows10下Docker搭建深度学习框架
+              <a href="/hexo-solve/" rel="next" title="Hexo常见问题解决方法">
+                <i class="fa fa-chevron-left"></i> Hexo常见问题解决方法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/docker-deeplearning/" rel="prev" title="Windows10下Docker搭建深度学习框架">
+                Windows10下Docker搭建深度学习框架 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -550,7 +555,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">72</span>
+              <span class="site-state-item-count">73</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -620,7 +625,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker通常用于如下场景："><span class="nav-text">Docker通常用于如下场景：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部结构"><span class="nav-text">内部结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker镜像"><span class="nav-text">Docker镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分层存储"><span class="nav-text">分层存储</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker容器"><span class="nav-text">Docker容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker仓库"><span class="nav-text">Docker仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置Docker"><span class="nav-text">设置Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改CPU数目及内存"><span class="nav-text">修改CPU数目及内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改代理"><span class="nav-text">修改代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改镜像默认存储路径"><span class="nav-text">更改镜像默认存储路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看Docker版本"><span class="nav-text">查看Docker版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看本机已安装镜像"><span class="nav-text">查看本机已安装镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看所有容器"><span class="nav-text">查看所有容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拉取镜像"><span class="nav-text">拉取镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除单个容器"><span class="nav-text">删除单个容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除所有的容器"><span class="nav-text">删除所有的容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#停止、启动、杀死一个容器"><span class="nav-text">停止、启动、杀死一个容器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内部结构"><span class="nav-text">内部结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker镜像"><span class="nav-text">Docker镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分层存储"><span class="nav-text">分层存储</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker容器"><span class="nav-text">Docker容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker仓库"><span class="nav-text">Docker仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置Docker"><span class="nav-text">设置Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改CPU数目及内存"><span class="nav-text">修改CPU数目及内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改代理"><span class="nav-text">修改代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改镜像默认存储路径"><span class="nav-text">更改镜像默认存储路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看Docker版本"><span class="nav-text">查看Docker版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看本机已安装镜像"><span class="nav-text">查看本机已安装镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看所有容器"><span class="nav-text">查看所有容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拉取镜像"><span class="nav-text">拉取镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除单个容器"><span class="nav-text">删除单个容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除所有的容器"><span class="nav-text">删除所有的容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#停止、启动、杀死一个容器"><span class="nav-text">停止、启动、杀死一个容器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
         </section>
