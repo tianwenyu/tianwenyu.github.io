@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Match-LSTM和Pointer Net]]></title>
     <url>%2Fmatch-LSTM-Pointer-Network%2F</url>
-    <content type="text"><![CDATA[Match-LSTM简介Match-LSTM是由(Wang &amp; Jiang,2016)发表在NAACL的论文提出，用于解决NLI(Natural Language Inference，文本蕴含)问题。 premise：前提，代表上下文 hypothesis：假设，代表一个陈述性的结论 文本蕴含问题：给定一个premise（前提），根据这个premise去判断相应的hypothesis（假说）正确与否，如果从这个premise中能够推断出这个hypothesis，那么就判断为entailment（蕴含），否则就是contradiction（矛盾）。 Word-by-Word AttentionMatch-LSTM是在Rocktaschel et al. (2015)提出的word-by-word attention的基础上进行了改进，先解释一下Rocktaschel et al. (2015)提出的基本模型 用LSTM处理premise和hypothesis，(用premise的最后一个输出初始化hypothesis的LSTM)，得到它们的隐层输出。 其中， $h_j^s(1 \le j \le M )$是premise的输入序列经过LSTM之后得到的隐层输出。 $h_{k}^{t}(1\leq k\leq N)$是hypothesis的隐层输出向量。 word-by-word attention的意思是为每个hypothesis中的词引入一个 $ak$ ,用于表示hypothesis，并称这个 $a{k}$ 向量为attention向量，具体公式如下： 这里的attention权重$a_{kj}$表示hypothesis中第k个词和premise中第j个词之间的关系。 $hj^s$是premise的隐层输出，$h{k}^{t} $是hypothesis的隐层输出，$h_{k-1}^a$是将输入一个RNN之后得到的隐层状态。 最后利用$h_N^a$和$h_N^t$来预测label：y，即判断premise和hypothesis之间的关系。 流程 用两个LSTM处理premise和hypothesis序列。得到两个隐状态$h^s$和$h^t$(s对应前提，t对应假设)。 用下面的公式计算注意力向量$a_k$,这里计算得到的$e$经过归一化和加权求和得到假设$h^t$对前提$h^s$在每个时刻的注意力向量$a_k$ 上式中$h^m$的计算，用下面的公式计算，其中输入$m_k$是$[a_k,h_k^t]$的拼接。作者把这个结构称为mLSTM，把最后时刻的$h^m$作为输出以预测label。 ​ 与Word-to-Word Attention区别 两者的主要区别就是计算$e_{kj}$的不同。 这里用$h^m$代替了$h^a$。 之前的$h^m$是利用RNN得到的,$h^a$是用mLSTM得到的。 为了得到premise跟hypothesis之间的matching关系，用LSTM对它们进行建模，作者认为LSTM能够将premise和hypothesis之间重要的match关系进行保留，忽略不重要的match关系。具体公式如下: 最后利用$h_N^m$来预测。 Pointer Net简介Pointer Network是Vinyals et al.(2015)在NIPS发表的论文中提出的，是为了实现从输入序列中找到相应的tokens来作为输出，其他的阅读理解任务中，可能只需要用输入序列构建一个词典，再从这个候选词典中找到概率最大的一个词作为答案，然而SQuAD数据集的输出答案的长度是变化的，因而无法采用构建词典的方式，而pointer net是利用attention作为pointer，从输入序列中选择一个位置，并将这个位置所指向的词作为输出。对pointer net有兴趣的话，可以参看这个链接进行学习:Pointer net。AS-Reader、AoA-Reader和R-Net等模型都用了PtrNet作为输出层的结构。 模型结构 论文中提出了两个模型，且都包含以下三个部分： 用LSTM对question和passage进行预处理。 用match-LSTM对question和passage进行match。 利用Pointer Net从passage中选择tokens作为答案。 两个模型的区别在于在于第三部分，由于pointer net没有限定所指向的位置必须是连续的，所以第一个模型sequence model直接将答案在passage中出现的位置序号作为答案序列$a=\left( a{1} ,a{2},… \right) $，第二个模型只预测答案的起始位置跟终止位置，即$a=\left(a{s} ,a{e} \right)$。 LSTM Preprocessing Layer用单向LSTM对passage和question进行预处理。 Match-LSTM Layer这里将question当做premise，将passage当做hypothesis，用标准的word-by-word attention得到attention向量，具体公式如下： 其中， $\vec{h}_{i-1}^r \in R^l$是经过单向m-LSTM得到的隐层输出。 $\vec{\alpha_{i,j}}$表示passage中的第i个词和question中的第j个词之间的匹配关系。然后用$\overline{\alpha}$对question的隐层输出进行加权，并将其跟passage的隐层输出进行拼接，得到一个新的向量，并输入到m-LSTM中，得到$\bar{H^r}$，具体公式如下： 再从另一个方向进行相同的处理,将两者进行合并，得到最后的输出向量$H^{r} $ Answer Pointer LayerThe Sequence Model 由于这个模型是生成答案的位置序列$a=(a{1} ,a{2},…)$，每个元素表示的是这个词在passage中位置，其取值范围在1到P+1之间，当出现了P+1时，则答案生成终止。因此在$H^{r}$的最后中加入了一列0向量，用来表示终止词，得到$\bar{H} ^{r} $。 这里再次用到了attention方法去得到向量$\betak \in R^{(P+1)}$,$\beta{k,j}$表示选择passage中的第j个词作为答案序列的第k个词的概率，$\beta_{k,(P+1)}$表示在第k个位置停止答案生成的概率。公式如下： 其中，$h_k^a$也是经过一个LSTM的输出。 模型生成答案的概率公式如下： 损失函数如下： The Boundary Model因为boundary model只需要生成答案的起始和终止位置，因此不用在最后加入一个零向量来表示答案生成结束。生成答案序列的概率模型如下： 其余部分与上个模型相同。]]></content>
+    <content type="text"><![CDATA[Match-LSTM简介Match-LSTM是由(Wang &amp; Jiang,2016)发表在NAACL的论文提出，用于解决NLI(Natural Language Inference，文本蕴含)问题。 premise：前提，代表上下文 hypothesis：假设，代表一个陈述性的结论 文本蕴含问题：给定一个premise（前提），根据这个premise去判断相应的hypothesis（假说）正确与否，如果从这个premise中能够推断出这个hypothesis，那么就判断为entailment（蕴含），否则就是contradiction（矛盾）。 Word-by-Word AttentionMatch-LSTM是在Rocktaschel et al. (2015)提出的word-by-word attention的基础上进行了改进，先解释一下Rocktaschel et al. (2015)提出的基本模型 用LSTM处理premise和hypothesis，(用premise的最后一个输出初始化hypothesis的LSTM)，得到它们的隐层输出。 其中， $h_j^s(1 \le j \le M )$是premise的输入序列经过LSTM之后得到的隐层输出。 $h_{k}^{t}(1\leq k\leq N)$是hypothesis的隐层输出向量。 word-by-word attention的意思是为每个hypothesis中的词引入一个 $a_k$ ,用于表示hypothesis，并称这个 $a_k$ 向量为attention向量，具体公式如下： 这里的attention权重$a_{kj}$表示hypothesis中第k个词和premise中第j个词之间的关系。 $hj^s$是premise的隐层输出，$h{k}^{t} $是hypothesis的隐层输出，$h_{k-1}^a$是将输入一个RNN之后得到的隐层状态。 最后利用$h_N^a$和$h_N^t$来预测label：y，即判断premise和hypothesis之间的关系。 流程 用两个LSTM处理premise和hypothesis序列。得到两个隐状态$h^s$和$h^t$(s对应前提，t对应假设)。 用下面的公式计算注意力向量$a_k$,这里计算得到的$e$经过归一化和加权求和得到假设$h^t$对前提$h^s$在每个时刻的注意力向量$a_k$ 上式中$h^m$的计算，用下面的公式计算，其中输入$m_k$是$[a_k,h_k^t]$的拼接。作者把这个结构称为mLSTM，把最后时刻的$h^m$作为输出以预测label。 ​ 与Word-to-Word Attention区别 两者的主要区别就是计算$e_{kj}$的不同。 这里用$h^m$代替了$h^a$。 之前的$h^m$是利用RNN得到的,$h^a$是用mLSTM得到的。 为了得到premise跟hypothesis之间的matching关系，用LSTM对它们进行建模，作者认为LSTM能够将premise和hypothesis之间重要的match关系进行保留，忽略不重要的match关系。具体公式如下: 最后利用$h_N^m$来预测。 Pointer Net简介Pointer Network是Vinyals et al.(2015)在NIPS发表的论文中提出的，是为了实现从输入序列中找到相应的tokens来作为输出，其他的阅读理解任务中，可能只需要用输入序列构建一个词典，再从这个候选词典中找到概率最大的一个词作为答案，然而SQuAD数据集的输出答案的长度是变化的，因而无法采用构建词典的方式，而pointer net是利用attention作为pointer，从输入序列中选择一个位置，并将这个位置所指向的词作为输出。对pointer net有兴趣的话，可以参看这个链接进行学习:Pointer net。AS-Reader、AoA-Reader和R-Net等模型都用了PtrNet作为输出层的结构。 模型结构 论文中提出了两个模型，且都包含以下三个部分： 用LSTM对question和passage进行预处理。 用match-LSTM对question和passage进行match。 利用Pointer Net从passage中选择tokens作为答案。 两个模型的区别在于在于第三部分，由于pointer net没有限定所指向的位置必须是连续的，所以第一个模型sequence model直接将答案在passage中出现的位置序号作为答案序列$a=\left( a{1} ,a{2},… \right) $，第二个模型只预测答案的起始位置跟终止位置，即$a=\left(a{s} ,a{e} \right)$。 LSTM Preprocessing Layer用单向LSTM对passage和question进行预处理。 Match-LSTM Layer这里将question当做premise，将passage当做hypothesis，用标准的word-by-word attention得到attention向量，具体公式如下： 其中， $\vec{h}_{i-1}^r \in R^l$是经过单向m-LSTM得到的隐层输出。 $\vec{\alpha_{i,j}}$表示passage中的第i个词和question中的第j个词之间的匹配关系。然后用$\overline{\alpha}$对question的隐层输出进行加权，并将其跟passage的隐层输出进行拼接，得到一个新的向量，并输入到m-LSTM中，得到$\bar{H^r}$，具体公式如下： 再从另一个方向进行相同的处理,将两者进行合并，得到最后的输出向量$H^{r} $ Answer Pointer LayerThe Sequence Model 由于这个模型是生成答案的位置序列$a=(a{1} ,a{2},…)$，每个元素表示的是这个词在passage中位置，其取值范围在1到P+1之间，当出现了P+1时，则答案生成终止。因此在$H^{r}$的最后中加入了一列0向量，用来表示终止词，得到$\bar{H} ^{r} $。 这里再次用到了attention方法去得到向量$\betak \in R^{(P+1)}$,$\beta{k,j}$表示选择passage中的第j个词作为答案序列的第k个词的概率，$\beta_{k,(P+1)}$表示在第k个位置停止答案生成的概率。公式如下： 其中，$h_k^a$也是经过一个LSTM的输出。 模型生成答案的概率公式如下： 损失函数如下： The Boundary Model因为boundary model只需要生成答案的起始和终止位置，因此不用在最后加入一个零向量来表示答案生成结束。生成答案序列的概率模型如下： 其余部分与上个模型相同。]]></content>
       <categories>
         <category>NLP</category>
       </categories>
@@ -97,6 +97,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Windows下安装Jupyter Notebook]]></title>
+    <url>%2Fwindows-jupyter-notebook%2F</url>
+    <content type="text"><![CDATA[简介文学编程文学编程(Literate Programming)是由Donald Knuth提出的编程方法。传统的结构化编程，人要按照计算机的逻辑顺序来编写代码，而文学编程则可以让人们按照自己的逻辑来开发程序。 Jupyter NotebookJupyter Notebook是一个交互式笔记本，支持运行40多种编程语言。它的本质是一个Web应用程序，便于创建和共享文学化程序文档，支持实时代码、数学方程、可视化和markdown。 Jupyter Notebook优点： 适合数据分析 支持多语言 分享便捷 远程运行 交互式展示 ##安装 安装Anaconda即自带，不需要安装 启动点击Jupyter Notebook即可启动，或在cmd中输入jupyter notebook 默认地址为http:localhost:8888 使用更改Jupyter Notebook工作空间最新版Ipython和Jupyter配置文件是分开的，需要分别配置文件。 打开cmd输入命令jupyter notebook --generate-config 【注】-config之前没有空格 打开该目录下的文件，改文件夹路径 【注】若存在编码问题，可改成f://file//jupyter_notebook 启动Jupyter Notebook 新建Notebook点击new创建新的Notebook 界面 菜单栏各项功能概述 File Save and Checkpoint 保存并记录点，类似于不同版本 Revert to Checkpoint返回到某一记录点 View Toggle Header是否显示头部信息，包括文件名和上次保存时间 Toggle ToolBar是否显示工具栏 Kernel Change kernel更换内核环境 Notebook文档由一系列单元(cell),主要有两种形式的单元： 代码状态单元：编写代码的区域，使用Shift+Enter运行代码，结果显示在本单元下方。代码单元左边有In[1]：类似的序列标记，方便人们查看代码的执行次序。 Markdown状态单元：编写文本的区域，使用Shift+Enter显示格式化的文本。 模式 编辑模式：编辑文本和代码。选中单元按Enter进入编辑模式，单元左侧显示绿色竖线 命令模式：执行输入的命令。按Esc进入命令模式，单元左侧显示蓝色竖线 快捷键命令模式 查看快捷键：H 执行当前单元，并自动跳到下一个单元：Shift+Enter 执行当前单元，不自动跳到下一个单元：Ctrl+Enter 进入编辑模式：Enter 进入命令模式：Esc 删除当前单元：双击D 变为代码状态：Y 变为Markdown状态：M 在下方插入新单元：B 剪切选中单元：X 复制选中单元：C 粘贴到下方单元：V 选中上方单元：J 选中下方单元：K 恢复删除的最后一个单元：Z 保存当前Notebook：Ctrl+S 编辑模式 代码缩进或补全：Tab 代码提示：Shift+Tab 注释：Ctrl+/ Magic命令Magic命令以%或%%开头 %：行命令 %%：单元命令。必须出现在单元第一行。 以下为常用Magic命令 %lsmagic：列举所有Magic命令 %magic：查看Magic命令说明 %timeit：代码运行时间 %matplotlib inline：显示matplotlib包生成的图形 使用技巧运行Python文件运行以下命令 %run xxx.py 【注】xxx.py是当前工作空间下的一个python文件 导入代码运行以下命令 %load xxx.py 【注】xxx.py是当前工作空间下的一个python文件 重置单元格序号重置单元格In[x]序号 点击Kernel-Restart即可。 使用Seaborn绘图需要使用%matplotlib inline命令。]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>Notebook</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Ubuntu下安装Anaconda]]></title>
     <url>%2Fubuntu-ancaconda%2F</url>
     <content type="text"><![CDATA[Anaconda安装下载使用Python3.6版本的Anaconda 5.1，点击下载 安装 进入到下载后的文件目录，执行 bash Anaconda3-5.1.0-Linux-x86_64.sh 根据提示输入回车 查看注册信息，一直回车到输入yes 输入安装目录路径，默认回车即可 是否加入环境变量，输入yes 安装成功后，新打开一个终端输入以下命令查看版本号 anaconda -V 使用Jupyter Notebook输入以下命令则能够使用Jupyter Notebook ipython notebook]]></content>
@@ -109,14 +120,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Windows下安装Jupyter Notebook]]></title>
-    <url>%2Fwindows-jupyter-notebook%2F</url>
-    <content type="text"><![CDATA[简介文学编程文学编程(Literate Programming)是由Donald Knuth提出的编程方法。传统的结构化编程，人要按照计算机的逻辑顺序来编写代码，而文学编程则可以让人们按照自己的逻辑来开发程序。 Jupyter NotebookJupyter Notebook是一个交互式笔记本，支持运行40多种编程语言。它的本质是一个Web应用程序，便于创建和共享文学化程序文档，支持实时代码、数学方程、可视化和markdown。 Jupyter Notebook优点： 适合数据分析 支持多语言 分享便捷 远程运行 交互式展示 ##安装 安装Anaconda即自带，不需要安装 启动点击Jupyter Notebook即可启动，或在cmd中输入jupyter notebook 默认地址为http:localhost:8888 使用更改Jupyter Notebook工作空间最新版Ipython和Jupyter配置文件是分开的，需要分别配置文件。 打开cmd输入命令jupyter notebook --generate-config 【注】-config之前没有空格 打开该目录下的文件，改文件夹路径 【注】若存在编码问题，可改成f://file//jupyter_notebook 启动Jupyter Notebook 新建Notebook点击new创建新的Notebook 界面 菜单栏各项功能概述 File Save and Checkpoint 保存并记录点，类似于不同版本 Revert to Checkpoint返回到某一记录点 View Toggle Header是否显示头部信息，包括文件名和上次保存时间 Toggle ToolBar是否显示工具栏 Kernel Change kernel更换内核环境 Notebook文档由一系列单元(cell),主要有两种形式的单元： 代码状态单元：编写代码的区域，使用Shift+Enter运行代码，结果显示在本单元下方。代码单元左边有In[1]：类似的序列标记，方便人们查看代码的执行次序。 Markdown状态单元：编写文本的区域，使用Shift+Enter显示格式化的文本。 模式 编辑模式：编辑文本和代码。选中单元按Enter进入编辑模式，单元左侧显示绿色竖线 命令模式：执行输入的命令。按Esc进入命令模式，单元左侧显示蓝色竖线 快捷键命令模式 查看快捷键：H 执行当前单元，并自动跳到下一个单元：Shift+Enter 执行当前单元，不自动跳到下一个单元：Ctrl+Enter 进入编辑模式：Enter 进入命令模式：Esc 删除当前单元：双击D 变为代码状态：Y 变为Markdown状态：M 在下方插入新单元：B 剪切选中单元：X 复制选中单元：C 粘贴到下方单元：V 选中上方单元：J 选中下方单元：K 恢复删除的最后一个单元：Z 保存当前Notebook：Ctrl+S 编辑模式 代码缩进或补全：Tab 代码提示：Shift+Tab 注释：Ctrl+/ Magic命令Magic命令以%或%%开头 %：行命令 %%：单元命令。必须出现在单元第一行。 以下为常用Magic命令 %lsmagic：列举所有Magic命令 %magic：查看Magic命令说明 %timeit：代码运行时间 %matplotlib inline：显示matplotlib包生成的图形 使用技巧运行Python文件运行以下命令 %run xxx.py 【注】xxx.py是当前工作空间下的一个python文件 导入代码运行以下命令 %load xxx.py 【注】xxx.py是当前工作空间下的一个python文件 重置单元格序号重置单元格In[x]序号 点击Kernel-Restart即可。 使用Seaborn绘图需要使用%matplotlib inline命令。]]></content>
+    <title><![CDATA[【Python Trick】Python中字典常用方法]]></title>
+    <url>%2Fpython-dict%2F</url>
+    <content type="text"><![CDATA[字典常用操作定义空字典dic=&#123;&#125; 键值对的添加dic['name']='zhangsan' 字典遍历通过items()方法返回的元组列表进行序列解包 for key,value in dic.items(): print('&#123;&#125;:&#123;&#125;'.format(key,value)) #print('%s:%s' %(key,value)) 字典排序字典按键排序第一类dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;print(key,dic[key] for key in sorted(dic.keys)) 第二类dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#升序排序dic=dict(sorted(dic.items(),key=lambda x:x[0]))#降序排序dic=dict(sorted(dic.itmes(),key=lambda x:x[0],reverse=True)) sorted(iterable,key,reverse) iterable参数代表可以迭代的对象，例如可以是dict.items()，dict.keys() key参数是一个函数，用来选取参与比较的元素 reverse参数用来指定是升序还是降序 dic=dict(sorted(dic.items(),key=lambda x:x[0])) dic.items()将dic转换为可迭代对象，迭代对象的元素为该字典元素，将其转换为元组 key参数对应的lambda表达式即选取元组中的第一个元素作为比较参数，即键。 lambda x:yx表示输出参数，y表示lambda函数的返回值. sorted()函数返回值是list类型。 字典按值排序并输出Top K个元素dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#升序排序dic=dict(sorted(dic.items(),key=lambda x:x[1]))#降序排序dic=dict(sorted(dic.itmes(),key=lambda x:x[1],reverse=True))#输出Top K个cnt=0k=10for key,value in dic.items(): cnt+=1 if cnt&gt;k: break print('&#123;&#125;:&#123;&#125;'.format(key,value)) 字典对象写入Json文件import jsondic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#中文字符需要设置ensure_ascii属性为False，否则输出为ASII码data=json.dumps(dic,ensure_ascii=False)with open('xxx.json','w',encoding='utf-8') as f: f.write(data)]]></content>
       <categories>
-        <category>机器学习</category>
+        <category>Python</category>
       </categories>
       <tags>
-        <tag>Notebook</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -131,9 +142,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[【Python Trick】Python中字典常用方法]]></title>
-    <url>%2Fpython-dict%2F</url>
-    <content type="text"><![CDATA[字典常用操作定义空字典dic=&#123;&#125; 键值对的添加dic['name']='zhangsan' 字典遍历通过items()方法返回的元组列表进行序列解包 for key,value in dic.items(): print('&#123;&#125;:&#123;&#125;'.format(key,value)) #print('%s:%s' %(key,value)) 字典排序字典按键排序第一类dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;print(key,dic[key] for key in sorted(dic.keys)) 第二类dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#升序排序dic=dict(sorted(dic.items(),key=lambda x:x[0]))#降序排序dic=dict(sorted(dic.itmes(),key=lambda x:x[0],reverse=True)) sorted(iterable,key,reverse) iterable参数代表可以迭代的对象，例如可以是dict.items()，dict.keys() key参数是一个函数，用来选取参与比较的元素 reverse参数用来指定是升序还是降序 dic=dict(sorted(dic.items(),key=lambda x:x[0])) dic.items()将dic转换为可迭代对象，迭代对象的元素为该字典元素，将其转换为元组 key参数对应的lambda表达式即选取元组中的第一个元素作为比较参数，即键。 lambda x:yx表示输出参数，y表示lambda函数的返回值. sorted()函数返回值是list类型。 字典按值排序并输出Top K个元素dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#升序排序dic=dict(sorted(dic.items(),key=lambda x:x[1]))#降序排序dic=dict(sorted(dic.itmes(),key=lambda x:x[1],reverse=True))#输出Top K个cnt=0k=10for key,value in dic.items(): cnt+=1 if cnt&gt;k: break print('&#123;&#125;:&#123;&#125;'.format(key,value)) 字典对象写入Json文件import jsondic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#中文字符需要设置ensure_ascii属性为False，否则输出为ASII码data=json.dumps(dic,ensure_ascii=False)with open('xxx.json','w',encoding='utf-8') as f: f.write(data)]]></content>
+    <title><![CDATA[【Python Trick】Python的switch-case实现]]></title>
+    <url>%2Fpython-switch%2F</url>
+    <content type="text"><![CDATA[前言在Python中，并没有实现switch-case语句，通过if-elif实现会显得麻烦，因此通过以下方式实现该语句功能。 实现方式通过字典实现以如下情景为例，将百分制分数转换为五分制分数。如100%转换为5，80%转换为4等。 def foo(score): return &#123; '100%':5, '80%':4, '60%':3, '40%':2, '20%':1, '0%':0 &#125;.get(score)print(foo('100%')) #输出5print(foo('80%')) #输出4 通过匿名函数实现def foo(score,x): return&#123; '100%':lambda x:x+5, '80%':lambda x:x+4, '60%':lambda x:x+3, '40%':lambda x:x+2, '20%':lambda x:x+1, '0%':lambda x:x+0, &#125;[score](x) print(foo('100%',0)) #输出5print(foo('80%',0)) #输出4]]></content>
       <categories>
         <category>Python</category>
       </categories>
@@ -151,17 +162,6 @@
       <tags>
         <tag>Windows</tag>
         <tag>pip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[【Python Trick】Python的switch-case实现]]></title>
-    <url>%2Fpython-switch%2F</url>
-    <content type="text"><![CDATA[前言在Python中，并没有实现switch-case语句，通过if-elif实现会显得麻烦，因此通过以下方式实现该语句功能。 实现方式通过字典实现以如下情景为例，将百分制分数转换为五分制分数。如100%转换为5，80%转换为4等。 def foo(score): return &#123; '100%':5, '80%':4, '60%':3, '40%':2, '20%':1, '0%':0 &#125;.get(score)print(foo('100%')) #输出5print(foo('80%')) #输出4 通过匿名函数实现def foo(score,x): return&#123; '100%':lambda x:x+5, '80%':lambda x:x+4, '60%':lambda x:x+3, '40%':lambda x:x+2, '20%':lambda x:x+1, '0%':lambda x:x+0, &#125;[score](x) print(foo('100%',0)) #输出5print(foo('80%',0)) #输出4]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -281,19 +281,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Virtualbox 下LVS-NAT模式集群部署]]></title>
-    <url>%2Flinux-lvs%2F</url>
-    <content type="text"><![CDATA[系统架构 虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR 【注】所有连接方式都采用桥接方式 主机 IP 角色 Client 192.168.33.145 客户机，用来访问网页 VS 192.168.33.150 VIP，Virtual Ip对外提供的IP VS 192.168.33.149 DIP，Director IP RS1 192.168.33.148 Real Server IP，安装Nginx RS2 192.168.33.147 Real Server IP，安装Nginx 客户机配置桥接IP设置 打开网络与共享中心 点击更改适配器设置 选择客户机（即物理机）网卡 4.打开属性，设置IPV4地址 虚拟机环境配置1.网卡模式设置【注】所有Virtual Box虚拟机网络设置都要设置为桥接方式 打开控制-&gt;设置-&gt;网络 连接方式选择桥接网卡，高级-&gt;混杂模式选全部允许 2.sudo命令配置【注】以一台虚拟机为例，其余虚拟机与此类似 切换到root用户 su -1 添加/etc/sudoers文件写权限 chmod u+w /etc/sudoers1 编辑/etc/sudoers vim /etc/sudoers1 找到root ALL=(ALL) ALL在下面添加21751096_1 ALL=(ALL) ALL，并保存退出 4.撤销/etc/sudoers文件的写权限 bash chmod u-w /etc/sudoers Director配置1.安装ipvsadmsudo yum install -y ipvsadm1 2.建立一个虚拟IP地址进行广播sudo ifconfig enp0s3:0 192.168.33.150/24 3.将该虚拟机地址添加到路由表sudo route add -host 192.168.33.150 dev enp0s31 4.使用ipvsadm安装LVS服务sudo ipvsadm -At 192.168.33.150:80 -s rr1 5.增加真实服务器sudo ipvsadm -at 192.168.33.150:80 -r 192.168.33.148 -gsudo ipvsadm -at 192.168.33.150:80 -r 192.168.33.147 -g12 6.设置DirectorIPsudo ifconfig enp0s3 192.168.33.149/241 7.查看ifconfig设置sudo ifconfig1 所有设置如图 Real Server配置1.安装nginx服务【注】需要在21751096_2和21751096_3两台RealServer上安装nginx服务，以其中一台为例 使用yum安装nginx,需要安装nginx的库 cd /etc/yum.repos.d/nginx.reposudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm12 编辑nginx.repo文件 sudo vim /etc/yum.repos.d/nginx.reponame=nginx repobaseurl=http://nginx.org/packages/centos/7/x86_64/gpgcheck=0enabled=1123456 使用yum安装nginx sudo yum install nginx1 安装完成后启动nginx服务 sudo service nginx start1 修改index.html首页区分两个nginx服务器 sudo vim /usr/share/nginx/html/index.html1 修改内容如下 查看是否启动服务 curl -i localhost1 2.IP设置 切换到root账户 su -1 设置虚拟IP ifconfig lo:0 192.168.33.150/361 添加到路由表 route add -host 192.168.33.150 dev lo:01 设置IPV4转发 bash echo &quot;1&quot; &gt;/proc/sys/net/ipv4/ip_forward 设置RS1的IP ifconfig enp0s3 192.168.33.148/241 查看ifconfig设置 ifconfig1 全部设置如图所示 运行测试在浏览器中输入192.168.33.150 第一次显示Real Sever 1的页面 刷新后显示Real Server 2的页面]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>VirtualBox</tag>
-        <tag>LVS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[【评论文本分类】1.爬取评论数据]]></title>
     <url>%2Ftext-classification%2F</url>
     <content type="text"><![CDATA[环境配置 Ubuntu 16.04 Python 3.5 技术框架 Scrapy Selenium PhantomJS 需求目标对网址http://liuyan.cjn.cn/index.html进行数据爬取 本文爬虫有三层爬取，爬取结构层次如图所示， 主页面 列表页面，需要利用selenium+phantomJS模拟点击加载更多按钮 详情页面 把主页面中的红框中的各区（功能区）、政府部门、法检及其他单位等作为一级类保存，然后依次爬取一级类中各个分类 进入到列表页面，因为此页面是动态加载，并且是简介列表，因此需要加载完所有列表进入到详情页面。 进入到详情页面，爬取相应内容。 设计方案动态爬取数据一般有两种方法 分析包，构造Request 通过模拟浏览器行为加载页面 通过尝试，第一种方法对于此网站不适合，采用第二种方法。 采用Scrapy+Selenium+PhantomJS来进行动态网页的爬取。 SeleniumSelenium是一个自动化测试工具，本文用到的是其Webdriver，用其来操作浏览器，可以操作多种主流浏览器，如Chrome，Firefox等，下文中的PhantomJS是一种无界面的浏览器。 PhantomJSPhantomJS是一个无界面浏览器，提供JavaScript接口。通过这个工具，可以进行页面的加载、解析、操作等。 爬取方案 先爬取主页面各个主类（如各区（功能区）、政府部门等）下的子类链接，如（江岸区、江夏区等） 按照先前爬取的子类链接依次打开跳转到列表界面，然后利用Selenium+PhantomJS模拟浏览器动态加载完全部列表，解析出所有列表的链接，跳转到详情页面 进入到详情页面，解析所要提取的内容 详细步骤安装Scrapysudo pip3 install scrapy 安装PhantomJS 安装PhantomJS sudo apt-get install phantomjs apt-get会安装不完整，需要安装以下 sudo apt-get install nodejssudo apt-get install nodejs-legacysudo apt-get install npmsudo npm -g install phantomjs-prebuilt 安装Seleniumsudo pip3 install selenium 使用Scrapy 创建新工程 scrapy startproject xxxx 编辑items.py文件 from scrapy import Itemfrom scrapy import Field class MessageboardspiderItem(Item): # define the fields for your item here like: dir_name=Field() url=Field() title=Field() domain=Field() type=Field() content=Field()​ 3. 编写Spider 流程： - 先通过scrapy爬取`主页面`上的所有子分类链接， - 然后依次利用`PhantomJS`模拟点击`列表页面`的`加载更多`按钮，动态加载所有列表项，然后保存网页源码，抽取出其中的列表项的链接，进入`详情页面` 此两过程的代码都在`parse(self,response)`方法中 - 通过`parse_detailed_remark(self,response)`方法，解析出需要的内容 【注】目前版本爬取`主页面`上不同的主类需要手动改动`baseDir`与`self.start_urls` ```python import os import stat import scrapy import time from selenium import webdriver from scrapy.selector import Selector from scrapy.http import HtmlResponse from messageBoardSpider.items import MessageboardspiderItem baseDir = '/home/t/dataset/msgBoard/department/' #爬取不同主分类，需要手动改动 baseUrl='http://liuyan.cjn.cn' global subclass_name global brower class DistrictSpider(scrapy.Spider): name='spider' def __init__(self): global brower self.start_urls=['http://liuyan.cjn.cn/forum/list?fid=4'] #爬取不同主分类，需要手动改动 brower=webdriver.PhantomJS() #创建PhantomJS浏览器 def parse(self,response): global brower global subclass_name subclasses=response.xpath('/html/body/div[7]/ul/li/b/a') #解析出所有子分类 for subclass in subclasses: #逐条解析子分类 subclass_name=subclass.xpath('text()').extract() #解析 #make district directory self.mkdirs(baseDir+subclass_name[0]) #extrat new link link=subclass.xpath('@href').extract() #解析出子类的链接 #joint link link=str(baseUrl+link[0].split('..')[1]) #拼接链接 brower.get(link) #利用PhantomJS打开链接 #进行动态解析，直到没有'加载更多'按钮之后停止 while True: try: more=brower.find_element_by_id('show_more') #找到'加载更多'按钮 time.sleep(0.5) more.click() time.sleep(0.5) except: with open(baseDir+subclass_name[0]+'/web_page.txt','w',encoding='utf-8') as f: f.write(brower.page_source) print('ending') break #对加载完后的源码进行解析，解析出列表标题 items=brower.find_elements_by_xpath('//*[@id="list_content"]/li/h2/b/a') for item in items: #解析出列表标题链接 title_link=item.get_attribute('href') print(title_link+'.........') yield scrapy.Request(url=title_link,callback=self.parse_detailed_remark) #解析详情页面 def parse_detailed_remark(self,response): global subclass_name item=MessageboardspiderItem() item['dir_name']=subclass_name[0] item['url']=response.url item['title']=response.xpath('/html/body/div[6]/h2/b/text()').extract() item['domain']=response.xpath('/html/body/div[6]/h3/em[1]/a/text()').extract() item['type']=response.xpath('/html/body/div[6]/h3/em[2]/a/text()').extract() item['content']=response.xpath('//*[@id="zoom"]/text()').extract() yield item def mkdirs(self,path): if not os.path.exists(path): os.makedirs(path) os.chmod(path,stat.S_IRWXU|stat.S_IRWXG|stat.S_IRWXO) 编辑pipelines.py文件 import jsonimport codecsbaseDir = '/home/t/dataset/msgBoard/department/'class DistrictPipeline(object): def process_item(self, item, spider): with codecs.open(baseDir+item['dir_name']+'/data.json','a+',encoding='utf-8') as f: self.file=f line=json.dumps(dict(item),ensure_ascii=False)+'\n' self.file.write(line) return item 编辑settings.py文件 编辑pipelines的设置，把如下内容的注释去掉即可 #ITEM_PIPELINES = &#123;# 'messageBoardSpider.pipelines.DistrictPipeline': 300,#&#125; 运行爬虫 在项目根目录下新建一个main.py文件，运行爬虫执行该文件即可。 from scrapy.cmdline import executeexecute(['scrapy','crawl','spider']) 【注】execute([&#39;scrapy&#39;,&#39;crawl&#39;,&#39;spider&#39;]) 其中spider是爬虫名，按需更改即可。]]></content>
@@ -313,6 +300,19 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Virtualbox 下LVS-NAT模式集群部署]]></title>
+    <url>%2Flinux-lvs%2F</url>
+    <content type="text"><![CDATA[系统架构 虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR 【注】所有连接方式都采用桥接方式 主机 IP 角色 Client 192.168.33.145 客户机，用来访问网页 VS 192.168.33.150 VIP，Virtual Ip对外提供的IP VS 192.168.33.149 DIP，Director IP RS1 192.168.33.148 Real Server IP，安装Nginx RS2 192.168.33.147 Real Server IP，安装Nginx 客户机配置桥接IP设置 打开网络与共享中心 点击更改适配器设置 选择客户机（即物理机）网卡 4.打开属性，设置IPV4地址 虚拟机环境配置1.网卡模式设置【注】所有Virtual Box虚拟机网络设置都要设置为桥接方式 打开控制-&gt;设置-&gt;网络 连接方式选择桥接网卡，高级-&gt;混杂模式选全部允许 2.sudo命令配置【注】以一台虚拟机为例，其余虚拟机与此类似 切换到root用户 su -1 添加/etc/sudoers文件写权限 chmod u+w /etc/sudoers1 编辑/etc/sudoers vim /etc/sudoers1 找到root ALL=(ALL) ALL在下面添加21751096_1 ALL=(ALL) ALL，并保存退出 4.撤销/etc/sudoers文件的写权限 bash chmod u-w /etc/sudoers Director配置1.安装ipvsadmsudo yum install -y ipvsadm1 2.建立一个虚拟IP地址进行广播sudo ifconfig enp0s3:0 192.168.33.150/24 3.将该虚拟机地址添加到路由表sudo route add -host 192.168.33.150 dev enp0s31 4.使用ipvsadm安装LVS服务sudo ipvsadm -At 192.168.33.150:80 -s rr1 5.增加真实服务器sudo ipvsadm -at 192.168.33.150:80 -r 192.168.33.148 -gsudo ipvsadm -at 192.168.33.150:80 -r 192.168.33.147 -g12 6.设置DirectorIPsudo ifconfig enp0s3 192.168.33.149/241 7.查看ifconfig设置sudo ifconfig1 所有设置如图 Real Server配置1.安装nginx服务【注】需要在21751096_2和21751096_3两台RealServer上安装nginx服务，以其中一台为例 使用yum安装nginx,需要安装nginx的库 cd /etc/yum.repos.d/nginx.reposudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm12 编辑nginx.repo文件 sudo vim /etc/yum.repos.d/nginx.reponame=nginx repobaseurl=http://nginx.org/packages/centos/7/x86_64/gpgcheck=0enabled=1123456 使用yum安装nginx sudo yum install nginx1 安装完成后启动nginx服务 sudo service nginx start1 修改index.html首页区分两个nginx服务器 sudo vim /usr/share/nginx/html/index.html1 修改内容如下 查看是否启动服务 curl -i localhost1 2.IP设置 切换到root账户 su -1 设置虚拟IP ifconfig lo:0 192.168.33.150/361 添加到路由表 route add -host 192.168.33.150 dev lo:01 设置IPV4转发 bash echo &quot;1&quot; &gt;/proc/sys/net/ipv4/ip_forward 设置RS1的IP ifconfig enp0s3 192.168.33.148/241 查看ifconfig设置 ifconfig1 全部设置如图所示 运行测试在浏览器中输入192.168.33.150 第一次显示Real Sever 1的页面 刷新后显示Real Server 2的页面]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>VirtualBox</tag>
+        <tag>LVS</tag>
       </tags>
   </entry>
   <entry>
@@ -395,6 +395,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Windows下Git 2.15.0安装、配置]]></title>
+    <url>%2Fwindows-git%2F</url>
+    <content type="text"><![CDATA[安装下载链接:http://git-scm.com/download 安装 配置 用户名和邮箱地址的作用：用户名和邮箱地址是本地Git客户端的一个变量，不随Git库而改变。每次Commit都会用用户名和邮箱地址记录。 git config --global user.name "xxxx"git config --global user.email "xxxx"]]></content>
+      <categories>
+        <category>工具教程</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Intellij Idea 码云教程]]></title>
     <url>%2Fintellij-mayun%2F</url>
     <content type="text"><![CDATA[1.点击导航栏 VCS -&gt; Import into Version Control -&gt; 托管项目到码云 2.输入码云帐号密码，点击login。 3.勾选private，点击托管按钮。 4.点击OK。 5.在项目上右键 -&gt;Git -&gt;Commit Directory 6.填写Commit Message（养成良好编码习惯），点击Commit按钮 如果没有定义Git的用户名，点击Commit会弹出此弹窗，输入 name和email 点击 Set and Commit即可。 8.项目右键 -&gt; Git -&gt; Repository -&gt; Push 9.点击Push。 10.登录码云查看。到此，项目上传码云成功！~ 注意：（private勾选后项目并未成为私有项目，需要到码云网页上进行私有设置）]]></content>
@@ -404,17 +415,6 @@
       <tags>
         <tag>Intellij</tag>
         <tag>码云</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Windows下Git 2.15.0安装、配置]]></title>
-    <url>%2Fwindows-git%2F</url>
-    <content type="text"><![CDATA[安装下载链接:http://git-scm.com/download 安装 配置 用户名和邮箱地址的作用：用户名和邮箱地址是本地Git客户端的一个变量，不随Git库而改变。每次Commit都会用用户名和邮箱地址记录。 git config --global user.name "xxxx"git config --global user.email "xxxx"]]></content>
-      <categories>
-        <category>工具教程</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -476,17 +476,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Could not get lock /var/lib/dpkg/lock - open 解决方法]]></title>
-    <url>%2Flinux-lock%2F</url>
-    <content type="text"><![CDATA[出现此问题的原因是另外一个线程使用apt-get下载，结束现场呢个即可。1.搜索所有的线程ps -A | grep apt-get得到如图所示结果 结束线程数字就是线程号，结束线程即可sudo kill 1358]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Ubuntu下pip3的安装、升级、卸载]]></title>
     <url>%2Fubuntu-pip3%2F</url>
     <content type="text"><![CDATA[安装sudo apt-get install python3-pip 升级sudo pip3 install --upgrade pip 卸载sudo apt-get remove python3-pip]]></content>
@@ -496,6 +485,17 @@
       <tags>
         <tag>Linux</tag>
         <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Could not get lock /var/lib/dpkg/lock - open 解决方法]]></title>
+    <url>%2Flinux-lock%2F</url>
+    <content type="text"><![CDATA[出现此问题的原因是另外一个线程使用apt-get下载，结束现场呢个即可。1.搜索所有的线程ps -A | grep apt-get得到如图所示结果 结束线程数字就是线程号，结束线程即可sudo kill 1358]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -545,17 +545,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Windows上自动设置java环境变量的脚本]]></title>
-    <url>%2Fwindows-java-script%2F</url>
-    <content type="text"><![CDATA[代码这里默认设置了java jdk的安装路径为C:\Program Files\Java\jdk1.7.0_71，如果你的jdk安装路径不在此，可在执行此命令的时候，会有提示输入jdk安装路径，输入即可。 首先粘贴命令如下： 下载地址 @echo off:: TODO:设置java环境变量:: Author: Gwtcolor 02::设置java的安装路径，可方便切换不同的版本set input=set /p "input=请输入java的jdk路径（或回车默认路径为C:\Program Files\Java\jdk1.7.0_71）:"if defined input (echo jdk已设置) else (set input=C:\Program Files\Java\jdk1.7.0_71)echo jdk路径为%input%set javaPath=%input%::如果有的话，先删除JAVA_HOMEwmic ENVIRONMENT where "name='JAVA_HOME'" delete::如果有的话，先删除ClASS_PATH wmic ENVIRONMENT where "name='CLASS_PATH'" delete::创建JAVA_HOMEwmic ENVIRONMENT create name="JAVA_HOME",username="&lt;system&gt;",VariableValue="%javaPath%"::创建CLASS_PATHwmic ENVIRONMENT create name="CLASS_PATH",username="&lt;system&gt;",VariableValue=".;%%JAVA_HOME%%\lib\tools.jar;%%JAVA_HOME%%\lib\dt.jar;"::在环境变量path中，剔除掉变量java_home中的字符，回显剩下的字符串call set xx=%Path%;%JAVA_HOME%\jre\bin;%JAVA_HOME%\bin::echo %xx%::将返回显的字符重新赋值到path中wmic ENVIRONMENT where "name='Path' and username='&lt;system&gt;'" set VariableValue="%xx%"pause 解释下面就解释下命令 @echo off 是关闭回显的，不会显示命令信息 on打开会显示命令信息 color 02是设置输出文本颜色的，这里是控制命令台输出绿颜色 set /p “input=请输入命令信息” 是用来接收控制台输入的文本信息的 if else 是用来做判断 if defined input 是用来判断用户是否输入信息，回车的话，则表示未定义input的值 echo “输出信息” 是用来显示信息的 set javaPath=%input% 是用来吧变量input的值赋值给javaPath变量的 wmic 是提供了批处理的命令，可以方便的操作环境变量值 删除某一环境变量 就使用 wmic ENVIRONMENT where “name=’JAVA_HOME’” delete命令 创建某一环境变量 使用 wmic ENVIRONMENT create name=”JAVA_HOME”,username=”“,VariableValue=”%javaPath%”命令 修改某一环境变量 使用 wmic ENVIRONMENT where “name=’Path’ and username=’‘“ set VariableValue=”value” 注意事项 在上述批处理脚本命令中，要严格注意空格和大小写等的输入，不然执行不成功的 要以管理员方式运行命令，不然提示拒绝执行命令的提示]]></content>
-      <categories>
-        <category>运维技术</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Notepad++中代码格式化插件NppAStyle]]></title>
     <url>%2Fnotepad-nppastyle%2F</url>
     <content type="text"><![CDATA[工具/原料 Windows7 Notepad++ NppAStyle(Notepad++的一个插件) 方法/步骤 直接在插件扩展中安装 下载Notepad++并安装NppExec插件。 插件—&gt;Plugin Manager—&gt;show Plugin Manager—&gt;安装NppAStyle插件。 自己下载dll插件 或者直接下载NppAStyle插件。登录NppAStyle网站下载，网址： http://sourceforge.net/projects/nppastyle/files/ 我们选择下载NppAStyle_bin_0.10.02.14.zip这个文件。 ​ 解压 下载后我们打开这个压缩文件，发现有两个文件夹ansi和unicode(ansi是标准编码，支持语言少；unicode是通用编码，支持更多的语言)。 打开unicode文件夹，将里面的NppAStyle.dll解压出来，将NppAStyle.dll放置到Notepad++安装目录下的plugins文件夹下。 ​ 重启Notepad++看NppAStyle是否安装成功，看到如图所示的信息就说明安装成功。 ​ 配置NppAStyle。 点击菜单栏中的”插件”—&gt;”NppAStyle”—&gt;”options”，在代码风格中选择java。 ​ 点击菜单栏中的”插件”—&gt;”NppAStyle”—&gt;”Format code”（或者按快捷键Alt+f），欣赏格式化后的代码风格。 ​ ​ 体验不同的代码风格并选择自己中意的某种代码风格。 重复第4步骤，例如将代码风格选中ANSI，按下快捷键Alt+f，欣赏格式化后的代码风格，并与第5步骤中格式化后的代码风格相比较。 ​ ​ 特别要注意：目前NppAStyle插件只支持格式化C、C++、C#、Java这四种编程语言的代码。]]></content>
@@ -564,6 +553,17 @@
       </categories>
       <tags>
         <tag>Notepad++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Windows上自动设置java环境变量的脚本]]></title>
+    <url>%2Fwindows-java-script%2F</url>
+    <content type="text"><![CDATA[代码这里默认设置了java jdk的安装路径为C:\Program Files\Java\jdk1.7.0_71，如果你的jdk安装路径不在此，可在执行此命令的时候，会有提示输入jdk安装路径，输入即可。 首先粘贴命令如下： 下载地址 @echo off:: TODO:设置java环境变量:: Author: Gwtcolor 02::设置java的安装路径，可方便切换不同的版本set input=set /p "input=请输入java的jdk路径（或回车默认路径为C:\Program Files\Java\jdk1.7.0_71）:"if defined input (echo jdk已设置) else (set input=C:\Program Files\Java\jdk1.7.0_71)echo jdk路径为%input%set javaPath=%input%::如果有的话，先删除JAVA_HOMEwmic ENVIRONMENT where "name='JAVA_HOME'" delete::如果有的话，先删除ClASS_PATH wmic ENVIRONMENT where "name='CLASS_PATH'" delete::创建JAVA_HOMEwmic ENVIRONMENT create name="JAVA_HOME",username="&lt;system&gt;",VariableValue="%javaPath%"::创建CLASS_PATHwmic ENVIRONMENT create name="CLASS_PATH",username="&lt;system&gt;",VariableValue=".;%%JAVA_HOME%%\lib\tools.jar;%%JAVA_HOME%%\lib\dt.jar;"::在环境变量path中，剔除掉变量java_home中的字符，回显剩下的字符串call set xx=%Path%;%JAVA_HOME%\jre\bin;%JAVA_HOME%\bin::echo %xx%::将返回显的字符重新赋值到path中wmic ENVIRONMENT where "name='Path' and username='&lt;system&gt;'" set VariableValue="%xx%"pause 解释下面就解释下命令 @echo off 是关闭回显的，不会显示命令信息 on打开会显示命令信息 color 02是设置输出文本颜色的，这里是控制命令台输出绿颜色 set /p “input=请输入命令信息” 是用来接收控制台输入的文本信息的 if else 是用来做判断 if defined input 是用来判断用户是否输入信息，回车的话，则表示未定义input的值 echo “输出信息” 是用来显示信息的 set javaPath=%input% 是用来吧变量input的值赋值给javaPath变量的 wmic 是提供了批处理的命令，可以方便的操作环境变量值 删除某一环境变量 就使用 wmic ENVIRONMENT where “name=’JAVA_HOME’” delete命令 创建某一环境变量 使用 wmic ENVIRONMENT create name=”JAVA_HOME”,username=”“,VariableValue=”%javaPath%”命令 修改某一环境变量 使用 wmic ENVIRONMENT where “name=’Path’ and username=’‘“ set VariableValue=”value” 注意事项 在上述批处理脚本命令中，要严格注意空格和大小写等的输入，不然执行不成功的 要以管理员方式运行命令，不然提示拒绝执行命令的提示]]></content>
+      <categories>
+        <category>运维技术</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -615,6 +615,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[VirtualBox Ubuntu 16.04安装Tensorflow]]></title>
+    <url>%2Ftensorflow-ubuntu-install%2F</url>
+    <content type="text"><![CDATA[1.安装python-pip和python-devsudo apt-get install python-pip python-dev2.安装Tensroflow sudo pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.8.0-cp27-none-linux_x86_64.whl 【注】如果有错误，可以尝试使用上述命令重新安装 3.安装完成。出现以下界面表示安装完成。 测试 $ python&gt;&gt;&gt;import tensorflow as tf&gt;&gt;&gt;hello=tf.constant('hello')&gt;&gt;&gt;sess=tf.Session()&gt;&gt;&gt;print(sess.run(hello))hello&gt;&gt;&gt;a=tf.constant(10)&gt;&gt;&gt;b=tf.constant(32)&gt;&gt;&gt;print(sess.run(a+b))4212345678910 5.安装IDE安装的IDE为Komodo Edit链接：http://komodoide.com/download/edit-linux64/#解压缩后界面如下：安装步骤： 进入到该文件解压缩的文件夹中 运行./install.sh,界面如下：]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>VirtualBox</tag>
+        <tag>Ubuntu</tag>
+        <tag>Tensorflow</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Win10利用DiskGenius重建分区表]]></title>
     <url>%2Fwin10-diskgenius-partition%2F</url>
     <content type="text"><![CDATA[安装DiskGenius 工具--&gt;搜索已丢失的分区界面如下： 开始搜索后，如果找到一个分区，会提示你忽略还是保留。【注】搜索到的第一个结果一般是系统盘C盘，这个结果需要忽略，否则后面无法找到其他分区。后面搜索到的分区需要确认其中是否为你原来分区中保存的文件之后才选择保留。 搜索完成后，点击硬盘--&gt;保存分区表.win10系统保存为GUID格式。]]></content>
@@ -635,19 +648,6 @@
       </categories>
       <tags>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[VirtualBox Ubuntu 16.04安装Tensorflow]]></title>
-    <url>%2Ftensorflow-ubuntu-install%2F</url>
-    <content type="text"><![CDATA[1.安装python-pip和python-devsudo apt-get install python-pip python-dev2.安装Tensroflow sudo pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.8.0-cp27-none-linux_x86_64.whl 【注】如果有错误，可以尝试使用上述命令重新安装 3.安装完成。出现以下界面表示安装完成。 测试 $ python&gt;&gt;&gt;import tensorflow as tf&gt;&gt;&gt;hello=tf.constant('hello')&gt;&gt;&gt;sess=tf.Session()&gt;&gt;&gt;print(sess.run(hello))hello&gt;&gt;&gt;a=tf.constant(10)&gt;&gt;&gt;b=tf.constant(32)&gt;&gt;&gt;print(sess.run(a+b))4212345678910 5.安装IDE安装的IDE为Komodo Edit链接：http://komodoide.com/download/edit-linux64/#解压缩后界面如下：安装步骤： 进入到该文件解压缩的文件夹中 运行./install.sh,界面如下：]]></content>
-      <categories>
-        <category>深度学习</category>
-      </categories>
-      <tags>
-        <tag>VirtualBox</tag>
-        <tag>Ubuntu</tag>
-        <tag>Tensorflow</tag>
       </tags>
   </entry>
   <entry>
@@ -771,8 +771,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>C</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
