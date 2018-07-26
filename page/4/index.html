@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -115,7 +115,7 @@
 
   <link rel="canonical" href="https://tianwenyu.github.io/page/4/"/>
 
-  <title> Wenyu's Blog </title>
+  <title> Wenyu's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -129,7 +129,7 @@
 
 
 
-  <div style="display: none;">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div style="display: none;">
     <script src="//s6.cnzz.com/stat.php?id=1271854965&web_id=1271854965" type="text/javascript"></script>
   </div>
 
@@ -395,8 +395,8 @@
             
               
                 
-                <a class="post-title-link" href="/notepad-nppastyle/" itemprop="url">
-                  Notepad++中代码格式化插件NppAStyle
+                <a class="post-title-link" href="/notepad-plugin-error/" itemprop="url">
+                  Notepad++没有插件管理器(Plugin Manager)的原因以及解决方法
                 </a>
               
             
@@ -457,14 +457,9 @@
 
       
         
-          <h2 id="工具-原料"><a href="#工具-原料" class="headerlink" title="工具/原料"></a>工具/原料</h2><ul>
-<li><p>Windows7</p>
-</li>
-<li><p>Notepad++</p>
-</li>
-<li><p>NppAStyle(Notepad++的一个插件)</p>
+          <p>今天想下几个notepad++的插件玩玩，结果发现根本就没有插件管理器。<br><img src="http://img.blog.csdn.net/20161214091214902?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhcWlhbmdiYW5kb25nZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="问题"></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/notepad-nppastyle/" rel="contents">
+            <a class="btn" href="/notepad-plugin-error/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -631,8 +626,8 @@
             
               
                 
-                <a class="post-title-link" href="/notepad-plugin-error/" itemprop="url">
-                  Notepad++没有插件管理器(Plugin Manager)的原因以及解决方法
+                <a class="post-title-link" href="/notepad-nppastyle/" itemprop="url">
+                  Notepad++中代码格式化插件NppAStyle
                 </a>
               
             
@@ -693,9 +688,14 @@
 
       
         
-          <p>今天想下几个notepad++的插件玩玩，结果发现根本就没有插件管理器。<br><img src="http://img.blog.csdn.net/20161214091214902?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamlhcWlhbmdiYW5kb25nZw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="问题"></p>
+          <h2 id="工具-原料"><a href="#工具-原料" class="headerlink" title="工具/原料"></a>工具/原料</h2><ul>
+<li><p>Windows7</p>
+</li>
+<li><p>Notepad++</p>
+</li>
+<li><p>NppAStyle(Notepad++的一个插件)</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/notepad-plugin-error/" rel="contents">
+            <a class="btn" href="/notepad-nppastyle/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1369,123 +1369,6 @@
             
               
                 
-                <a class="post-title-link" href="/tensorflow-ubuntu-install/" itemprop="url">
-                  VirtualBox Ubuntu 16.04安装Tensorflow
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-10-13T20:29:30+08:00" content="2017-10-13">
-              2017-10-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          <!-- 
-            
-           -->
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>1.安装<code>python-pip</code>和<code>python-dev</code><br><code>sudo apt-get install python-pip python-dev</code><br>2.安装<code>Tensroflow</code> </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.8.0-cp27-none-linux_x86_64.whl</span><br></pre></td></tr></table></figure>
-<p>【注】如果有错误，可以尝试使用上述命令重新安装 </p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/tensorflow-ubuntu-install/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/hdware-dynamic2basic/" itemprop="url">
                   安全的将动态磁盘转为基本磁盘
                 </a>
@@ -1554,6 +1437,123 @@
 <p>右键选中移动硬盘的根节点，注意，不是单独的分区，也不是动态磁盘根节点，是移动硬盘根节点。<br>点菜单栏第二个</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/hdware-dynamic2basic/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/tensorflow-ubuntu-install/" itemprop="url">
+                  VirtualBox Ubuntu 16.04安装Tensorflow
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-10-13T20:29:30+08:00" content="2017-10-13">
+              2017-10-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <!-- 
+            
+           -->
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1.安装<code>python-pip</code>和<code>python-dev</code><br><code>sudo apt-get install python-pip python-dev</code><br>2.安装<code>Tensroflow</code> </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.8.0-cp27-none-linux_x86_64.whl</span><br></pre></td></tr></table></figure>
+<p>【注】如果有错误，可以尝试使用上述命令重新安装 </p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/tensorflow-ubuntu-install/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2502,7 +2502,7 @@
 
   
 <script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 </body>
