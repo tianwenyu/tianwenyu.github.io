@@ -384,22 +384,22 @@
 <p><code>[root@lnboxue ~]# yum install nginx</code></p>
 <p><img src="http://img.blog.csdn.net/20170708095110446?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbG5ib3h1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="图3"></p>
 <p><img src="http://img.blog.csdn.net/20170708095211782?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbG5ib3h1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="图4"></p>
-<ol start="3">
+<ol>
 <li>可以使用两种方法启动nginx服务</li>
 </ol>
 <p><code>[root@lnboxue ~]# service nginx start</code></p>
 <p>或</p>
 <p><code>[root@lnboxue ~]# systemctl start nginx</code></p>
-<ol start="4">
+<ol>
 <li>查看nginx服务是否已经启动</li>
 </ol>
 <p><code>[root@lnboxue ~]# netstat -ntl</code></p>
 <p><img src="http://img.blog.csdn.net/20170708095354350?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbG5ib3h1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="图5"></p>
-<ol start="5">
+<ol>
 <li>查看nginx版本</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@lnboxue ~]<span class="comment"># nginx -v</span></span><br><span class="line">nginx version: nginx/1.12.0</span><br></pre></td></tr></table></figure>
-<ol start="6">
+<ol>
 <li><p>本地测试nginx服务</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@lnboxue ~]<span class="comment"># curl -i localhost</span></span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Server: nginx/1.12.0</span><br><span class="line">Date: Tue, 04 Jul 2017 05:27:07 GMT</span><br><span class="line">Content-Type: text/html</span><br><span class="line">Content-Length: 612</span><br><span class="line">Last-Modified: Wed, 12 Apr 2017 15:23:46 GMT</span><br><span class="line">…………</span><br><span class="line">…………</span><br><span class="line">&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;</span><br><span class="line">&lt;p&gt;If you see this page, the nginx web server is successfully installed and</span><br><span class="line">working. Further configuration is required.&lt;/p&gt;</span><br><span class="line">&lt;p&gt;For online documentation and support please refer to</span><br><span class="line">nginx.org.&lt;br/&gt;</span><br><span class="line">Commercial support is available at</span><br><span class="line">nginx.com.&lt;/p&gt;</span><br><span class="line">&lt;p&gt;&lt;em&gt;Thank you <span class="keyword">for</span> using nginx.&lt;/em&gt;&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <p>看到以上信息，说明你的nginx服务已安装成功！</p>
@@ -447,8 +447,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/text-classification/" rel="prev" title="【评论文本分类】1.爬取评论数据">
-                【评论文本分类】1.爬取评论数据 <i class="fa fa-chevron-right"></i>
+              <a href="/hexo-indigo/" rel="prev" title="Hexo之Indigo主题配置">
+                Hexo之Indigo主题配置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

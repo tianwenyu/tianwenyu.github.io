@@ -366,7 +366,9 @@
 <p>运行结果：</p>
 <p><img src="http://img.blog.csdn.net/20160607110950217?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
 <h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>①②③比较好理解，一般不会出错。④⑤就有点糊涂了，为什么输出的不是”B and B”呢？</p>
- <font color="#0099ff">当超类对象引用变量引用子类对象时，被引用对象的类型而不是引用变量的类型决定了调用谁的成员方法，但是这个被调用的方法必须是在超类中定义过的，也就是说被子类覆盖的方法。</font>（但是如果强制把超类转换成子类的话，就可以调用子类中新添加而超类没有的方法了。）<br><br><font color="#0099ff"> 在继承链中对象方法的调用存在一个优先级：this.show(O)、super.show(O)、this.show((super)O)、super.show((super)O)。</font>
+ <font color="#0099ff">当超类对象引用变量引用子类对象时，被引用对象的类型而不是引用变量的类型决定了调用谁的成员方法，但是这个被调用的方法必须是在超类中定义过的，也就是说被子类覆盖的方法。</font>（但是如果强制把超类转换成子类的话，就可以调用子类中新添加而超类没有的方法了。）
+
+<font color="#0099ff"> 在继承链中对象方法的调用存在一个优先级：this.show(O)、super.show(O)、this.show((super)O)、super.show((super)O)。</font>
 
 <p>上面程序中的A,B,C,D存在如下关系：</p>
 <p><img src="http://img.blog.csdn.net/20160607112132795?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>

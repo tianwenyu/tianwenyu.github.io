@@ -366,6 +366,7 @@
 <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2></li>
 <li>Lua是动态类型语言，变量不需要类型定义，只需为变量赋值</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -408,6 +409,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="nil"><a href="#nil" class="headerlink" title="nil"></a>nil</h3><ul>
 <li>nil类型表示一种没有任何有效值,它只有一个值”nil”</li>
 <li>对于全局变量和table,nil的另外一个作用为删除，给全局变量或table表里的变量赋值nil,等于把它们删掉<h3 id="boolean"><a href="#boolean" class="headerlink" title="boolean"></a>boolean</h3></li>
@@ -583,7 +585,8 @@
 <li><code>..</code> 连接两个字符串</li>
 <li><code>#</code>  返回字符串或table 的长度 </li>
 </ul>
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><table>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>函数</th>
@@ -638,6 +641,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="table-1"><a href="#table-1" class="headerlink" title="table"></a>table</h2><ul>
 <li><p>table 使用关联型数组，你可以用任意类型的值来作数组的索引，但这个值不能是 nil。</p>
 </li>
@@ -656,7 +660,8 @@
 </li>
 </ul>
 <figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">tab=&#123;x=<span class="number">10</span>, y=<span class="number">45</span>; <span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="常用操作-1"><a href="#常用操作-1" class="headerlink" title="常用操作"></a>常用操作</h3><table>
+<h3 id="常用操作-1"><a href="#常用操作-1" class="headerlink" title="常用操作"></a>常用操作</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>函数</th>
@@ -686,6 +691,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="模块与包"><a href="#模块与包" class="headerlink" title="模块与包"></a>模块与包</h2><h3 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h3><ul>
 <li>模块类似于一个封装库，从 Lua 5.1 开始，Lua 加入了标准的模块管理机制，可以把一些公用的代码放在一个文件里，以 API 接口的形式在其他地方调用，有利于代码的重用和降低代码耦合度。</li>
 <li>Lua 的模块是由变量、函数等已知元素组成的 table，因此创建一个模块很简单，就是创建一个 table，然后把需要导出的常量、函数放入其中，最后返回这个 table 就行。<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="comment">--定义一个名为module的模块</span></span><br><span class="line">module=&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">--定义一个常量</span></span><br><span class="line">module.constant=<span class="string">'这是一个常量'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--定义一个函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">module.func1</span><span class="params">()</span></span></span><br><span class="line">	<span class="built_in">io</span>.<span class="built_in">write</span>(<span class="string">'这是一个公有函数'</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">local</span> funtion func2()</span><br><span class="line">	<span class="built_in">print</span>(<span class="string">'这是一个私有函数'</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">module.func3</span><span class="params">()</span></span></span><br><span class="line">	func2()</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> module</span><br></pre></td></tr></table></figure>
@@ -733,7 +739,7 @@
 <h2 id="协同程序-coroutine"><a href="#协同程序-coroutine" class="headerlink" title="协同程序(coroutine)"></a>协同程序(coroutine)</h2><h3 id="什么是coroutine"><a href="#什么是coroutine" class="headerlink" title="什么是coroutine?"></a>什么是coroutine?</h3><p>coroutine与线程类似，拥有独立的堆栈，独立的局部变量，独立的指令指针，同时又与其它协同程序共享全局变量和其它大部分东西。</p>
 <h3 id="coroutine与线程区别"><a href="#coroutine与线程区别" class="headerlink" title="coroutine与线程区别"></a>coroutine与线程区别</h3><ul>
 <li>一个具有多线程的可以同时运行几个线程，coroutine则需要彼此协作运行</li>
-<li>在任一指定时刻只有一个协同程序在运行，并且这个正在运行的协同程序只有在明确的被要求挂起的时候才会被挂起。<h3 id="常用操作-2"><a href="#常用操作-2" class="headerlink" title="常用操作"></a>常用操作</h3>函数|描述|<br>—|—|<br>coroutine.create()|创建coroutine,返回coroutine|<br>coroutine.resume()|重启coroutine|<br>coroutine.yield()|挂起coroutine|<br>coroutine.statues()|查看coroutine的状态，有三种：dead，suspend，running|<br>coroutine.wrap()|创建corountine，返回一个函数，一旦调用这个函数，进入coroutine，和create功能重复|<br>corountine.running()|返回正在运行的coroutine，一个coroutine是一个线程，当使用running时，返回一个coroutine的线程号|</li>
+<li>在任一指定时刻只有一个协同程序在运行，并且这个正在运行的协同程序只有在明确的被要求挂起的时候才会被挂起。<h3 id="常用操作-2"><a href="#常用操作-2" class="headerlink" title="常用操作"></a>常用操作</h3>函数|描述|<br>—-|—-|<br>coroutine.create()|创建coroutine,返回coroutine|<br>coroutine.resume()|重启coroutine|<br>coroutine.yield()|挂起coroutine|<br>coroutine.statues()|查看coroutine的状态，有三种：dead，suspend，running|<br>coroutine.wrap()|创建corountine，返回一个函数，一旦调用这个函数，进入coroutine，和create功能重复|<br>corountine.running()|返回正在运行的coroutine，一个coroutine是一个线程，当使用running时，返回一个coroutine的线程号|</li>
 </ul>
 
         

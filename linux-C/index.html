@@ -365,7 +365,8 @@
 
       
         <h2 id="gcc编译器"><a href="#gcc编译器" class="headerlink" title="gcc编译器"></a>gcc编译器</h2><h3 id="gcc编译流程"><a href="#gcc编译流程" class="headerlink" title="gcc编译流程"></a>gcc编译流程</h3><p><img src="https://dn-anything-about-doc.qbox.me/userid46108labid116time1432263084521?watermark/1/image/aHR0cDovL3N5bC1zdGF0aWMucWluaXVkbi5jb20vaW1nL3dhdGVybWFyay5wbmc=/dissolve/60/gravity/SouthEast/dx/0/dy/10" alt="编译流程"><br>【Tips】<br>* Linux的可执行文件没有Windows那么明显的<code>.exe</code>扩展名，只需向其分配<code>x</code>权限即可。<br><code>sudo chmod u+x filename</code><br>* gcc可以在编译的任何阶段结束，以便检查或使用该阶段的输出。<br><a id="more"></a></p>
-<h3 id="gcc支持编译的扩展名"><a href="#gcc支持编译的扩展名" class="headerlink" title="gcc支持编译的扩展名"></a>gcc支持编译的扩展名</h3><table>
+<h3 id="gcc支持编译的扩展名"><a href="#gcc支持编译的扩展名" class="headerlink" title="gcc支持编译的扩展名"></a>gcc支持编译的扩展名</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>扩展名</th>
@@ -411,7 +412,9 @@
 </tr>
 </tbody>
 </table>
-<h3 id="gcc参数"><a href="#gcc参数" class="headerlink" title="gcc参数"></a>gcc参数</h3><table>
+</div>
+<h3 id="gcc参数"><a href="#gcc参数" class="headerlink" title="gcc参数"></a>gcc参数</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>参数</th>
@@ -433,6 +436,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><h5 id="无参数编译"><a href="#无参数编译" class="headerlink" title="无参数编译"></a>无参数编译</h5><p><code>gcc a.c</code><br>将<code>a.c</code>预处理、汇编、编译、链接成可执行文件。未指定输出则默认<code>a.out</code></p>
 <h5 id="指定输出的文件"><a href="#指定输出的文件" class="headerlink" title="指定输出的文件"></a>指定输出的文件</h5><p><code>gcc a.c -o do</code><br>指定<code>a.c</code>输出为<code>do</code>可执行文件<br><code>gcc a.c -o /tmp/do</code><br>指定输出为<code>/tmp</code>目录下的<code>do</code>文件</p>
 <h5 id="多源文件的编译"><a href="#多源文件的编译" class="headerlink" title="多源文件的编译"></a>多源文件的编译</h5><ul>

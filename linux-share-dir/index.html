@@ -377,19 +377,19 @@
 </li>
 </ol>
 <p><code>sudo mkdir /mnt/shared</code> </p>
-<ol start="6">
+<ol>
 <li>挂载共享文件夹，这里的<code>share</code>就是上面步骤4中的共享文件夹名称<code>share</code> </li>
 </ol>
 <p><code>sudo mount -t vboxsf share /mnt/shared</code> </p>
-<ol start="7">
+<ol>
 <li>设置自动挂载，可以在<code>/etc/fstab</code>中添加一项 </li>
 </ol>
 <p><code>sudo vim /etc/fstab</code><br><code>share /mnt/shared vboxsf rw,gid=110,uid=1100,auto 0 0</code> </p>
-<ol start="8">
+<ol>
 <li>卸载挂载点命令 </li>
 </ol>
 <p><code>sudo umount -f /mnt/shared</code></p>
-<ol start="9">
+<ol>
 <li>共享文件可以在<code>/mnt/shared</code>中查看</li>
 </ol>
 

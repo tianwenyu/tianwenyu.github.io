@@ -406,7 +406,7 @@
 <p><img src="https://pic3.zhimg.com/80/v2-56ad976ad61547379fda615ab5d1e48a_hd.jpg" alt=""></p>
 <p>这里的attention权重$a_{kj}$表示hypothesis中第k个词和premise中第j个词之间的关系。</p>
 <p><img src="https://pic1.zhimg.com/80/v2-93d0014aa6014648937ebc8178dc116c_hd.jpg" alt=""></p>
-<p>$h_j^s$ 是premise的隐层输出，$h_k^t$ 是hypothesis的隐层输出，$h_{k-1}^a$ 是将输入一个RNN之后得到的隐层状态。</p>
+<p>$h<em>j^s$ 是premise的隐层输出，$h_k^t$ 是hypothesis的隐层输出，$h</em>{k-1}^a$ 是将输入一个RNN之后得到的隐层状态。</p>
 <p><img src="https://pic3.zhimg.com/80/v2-50376b2b9618bd48be0f0a3cf30a85bc_hd.jpg" alt=""></p>
 </li>
 <li><p>最后利用$h_N^a$和$h_N^t$来预测label：<code>y</code>，即判断premise和hypothesis之间的关系。</p>
@@ -447,7 +447,7 @@
 <li>用match-LSTM对question和passage进行match。</li>
 <li>利用Pointer Net从passage中选择tokens作为答案。</li>
 </ul>
-<p>两个模型的区别在于在于第三部分，由于pointer net没有限定所指向的位置必须是连续的，所以第一个模型sequence model直接将答案在passage中出现的位置序号作为答案序列$a=\left( a_{1} ,a_{2},… \right) $，第二个模型只预测答案的起始位置跟终止位置，即$a=\left(a_{s} ,a_{e} \right)$。</p>
+<p>两个模型的区别在于在于第三部分，由于pointer net没有限定所指向的位置必须是连续的，所以第一个模型sequence model直接将答案在passage中出现的位置序号作为答案序列$a=\left( a<em>{1} ,a</em>{2},… \right) $，第二个模型只预测答案的起始位置跟终止位置，即$a=\left(a<em>{s} ,a</em>{e} \right)$。</p>
 <h4 id="LSTM-Preprocessing-Layer"><a href="#LSTM-Preprocessing-Layer" class="headerlink" title="LSTM Preprocessing Layer"></a>LSTM Preprocessing Layer</h4><p>用单向LSTM对passage和question进行预处理。</p>
 <p><img src="https://pic1.zhimg.com/80/v2-271396c88c56d0ad43a7ad7d9640f0c3_hd.jpg" alt=""></p>
 <h4 id="Match-LSTM-Layer"><a href="#Match-LSTM-Layer" class="headerlink" title="Match-LSTM Layer"></a>Match-LSTM Layer</h4><p>这里将question当做premise，将passage当做hypothesis，用标准的word-by-word attention得到attention向量，具体公式如下：</p>
@@ -464,9 +464,9 @@
 <p>再从另一个方向进行相同的处理,将两者进行合并，得到最后的输出向量$H^{r} $</p>
 <p><img src="https://pic1.zhimg.com/80/v2-22189154aed842755d555b82574efd48_hd.jpg" alt=""></p>
 <h4 id="Answer-Pointer-Layer"><a href="#Answer-Pointer-Layer" class="headerlink" title="Answer Pointer Layer"></a>Answer Pointer Layer</h4><h5 id="The-Sequence-Model"><a href="#The-Sequence-Model" class="headerlink" title="The Sequence Model"></a>The Sequence Model</h5><ul>
-<li><p>由于这个模型是生成答案的位置序列$a=(a_{1} ,a_{2},…)$，每个元素表示的是这个词在passage中位置，其取值范围在1到P+1之间，当出现了P+1时，则答案生成终止。因此在$H^{r}$的最后中加入了一列0向量，用来表示终止词，得到$\bar{H} ^{r} $。</p>
+<li><p>由于这个模型是生成答案的位置序列$a=(a<em>{1} ,a</em>{2},…)$，每个元素表示的是这个词在passage中位置，其取值范围在1到P+1之间，当出现了P+1时，则答案生成终止。因此在$H^{r}$的最后中加入了一列0向量，用来表示终止词，得到$\bar{H} ^{r} $。</p>
 </li>
-<li><p>这里再次用到了attention方法去得到向量$\beta_k \in R^{(P+1)}$,$\beta_{k,j}$表示选择passage中的第j个词作为答案序列的第k个词的概率，$\beta_{k,(P+1)}$表示在第k个位置停止答案生成的概率。公式如下：</p>
+<li><p>这里再次用到了attention方法去得到向量$\beta<em>k \in R^{(P+1)}$,$\beta</em>{k,j}$表示选择passage中的第j个词作为答案序列的第k个词的概率，$\beta_{k,(P+1)}$表示在第k个位置停止答案生成的概率。公式如下：</p>
 <p><img src="https://pic4.zhimg.com/80/v2-2010c06cc5cad2250298cc5b71688894_hd.jpg" alt=""></p>
 <p><img src="https://pic3.zhimg.com/80/v2-931cc26fa9a20fc88235e34d2581c62e_hd.jpg" alt=""></p>
 <p>其中，$h_k^a$也是经过一个LSTM的输出。</p>

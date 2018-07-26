@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="系统架构 虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR  【注】所有连接方式都采用桥接方式    主机 IP 角色     Client 192.168.33.145 客户机，用来访问网页   VS 192.168.33.150 VIP，Virtual Ip对外提供的IP   VS 192.168.33.149 DIP，Director">
+<meta name="description" content="系统架构 虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR  【注】所有连接方式都采用桥接方式     主机 IP 角色     Client 192.168.33.145 客户机，用来访问网页   VS 192.168.33.150 VIP，Virtual Ip对外提供的IP   VS 192.168.33.149 DIP，Director">
 <meta name="keywords" content="Linux,VirtualBox,LVS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Virtualbox 下LVS-NAT模式集群部署">
 <meta property="og:url" content="https://tianwenyu.github.io/linux-lvs/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="系统架构 虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR  【注】所有连接方式都采用桥接方式    主机 IP 角色     Client 192.168.33.145 客户机，用来访问网页   VS 192.168.33.150 VIP，Virtual Ip对外提供的IP   VS 192.168.33.149 DIP，Director">
+<meta property="og:description" content="系统架构 虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR  【注】所有连接方式都采用桥接方式     主机 IP 角色     Client 192.168.33.145 客户机，用来访问网页   VS 192.168.33.150 VIP，Virtual Ip对外提供的IP   VS 192.168.33.149 DIP，Director">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20171204231827222?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171204231840284?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
@@ -108,7 +108,7 @@
 <meta property="og:updated_time" content="2018-01-05T05:07:01.137Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Virtualbox 下LVS-NAT模式集群部署">
-<meta name="twitter:description" content="系统架构 虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR  【注】所有连接方式都采用桥接方式    主机 IP 角色     Client 192.168.33.145 客户机，用来访问网页   VS 192.168.33.150 VIP，Virtual Ip对外提供的IP   VS 192.168.33.149 DIP，Director">
+<meta name="twitter:description" content="系统架构 虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR  【注】所有连接方式都采用桥接方式     主机 IP 角色     Client 192.168.33.145 客户机，用来访问网页   VS 192.168.33.150 VIP，Virtual Ip对外提供的IP   VS 192.168.33.149 DIP，Director">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20171204231827222?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -381,6 +381,7 @@
 <li>调度算法：RR</li>
 </ul>
 <p>【注】所有连接方式都采用<code>桥接</code>方式</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -417,6 +418,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <a id="more"></a>
 <h2 id="客户机配置"><a href="#客户机配置" class="headerlink" title="客户机配置"></a>客户机配置</h2><h3 id="桥接IP设置"><a href="#桥接IP设置" class="headerlink" title="桥接IP设置"></a>桥接IP设置</h3><ol>
 <li><p>打开<code>网络与共享中心</code></p>
@@ -484,7 +486,7 @@
 </li>
 </ol>
 <p>   <img src="http://img.blog.csdn.net/20171204232221573?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<ol start="6">
+<ol>
 <li><p>查看是否启动服务</p>
 <figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">curl -<span class="selector-tag">i</span> localhost1</span><br></pre></td></tr></table></figure>
 </li>
@@ -556,16 +558,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/text-classification/" rel="next" title="【评论文本分类】1.爬取评论数据">
-                <i class="fa fa-chevron-left"></i> 【评论文本分类】1.爬取评论数据
+              <a href="/hexo-indigo/" rel="next" title="Hexo之Indigo主题配置">
+                <i class="fa fa-chevron-left"></i> Hexo之Indigo主题配置
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/hexo-indigo/" rel="prev" title="Hexo之Indigo主题配置">
-                Hexo之Indigo主题配置 <i class="fa fa-chevron-right"></i>
+              <a href="/text-classification/" rel="prev" title="【评论文本分类】1.爬取评论数据">
+                【评论文本分类】1.爬取评论数据 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

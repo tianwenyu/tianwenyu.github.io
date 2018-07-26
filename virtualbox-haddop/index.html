@@ -428,6 +428,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mkdir /home/t/hadoop/tmp</span><br></pre></td></tr></table></figure>
 <p>【附】</p>
 <p>其他部分参数，如需要更多参数，请自查</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -459,6 +460,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h5 id="配置hdfs-site-xml"><a href="#配置hdfs-site-xml" class="headerlink" title="配置hdfs-site.xml"></a>配置<code>hdfs-site.xml</code></h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="name">property</span>&gt;</span>  </span><br><span class="line">             <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.name.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </span><br><span class="line">             <span class="tag">&lt;<span class="name">value</span>&gt;</span>/home/t/hadoop/tmp/dfs/name<span class="tag">&lt;/<span class="name">value</span>&gt;</span>  </span><br><span class="line">       		<span class="tag">&lt;<span class="name">final</span>&gt;</span>true<span class="tag">&lt;/<span class="name">final</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span>  </span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span>&gt;</span>  </span><br><span class="line">              <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.data.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </span><br><span class="line">              <span class="tag">&lt;<span class="name">value</span>&gt;</span>/home/t/hadoop/tmp/dfs/data<span class="tag">&lt;/<span class="name">value</span>&gt;</span>  </span><br><span class="line">        	<span class="tag">&lt;<span class="name">final</span>&gt;</span>true<span class="tag">&lt;/<span class="name">final</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">property</span>&gt;</span>  </span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span>&gt;</span>  </span><br><span class="line">               <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </span><br><span class="line">               <span class="tag">&lt;<span class="name">value</span>&gt;</span>2<span class="tag">&lt;/<span class="name">value</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span>&gt;</span>  </span><br><span class="line">                 <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.permissions<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </span><br><span class="line">                  <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span>  </span><br><span class="line">         <span class="tag">&lt;/<span class="name">property</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>【说明】</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.name.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -540,7 +542,7 @@
 <li>更改权限<code>sudo chmod a+w /home/t/.ssh</code></li>
 <li>通过共享文件夹把<code>master</code>中的<code>id_rsa.pub</code>复制到<code>/home/t/</code>中</li>
 </ul>
-<ol start="2">
+<ol>
 <li><p>将<code>master</code>主机上的密钥加入到认证中</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat ~/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
 </li>
