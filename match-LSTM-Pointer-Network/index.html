@@ -118,7 +118,7 @@
 <meta property="og:image" content="https://pic2.zhimg.com/80/v2-dd3069b97a3681cd81041742f4d65fd3_hd.jpg">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=H%5E%7Br%7D+">
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-4c644369e011e52315d583b5f90a8a4b_hd.jpg">
-<meta property="og:updated_time" content="2018-07-26T09:57:20.569Z">
+<meta property="og:updated_time" content="2018-07-26T10:04:04.365Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Match-LSTM和Pointer Net">
 <meta name="twitter:description" content="Match-LSTM简介Match-LSTM是由(Wang &amp;amp; Jiang,2016)发表在NAACL的论文提出，用于解决NLI(Natural Language Inference，文本蕴含)问题。  premise：前提，代表上下文 hypothesis：假设，代表一个陈述性的结论">
@@ -406,7 +406,7 @@
 <p><img src="https://pic3.zhimg.com/80/v2-56ad976ad61547379fda615ab5d1e48a_hd.jpg" alt=""></p>
 <p>这里的attention权重$a_{kj}$表示hypothesis中第k个词和premise中第j个词之间的关系。</p>
 <p><img src="https://pic1.zhimg.com/80/v2-93d0014aa6014648937ebc8178dc116c_hd.jpg" alt=""></p>
-<p>$h<em>j^s$是premise的隐层输出，$h</em>{k}^{t} $是hypothesis的隐层输出，$h_{k-1}^a$是将输入一个RNN之后得到的隐层状态。</p>
+<p>$h_j^s$ 是premise的隐层输出，$h<em>k^t $ 是hypothesis的隐层输出，$h</em>{k-1}^a$ 是将输入一个RNN之后得到的隐层状态。</p>
 <p><img src="https://pic3.zhimg.com/80/v2-50376b2b9618bd48be0f0a3cf30a85bc_hd.jpg" alt=""></p>
 </li>
 <li><p>最后利用$h_N^a$和$h_N^t$来预测label：<code>y</code>，即判断premise和hypothesis之间的关系。</p>
