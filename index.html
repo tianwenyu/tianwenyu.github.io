@@ -280,225 +280,6 @@
             
               
                 
-                <a class="post-title-link" href="/install-software/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-05-24T14:49:18+08:00" content="2018-05-24">
-              2018-05-24
-            </time>
-          </span>
-
-          
-
-          <!-- 
-            
-           -->
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="lrzsz"><a href="#lrzsz" class="headerlink" title="lrzsz"></a>lrzsz</h2><ol>
-<li>下载文件</li>
-<li></li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/no-root-install-python/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-05-23T11:30:09+08:00" content="2018-05-23">
-              2018-05-23
-            </time>
-          </span>
-
-          
-
-          <!-- 
-            
-           -->
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="无Root权限中Ubuntu安装Python"><a href="#无Root权限中Ubuntu安装Python" class="headerlink" title="无Root权限中Ubuntu安装Python"></a>无Root权限中Ubuntu安装Python</h2><p>​                                                                </p>
-<ol>
-<li><p>下载Python</p>
-<p><code>wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz</code></p>
-</li>
-<li><p>解压</p>
-<p><code>tar -xvf Python-3.6.3.tar.zx</code></p>
-</li>
-<li><p>进入到解压后的文件夹</p>
-<p><code>cd Python-3.6.3</code></p>
-</li>
-<li><p><code>./configure --prefix=&#39;Your Install Director&#39;</code></p>
-</li>
-<li><p><code>make &amp;&amp; make install</code></p>
-</li>
-<li><p>添加路径,编辑<code>~/.bashrc</code></p>
-<p><code>vim ~/.bashrc</code></p>
-</li>
-<li><p>在文件最后添加</p>
-<p><code>export PATH=/Your Install Path:$PATH</code>，如<code>export PATH=/usr/local/bin/:$PATH</code></p>
-</li>
-<li><p>创建别名，编辑<code>~/.bashrc</code></p>
-<p><code>vim ~/.bashrc</code></p>
-</li>
-<li><p>在文件最后添加</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">alias</span> python=<span class="string">'Your python path'</span></span><br><span class="line"><span class="built_in">alias</span> pip=<span class="string">'Your pip path'</span></span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/match-LSTM-Pointer-Network/" itemprop="url">
                   Match-LSTM和Pointer Net
                 </a>
@@ -561,107 +342,15 @@
 
       
         
-          
-            <p>[TOC]</p>
-<h2 id="Match-LSTM"><a href="#Match-LSTM" class="headerlink" title="Match-LSTM"></a>Match-LSTM</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Match-LSTM是由(Wang &amp; Jiang,2016)发表在NAACL的论文提出，用于解决NLI(Natural Language Inference，文本蕴含)问题。</p>
+          <h2 id="Match-LSTM"><a href="#Match-LSTM" class="headerlink" title="Match-LSTM"></a>Match-LSTM</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Match-LSTM是由(Wang &amp; Jiang,2016)发表在NAACL的论文提出，用于解决NLI(Natural Language Inference，文本蕴含)问题。</p>
 <ul>
 <li>premise：前提，代表上下文</li>
-<li>hypothesis：假设，代表一个陈述性的结论</li>
-</ul>
-<p>文本蕴含问题：给定一个premise（前提），根据这个premise去判断相应的hypothesis（假说）正确与否，如果从这个premise中能够推断出这个hypothesis，那么就判断为entailment（蕴含），否则就是contradiction（矛盾）。</p>
-<h3 id="Word-by-Word-Attention"><a href="#Word-by-Word-Attention" class="headerlink" title="Word-by-Word Attention"></a>Word-by-Word Attention</h3><p>Match-LSTM是在<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1509.06664v4.pdf" target="_blank" rel="external">Rocktaschel et al. (2015)</a>提出的word-by-word attention的基础上进行了改进，先解释一下<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1509.06664v4.pdf" target="_blank" rel="external">Rocktaschel et al. (2015)</a>提出的基本模型</p>
-<p><img src="https://pic2.zhimg.com/80/v2-c68ed27c07068dde4cec33536b7a7483_hd.jpg" alt=""></p>
-<ol>
-<li><p>用LSTM处理premise和hypothesis，(用premise的最后一个输出初始化hypothesis的LSTM)，得到它们的隐层输出。</p>
-<p>其中，</p>
-<ul>
-<li>$h_j^s(1 \le j \le M )$是premise的输入序列经过LSTM之后得到的隐层输出。</li>
-<li>$h_{k}^{t}(1\leq k\leq N)$是hypothesis的隐层输出向量。</li>
-</ul>
-</li>
-<li><p>word-by-word attention的意思是为每个hypothesis中的词引入一个$a<em>k$,用于表示hypothesis，并称这个$a</em>{k}$向量为attention向量，具体公式如下：</p>
-<p><img src="https://pic2.zhimg.com/80/v2-fd900634c4ca508000bc3417510607a7_hd.jpg" alt=""></p>
-<p><img src="https://pic3.zhimg.com/80/v2-56ad976ad61547379fda615ab5d1e48a_hd.jpg" alt=""></p>
-<p>这里的attention权重$a_{kj}$表示hypothesis中第k个词和premise中第j个词之间的关系。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-93d0014aa6014648937ebc8178dc116c_hd.jpg" alt=""></p>
-<p>$h<em>j^s$是premise的隐层输出，$h</em>{k}^{t} $是hypothesis的隐层输出，$h_{k-1}^a$是将输入一个RNN之后得到的隐层状态。</p>
-<p><img src="https://pic3.zhimg.com/80/v2-50376b2b9618bd48be0f0a3cf30a85bc_hd.jpg" alt=""></p>
-</li>
-<li><p>最后利用$h_N^a$和$h_N^t$来预测label：<code>y</code>，即判断premise和hypothesis之间的关系。</p>
-</li>
-</ol>
-<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><ol>
-<li><p>用两个LSTM处理premise和hypothesis序列。得到两个隐状态$h^s$和$h^t$(s对应前提，t对应假设)。</p>
-</li>
-<li><p>用下面的公式计算注意力向量$a_k$,这里计算得到的$e$经过归一化和加权求和得到假设$h^t$对前提$h^s$在每个时刻的注意力向量$a_k$</p>
-<p><img src="http://7xpqrs.com1.z0.glb.clouddn.com/FlgZlpVvlxyB5yFCsBr7QxGM8wSr" alt=""></p>
-</li>
-<li><p>上式中$h^m$的计算，用下面的公式计算，其中输入$m_k$是$[a_k,h_k^t]$的拼接。作者把这个结构称为<code>mLSTM</code>，把最后时刻的$h^m$作为输出以预测label。</p>
-<p><img src="http://7xpqrs.com1.z0.glb.clouddn.com/Flel3Uqro1-XL15roShCUDOZkjdN" alt=""></p>
-<p><img src="http://7xpqrs.com1.z0.glb.clouddn.com/FuuDW11Xv4QZGQA0p5Vb73F1rg4T" alt="img"></p>
-<p>​</p>
-</li>
-</ol>
-<h3 id="与Word-to-Word-Attention区别"><a href="#与Word-to-Word-Attention区别" class="headerlink" title="与Word-to-Word Attention区别"></a>与Word-to-Word Attention区别</h3><p><img src="https://pic2.zhimg.com/80/v2-4ffe801c5ac84e0e6df78e2d5d1a3604_hd.jpg" alt=""></p>
-<p>两者的主要区别就是计算$e_{kj}$的不同。</p>
-<ul>
-<li><p>这里用$h^m$代替了$h^a$。</p>
-<ul>
-<li>之前的$h^m$是利用RNN得到的,$h^a$是用mLSTM得到的。</li>
-</ul>
-</li>
-<li><p>为了得到premise跟hypothesis之间的matching关系，用LSTM对它们进行建模，作者认为LSTM能够将premise和hypothesis之间重要的match关系进行保留，忽略不重要的match关系。具体公式如下:</p>
-<p><img src="https://pic4.zhimg.com/80/v2-6f254b9b14818e07b56a3ebe580f5a8e_hd.jpg" alt=""></p>
-<p><img src="https://pic3.zhimg.com/80/v2-3fac4a65dab1694d335b224a7055c3b6_hd.jpg" alt=""></p>
-</li>
-<li><p>最后利用$h_N^m$来预测。</p>
-</li>
-</ul>
-<h2 id="Pointer-Net"><a href="#Pointer-Net" class="headerlink" title="Pointer Net"></a>Pointer Net</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>Pointer Network是Vinyals et al.(2015)在NIPS发表的论文中提出的，是为了实现从输入序列中找到相应的tokens来作为输出，其他的阅读理解任务中，可能只需要用输入序列构建一个词典，再从这个候选词典中找到概率最大的一个词作为答案，然而SQuAD数据集的输出答案的长度是变化的，因而无法采用构建词典的方式，而pointer net是利用attention作为pointer，从输入序列中选择一个位置，并将这个位置所指向的词作为输出。对pointer net有兴趣的话，可以参看这个链接进行学习:<a href="https://link.zhihu.com/?target=https%3A//github.com/vshallc/PtrNets" target="_blank" rel="external">Pointer net</a>。AS-Reader、AoA-Reader和R-Net等模型都用了PtrNet作为输出层的结构。</p>
-<h3 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="https://pic1.zhimg.com/80/v2-6731208d9422796f5a798d012472401b_hd.jpg" alt=""></p>
-<p>论文中提出了两个模型，且都包含以下三个部分：</p>
-<ul>
-<li>用LSTM对question和passage进行预处理。</li>
-<li>用match-LSTM对question和passage进行match。</li>
-<li>利用Pointer Net从passage中选择tokens作为答案。</li>
-</ul>
-<p>两个模型的区别在于在于第三部分，由于pointer net没有限定所指向的位置必须是连续的，所以第一个模型sequence model直接将答案在passage中出现的位置序号作为答案序列$a=\left( a<em>{1} ,a</em>{2},… \right) $，第二个模型只预测答案的起始位置跟终止位置，即$a=\left(a<em>{s} ,a</em>{e} \right)$。</p>
-<h4 id="LSTM-Preprocessing-Layer"><a href="#LSTM-Preprocessing-Layer" class="headerlink" title="LSTM Preprocessing Layer"></a>LSTM Preprocessing Layer</h4><p>用单向LSTM对passage和question进行预处理。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-271396c88c56d0ad43a7ad7d9640f0c3_hd.jpg" alt=""></p>
-<h4 id="Match-LSTM-Layer"><a href="#Match-LSTM-Layer" class="headerlink" title="Match-LSTM Layer"></a>Match-LSTM Layer</h4><p>这里将question当做premise，将passage当做hypothesis，用标准的word-by-word attention得到attention向量，具体公式如下：</p>
-<p><img src="https://pic1.zhimg.com/80/v2-3e8bac3a6b2d529dfbe82590e4703891_hd.jpg" alt=""></p>
-<p>其中，</p>
-<ul>
-<li><p>$\vec{h}_{i-1}^r \in R^l$是经过单向m-LSTM得到的隐层输出。</p>
-</li>
-<li><p>$\vec{\alpha_{i,j}}$表示passage中的第i个词和question中的第j个词之间的匹配关系。然后用$\overline{\alpha}$对question的隐层输出进行加权，并将其跟passage的隐层输出进行拼接，得到一个新的向量，并输入到m-LSTM中，得到$\bar{H^r}$，具体公式如下：</p>
-<p><img src="https://pic4.zhimg.com/80/v2-ef8069071be26c461f41eafe93af2aaf_hd.jpg" alt=""></p>
-<p><img src="https://pic4.zhimg.com/80/v2-1cf8251dbb311515d91a0cb33fb172d2_hd.jpg" alt=""></p>
-</li>
-</ul>
-<p>再从另一个方向进行相同的处理,将两者进行合并，得到最后的输出向量$H^{r} $</p>
-<p><img src="https://pic1.zhimg.com/80/v2-22189154aed842755d555b82574efd48_hd.jpg" alt=""></p>
-<h4 id="Answer-Pointer-Layer"><a href="#Answer-Pointer-Layer" class="headerlink" title="Answer Pointer Layer"></a>Answer Pointer Layer</h4><h5 id="The-Sequence-Model"><a href="#The-Sequence-Model" class="headerlink" title="The Sequence Model"></a>The Sequence Model</h5><ul>
-<li><p>由于这个模型是生成答案的位置序列$a=(a<em>{1} ,a</em>{2},…)$，每个元素表示的是这个词在passage中位置，其取值范围在1到P+1之间，当出现了P+1时，则答案生成终止。因此在$H^{r}$的最后中加入了一列0向量，用来表示终止词，得到$\bar{H} ^{r} $。</p>
-</li>
-<li><p>这里再次用到了attention方法去得到向量$\beta<em>k \in R^{(P+1)}$,$\beta</em>{k,j}$表示选择passage中的第j个词作为答案序列的第k个词的概率，$\beta_{k,(P+1)}$表示在第k个位置停止答案生成的概率。公式如下：</p>
-<p><img src="https://pic4.zhimg.com/80/v2-2010c06cc5cad2250298cc5b71688894_hd.jpg" alt=""></p>
-<p><img src="https://pic3.zhimg.com/80/v2-931cc26fa9a20fc88235e34d2581c62e_hd.jpg" alt=""></p>
-<p>其中，$h_k^a$也是经过一个LSTM的输出。</p>
-</li>
-<li><p>模型生成答案的概率公式如下：</p>
-<p><img src="https://pic4.zhimg.com/80/v2-9fa21cef108ce36bfc461e926500ab2f_hd.jpg" alt=""></p>
-<p><img src="https://pic4.zhimg.com/80/v2-0e2151f9ed41efec99f58ec9720be311_hd.jpg" alt=""></p>
-</li>
-<li><p>损失函数如下：</p>
-<p><img src="https://pic2.zhimg.com/80/v2-dd3069b97a3681cd81041742f4d65fd3_hd.jpg" alt=""></p>
-</li>
-</ul>
-<h5 id="The-Boundary-Model"><a href="#The-Boundary-Model" class="headerlink" title="The Boundary Model"></a>The Boundary Model</h5><p>因为boundary model只需要生成答案的起始和终止位置，因此不用在<img src="https://www.zhihu.com/equation?tex=H%5E%7Br%7D+" alt="H^{r} ">最后加入一个零向量来表示答案生成结束。生成答案序列的概率模型如下：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-4c644369e011e52315d583b5f90a8a4b_hd.jpg" alt=""></p>
-<p>其余部分与上个模型相同。</p>
-
-          
+<li>hypothesis：假设，代表一个陈述性的结论
+          <div class="post-more-link text-center">
+            <a class="btn" href="/match-LSTM-Pointer-Network/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -771,810 +460,16 @@
 
       
         
-          
-            <p>[TOC]</p>
-<h2 id="主要模块"><a href="#主要模块" class="headerlink" title="主要模块"></a>主要模块</h2><p>任务型机器人核心模块主要包括三个模块：</p>
+          <h2 id="主要模块"><a href="#主要模块" class="headerlink" title="主要模块"></a>主要模块</h2><p>任务型机器人核心模块主要包括三个模块：</p>
 <ul>
 <li>自然语言理解模块（NLU）</li>
 <li>对话管理模块</li>
-<li>自然语言生成模块（NLG）</li>
-</ul>
-<p><img src="https://pic1.zhimg.com/80/v2-b70539cc9a32d7f2711a086f0fbbda4f_hd.jpg" alt="img"></p>
-<h3 id="自然语言理解模块"><a href="#自然语言理解模块" class="headerlink" title="自然语言理解模块"></a>自然语言理解模块</h3><p>该模块一般包含以下三个模块：</p>
-<ul>
-<li>领域识别：即识别该语句是不是属于这个任务场景，一般有多个机器人集成时，如闲聊机器人，问答机器人等，领域识别应当在进入任务型机器人之前做判断与分发</li>
-<li>意图识别：即识别用户意图，细分该任务型场景下的子场景、</li>
-<li>语义槽填充：用于对话管理模块的输入</li>
-</ul>
-<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><p>假设Text=“人民币对美元的汇率是多少”；经过自然语言理解模块会解析为 act ( slot1 = value1, slot2 = value2 ……) 的形式，即意图，槽位，槽位信息三元组形式，即 Text会解析为“查询（槽位1=人民币，槽位2=美元)”这样的形式。</p>
-<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><h5 id="基于规则理解方法"><a href="#基于规则理解方法" class="headerlink" title="基于规则理解方法"></a>基于规则理解方法</h5><p>【优点】</p>
-<ul>
-<li>不需要大量训练数据</li>
-</ul>
-<p>【缺点】</p>
-<ul>
-<li>容易出错</li>
-<li>调整规则费时费力，难以维护</li>
-</ul>
-<h5 id="统计方法（对齐）"><a href="#统计方法（对齐）" class="headerlink" title="统计方法（对齐）"></a>统计方法（对齐）</h5><p>基于词对齐数据的自然语言理解通常被看做一个序列标注问题。主要有以下两类方法：</p>
-<ul>
-<li>基于生成式模型<ul>
-<li>随机有限状态机（FST）</li>
-<li>统计机器翻译（SMT）</li>
-<li>动态贝叶斯网络（DBN）</li>
-</ul>
-</li>
-<li>基于判别式模型<ul>
-<li>CRF</li>
-<li>SVM</li>
-<li>MEMM</li>
-</ul>
-</li>
-</ul>
-<h5 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h5><ul>
-<li>BiLSTM+CRF</li>
-<li>CNN：用于序列标注</li>
-<li>Seq2Seq</li>
-</ul>
-<h3 id="对话管理模块"><a href="#对话管理模块" class="headerlink" title="对话管理模块"></a>对话管理模块</h3><p>自然语言理解模块的三元组输出将作为对话管理系统的输入。它主要包括两部分：</p>
-<ul>
-<li>状态追踪模块</li>
-<li>对话策略模块</li>
-</ul>
-<p>【状态追踪模块】</p>
-<p>该模块在对话的每一轮次对用户的目标进行预估，管理每个回合的输入和对话历史，输出当前对话状态。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-b08e6cd63a89448e47f4576ae3603067_hd.jpg" alt="img"></p>
-<p>【对话策略模块】</p>
-<p>该模块的主要功能是根据前面的对话状态决策采取的最优动作（如：提供结果，询问特定限制条件，澄清或确认需求等）从而最有效的辅助用户完成信息或服务获取的任务。该模块基于用户输入的语义表达和当前对话状态输出下一步的系统行为和更新的对话状态。</p>
-<h4 id="举例-1"><a href="#举例-1" class="headerlink" title="举例"></a>举例</h4><p>text=“人民币对美元的汇率是多少”。“查询（槽位1=人民币，槽位2=美元)”这样的形式将作为对话管理模块的输入，这时候状态追踪模块就要根据前几轮的信息，结合该输入判断该轮的查询状态，确定查询的槽位，以及与数据库的交互。如得到想要查询的确实是人民币对美元的汇率信息。这时候，根据现有的对话策略判断当前的槽位状态，最后给出对话管理模块的输出，如查询结果(源货币=人民币，目标货币=美元，汇率=1:0.16)</p>
-<h3 id="自然语言生成模块"><a href="#自然语言生成模块" class="headerlink" title="自然语言生成模块"></a>自然语言生成模块</h3><p>该模块主要任务是将对话策略输出的语义表达生成流畅可读的自然语言句子，反馈给用户。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/interview/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-04-18T09:55:12+08:00" content="2018-04-18">
-              2018-04-18
-            </time>
-          </span>
-
-          
-
-          <!-- 
-            
-           -->
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>[TOC]</p>
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p><img src="https://images2015.cnblogs.com/blog/739525/201605/739525-20160503202729044-614991035.jpg" alt="img"></p>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><h3 id="深拷贝与浅拷贝的区别"><a href="#深拷贝与浅拷贝的区别" class="headerlink" title="深拷贝与浅拷贝的区别"></a>深拷贝与浅拷贝的区别</h3><h4 id="Java8改进"><a href="#Java8改进" class="headerlink" title="Java8改进"></a>Java8改进</h4><ul>
-<li>Lambda表达式——为多核处理器编写代码</li>
-<li>Nashorn引擎——使得Java程序和JavaScript代码互相操作</li>
-<li>新日期API</li>
-<li>GC改进</li>
-<li>并发改进</li>
-</ul>
-<h4 id="equals-和-的区别"><a href="#equals-和-的区别" class="headerlink" title="equals()和==的区别"></a>equals()和==的区别</h4><table>
-<thead>
-<tr>
-<th>equals()</th>
-<th>==</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>是方法</td>
-<td>是操作符</td>
-</tr>
-<tr>
-<td>判断两个变量指向的内存空间的值是否相等</td>
-<td>用于判断两个变量是否指向同一个内存空间</td>
-</tr>
-<tr>
-<td>对字符串内容进行比较</td>
-<td>对内存地址进行比较</td>
-</tr>
-<tr>
-<td>判断值是否相等</td>
-<td>判断引用是否相同</td>
-</tr>
-</tbody>
-</table>
-<h4 id="HashTable和HashMap区别"><a href="#HashTable和HashMap区别" class="headerlink" title="HashTable和HashMap区别"></a>HashTable和HashMap区别</h4><table>
-<thead>
-<tr>
-<th>HashTable</th>
-<th>HashMap</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>线程安全</td>
-<td>线程不安全</td>
-</tr>
-<tr>
-<td>不允许有null键和null值</td>
-<td>允许有一个null键和多个null值</td>
-</tr>
-<tr>
-<td>HashTable直接使用对象的HashCode。<br>HashCode是JDK根据对象的地址或字符串或数字算出来的int类型的数值。</td>
-<td>HashMap重新计算Hash值。</td>
-</tr>
-<tr>
-<td></td>
-<td>单线程下HashMap速度较快</td>
-</tr>
-</tbody>
-</table>
-<h4 id="HashMap与HashSet区别"><a href="#HashMap与HashSet区别" class="headerlink" title="HashMap与HashSet区别"></a>HashMap与HashSet区别</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">HashMap</th>
-<th style="text-align:left">HashSet</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">实现了Map接口</td>
-<td style="text-align:left">实现Set接口</td>
-</tr>
-<tr>
-<td style="text-align:left">存储键值对</td>
-<td style="text-align:left">存储对象</td>
-</tr>
-<tr>
-<td style="text-align:left">使用put()方法将元素放入map中</td>
-<td style="text-align:left">使用add()方法将元素放入set中</td>
-</tr>
-<tr>
-<td style="text-align:left">使用键对象计算HashCode值</td>
-<td style="text-align:left">使用成员对象计算HashCode值。<br>对于两个对象来说HashCode可能相同，所以equals()方法用来判断对象的相等性，如果两个对象不同的话，返回fasle</td>
-</tr>
-<tr>
-<td style="text-align:left">相对HashSet速度比较快因为是使用唯一的键来获取对象</td>
-<td style="text-align:left">相对HashMap速度较慢</td>
-</tr>
-</tbody>
-</table>
-<h4 id="HashMap实现"><a href="#HashMap实现" class="headerlink" title="HashMap实现"></a>HashMap实现</h4><ul>
-<li><p>结构实现</p>
-<p>Hash Map是数组+链表+红黑树实现的（链表长度大于8时，转为红黑树）。</p>
-<p>HashMap类中有一个非常重要的字段，是<code>Node[] table</code>,即哈希桶数组。Node是HashMap中的一个内部类，本质是一个映射（键值对）。如果哈希桶数组很大，即使很差的Hash算法也会比较分散。</p>
-<p>HashMap是使用哈希表存储的，使用链地址法解决冲突。即数组+链表，每个数组元素上有一个链表结构，当数据被Hash以后，得到数组下标，把数据放在对应下表元素的链表上。</p>
-</li>
-<li><p>功能实现</p>
-<ul>
-<li><p>根据key获取哈希桶数组索引位置</p>
-<p>定位到哈希桶数组的位置是所有操作的第一步。</p>
-<ol>
-<li><p>取key的HashCode值</p>
-<p><code>h=key.hashcode() //取hashcode值</code></p>
-</li>
-<li><p>高位运算</p>
-<p><code>h^(h&gt;&gt;&gt;16) //高位参与运算</code> </p>
-</li>
-<li><p>取模运算</p>
-<p><code>h&amp;(length-1) //取模运算，使用&amp;比%效率高</code></p>
-</li>
-</ol>
-</li>
-<li><p>扩容过程</p>
-<p>扩容的方法就是使用一个容量更大的数组代替已有的容量小的数组，然后将原有的数组元素复制到新的数组中。</p>
-<p>JDK 1.8使用的是2次幂的扩展（即长度扩展为原来的2倍），所以元素位置是原位置或原位置移动2次幂的位置。</p>
-<p>因此，在扩充hashmap时，不需要像jdk1.7重新计算hash，而是看新增的1bit位是0还是1，节省了时间。</p>
-<p>jdk1.7扩充时，旧链表迁移到新链表时，如果新表的数组索引位置相同，则链表元素会倒置，jdk1.8不会。</p>
-</li>
-</ul>
-</li>
-<li><p>HashMap的几个字段</p>
-<ul>
-<li><p><code>length</code>：<code>Node[] table</code>的初始化长度，默认值16</p>
-</li>
-<li><p><code>loadfactor</code>：负载因子，默认值0.75</p>
-</li>
-<li><p><code>threshold</code>：HashMap所能容纳的最大数据量的Node（键值对）的个数。</p>
-<p><code>threshold=length*loadfactor</code>，即定义好数组长度后，负载因子越大，所能容纳的键值对个数越多</p>
-</li>
-<li><p><code>size</code>：HashMap中实际存在的键值对数量</p>
-</li>
-</ul>
-<p>【注】</p>
-<p>数据结构Hash算法中负载因子的计算<code>α=填入表中的记录个数/散列表的长度</code>。</p>
-<p>常见Hash函数：</p>
-<ul>
-<li>直接定址法：h(key)=a*key+b</li>
-<li>除留余数法：h(key)=key mod p</li>
-</ul>
-</li>
-</ul>
-<h4 id="HashTable的线程安全如何实现？"><a href="#HashTable的线程安全如何实现？" class="headerlink" title="HashTable的线程安全如何实现？"></a>HashTable的线程安全如何实现？</h4><h4 id="两个对象的HashCode相同会发生什么？"><a href="#两个对象的HashCode相同会发生什么？" class="headerlink" title="两个对象的HashCode相同会发生什么？"></a>两个对象的HashCode相同会发生什么？</h4><p>会发生碰撞，会存储在同一个位置的LinkedList中，键对象的equals()方法用来找到键值对。</p>
-<h4 id="如何让HashMap同步？"><a href="#如何让HashMap同步？" class="headerlink" title="如何让HashMap同步？"></a>如何让HashMap同步？</h4><p>使用Collections内部的SynchronizedMap类。</p>
-<h4 id="Java实现多线程的四种方式"><a href="#Java实现多线程的四种方式" class="headerlink" title="Java实现多线程的四种方式"></a>Java实现多线程的四种方式</h4><ul>
-<li>继承Thread类</li>
-<li>实现Runnable接口</li>
-<li>实现Callable接口通过FutureTask包装器创建Thread线程</li>
-<li>实现ExecutorService、Callable、Future接口</li>
-</ul>
-<h4 id="volatile关键字作用"><a href="#volatile关键字作用" class="headerlink" title="volatile关键字作用"></a>volatile关键字作用</h4><h4 id="为什么使用线程池"><a href="#为什么使用线程池" class="headerlink" title="为什么使用线程池"></a>为什么使用线程池</h4><p>避免频繁地创建和销毁线程，达到线程对象的重用，使用线程池可以根据项目灵活控制并发的数目。</p>
-<h4 id="什么是乐观锁和悲观锁"><a href="#什么是乐观锁和悲观锁" class="headerlink" title="什么是乐观锁和悲观锁"></a>什么是乐观锁和悲观锁</h4><p>【乐观锁】</p>
-<p>对于并发间操作产生的线程安全问题持乐观状态，乐观锁认为竞争不总是会发生，因此它不需要持有锁，将<strong>比较-替换</strong>这两个动作作为一个原子操作尝试去修改内存中的变量，如果失败则表示发生冲突，那么就应该有相应的重试逻辑。</p>
-<p>【悲观锁】</p>
-<p>对于并发间操作产生的线程安全问题持悲观状态，悲观锁认为竞争总是会发生，因此每次对某资源进行操作时，都会持有一个独占的锁，就像synchronized，不管三七二十一，直接上了锁就操作资源了。</p>
-<h4 id="Lambda表达式优缺点"><a href="#Lambda表达式优缺点" class="headerlink" title="Lambda表达式优缺点"></a>Lambda表达式优缺点</h4><p>【优点】</p>
-<ul>
-<li>简洁</li>
-<li>容易进行并行计算</li>
-</ul>
-<h4 id="Java运行过程"><a href="#Java运行过程" class="headerlink" title="Java运行过程"></a>Java运行过程</h4><p>Java源文件（.java文件）–&gt;Java编译器–&gt;字节码文件(.class文件)–&gt;类装载器–&gt;字节码校验器–&gt;解释器–&gt;操作系统整个文件Load到内存区，操作系统找到main()方法开始执行。</p>
-<h4 id="JNI使用步骤"><a href="#JNI使用步骤" class="headerlink" title="JNI使用步骤"></a>JNI使用步骤</h4><ol>
-<li>在Java类中声明Native方法，并编译成class文件。</li>
-<li>用javah，将上步中的class文件生成头文件。</li>
-<li>用其他语言实现上述头文件的函数，生成动态库，供Java使用</li>
-<li>发布Java和动态库。</li>
-</ol>
-<h3 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h3><h4 id="JVM原理"><a href="#JVM原理" class="headerlink" title="JVM原理"></a>JVM原理</h4><p>操作系统装入JVM是通过JDK中Java.exe来完成，通过以下四个步骤完成JVM环境：</p>
-<ol>
-<li>创建JVM装载环境和配置</li>
-<li>装在JVM.dll</li>
-<li>初始化JVM.dll并挂载到JNI调用接口实例。</li>
-<li>调用JNI实例装载并处理class类。</li>
-</ol>
-<h4 id="JVM内存模型"><a href="#JVM内存模型" class="headerlink" title="JVM内存模型"></a>JVM内存模型</h4><p><img src="http://p15qizl76.bkt.clouddn.com/blog/180418/GBiC3KEjI7.png?imageslim" alt="mark"></p>
-<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180418/64FaFbGjEe.png?imageslim" alt="mark"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3028880-f8c942cc5f5e0277?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="img"></p>
-<ul>
-<li><p>程序计数器</p>
-<ul>
-<li><p>作用：当前线程所执行的字节码的行号指示器。</p>
-<p>字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令，分支、循环、跳转、异常处理、线程恢复等功能都需要这个计数器来完成。</p>
-<p>Java虚拟机的多线程是通过线程轮流切换并分配处理器执行时间的方式实现的。在一个确定的时刻，一个cpu只会执行一条县城中的指令。因此，为了线程切换后能恢复到正确的执行位置，<strong>每条线程都需要一个独立的程序计数器，各线程之间的计数器互不影响 ，称这类内存区域是线程私有内存</strong>。</p>
-<p>​</p>
-</li>
-<li><p>程序计数器用来记录一个线程的行号，字节码解释器在工作时，通过改变计数器的值取下一条语句指令。</p>
-<ul>
-<li><p>程序计数器线程私有。一个线程有一个程序计数器。</p>
-</li>
-<li><p>在线程创建时创建，指向下一条指令的地址。</p>
-</li>
-<li><p>程序计数器是唯一一个在Java虚拟机中没有规定<code>OutOfMemoryError</code>的区域。</p>
-</li>
-<li><p>如果一个线程执行的是Java方法，则程序计数器记录的是正在执行的虚拟机字节码指令的地址。</p>
-<p>如果执行的是Native方法，则计数器值为空。</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Java虚拟机栈</p>
-<ul>
-<li><p>线程私有。</p>
-</li>
-<li><p>生命周期与线程相同。</p>
-</li>
-<li><p>栈由一系列帧组成。因此Java栈也叫做帧栈。</p>
-</li>
-<li><p>帧保存一个方法的局部变量、操作数栈、常量池指针。</p>
-</li>
-<li><p>每个方法被执行时同时创建一个栈帧，并压栈，用于存储局部变量、操作栈、动态连接、方法出口等信息。</p>
-<p>每一个方法被调用直至执行完成的过程，对应着一个栈帧在虚拟机栈中从入栈到出栈的过程。</p>
-</li>
-<li><p>对Java栈定义了两种异常：</p>
-<ul>
-<li><code>StackOverflowError</code>：线程请求的栈深度大于虚拟机允许的深度</li>
-<li><code>OutOfMemoryError</code>：栈扩展时无法申请到足够内存</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>本地方法栈</p>
-<ul>
-<li>为虚拟机使用到的Native方法服务。</li>
-<li>两种异常：<code>StackOverflowError</code>和<code>OutOfMemoryError</code>。</li>
-</ul>
-</li>
-<li><p>Java堆</p>
-<ul>
-<li>所有线程共享Java堆</li>
-<li>在虚拟机启动时创建</li>
-<li>所有对象实例及数组都分配在堆上。</li>
-<li>堆是GC管理的主要区域</li>
-<li><code>OutOfMemory</code>：如果堆中没有内存完成对象实例分配，且堆也无法扩展时抛出该异常。</li>
-</ul>
-</li>
-<li><p>方法区</p>
-<ul>
-<li>所有线程共享方法区。</li>
-<li>存储已被虚拟机加载的类信息、常量、静态变量等。</li>
-</ul>
-</li>
-</ul>
-<h4 id="本地方法栈和Java虚拟机栈区别"><a href="#本地方法栈和Java虚拟机栈区别" class="headerlink" title="本地方法栈和Java虚拟机栈区别"></a>本地方法栈和Java虚拟机栈区别</h4><ul>
-<li>本地方法栈为虚拟机使用到的Native方法服务</li>
-<li>虚拟机栈为虚拟机执行的Java方法服务</li>
-</ul>
-<p>【注】有的虚拟机（如Sun HotSpot虚拟机）直接把本地方法栈和虚拟机栈合二为一。</p>
-<h4 id="Java内存分配机制"><a href="#Java内存分配机制" class="headerlink" title="Java内存分配机制"></a>Java内存分配机制</h4><ul>
-<li>指在堆上的分配</li>
-<li>分代分配</li>
-</ul>
-<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180418/b0i6Gf1210.png?imageslim" alt="mark"></p>
-<ul>
-<li><p>Eden区是连续的空间，且Survivor区总有一个为空。</p>
-</li>
-<li><p>在Eden区，HotSpot使用两种技术加快内存分配</p>
-<ul>
-<li><p><code>bump-the-pointer</code>：由于Eden区是连续的，因此<code>bump-the-pointer</code>就是跟踪最后一个创建的对象，在对象创建时，只需要检查最后一个对象后面是否有足够的内存即可。</p>
-</li>
-<li><p><code>TLAB(Thread-Local Allocation Buffers)</code>，针对多线程而言，将Eden区分为若干段，每个线程使用独立的一段，避免互相影响。</p>
-<p>TLAB结合<code>bump-the-pointer</code>，保证每个线程都使用Eden区的一段，并快速分配内存。</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="Java内存回收机制"><a href="#Java内存回收机制" class="headerlink" title="Java内存回收机制"></a>Java内存回收机制</h4><ul>
-<li><p>分代分配</p>
-</li>
-<li><p>分配算法</p>
-<ul>
-<li><p>新生代：<code>复制</code>算法</p>
-<p>将新生代内存分为2部分，1部分 Eden区较大，1部分Survivor比较小，并被划分为两个等量的部分。每次进行清理时，将Eden区和一个Survivor中仍然存活的对象拷贝到 另一个Survivor中，然后清理掉Eden和刚才的Survivor。</p>
-</li>
-<li><p>老年代：<code>标记-整理</code>算法</p>
-<p>标记出仍然存活的对象（存在引用的），将所有存活的对象向一端移动，以保证内存的连续。</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="GC算法"><a href="#GC算法" class="headerlink" title="GC算法"></a>GC算法</h4><ul>
-<li><p>标记-清除算法</p>
-<p>首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象。</p>
-<p>【缺点】：</p>
-<ul>
-<li>效率低</li>
-<li>会产生大量的内存碎片。</li>
-</ul>
-</li>
-<li><p>复制算法</p>
-<p>将可用内存按容量划分为大小相等的两块，每次使用其中的一块。当这一块的内存用完了，就将还存活的对象复制到另一块内存上，然后把这一块内存所有的对象一次性清理掉。</p>
-<p>【缺点】</p>
-<ul>
-<li>浪费一半的内存空间</li>
-<li>若对象的存活率很高，需要将所有存活的对象复制一遍，效率低。</li>
-</ul>
-</li>
-<li><p>标记-整理算法</p>
-<p>标记出所有需要回收的对象，让所有存活的对象都向一端移动，然后直接清理掉端边线以外的内存。</p>
-<p>【缺点】</p>
-<ul>
-<li>效率不高</li>
-</ul>
-</li>
-</ul>
-<p>【总结】</p>
-<ul>
-<li>效率：复制算法&gt;标记-整理算法&gt;标记-清除算法</li>
-<li>内存整齐率：复制算法&gt;标记-整理算法&gt;标记-清除算法</li>
-<li>内存利用率：标记-整理算法=标记-清除算法&gt;复制算法</li>
-</ul>
-<h4 id="Java8-JVM-CG改进"><a href="#Java8-JVM-CG改进" class="headerlink" title="Java8 JVM/CG改进"></a>Java8 JVM/CG改进</h4><ul>
-<li>Java8中无持久代，被替换为<code>元空间</code>。</li>
-<li>移除一些很少使用的GC组合</li>
-</ul>
-<h4 id="什么是元空间（Metaspace）？"><a href="#什么是元空间（Metaspace）？" class="headerlink" title="什么是元空间（Metaspace）？"></a>什么是元空间（Metaspace）？</h4><p>JDK8的HotSpot JVM移除永久代，使用本地内存来存储类的元数据（即一些描述性信息）的区域称为元空间。</p>
-<p>【特点】</p>
-<ul>
-<li>类及相关的元数据的生命周期与类加载器一致</li>
-<li>每个加载器有专门的存储空间</li>
-<li>省去GC扫描及压缩的时间</li>
-<li>不会单独回收某个类</li>
-</ul>
-<h4 id="为什么移除永久代（PermGen），添加元空间（Metaspace）？"><a href="#为什么移除永久代（PermGen），添加元空间（Metaspace）？" class="headerlink" title="为什么移除永久代（PermGen），添加元空间（Metaspace）？"></a>为什么移除永久代（PermGen），添加元空间（Metaspace）？</h4><ol>
-<li>字符串存在永久代中，容易出现性能问题和内存溢出</li>
-<li>类及方法的信息等比较难确定大小，因此对永久代的大小指定比较困难，太小容易出现永久代溢出，太大容易导致老年代溢出</li>
-<li>永久代为GC带来不必要的复杂度，并且回收效率偏低。</li>
-</ol>
-<h4 id="了解JVM参数设置么，频繁出现GC怎么办？"><a href="#了解JVM参数设置么，频繁出现GC怎么办？" class="headerlink" title="了解JVM参数设置么，频繁出现GC怎么办？"></a>了解JVM参数设置么，频繁出现GC怎么办？</h4><p>频繁GC原因：</p>
-<ul>
-<li><p>人为原因</p>
-<p>在代码中调用System.gc()或者Runtime.gc()方法。</p>
-<p>System.gc()方法的调用是建议JVM进行Full GC，增加了Full GC的频率，即增加了间歇性停顿的次数。通过<code>-XX:DisableExplicitGC</code>禁止RMI调用System.gc()。</p>
-</li>
-<li><p>框架原因</p>
-<p>在java程序调用相关框架时，框架内部调用了GC方法</p>
-</li>
-<li><p>内存原因</p>
-<p>当Heap大小设置比较小时，会频繁引起GC。因此在Spark这样对内存性能要求比较高的应用程序运行时，可以分配给Heap较大的内存，减少频繁GC。</p>
-</li>
-</ul>
-<p>【参考】</p>
-<p><a href="https://blog.csdn.net/sinat_25306771/article/details/52258417" target="_blank" rel="external">JVM GC与频繁GC</a></p>
-<p><a href="https://blog.csdn.net/lovetea99/article/details/52588281" target="_blank" rel="external">JVM频繁Full GC的情况及应对策略</a></p>
-<h4 id="如何调整内存中新生代和老年代的内存大小？"><a href="#如何调整内存中新生代和老年代的内存大小？" class="headerlink" title="如何调整内存中新生代和老年代的内存大小？"></a>如何调整内存中新生代和老年代的内存大小？</h4><p>可以在JVM参数中设置 </p>
-<ul>
-<li><code>-XX:NewSize=n</code>：设置年轻代大小</li>
-<li><code>-XX:NewRatio=n</code>：设置年轻代和老年代的比值，默认是1：2</li>
-<li><code>-XX:SurvivorRatio</code>：设置Eden和From Survivor、To Survivor区比例。默认为8，即8:1:1。</li>
-<li><code>-Xms</code>：初始堆大小</li>
-<li><code>-Xmx</code>：最大堆大小</li>
-</ul>
-<p>【参考】</p>
-<p><a href="https://my.oschina.net/sunnywu/blog/332870" target="_blank" rel="external">java 虚拟机–新生代与老年代GC</a></p>
-<h4 id="GC和Full-GC有什么区别？"><a href="#GC和Full-GC有什么区别？" class="headerlink" title="GC和Full GC有什么区别？"></a>GC和Full GC有什么区别？</h4><ul>
-<li>GC（Minor GC）：发生在新生代的GC，采用<code>复制</code>算法</li>
-<li>Full GC（Major GC）：发生在老年代，采用<code>标记-整理</code>算法</li>
-</ul>
-<h4 id="Minor-GC后，Eden是空的么？"><a href="#Minor-GC后，Eden是空的么？" class="headerlink" title="Minor GC后，Eden是空的么？"></a>Minor GC后，Eden是空的么？</h4><p>是，Minor GC后会把Eden中所有的活的对象移动到Survivor区域中，如果Survivor区中放不下，则剩下的活的对象被移动到Old Generation中。</p>
-<h4 id="如何判断一个对象是否存活？"><a href="#如何判断一个对象是否存活？" class="headerlink" title="如何判断一个对象是否存活？"></a>如何判断一个对象是否存活？</h4><ol>
-<li>引用计数法</li>
-<li>可达性算法（引用链法）</li>
-</ol>
-<h2 id="Hadoop"><a href="#Hadoop" class="headerlink" title="Hadoop"></a>Hadoop</h2><h4 id="什么是Map-Reduce"><a href="#什么是Map-Reduce" class="headerlink" title="什么是Map-Reduce"></a>什么是<code>Map-Reduce</code></h4><h2 id="Spark"><a href="#Spark" class="headerlink" title="Spark"></a>Spark</h2><h4 id="Spark与Hadoop区别"><a href="#Spark与Hadoop区别" class="headerlink" title="Spark与Hadoop区别"></a>Spark与Hadoop区别</h4><p>【共同点】</p>
-<ul>
-<li>两者都是基于<code>Map-Reduce</code>模型来进行并行计算</li>
-</ul>
-<p>【区别】</p>
-<ul>
-<li><p>Hadoop有四个主要模块：Hadoop Common、HDFS、Hadoop YARN、Hadoop MapReduce。</p>
-<p>Spark本身没有提供分布式文件系统，因此Spark的分析大多依赖于Hadoop的HDFS。</p>
-</li>
-<li><p>Hadoop的一个作业称为job，job里面分为<code>map task</code>和<code>reduce task</code>，每个<code>task</code>都是在自己的进程中运行的，当<code>task</code>结束，进程也会结束。</p>
-<p>Spark提交的任务成为<code>application</code>，一个<code>application</code>对应一个<code>sparkcontext</code>，<code>application</code>中存在多个<code>job</code>，每触发一次<code>action</code>操作就会产生一个<code>job</code>。</p>
-</li>
-</ul>
-<h4 id="Spark运行流程"><a href="#Spark运行流程" class="headerlink" title="Spark运行流程"></a>Spark运行流程</h4><p><img src="https://images2015.cnblogs.com/blog/1004194/201608/1004194-20160830094200918-1846127221.png" alt="img"></p>
-<ol>
-<li>构建Spark Application的运行环境，启动SparkContext</li>
-<li>SparkContext向资源管理器申请运行Executor资源，并启动StandaloneExecutorbackend</li>
-<li>Executor向SparkContext申请Task</li>
-<li>SparkContext将应用程序分发给Executor</li>
-<li>SparkContext构建成DAG图，将DAG图分解成Stage、将Taskset发送给Task Scheduler，最后由Task Scheduler将Task发送给Executor运行</li>
-<li>Task在Executor上运行，运行完释放所有资源。</li>
-</ol>
-<h4 id="Spark框架基本组件"><a href="#Spark框架基本组件" class="headerlink" title="Spark框架基本组件"></a>Spark框架基本组件</h4><ul>
-<li><p>Driver</p>
-<p>【作用】运行<code>Application</code>的main函数并创建<code>SparkContext</code>。</p>
-<p>创建<code>SparkContext</code>的目的是为了准备Spark应用程序的运行环境，在Spark中有<code>SparkContext</code>负责与<code>ClusterManager</code>通信，进行资源申请、任务分配和监控，当<code>Executor</code>部分运行完毕后，<code>Driver</code>同时负责将<code>SparkContext</code>关闭。</p>
-</li>
-<li><p>Master</p>
-</li>
-<li><p>Worker</p>
-</li>
-<li><p>Executor</p>
-<p>【作用】执行器，在<code>Worker</code>上执行任务的组件、用于启动线程池运行任务。每个<code>Application</code>拥有独立的一组<code>Executor</code>。</p>
-</li>
-<li><p>Task</p>
-<p><code>Application</code>的运行基本单位，<code>Executor</code>上的工作单元，其调度和管理由<code>TaskScheduler</code>负责。</p>
-<p><code>RDD</code>中的一个分区对应一个<code>Task</code>，<code>Task</code>是单个分区上最小的处理流程单元。</p>
-</li>
-</ul>
-<h4 id="Spark中Application各个组件的关系"><a href="#Spark中Application各个组件的关系" class="headerlink" title="Spark中Application各个组件的关系"></a>Spark中<code>Application</code>各个组件的关系</h4><p><img src="https://images2015.cnblogs.com/blog/834652/201706/834652-20170629115027727-1330992206.png" alt="img"></p>
-<ul>
-<li><code>Application</code>：用户编写的Spark应用程序，由一个或多个<code>Job</code>组成，提交到Spark之后，Spark为<code>Application</code>分派资源。</li>
-<li><code>Task</code>：<code>RDD</code>中的一个分区对应一个<code>Task</code>，<code>Task</code>是单个分区上最小的处理流程单元。</li>
-<li><code>TaskSet</code>：一组关联的，但相互之间没有Shuffle依赖关系的Task集合</li>
-<li><code>Stage</code>：由Action算子触发生成的由一个或多个<code>Stage</code>组成的计算作业</li>
-<li><code>DAGScheduler</code>：根据<code>Job</code>构建基于<code>Stage</code>的<code>DAG</code>，并提交<code>Stage</code>给<code>TaskScheduler</code>。</li>
-<li><code>TaskScheduler</code>：将<code>Taskset</code>提交给<code>Worker</code>结点集群运行并返回结果。</li>
-</ul>
-<h4 id="Spark中的RDD"><a href="#Spark中的RDD" class="headerlink" title="Spark中的RDD"></a>Spark中的RDD</h4><ul>
-<li><p>RDD</p>
-<ul>
-<li>RDD：弹性分布式数据集合，是spark的基本数据结构，spark中所有数据都是通过RDD形式组织。逻辑上是一个数据集，物理上以分块分布在不同机器上并发运行。</li>
-<li>它代表一个不可变、可分区、里面的元素可并行计算的集合。</li>
-<li>RDD允许用户在执行多个查询时显式地将工作集缓存在内存中。</li>
-<li>RDD每个分区数据都是只读的</li>
-<li>RDD生命周期：读取或创建RDD，然后对数据进行一系列的转换(transform算子)，保存结果，最后进行处理(action算子)。</li>
-</ul>
-</li>
-<li><p>RDD属性</p>
-<ul>
-<li><p>一组分片（Partition），即数据集的基本组成单位。</p>
-<p>对于RDD来说，每个分片会被一个计算任务处理，并决定并行计算的粒度。用户可以在创建RDD时指定RDD的分片个数，如果没有指定，则会采用默认值，默认值即程序所分配到的CPU　Core的数目。</p>
-</li>
-<li><p>一个计算每个分区的函数</p>
-<p>Spark中RDD计算以分片为单位的，每个RDD都会实现compute函数达到这个目的。compute函数会对迭代器进行复合，不需要保存每次计算的结果。</p>
-</li>
-<li><p>RDD之间的依赖关系</p>
-<p>RDD的每次转换都会生成一个新的RDD，所以RDD之间会形成类似于流水线一样的前后依赖关系，在部分分区数据丢失时，Spark可以通过这个依赖关系重新计算丢失的分区数据，而不是对RDD的所有分区进行重新计算。</p>
-</li>
-<li><p>一个Partitioner，即RDD的分片函数</p>
-<p>当前Spark中实现了两种类型的分片函数，一个是基于哈希的HashPartitioner，另外一个是基于范围的RangePartitioner。</p>
-<p>只有对于key-value的RDD，才会有Partitioner，非key-value的RDD的Partitioner的值是None.</p>
-<p>Partitoner函数决定了RDD本身的分片数量，也决定了parent RDD Shuffer输出时的分片数量。</p>
-</li>
-<li><p>一个列表，存储存取每个Partition的优先位置（preferred location）</p>
-<p>对于一个HDFS文件来说，这个列表保存的就是每个Partition所在的块的位置。</p>
-</li>
-</ul>
-</li>
-<li><p>算子</p>
-<ul>
-<li><p>转换算子(transform)</p>
-<p>不触发提交作业，完成作业中间处理过程。</p>
-<p>分为value类型和key-value类型。</p>
-<p>所有的转换都是惰性的，不会马上计算结果，当action算子执行时，才会计算transform算子。</p>
-</li>
-<li><p>动作算子(action)</p>
-<p>触发<code>SparkContext</code>提交作业，常见的有<code>count</code>、<code>collection</code>。</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="Spark运行模式有几种？"><a href="#Spark运行模式有几种？" class="headerlink" title="Spark运行模式有几种？"></a>Spark运行模式有几种？</h4><ul>
-<li><p>standalone(独立集群运行模式)</p>
-<p>独立模式，自带完整的服务，可单独部署到一个集群中，无需依赖任何其他资源管理系统。</p>
-<p>不使用其他调度工具时会存在单点故障，可使用Zookeeper解决。</p>
-</li>
-<li><p>Spark on YARN</p>
-</li>
-<li><p>Spark on Mesos</p>
-<p>通用集群管理，有<code>粗粒度模式</code>和<code>细粒度模式</code></p>
-</li>
-</ul>
-<h4 id="Spark是多线程模式，怎么退化为多进程模式？"><a href="#Spark是多线程模式，怎么退化为多进程模式？" class="headerlink" title="Spark是多线程模式，怎么退化为多进程模式？"></a>Spark是多线程模式，怎么退化为多进程模式？</h4><p>在每个<code>executor core</code>设置为1，即每个executor为单线程。</p>
-<h4 id="什么是Shuffle-具体过程怎么样，有几种方式？"><a href="#什么是Shuffle-具体过程怎么样，有几种方式？" class="headerlink" title="什么是Shuffle,具体过程怎么样，有几种方式？"></a>什么是Shuffle,具体过程怎么样，有几种方式？</h4><p>【Shuffle】</p>
-<p><code>Shuffle</code>是<code>MapReduce</code>框架中的一个特定的<code>phase</code>，描述数据从<code>Map</code>到<code>Reduce</code>的过程，当<code>Map</code>的输出结果要被<code>Reduce</code>使用时，输出结果按<code>key</code>哈希，并分发到每一个<code>Reducer</code>上。因为<code>Shuffle</code>涉及到磁盘读写和网络传输，因此<code>Shuffle</code>性能的高低直接影响了整个程序性能和吞吐量。</p>
-<p>【过程】</p>
-<p><img src="http://jerryshao.me/img/2014-01-04-spark-shuffle/spark-shuffle.png" alt="img"></p>
-<ul>
-<li>首先每一个Mapper会根据Reducer的数量创建出相应的bucket。</li>
-<li>Mapper产生的结果会根据设置的partition算法填充到每个bucket中。默认的partition算法是根据key哈希到不同的<code>bucket</code>中去。</li>
-<li>当Reducer启动时，会根据自己的task的id和所依赖的<code>Mapper</code>的id从远端或本地的<code>block manager</code>获取相应的<code>bucket</code>作为<code>Reducer</code>的输入进行处理。</li>
-</ul>
-<p><code>Shuffle</code>过程的本质是将Map端获得的数据使用partition算法进行划分，并将数据发送给对应的<code>Reducer</code>。</p>
-<h4 id="什么是数据倾斜，如何处理？"><a href="#什么是数据倾斜，如何处理？" class="headerlink" title="什么是数据倾斜，如何处理？"></a>什么是数据倾斜，如何处理？</h4><p>【数据倾斜】</p>
-<p>并行处理的数据集中，有一部分的数据显著多于其它部分，从而使得处理该部分的数据处理速度成为数据集处理的瓶颈。</p>
-<p>【原因】</p>
-<p>常见于各种<code>Shuffle</code>操作，如<code>reduceByKey</code>、<code>groupByKey</code>、<code>join</code>等。</p>
-<ul>
-<li>数据问题<ul>
-<li>key本身分布不均匀（包括大量的key为空）</li>
-<li>key的设置不合理</li>
-</ul>
-</li>
-<li>spark使用问题<ul>
-<li>shuffle时的并发度不够</li>
-<li>计算方式有误</li>
-</ul>
-</li>
-</ul>
-<p>【解决方法】</p>
-<ul>
-<li><p>数据问题造成的数据倾斜</p>
-<ul>
-<li><p>找出异常的key</p>
-<p>如果任务长时间卡在最后几个任务，对key进行抽样分析，判断是哪些key造成的。</p>
-</li>
-</ul>
-</li>
-<li><p>spark使用不当造成的数据倾斜</p>
-<ul>
-<li><p>提高shuffle并行度</p>
-<p><code>dataFrame</code>和<code>sparkSql</code>可以设置<code>spark.sql.shuffle.partition</code>参数控制<code>shuffle</code>的并发度。</p>
-<p><code>RDD</code>操作可以设置<code>spark.default.parallelism</code>控制并发度。</p>
-</li>
-<li><p>使用<code>map join</code>代替<code>reduce join</code></p>
-<p>在小表不是特别大(取决于你的executor大小)的情况下使用，可以使程序避免shuffle的过程，自然也就没有数据倾斜的困扰了。</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="MLlib支持的算法有哪些？"><a href="#MLlib支持的算法有哪些？" class="headerlink" title="MLlib支持的算法有哪些？"></a>MLlib支持的算法有哪些？</h4><p>分类、聚类、回归、协同过滤。</p>
-<h4 id="Spark统计词频程序"><a href="#Spark统计词频程序" class="headerlink" title="Spark统计词频程序"></a>Spark统计词频程序</h4><h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h4 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h4><ul>
-<li>第一次握手：Client将标志位SYN置为1，随机产生一个值seq=x，并将该数据包发送给Server，Client进入SYN_SENT状态，等待Server确认。</li>
-<li>第二次握手：Server收到数据包后由标志位SYN=1知道Client请求建立连接，Server将标志位SYN和ACK都置为1，ack=x+1，随机产生一个值seq=y，并将该数据包发送给Client以确认连接请求，Server进入SYN_RCVD状态。</li>
-<li>第三次握手：Client收到确认后，检查ack是否为x+1，ACK是否为1，如果正确则将标志位ACK置为1，ack=y+1，并将该数据包发送给Server，Server检查ack是否为y+1，ACK是否为1，如果正确则连接建立成功，Client和Server进入ESTABLISHED状态，完成三次握手，随后Client与Server之间可以开始传输数据了。</li>
-</ul>
-<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><h4 id="什么是线性回归？"><a href="#什么是线性回归？" class="headerlink" title="什么是线性回归？"></a>什么是线性回归？</h4><p>线性回归的因变量是连续变量，自变量可以是连续变量，也可以是分类变量。</p>
-<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><h4 id="什么是逻辑回归？"><a href="#什么是逻辑回归？" class="headerlink" title="什么是逻辑回归？"></a>什么是逻辑回归？</h4><p><strong>逻辑回归假设数据服从伯努利分布,通过极大化似然函数的方法，运用梯度下降来求解参数，来达到将数据二分类的目的。</strong></p>
-<p>【基本假设】</p>
-<p>逻辑回归的<strong>第一个</strong>基本假设是<strong>假设数据服从伯努利分布。</strong><br>$$<br>h_\theta\left(x;\theta \right )=\frac{1}{1+e^{-\theta^{T} x}}<br>$$<br>【损失函数】</p>
-<p>逻辑回归的损失函数是它的极大似然函数<br>$$<br>L<em>\theta\left(x\right )= \prod </em>{i=1}^{m}h<em>\theta(x^{i};\theta )^{y{i}}*(1-h</em>\theta(x^{i};\theta))^{1-y^{i}}<br>$$</p>
-<h4 id="为什么逻辑回归的损失函数使用极大似然函数作为损失函数"><a href="#为什么逻辑回归的损失函数使用极大似然函数作为损失函数" class="headerlink" title="为什么逻辑回归的损失函数使用极大似然函数作为损失函数"></a>为什么逻辑回归的损失函数使用极大似然函数作为损失函数</h4><ul>
-<li>损失函数一般有四种，平方损失函数，对数损失函数，HingeLoss0-1损失函数，绝对值损失函数。将极大似然函数取对数以后等同于对数损失函数。在逻辑回归这个模型下，对数损失函数的训练求解参数的速度是比较快的。</li>
-</ul>
-<ul>
-<li>为什么不选平方损失函数的呢？其一是因为如果你使用平方损失函数，你会发现梯度更新的速度和sigmod函数本身的梯度是很相关的。sigmod函数在它在定义域内的梯度都不大于0.25。这样训练会非常的慢。</li>
-</ul>
-<h4 id="为什么在训练过程中将高度相关的特征去掉？"><a href="#为什么在训练过程中将高度相关的特征去掉？" class="headerlink" title="为什么在训练过程中将高度相关的特征去掉？"></a>为什么在训练过程中将高度相关的特征去掉？</h4><ul>
-<li>去掉高度相关的特征会让模型的可解释性更好</li>
-<li>可以大大提高训练的速度。如果模型当中有很多特征高度相关的话，就算损失函数本身收敛了，但实际上参数是没有收敛的，这样会拉低训练的速度。其次是特征多了，本身就会增大训练的时间。</li>
-</ul>
-<h4 id="数学推导"><a href="#数学推导" class="headerlink" title="数学推导"></a>数学推导</h4><h2 id="NLP"><a href="#NLP" class="headerlink" title="NLP"></a>NLP</h2><h4 id="中文特点"><a href="#中文特点" class="headerlink" title="中文特点"></a>中文特点</h4><ul>
-<li>汉语是大字符集的意音文字</li>
-<li>词与词之间没有空格</li>
-<li>同义、同音词多</li>
-<li>没有形态变化</li>
-</ul>
-<h4 id="中文分词"><a href="#中文分词" class="headerlink" title="中文分词"></a>中文分词</h4><ul>
-<li><p>基于字符串匹配的分词方法</p>
-<p>按照<strong>一定的策略</strong>将<strong>待分析的汉字串</strong>与一个“<strong>充分大的”机器词典</strong>中的词条进行配，<strong>若在词典中找到某个字符串</strong>，则<strong>匹配成功</strong>（识别出一个词）</p>
-<ul>
-<li><p><strong>正向最大匹配</strong> （从左到右方向）</p>
-<p>选取包含6到8个汉字的符号串作为最大符号串，把最大符号串与词典中的单词条目匹配，如果不能匹配，削掉最右边的一个汉字继续匹配，直到在词典中找到相应的单词为止，匹配的方法从右向左。</p>
-</li>
-<li><p>逆向最大匹配（从右到左方向）</p>
-</li>
-<li><p>最小切分（每一句中切出的词数最小）</p>
-</li>
-<li><p><strong>双向最大匹配 </strong>（从左到右、从右到左两次扫描）</p>
-</li>
-</ul>
-</li>
-<li><p>基于统计的分词方法</p>
-<ul>
-<li>N元文法模型（N-gram）</li>
-<li>隐马尔可夫模型（HMM）</li>
-<li>最大熵模型（ME）</li>
-<li>条件随机场模型（CRF）</li>
-</ul>
-<p>【注】</p>
-<p>实际应用中，基于统计的分词系统都需要分词词典来进行字符串匹配，同时<strong>使用统计方法识别一些新词</strong>，即将<strong>字符串频率统计</strong>和<strong>字符串匹配</strong>结合起来，既发挥<strong>匹配分词切分速度快、效率高的特点</strong>，又利用了<strong>无词典分词结合上下文识别生词、自动消除歧义的优点</strong>。</p>
-</li>
-</ul>
-<h4 id="Word2Vec"><a href="#Word2Vec" class="headerlink" title="Word2Vec"></a>Word2Vec</h4><p>【两种模型】</p>
-<ul>
-<li>CBOW（连续词袋）<ul>
-<li>无隐层</li>
-<li>使用双向上下文窗口</li>
-<li>上下文词序无关</li>
-<li>输入层直接使用低维稠密表示</li>
-<li>输入层、映射层、输出层</li>
-<li>输入层即某个单词周围的n-1个单词词向量。</li>
-<li>映射层到输出层。需要借助Huffman树，从根节点开始，映射层的zhi需要huffman树不断进行logistic分类。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Skip-Gram<ul>
-<li>无隐层</li>
-<li>投影层也可以省略</li>
-<li>每个词向量作为log-linear模型的输入</li>
-</ul>
-</li>
-</ul>
-<p>【两种算法】</p>
-<ul>
-<li>层次Softmax<ul>
-<li>采用Huffman树来编码输出层的词典</li>
-<li>只需要计算路径上所有非叶子结点的词向量即可。</li>
-</ul>
-</li>
-<li>负例采样<ul>
-<li>​</li>
-</ul>
-</li>
-</ul>
-<h4 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h4><h4 id="最大熵模型"><a href="#最大熵模型" class="headerlink" title="最大熵模型"></a>最大熵模型</h4><ul>
-<li>最大熵原理指出，当我们需要对一个随机事件的概率分布预测的时候，我们的预测应当满足全部已知的条件，而对未知的情况不要做任何主观假设。在这种情况下，概率分布最均匀，预测的风险最小。因为这时的概率分布的信息熵最大，所以这种模型叫做“最大熵模型”。即遇到不确定性时，保留各种可能性。</li>
-</ul>
-<h4 id="产生式模型和判别式模型"><a href="#产生式模型和判别式模型" class="headerlink" title="产生式模型和判别式模型"></a>产生式模型和判别式模型</h4><p>对于输入x，类别标签y</p>
-<ul>
-<li>产生式模型：估计它们的联合概率分布，如HMM、Naive Bayes、BNs、MRF</li>
-<li>判别式模型：估计条件概率分布，如SVM、CRF、LR、Boosting、Neural Networks</li>
-</ul>
-<ul>
-<li>生成式模型：有多个模型（一般有多少类就有多少个），把测试用例分别丢给各个模型，最后比较得出最佳结果。</li>
-<li>判别式模型：只有一个模型，把测试用例丢给模型，直接得出结果。</li>
-</ul>
-<p>【联系】</p>
-<p>由生成模型可以得到判别模型，但由判别模型无法得到生成模型</p>
-<h4 id="概率图模型"><a href="#概率图模型" class="headerlink" title="概率图模型"></a>概率图模型</h4><p>【定义】</p>
-<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180424/jCdF3IF5eA.png?imageslim" alt="mark"></p>
-<p>【分类】</p>
-<p>根据途中边有无方向，分为两类：</p>
-<ul>
-<li>有向图：贝叶斯网络</li>
-<li>无向图：马尔科夫随机场（MRF）</li>
-</ul>
-<h4 id="HMM"><a href="#HMM" class="headerlink" title="HMM"></a>HMM</h4><p><img src="http://p15qizl76.bkt.clouddn.com/blog/180424/44LHHCh6cD.png?imageslim" alt="mark"></p>
-<h4 id="CRF"><a href="#CRF" class="headerlink" title="CRF"></a>CRF</h4><p>【特征函数】</p>
-<p>在CRF中，每个特征函数以以下信息作为输入</p>
-<ul>
-<li>一个句子s</li>
-<li>词在句子中的位置i</li>
-<li>当前词的标签</li>
-<li>前一个词的标签</li>
-</ul>
-<p>输出：一个实数值（一般0 或1）</p>
-<p>【应用】</p>
-<ul>
-<li>分词（标注字的词位信息，由字构词）</li>
-<li>词性标注（标注分词的词性）</li>
-<li>命名实体识别</li>
-</ul>
-<h3 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h3><h4 id="实体对齐（同义词关系学习）"><a href="#实体对齐（同义词关系学习）" class="headerlink" title="实体对齐（同义词关系学习）"></a>实体对齐（同义词关系学习）</h4><ul>
-<li>从开放链接数据中抽取同意关系</li>
-<li>同一百科中的实体对齐<ul>
-<li>重定向</li>
-<li>信息模块：中文别称、别名</li>
-</ul>
-</li>
-<li>不同百科间的实体对齐<ul>
-<li>名称匹配</li>
-</ul>
-</li>
-<li>基于SVM的自监督百科实体对齐方法（百科间实体）</li>
-<li>基于CRF的开放同义关系学习</li>
-</ul>
-
-          
+<li>自然语言生成模块（NLG）
+          <div class="post-more-link text-center">
+            <a class="btn" href="/task-oriented-dialog-system/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1752,8 +647,8 @@
             
               
                 
-                <a class="post-title-link" href="/algorithm-leetcode/" itemprop="url">
-                  【算法】LeetCode总结
+                <a class="post-title-link" href="/no-root-install-python/" itemprop="url">
+                  无Root权限中Ubuntu安装Python
                 </a>
               
             
@@ -1766,8 +661,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-03-21T19:29:36+08:00" content="2018-03-21">
-              2018-03-21
+            <time itemprop="dateCreated" datetime="2018-03-18T19:29:36+08:00" content="2018-03-18">
+              2018-03-18
             </time>
           </span>
 
@@ -1780,250 +675,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          <!-- 
-            
-           -->
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>[TOC]</p>
-<h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><h3 id="371-两整数之和"><a href="#371-两整数之和" class="headerlink" title="371.两整数之和"></a>371.两整数之和</h3><p>【题目描述】</p>
-<p><strong>不使用</strong>运算符 <code>+</code> 和<code>-</code>，计算两整数<code>a</code> 、<code>b</code>之和。</p>
-<p><strong>示例：</strong><br>若 <em>a</em> = 1 ，<em>b</em> = 2，返回 3。</p>
-<p>【思路】</p>
-<p>使用位运算，异或+移位。</p>
-<p>【题解】</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getSum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (b != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> c = a ^ b;</span><br><span class="line">        b = (a &amp; b) &lt;&lt; <span class="number">1</span>;</span><br><span class="line">        a = c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="数"><a href="#数" class="headerlink" title="数"></a>数</h2><h3 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; um;</span><br><span class="line">        <span class="keyword">int</span> n=nums.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; result;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(um.find(target-nums[i]) != um.end())&#123;</span><br><span class="line">                result.push_back(um[target-nums[i]]);</span><br><span class="line">                result.push_back(i);</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">                um[nums[i]]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/algorithm-leetcode/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/algorithm-offer/" itemprop="url">
-                  【算法】剑指Offer总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-03-20T19:29:36+08:00" content="2018-03-20">
-              2018-03-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          <!-- 
-            
-           -->
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>[TOC]</p>
-<h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><h3 id="二进制中1的个数-（面试题10）"><a href="#二进制中1的个数-（面试题10）" class="headerlink" title="二进制中1的个数 （面试题10）"></a>二进制中1的个数 （面试题10）</h3><p>【题目描述】</p>
-<p>输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。</p>
-<p>【思路】</p>
-<p>把一个整数减去1，再和原整数做<code>与</code>运算，会把该整数最右边一个1变成0，则一个整数的二进制有多少个1，就可以进行多少次这样的操作。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/algorithm-offer/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/algorithm-interview/" itemprop="url">
-                  【算法】面试算法题总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-03-20T19:29:36+08:00" content="2018-03-20">
-              2018-03-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -2057,498 +710,34 @@
       
         
           
-            <p>[TOC]</p>
-<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BiSearch</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> size,<span class="keyword">int</span> key)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a==<span class="literal">NULL</span> || size==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> low=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high=size<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> mid=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(low&lt;high)&#123;</span><br><span class="line">        mid=(low+high)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h3><p><img src="http://p15qizl76.bkt.clouddn.com/blog/180409/4e4Imi609e.png?imageslim" alt="mark"></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//一次划分，选取第一个记录作为关键码</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> first,<span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=first;	<span class="comment">//初始化</span></span><br><span class="line">    <span class="keyword">int</span> j=end;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;j &amp;&amp; a[i]&lt;=a[j])	<span class="comment">//右侧扫描</span></span><br><span class="line">            j--;</span><br><span class="line">        <span class="keyword">if</span>(i&lt;j)&#123;					<span class="comment">//将较小的记录交换到前面</span></span><br><span class="line">            swap(a[i],a[j]);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;j &amp;&amp; a[i]&lt;=a[j])	<span class="comment">//左侧扫描</span></span><br><span class="line">            i++;</span><br><span class="line">        <span class="keyword">if</span>(i&lt;j)&#123;</span><br><span class="line">            swap(a[i],a[j]);		<span class="comment">//将较大的记录交换到后面</span></span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//整个快排的过程可递归进行，若待排序序列中只有一个记录，则结束递归，否则进行一次划分后，再分别对划分得到的两个子序列进行快排（即递归处理）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> first,<span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(first&lt;end)&#123;</span><br><span class="line">        <span class="keyword">int</span> pivot=partition(a,first,end);</span><br><span class="line">        quickSort(a,first,pivot<span class="number">-1</span>);</span><br><span class="line">        quickSort(a,pivot+<span class="number">1</span>,end);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>【思路】</p>
-<ul>
-<li><p>设置exchange变量记载每次记录交换的位置，则一趟排序后，exchange记载的一定是这趟排序中记录的最后一次交换的位置，从此位置后所有记录均有序。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(r[j]&gt;r[j+<span class="number">1</span>])&#123;</span><br><span class="line">  swap(r[j],r[j+<span class="number">1</span>]);</span><br><span class="line">  exchange=j;	<span class="comment">//记载每一次记录交换的位置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <ol>
+<li><p>下载Python</p>
+<p><code>wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz</code></p>
 </li>
-<li><p>设bound位置的记录是无序区的最后一个记录，则每趟冒泡排序的范围是r[1]~r[bound]。在一趟排序后，exchange位置之后的记录一定是有序的，所以下一趟冒泡排序汇总无序区的最后一个记录的位置是exchange，即bound=exchange</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;bound;j++)&#123;</span><br><span class="line">  <span class="keyword">if</span>(r[j]&gt;r[j+<span class="number">1</span>])&#123;</span><br><span class="line">    swap(r[j],r[j+<span class="number">1</span>]);</span><br><span class="line">    exchange=j;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>解压</p>
+<p><code>tar -xvf Python-3.6.3.tar.zx</code></p>
 </li>
-<li><p>判别冒泡排序的结束条件应该是在一趟排序过程中没有进行交换记录的操作。为此，在每趟冒泡排开始之前，设exchange初值为0，在该趟排序的过程中，只要有记录的交换，则exchange值大于0.</p>
-<p>通过exchange的值是否为0可以判断是否有记录的交换，从而判断整个冒泡排序是否结束。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(exchange != <span class="number">0</span>)&#123;</span><br><span class="line">  bound=exchagne;</span><br><span class="line">  exchange=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;bound;j++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(r[j]&gt;r[j+<span class="number">1</span>])&#123;</span><br><span class="line">      swap(r[j],r[j+<span class="number">1</span>]);</span><br><span class="line">      exchange=j;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>进入到解压后的文件夹</p>
+<p><code>cd Python-3.6.3</code></p>
 </li>
-</ul>
-<p>【实现】</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    <span class="keyword">int</span> exchange=n;		<span class="comment">//第一趟冒泡排序的区间是[1,n]</span></span><br><span class="line">    <span class="keyword">while</span>(exchange != <span class="number">0</span>)&#123;	<span class="comment">//当上一趟排序有记录交换时</span></span><br><span class="line">        <span class="keyword">int</span> bound=exchange;</span><br><span class="line">        exchange=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;bound;i++)&#123;	<span class="comment">//一趟冒泡排序，区间是[1,bound]</span></span><br><span class="line">            <span class="keyword">if</span>(a[i]&gt;a[i+<span class="number">1</span>])&#123;</span><br><span class="line">                swap(a[i],a[i+<span class="number">1</span>]);</span><br><span class="line">                exchange=i;			<span class="comment">//记载每一次记录交换的位置</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="堆排"><a href="#堆排" class="headerlink" title="堆排"></a>堆排</h3><p>以最大堆进行升序排序为例</p>
-<ul>
-<li>初始化堆：即构造堆</li>
-<li>交换数据，调整堆</li>
-</ul>
-<p><img src="https://images0.cnblogs.com/i/497634/201403/151545571211442.jpg" alt="img"></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//向下调整</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DownAdjust</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> i,<span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">    <span class="comment">//i是指欲调整结点</span></span><br><span class="line">    <span class="keyword">int</span> lchild=<span class="number">2</span>*i;</span><br><span class="line">    <span class="keyword">int</span> rchild=<span class="number">2</span>*i+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> maxIndex=i;</span><br><span class="line">    <span class="keyword">if</span>(i&lt;=size/<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(lchild&lt;=size &amp;&amp; a[lchild] &gt; a[maxIndex])</span><br><span class="line">            maxIndex=lchild;</span><br><span class="line">        <span class="keyword">if</span>(rchild&lt;=size &amp;&amp; a[rchild] &gt; a[maxIndex])</span><br><span class="line">            maxIndex=rchild;</span><br><span class="line">        <span class="keyword">if</span>(maxIndex != i)&#123;  <span class="comment">//如果最大值maxIndex更新了</span></span><br><span class="line">            swap(a[maxIndex],a[i]);</span><br><span class="line">            DownAdjust(a,maxIndex,size);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//建堆，对每一个非叶结点进行堆调整（从最后一个非叶结点开始）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BuildHeap</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=size/<span class="number">2</span>;i&gt;=<span class="number">1</span>;i--)  <span class="comment">//注意：这里从(size/2)开始到1</span></span><br><span class="line">        DownAdjust(a,i,size);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HeapSort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">    BuildHeap(a,size);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=size;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">        swap(a[<span class="number">1</span>],a[i]);    <span class="comment">//将堆顶放在末尾</span></span><br><span class="line">        DownAdjust(a,<span class="number">1</span>,i<span class="number">-1</span>);  <span class="comment">//将未完成排序的部分进行堆排序</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">array</span>[<span class="number">8</span>] = &#123;<span class="number">8</span>, <span class="number">1</span>, <span class="number">14</span>, <span class="number">3</span>, <span class="number">21</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">10</span>&#125;;</span><br><span class="line">    HeapSort(<span class="built_in">array</span>,<span class="number">8</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">9</span>;i++)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">array</span>[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Trie树"><a href="#Trie树" class="headerlink" title="Trie树"></a>Trie树</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Trie</span>&#123;</span>    <span class="comment">//字典树定义</span></span><br><span class="line">    Trie* next[<span class="number">26</span>];</span><br><span class="line">    <span class="keyword">int</span> num;    <span class="comment">//以当前字符串为前缀的单词的数量</span></span><br><span class="line">    Trie()    <span class="comment">//构造函数</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">26</span>;i++)&#123;</span><br><span class="line">            next[i] = <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        num=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">Trie root;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Insert</span><span class="params">(<span class="keyword">char</span> word[])</span>    <span class="comment">//将字符串word插入到字典树中</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Trie *p = &amp;root;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;word[i];i++)&#123;    <span class="comment">//遍历word的每一个字符</span></span><br><span class="line">        <span class="keyword">if</span>(p-&gt;next[word[i]-<span class="string">'a'</span>]==<span class="literal">NULL</span>)    <span class="comment">//如果该字符没有对应的节点</span></span><br><span class="line">            p-&gt;next[word[i]-<span class="string">'a'</span>] = <span class="keyword">new</span> Trie;    <span class="comment">//创建一个</span></span><br><span class="line">        p = p-&gt;next[word[i]-<span class="string">'a'</span>];</span><br><span class="line">        p-&gt;num++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">char</span> word[])</span>    <span class="comment">//返回以字符串word为前缀的单词的数量</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Trie *p = &amp;root;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;word[i];i++)&#123;    <span class="comment">//在字典树找到该单词的结尾位置</span></span><br><span class="line">        <span class="keyword">if</span>(p-&gt;next[word[i]-<span class="string">'a'</span>]==<span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        p = p-&gt;next[word[i]-<span class="string">'a'</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> p-&gt;num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="树结点结构"><a href="#树结点结构" class="headerlink" title="树结点结构"></a>树结点结构</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BiNode</span>&#123;</span></span><br><span class="line">    <span class="keyword">char</span> data;</span><br><span class="line">    BiNode *lchild,*rchild;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="创建二叉树"><a href="#创建二叉树" class="headerlink" title="创建二叉树"></a>创建二叉树</h3><p>此处是按先序序列构造一颗二叉树</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">BiNode *BiTree::Create()&#123;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    c=<span class="built_in">cin</span>.get();</span><br><span class="line">    BiNode *pnode;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(c==<span class="string">'#'</span>)</span><br><span class="line">        pnode=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        pnode=<span class="keyword">new</span> BiNode;</span><br><span class="line">        pnode-&gt;data=c;</span><br><span class="line">        pnode-&gt;lchild=Create();</span><br><span class="line">        pnode-&gt;rchild=Create();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pnode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h3><p>【访问顺序】根左右</p>
-<h4 id="递归方法"><a href="#递归方法" class="headerlink" title="递归方法"></a>递归方法</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::PreOrder(BiNode *node)&#123;</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="literal">NULL</span>)            <span class="comment">//递归调用的结束条件</span></span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;node-&gt;data;       <span class="comment">//访问根节点的数据域</span></span><br><span class="line">        PreOrder(node-&gt;lchild); <span class="comment">//前序递归遍历左子树</span></span><br><span class="line">        PreOrder(node-&gt;rchild); <span class="comment">//前序递归遍历右子树</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="非递归方法"><a href="#非递归方法" class="headerlink" title="非递归方法"></a>非递归方法</h4><p>【思路】</p>
-<p>对任一结点</p>
-<ol>
-<li>访问结点p，并将p入栈</li>
-<li>判断结点p的左孩子是否为空<ul>
-<li>若为空，则弹出栈顶结点，将栈顶结点的右孩子置为当前结点p，循环至1</li>
-<li>若不为空，则将结点p的左孩子置为当前结点p</li>
-</ul>
+<li><p><code>./configure --prefix=&#39;Your Install Director&#39;</code></p>
 </li>
-<li>直到结点p为NULl且栈为空，遍历结束。</li>
+<li><p><code>make &amp;&amp; make install</code></p>
+</li>
+<li><p>添加路径,编辑<code>~/.bashrc</code></p>
+<p><code>vim ~/.bashrc</code></p>
+</li>
+<li><p>在文件最后添加</p>
+<p><code>export PATH=/Your Install Path:$PATH</code>，如<code>export PATH=/usr/local/bin/:$PATH</code></p>
+</li>
+<li><p>创建别名，编辑<code>~/.bashrc</code></p>
+<p><code>vim ~/.bashrc</code></p>
+</li>
+<li><p>在文件最后添加</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">alias</span> python=<span class="string">'Your python path'</span></span><br><span class="line"><span class="built_in">alias</span> pip=<span class="string">'Your pip path'</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
 </ol>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::PreOrderNonRec(BiNode *node)&#123;</span><br><span class="line">  	<span class="keyword">if</span>(node == <span class="literal">NULL</span>)</span><br><span class="line">      <span class="keyword">return</span> ;</span><br><span class="line">    <span class="built_in">stack</span>&lt;BiNode *&gt; s;</span><br><span class="line">    BiNode *p=node;</span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span> || !s.empty())&#123;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;p-&gt;data;</span><br><span class="line">            s.push(p);</span><br><span class="line">            p=p-&gt;lchild;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!s.empty())&#123;</span><br><span class="line">            p=s.top();</span><br><span class="line">            s.pop();</span><br><span class="line">            p=p-&gt;rchild;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><p>【访问顺序】左根右</p>
-<h4 id="递归方法-1"><a href="#递归方法-1" class="headerlink" title="递归方法"></a>递归方法</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::InOrder(BiNode *node)&#123;</span><br><span class="line">    <span class="keyword">if</span>(node==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        InOrder(node-&gt;lchild);</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;node-&gt;data;</span><br><span class="line">        InOrder(node-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="非递归方法-1"><a href="#非递归方法-1" class="headerlink" title="非递归方法"></a>非递归方法</h4><p>对于任一结点p：</p>
-<ol>
-<li>判断当前结点p左孩子结点是否为空<ul>
-<li>若其左孩子结点不为空，则将p入栈，并将p的左孩子结点置为当前p，对当前结点p做相同处理。</li>
-<li>若其左孩子结点为空，则弹出栈顶结点，将当前结点p置为栈顶结点的右孩子结点。</li>
-</ul>
-</li>
-<li>直到当前结点p为NULL且栈为空，遍历结束。</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::InOrderNonRec(BiNode *node)&#123;</span><br><span class="line">  	<span class="keyword">if</span>(node==<span class="literal">NULL</span>)</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">stack</span>&lt;BiNode *&gt; s;</span><br><span class="line">    BiNode *p=node;</span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span> || !s.empty())&#123;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            s.push(p);</span><br><span class="line">            p=p-&gt;lchild;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!s.empty())&#123;</span><br><span class="line">            p=s.top();</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;p-&gt;data;</span><br><span class="line">            s.pop();</span><br><span class="line">            p=p-&gt;rchild;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><p>【访问顺序】左右根</p>
-<h4 id="递归方法-2"><a href="#递归方法-2" class="headerlink" title="递归方法"></a>递归方法</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::PostOrder(BiNode *node)&#123;</span><br><span class="line">    <span class="keyword">if</span>(node==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        PostOrder(node-&gt;lchild);</span><br><span class="line">        PostOrder(node-&gt;rchild);</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;node-&gt;data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="非递归方法-2"><a href="#非递归方法-2" class="headerlink" title="非递归方法"></a>非递归方法</h4><p>【思路】要保证根结点在左孩子和右孩子访问之后才能访问。</p>
-<p>对于任一结点p，</p>
-<ol>
-<li>将p入栈<ul>
-<li>若结点p不存在左孩子结点和右孩子结点，则直接访问该结点p；</li>
-<li>若结点p存在左孩子结点或右孩子结点，但其左孩子结点和右孩子结点都已被访问，则直接访问该结点p</li>
-</ul>
-</li>
-<li>若非上述两种情况，则将结点p的右孩子结点和左孩子结点依次入栈，这就保证了每次取栈顶元素时，左孩子在右孩子前面被访问，左孩子和右孩子在根结点前被访问。</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::PostOrderNonRec(BiNode *node)&#123;</span><br><span class="line">  	<span class="keyword">if</span>(node==<span class="literal">NULL</span>)</span><br><span class="line">      <span class="keyword">return</span> ;</span><br><span class="line">    <span class="built_in">stack</span>&lt;BiNode *&gt; s;</span><br><span class="line">    BiNode *p;<span class="comment">//当前结点</span></span><br><span class="line">    BiNode *pre=<span class="literal">NULL</span>;<span class="comment">//前一次访问的结点</span></span><br><span class="line"></span><br><span class="line">    s.push(node);</span><br><span class="line">    <span class="keyword">while</span>(!s.empty())&#123;</span><br><span class="line">        p=s.top();</span><br><span class="line">        <span class="comment">//如果当前结点没有孩子结点或孩子结点都被访问过</span></span><br><span class="line">        <span class="keyword">if</span>((p-&gt;lchild == <span class="literal">NULL</span> &amp;&amp; p-&gt;rchild == <span class="literal">NULL</span>)||(pre!=<span class="literal">NULL</span>&amp;&amp;(pre==p-&gt;lchild || pre==p-&gt;rchild)))&#123;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;p-&gt;data;</span><br><span class="line">            s.pop();</span><br><span class="line">            pre=p;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(p-&gt;rchild != <span class="literal">NULL</span>)</span><br><span class="line">                s.push(p-&gt;rchild);</span><br><span class="line">            <span class="keyword">if</span>(p-&gt;lchild != <span class="literal">NULL</span>)</span><br><span class="line">                s.push(p-&gt;lchild);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="层序遍历"><a href="#层序遍历" class="headerlink" title="层序遍历"></a>层序遍历</h3><p>层序遍历需要用到队列，使用<code>#include&lt;queue&gt;</code></p>
-<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180326/20HgFe8FGe.png?imageslim" alt="mark"></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::LevelOrder(BiNode *node)&#123;</span><br><span class="line">    <span class="comment">//使用队列实现</span></span><br><span class="line">    <span class="built_in">queue</span>&lt;BiNode*&gt; q;</span><br><span class="line">    BiNode *s=node;</span><br><span class="line">    <span class="keyword">if</span>(s==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    q.push(s);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        s=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;s-&gt;data;</span><br><span class="line">        <span class="keyword">if</span>(s-&gt;lchild!=<span class="literal">NULL</span>)</span><br><span class="line">            q.push(s-&gt;lchild);</span><br><span class="line">        <span class="keyword">if</span>(s-&gt;rchild!=<span class="literal">NULL</span>)</span><br><span class="line">            q.push(s-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h3><p>【思路】</p>
-<p>即前中后序三种遍历方式。</p>
-<p>这里给出深度优先前序遍历的另一种实现方式，利用栈。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::DFS(BiNode *node)&#123;</span><br><span class="line">    <span class="built_in">stack</span>&lt;BiNode*&gt; s;</span><br><span class="line">    BiNode *p;</span><br><span class="line">    s.push(node);</span><br><span class="line">    <span class="keyword">while</span>(!s.empty())&#123;</span><br><span class="line">        p=s.top();</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;p-&gt;data;</span><br><span class="line">        s.pop();</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;rchild != <span class="literal">NULL</span>)</span><br><span class="line">            s.push(p-&gt;rchild);</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;lchild != <span class="literal">NULL</span>)</span><br><span class="line">            s.push(p-&gt;lchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h3><p>【思路】</p>
-<p>即层次遍历</p>
-<h3 id="求深度"><a href="#求深度" class="headerlink" title="求深度"></a>求深度</h3><p>【思路】</p>
-<ul>
-<li>每个节点都有自己的左右子树</li>
-<li>每次返回当前节点左右子树长度大的那个</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> BiTree::GetTreeDepth(BiNode *node)&#123;</span><br><span class="line">    <span class="keyword">int</span> lchildDep=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> rchildDep=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果根节点为空，深度为0，返回0，递归的出口</span></span><br><span class="line">    <span class="comment">//否则深度至少为1，然后累加它们左右子树的深度</span></span><br><span class="line">    <span class="keyword">if</span>(node == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    lchildDep+=GetTreeDepth(node-&gt;lchild);</span><br><span class="line">    rchildDep+=GetTreeDepth(node-&gt;rchild);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (lchildDep&gt;rchildDep)?(lchildDep):(rchildDep);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="求两个节点距离"><a href="#求两个节点距离" class="headerlink" title="求两个节点距离"></a>求两个节点距离</h3><h3 id="翻转二叉树"><a href="#翻转二叉树" class="headerlink" title="翻转二叉树"></a>翻转二叉树</h3><p><img src="http://p15qizl76.bkt.clouddn.com/blog/180327/mif6Lg5jHL.png?imageslim" alt="mark"></p>
-<h4 id="递归方法-3"><a href="#递归方法-3" class="headerlink" title="递归方法"></a>递归方法</h4><p>【思路】先翻转左子树，再翻转右子树，然后对整个树进行翻转</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::invertTree(BiNode *node)&#123;</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    swap(node-&gt;lchild,node-&gt;rchild);</span><br><span class="line">    invertTree(node-&gt;lchild);</span><br><span class="line">    invertTree(node-&gt;rchild);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="非递归方法-3"><a href="#非递归方法-3" class="headerlink" title="非递归方法"></a>非递归方法</h4><p>【思路】</p>
-<p>与二叉树的层序遍历类似，需要queue实现</p>
-<p>把根结点入队列，从队列中取出，交换左右孩子结点。若存在则分别将左右孩子结点入队，以此类推直到队列中没有结点则停止。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::invertTreeNonRec(BiNode *node)&#123;</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    <span class="built_in">queue</span>&lt;BiNode *&gt; q;</span><br><span class="line">    q.push(node);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        BiNode *cur=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        BiNode *tmp=cur-&gt;lchild;</span><br><span class="line">        cur-&gt;lchild=cur-&gt;rchild;</span><br><span class="line">        cur-&gt;rchild=tmp;</span><br><span class="line">        <span class="keyword">if</span>(cur-&gt;lchild != <span class="literal">NULL</span>)</span><br><span class="line">            q.push(cur-&gt;lchild);</span><br><span class="line">        <span class="keyword">if</span>(cur-&gt;rchild != <span class="literal">NULL</span>)</span><br><span class="line">            q.push(cur-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="表达式求值"><a href="#表达式求值" class="headerlink" title="表达式求值"></a>表达式求值</h2><h3 id="中缀表达式"><a href="#中缀表达式" class="headerlink" title="中缀表达式"></a>中缀表达式</h3><p>【概念】</p>
-<p>中缀表达式是指运算符在运算数中间。</p>
-<p>【思路】</p>
-<p>需要两个栈：操作数栈和操作符栈</p>
-<ul>
-<li>如果是数字，压入操作数栈。</li>
-<li>如果是操作符<ul>
-<li>当前是加减法<ul>
-<li>若栈顶是加减乘除，则计算栈内直到操作符栈顶不是加减乘除或为空，压栈。</li>
-<li>否则直接压栈。</li>
-</ul>
-</li>
-<li>当前是乘除法<ul>
-<li>若栈顶是乘除，计算直到操作符栈顶不是乘除或者为空，压栈。</li>
-<li>否则直接压栈。</li>
-</ul>
-</li>
-<li>当前是左括号，压栈。</li>
-<li>当前是右括号，计算直到遇到左括号。</li>
-</ul>
-</li>
-</ul>
-<p>当所有的分析完后，循环计算栈顶直到操作符栈为空，此时操作数栈里只有一个元素，即最后的结果。</p>
-<p>【范例】</p>
-<p><code>1 + 2 *（3 + 4 * 5）</code></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>计算过程</td>
-<td>数栈</td>
-<td>操作符栈</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>2</td>
-<td>1</td>
-<td>+</td>
-</tr>
-<tr>
-<td>3</td>
-<td>1、2</td>
-<td>+</td>
-</tr>
-<tr>
-<td>4</td>
-<td>1、2</td>
-<td>+、*</td>
-</tr>
-<tr>
-<td>5</td>
-<td>1、2、（</td>
-<td>+、*</td>
-</tr>
-<tr>
-<td>6</td>
-<td>1、2、（、3</td>
-<td>+、*</td>
-</tr>
-<tr>
-<td>7</td>
-<td>1、2、（、3</td>
-<td>+、*、+</td>
-</tr>
-<tr>
-<td>8</td>
-<td>1、2、（、3、4</td>
-<td>+、*、+</td>
-</tr>
-<tr>
-<td>9</td>
-<td>1、2、（、3、4</td>
-<td>+、<em>、+、</em></td>
-</tr>
-<tr>
-<td>10.1</td>
-<td>1、2、（、3、4、5</td>
-<td>+、<em>、+、</em></td>
-</tr>
-<tr>
-<td>10.2</td>
-<td>1、2、（、3、20</td>
-<td>+、*、+</td>
-</tr>
-<tr>
-<td>11</td>
-<td>1、2、23</td>
-<td>+、*</td>
-</tr>
-<tr>
-<td>12</td>
-<td>1、46</td>
-<td>+</td>
-</tr>
-<tr>
-<td>13</td>
-<td>47</td>
-</tr>
-</tbody>
-</table>
-<p><a href="https://blog.csdn.net/wangzengdi/article/details/47023653" target="_blank" rel="external">https://blog.csdn.net/wangzengdi/article/details/47023653</a></p>
-<p><a href="https://segmentfault.com/a/1190000005659574" target="_blank" rel="external">https://segmentfault.com/a/1190000005659574</a></p>
-<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="乘积最大子序列"><a href="#乘积最大子序列" class="headerlink" title="乘积最大子序列"></a>乘积最大子序列</h3><p>【题目描述】</p>
-<p>找出一个序列中乘积最大的连续子序列（至少包含一个数）</p>
-<p>【思路】</p>
-<ul>
-<li><code>data[i]</code>：第i个数据</li>
-</ul>
-<ul>
-<li><code>dp1[i]</code>：以第i个数据结尾的连续子序列最大乘积</li>
-<li><code>dp2[i]</code>：以第i个数据结尾的连续子序列最小乘积</li>
-<li>状态转移方程<ul>
-<li><code>dp1[i]=max(data[i],max(dp1[i-1] * data[i],dp2[i-1] * data[i]));</code></li>
-<li><code>dp2[i]=min(data[i],min(dp1[i-1] * data[i],dp2[i-1] * data[i]));</code></li>
-</ul>
-</li>
-<li>边界条件<ul>
-<li><code>dp1[0]=data[0];</code></li>
-<li><code>dp2[0]=data[0];</code></li>
-</ul>
-</li>
-<li>最后遍历<code>dp1</code>得到最大值即可</li>
-</ul>
-<p>【题解】</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">max</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;<span class="keyword">return</span> a&gt;b?a:b;&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">min</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;<span class="keyword">return</span> a&lt;b?a:b;&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=nums.size();</span><br><span class="line">    <span class="keyword">if</span>(len==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; dp1(len);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; dp2(len);</span><br><span class="line">    <span class="comment">//边界条件</span></span><br><span class="line">    dp1[<span class="number">0</span>]=nums[<span class="number">0</span>];</span><br><span class="line">    dp2[<span class="number">0</span>]=nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</span><br><span class="line">        dp1[i]=max(nums[i],max(dp1[i<span class="number">-1</span>]*nums[i],dp2[i<span class="number">-1</span>]*nums[i]));</span><br><span class="line">        dp2[i]=min(nums[i],min(dp1[i<span class="number">-1</span>]*nums[i],dp2[i<span class="number">-1</span>]*nums[i]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> index=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)</span><br><span class="line">        <span class="keyword">if</span>(dp1[i]&gt;dp1[index])</span><br><span class="line">            index=i;</span><br><span class="line">    <span class="keyword">return</span> dp1[index];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/algorithm-xiaomi2015/" itemprop="url">
-                  【算法】小米2015暑假实习笔试题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-03-20T19:29:36+08:00" content="2018-03-20">
-              2018-03-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          <!-- 
-            
-           -->
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="懂二进制"><a href="#懂二进制" class="headerlink" title="懂二进制"></a>懂二进制</h2><p><strong>题目描述</strong>：世界上有10种人，一种懂二进制，一种不懂。那么你知道两个int32整数m和n的二进制表达，有多少个位(bit)不同么？</p>
-<p><strong>题解</strong>：</p>
-<p>【思路】两个数异或，因为两个数异或不同为1，相同为0，则统计1的个数即可。</p>
-<ol>
-<li>异或运算，得到数c。</li>
-<li>c&amp;(c-1)，从而统计1的个数。</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countBitDiff</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> c=m^n;</span><br><span class="line">        <span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(c!=<span class="number">0</span>)&#123;</span><br><span class="line">          	<span class="comment">//得到的数c-1再进行逻辑与，可以统计有多少个1</span></span><br><span class="line">          	<span class="comment">//因为c末尾为1时，c-1，末尾为0；</span></span><br><span class="line">          	<span class="comment">//c末尾为0时，c-1，向高位借1，若高位为1，则变为0，逻辑与后该高位变为0，低位也变为0</span></span><br><span class="line">          	<span class="comment">//若高位为0，则向更高位借1，更高位为0，逻辑与后，更高位为0，高位和低位也为0</span></span><br><span class="line">          	<span class="comment">//从而统计有多少个1</span></span><br><span class="line">            c=c&amp;(c<span class="number">-1</span>);</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">     <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="风口的猪——中国牛市"><a href="#风口的猪——中国牛市" class="headerlink" title="风口的猪——中国牛市"></a>风口的猪——中国牛市</h2><p><strong>题目描述</strong>：风口之下，猪都能飞。当今中国股市牛市，真可谓“错过等七年”。 给你一个回顾历史的机会，已知一支股票连续n天的价格走势，以长度为n的整数数组表示，数组中第i个元素（prices[i]）代表该股票第i天的股价。 假设你一开始没有股票，但有至多两次买入1股而后卖出1股的机会，并且买入前一定要先保证手上没有股票。若两次交易机会都放弃，收益为0。 设计算法，计算你能获得的最大收益。 输入数值范围：2&lt;=n&lt;=100,0&lt;=prices[i]&lt;=100 </p>
-<p><strong>题解</strong></p>
-<h2 id="小米Git"><a href="#小米Git" class="headerlink" title="小米Git"></a>小米Git</h2><p><strong>题目描述</strong>：git是一种分布式代码管理工具，git通过树的形式记录文件的更改历史，比如： base’&lt;–base&lt;–A&lt;–A’ ^ | — B&lt;–B’ 小米工程师常常需要寻找两个分支最近的分割点，即base.假设git 树是多叉树，请实现一个算法，计算git树上任意两点的最近分割点。 （假设git树节点数为n,用邻接矩阵的形式表示git树：字符串数组matrix包含n个字符串，每个字符串由字符’0’或’1’组成，长度为n。matrix[i][j]==’1’当且仅当git树种第i个和第j个节点有连接。节点0为git树的根节点。） </p>
-<p><strong>题解</strong></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/algorithm-linkedlist/" itemprop="url">
-                  【算法】面试题：链表
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-03-20T19:29:36+08:00" content="2018-03-20">
-              2018-03-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          <!-- 
-            
-           -->
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="前述"><a href="#前述" class="headerlink" title="前述"></a>前述</h2><p>本文用到的链表节点的定义</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">  <span class="keyword">int</span> data;</span><br><span class="line">  Node* next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="有参构造函数"><a href="#有参构造函数" class="headerlink" title="有参构造函数"></a>有参构造函数</h2><h3 id="头插法"><a href="#头插法" class="headerlink" title="头插法"></a>头插法</h3><p><img src="http://p15qizl76.bkt.clouddn.com/blog/180323/50gC2j7fE6.png?imageslim" alt="mark"></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">DataType</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">LinkList</span>&lt;DataType&gt;:</span>:LinkList(DataType a[],<span class="keyword">int</span> n)&#123;</span><br><span class="line">	Node *first=<span class="keyword">new</span> Node;</span><br><span class="line">	fisrt-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">    	Node *s=<span class="keyword">new</span> Node;</span><br><span class="line">    	s-&gt;data=a[i];</span><br><span class="line">    	s-&gt;next=first-&gt;next;</span><br><span class="line">    	first-&gt;next=s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>###尾插法</p>
-<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180323/6k8JK3eLKk.png?imageslim" alt="mark"></p>
-<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180323/bd26iJD9bI.png?imageslim" alt="mark"></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">DataTpye</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">LinkList</span>&lt;DataType&gt;:</span>:LinkList(DataType a[],<span class="keyword">int</span> n)&#123;</span><br><span class="line">	Node *first=<span class="keyword">new</span> Node;</span><br><span class="line">	Node *r=first;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">    	Node *s=<span class="keyword">new</span> Node;</span><br><span class="line">    	s-&gt;data=a[i];</span><br><span class="line">    	r-&gt;next=s;</span><br><span class="line">    	r=s;</span><br><span class="line">    &#125;</span><br><span class="line">    r-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="在O-1-时间内删除链表节点"><a href="#在O-1-时间内删除链表节点" class="headerlink" title="在O(1)时间内删除链表节点"></a>在O(1)时间内删除链表节点</h2><p><strong>题目描述</strong>：给定链表的头指针和一个节点指针，在O(1)时间删除该节点。（Google面试题）</p>
-<p><strong>分析</strong>：本题与《编程之美》上的「从无头单链表中删除节点」类似。用下一个节点数据覆盖要删除的节点，然后删除下一个节点。但是如果节点是尾节点时，该方法就行不通了。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(Node *cur)</span></span>&#123;</span><br><span class="line">  assert(cur == <span class="literal">NULL</span>);</span><br><span class="line">  assert(cur-&gt;next == <span class="literal">NULL</span>);</span><br><span class="line">  Node *pNext=cur-&gt;next;</span><br><span class="line">  pCur-&gt;data=pNext-&gt;data;</span><br><span class="line">  pCur-&gt;next=pNext-&gt;next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="单链表逆置"><a href="#单链表逆置" class="headerlink" title="单链表逆置"></a>单链表逆置</h2><p><strong>题目描述</strong>：输入一个单向链表，输出逆序反转后的链表</p>
-<p><strong>分析</strong>：非递归方法即就地逆置法，用三个临时指针pre,head,next在链表循环即可。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//单链表转置，循环方法</span></span><br><span class="line"><span class="function">Node* <span class="title">reverse</span><span class="params">(Node *head)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(head == <span class="literal">NULL</span> || head-&gt;next == <span class="literal">NULL</span>)</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">  Node *pre=<span class="literal">NULL</span>;</span><br><span class="line">  Node *next=<span class="literal">NULL</span>;</span><br><span class="line">  <span class="keyword">while</span>(head != <span class="literal">NULL</span>)&#123;</span><br><span class="line">    next = head-&gt;next;</span><br><span class="line">    head-&gt;next=pre;</span><br><span class="line">    pre=head;</span><br><span class="line">    head=next;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> pre;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="求单链表倒数第k个节点"><a href="#求单链表倒数第k个节点" class="headerlink" title="求单链表倒数第k个节点"></a>求单链表倒数第k个节点</h3><p><strong>题目描述</strong>：输入一个单链表，输出该链表中倒数第k个节点，链表的倒数第0个节点为链表的尾指针。</p>
-<p><strong>分析</strong>：设置两个指针 p1、p2，首先 p1 和 p2 都指向 head，然后 p2 向前走 k 步，这样 p1 和 p2 之间就间隔 k 个节点，最后 p1 和 p2 同时向前移动，直至 p2 走到链表末尾。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//倒数第k个节点</span></span><br><span class="line"><span class="function">Node* <span class="title">theKthNode</span><span class="params">(Node *head,<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(k &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;    <span class="comment">//异常判断</span></span><br><span class="line">    Node *slow,*fast;</span><br><span class="line">    slow = fast = head;</span><br><span class="line">    <span class="keyword">int</span> i = k;</span><br><span class="line">    <span class="keyword">for</span>(;i&gt;<span class="number">0</span> &amp;&amp; fast!=<span class="literal">NULL</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        fast = fast-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i &gt; <span class="number">0</span>)    <span class="keyword">return</span> <span class="literal">NULL</span>;    <span class="comment">//考虑k大于链表长度的case</span></span><br><span class="line">    <span class="keyword">while</span>(fast != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        slow = slow-&gt;next;</span><br><span class="line">        fast = fast-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="判断单链表是否有环"><a href="#判断单链表是否有环" class="headerlink" title="判断单链表是否有环"></a>判断单链表是否有环</h3><p>【题目描述】</p>
-<p><strong>单链表有环的定义：</strong>链表的尾节点指向了链接中间的某个节点。</p>
-<p>如下图所示，如果有环，则遍历到结点7时，又重新回到结点3，结点3就是环的入口结点。</p>
-<p><img src="https://images2015.cnblogs.com/blog/509374/201603/509374-20160329220459738-2046143200.png" alt="img"></p>
-<p>【思路】</p>
-<p>采用快慢指针的思想，设两个工作指针，一个快一个慢，比如一个每次走一步，另一个每次走两步，如果链表有环，必定会在某个结点处相遇。</p>
-<p>具体流程：</p>
-<ul>
-<li>可以设置两个指针(fast,slow)，初始值均指向头，slow每次向前一步，fast每次向前两步；</li>
-<li>如果链表中有环，则fast先进入环中，而slow后进入环中，两个指针在环中必定相遇;</li>
-<li>如果fast遍历到尾部为NULL，则无环</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hasLoop</span><span class="params">(Node *head)</span></span>&#123;</span><br><span class="line">  Node *p1,p2;</span><br><span class="line">  <span class="keyword">if</span>(head == <span class="literal">NULL</span> || head-&gt;next == <span class="literal">NULL</span>)	<span class="comment">//链表为空，或者是单结点链表返回头结点</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  p1=p2=head;</span><br><span class="line">  <span class="keyword">while</span>(p1-&gt;next != <span class="literal">NULL</span> &amp;&amp; p1-&gt;next-next != <span class="literal">NULL</span>)&#123;</span><br><span class="line">    p1=p1-&gt;next-&gt;next;</span><br><span class="line">    p2=p2-&gt;next;</span><br><span class="line">    <span class="keyword">if</span>(p1==p2)</span><br><span class="line">      <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -3063,6 +1252,851 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/ubuntu-ancaconda/" itemprop="url">
+                  Ubuntu下安装Anaconda
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-02-09T20:29:30+08:00" content="2018-02-09">
+              2018-02-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <!-- 
+            
+           -->
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Anaconda安装"><a href="#Anaconda安装" class="headerlink" title="Anaconda安装"></a>Anaconda安装</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>使用<code>Python3.6</code>版本的<code>Anaconda 5.1</code>，<a href="https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh" target="_blank" rel="external">点击下载</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
+<li><p>进入到下载后的文件目录，执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash Anaconda3-5.1.0-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/ubuntu-ancaconda/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/windows-jupyter-notebook/" itemprop="url">
+                  Windows下安装Jupyter Notebook
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-02-09T20:29:30+08:00" content="2018-02-09">
+              2018-02-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <!-- 
+            
+           -->
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="文学编程"><a href="#文学编程" class="headerlink" title="文学编程"></a>文学编程</h3><p>文学编程(Literate Programming)是由Donald Knuth提出的编程方法。传统的结构化编程，人要按照计算机的逻辑顺序来编写代码，而文学编程则可以让人们按照自己的逻辑来开发程序。</p>
+<h3 id="Jupyter-Notebook"><a href="#Jupyter-Notebook" class="headerlink" title="Jupyter Notebook"></a>Jupyter Notebook</h3><p><code>Jupyter Notebook</code>是一个交互式笔记本，支持运行40多种编程语言。它的本质是一个Web应用程序，便于创建和共享文学化程序文档，支持实时代码、数学方程、可视化和markdown。</p>
+<p><code>Jupyter Notebook</code>优点：</p>
+<ul>
+<li>适合数据分析</li>
+<li>支持多语言</li>
+<li>分享便捷</li>
+<li>远程运行</li>
+<li>交互式展示
+          <div class="post-more-link text-center">
+            <a class="btn" href="/windows-jupyter-notebook/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/whu-plants/" itemprop="url">
+                  武大植物分布
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-02-08T20:29:30+08:00" content="2018-02-08">
+              2018-02-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/杂七杂八/" itemprop="url" rel="index">
+                    <span itemprop="name">杂七杂八</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <!-- 
+            
+           -->
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="文理学部李达塑像"><a href="#文理学部李达塑像" class="headerlink" title="文理学部李达塑像"></a>文理学部李达塑像</h2><ul>
+<li>樟树</li>
+<li>蝴蝶花：4月，鸢尾科</li>
+<li>鸢尾</li>
+<li>吉祥草：百合科，秋花</li>
+<li>南天竹：小檗科</li>
+<li>锦绣杜鹃：杜鹃科</li>
+<li>麦冬：百合科，6月开花</li>
+<li>池衫</li>
+<li>羊蹄：蓼科，酸模属</li>
+<li>车前</li>
+<li>蛇莓：蔷薇科，果不能吃</li>
+<li>扬子毛茛</li>
+<li>何首乌：蓼科</li>
+<li>鸡矢藤：蓼科</li>
+<li>海仙花</li>
+<li>紫丁香</li>
+<li>厚萼凌霄：位于亭子，6月开花</li>
+<li>紫荆：苏木亚科，早春</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/whu-plants/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/python-dict/" itemprop="url">
+                  【Python Trick】Python中字典常用方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-02-08T20:29:30+08:00" content="2018-02-08">
+              2018-02-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <!-- 
+            
+           -->
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="字典常用操作"><a href="#字典常用操作" class="headerlink" title="字典常用操作"></a>字典常用操作</h2><h3 id="定义空字典"><a href="#定义空字典" class="headerlink" title="定义空字典"></a>定义空字典</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic=&#123;&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/python-dict/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/python-switch/" itemprop="url">
+                  【Python Trick】Python的switch-case实现
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-02-07T20:29:30+08:00" content="2018-02-07">
+              2018-02-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <!-- 
+            
+           -->
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Python中，并没有实现<code>switch-case</code>语句，通过<code>if-elif</code>实现会显得麻烦，因此通过以下方式实现该语句功能。</p>
+<h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><h3 id="通过字典实现"><a href="#通过字典实现" class="headerlink" title="通过字典实现"></a>通过字典实现</h3><p>以如下情景为例，将百分制分数转换为五分制分数。如<code>100%</code>转换为<code>5</code>，<code>80%</code>转换为<code>4</code>等。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/python-switch/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/windows-pip/" itemprop="url">
+                  Windows下pip更换源地址
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-02-07T20:29:30+08:00" content="2018-02-07">
+              2018-02-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <!-- 
+            
+           -->
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>打开<code>cmd</code>，输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> %APPDATA%</span><br></pre></td></tr></table></figure>
+<p>进入到显示的路径中</p>
+</li>
+<li><p>进入该路径，新建<code>pip</code>文件夹，然后在该文件夹下新建<code>pip.ini</code></p>
+</li>
+<li><p>编辑<code>pip.ini</code>，输入以下内容，即把源地址改为阿里云地址。</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">timeout</span> = <span class="number">6000</span></span><br><span class="line"><span class="attr">index-url</span> = http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"><span class="section">[install]</span></span><br><span class="line"><span class="attr">trusted-host</span>=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/seaborn/" itemprop="url">
+                  Seaborn库的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-02-07T10:29:30+08:00" content="2018-02-07">
+              2018-02-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <!-- 
+            
+           -->
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="CountPlot"><a href="#CountPlot" class="headerlink" title="CountPlot"></a>CountPlot</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"></span><br><span class="line">train_data=pd.read_csv(<span class="string">'./data/train.csv'</span>)</span><br><span class="line">sns.countplot(x=<span class="string">'Score'</span>,data=train_data)</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/seaborn/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -3108,7 +2142,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">84</span>
+              <span class="site-state-item-count">77</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -3116,7 +2150,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -3125,7 +2159,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签云</span>
               </a>
             </div>

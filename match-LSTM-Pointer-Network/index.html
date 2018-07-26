@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="[TOC] Match-LSTM简介Match-LSTM是由(Wang &amp;amp; Jiang,2016)发表在NAACL的论文提出，用于解决NLI(Natural Language Inference，文本蕴含)问题。  premise：前提，代表上下文 hypothesis：假设，代表一个陈述性的结论  文本蕴含问题：给定一个premise（前提），根据这个premise去判断相应的hypot">
+<meta name="description" content="Match-LSTM简介Match-LSTM是由(Wang &amp;amp; Jiang,2016)发表在NAACL的论文提出，用于解决NLI(Natural Language Inference，文本蕴含)问题。  premise：前提，代表上下文 hypothesis：假设，代表一个陈述性的结论">
 <meta name="keywords" content="NLP,阅读理解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Match-LSTM和Pointer Net">
 <meta property="og:url" content="https://tianwenyu.github.io/match-LSTM-Pointer-Network/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="[TOC] Match-LSTM简介Match-LSTM是由(Wang &amp;amp; Jiang,2016)发表在NAACL的论文提出，用于解决NLI(Natural Language Inference，文本蕴含)问题。  premise：前提，代表上下文 hypothesis：假设，代表一个陈述性的结论  文本蕴含问题：给定一个premise（前提），根据这个premise去判断相应的hypot">
+<meta property="og:description" content="Match-LSTM简介Match-LSTM是由(Wang &amp;amp; Jiang,2016)发表在NAACL的论文提出，用于解决NLI(Natural Language Inference，文本蕴含)问题。  premise：前提，代表上下文 hypothesis：假设，代表一个陈述性的结论">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://pic2.zhimg.com/80/v2-c68ed27c07068dde4cec33536b7a7483_hd.jpg">
 <meta property="og:image" content="https://pic2.zhimg.com/80/v2-fd900634c4ca508000bc3417510607a7_hd.jpg">
@@ -118,10 +118,10 @@
 <meta property="og:image" content="https://pic2.zhimg.com/80/v2-dd3069b97a3681cd81041742f4d65fd3_hd.jpg">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=H%5E%7Br%7D+">
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-4c644369e011e52315d583b5f90a8a4b_hd.jpg">
-<meta property="og:updated_time" content="2018-07-26T09:12:42.295Z">
+<meta property="og:updated_time" content="2018-07-26T09:36:12.955Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Match-LSTM和Pointer Net">
-<meta name="twitter:description" content="[TOC] Match-LSTM简介Match-LSTM是由(Wang &amp;amp; Jiang,2016)发表在NAACL的论文提出，用于解决NLI(Natural Language Inference，文本蕴含)问题。  premise：前提，代表上下文 hypothesis：假设，代表一个陈述性的结论  文本蕴含问题：给定一个premise（前提），根据这个premise去判断相应的hypot">
+<meta name="twitter:description" content="Match-LSTM简介Match-LSTM是由(Wang &amp;amp; Jiang,2016)发表在NAACL的论文提出，用于解决NLI(Natural Language Inference，文本蕴含)问题。  premise：前提，代表上下文 hypothesis：假设，代表一个陈述性的结论">
 <meta name="twitter:image" content="https://pic2.zhimg.com/80/v2-c68ed27c07068dde4cec33536b7a7483_hd.jpg">
 
 
@@ -385,13 +385,12 @@
       
 
       
-        <p>[TOC]</p>
-<h2 id="Match-LSTM"><a href="#Match-LSTM" class="headerlink" title="Match-LSTM"></a>Match-LSTM</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Match-LSTM是由(Wang &amp; Jiang,2016)发表在NAACL的论文提出，用于解决NLI(Natural Language Inference，文本蕴含)问题。</p>
+        <h2 id="Match-LSTM"><a href="#Match-LSTM" class="headerlink" title="Match-LSTM"></a>Match-LSTM</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Match-LSTM是由(Wang &amp; Jiang,2016)发表在NAACL的论文提出，用于解决NLI(Natural Language Inference，文本蕴含)问题。</p>
 <ul>
 <li>premise：前提，代表上下文</li>
-<li>hypothesis：假设，代表一个陈述性的结论</li>
+<li>hypothesis：假设，代表一个陈述性的结论<a id="more"></a>
+文本蕴含问题：给定一个premise（前提），根据这个premise去判断相应的hypothesis（假说）正确与否，如果从这个premise中能够推断出这个hypothesis，那么就判断为entailment（蕴含），否则就是contradiction（矛盾）。</li>
 </ul>
-<p>文本蕴含问题：给定一个premise（前提），根据这个premise去判断相应的hypothesis（假说）正确与否，如果从这个premise中能够推断出这个hypothesis，那么就判断为entailment（蕴含），否则就是contradiction（矛盾）。</p>
 <h3 id="Word-by-Word-Attention"><a href="#Word-by-Word-Attention" class="headerlink" title="Word-by-Word Attention"></a>Word-by-Word Attention</h3><p>Match-LSTM是在<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1509.06664v4.pdf" target="_blank" rel="external">Rocktaschel et al. (2015)</a>提出的word-by-word attention的基础上进行了改进，先解释一下<a href="https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1509.06664v4.pdf" target="_blank" rel="external">Rocktaschel et al. (2015)</a>提出的基本模型</p>
 <p><img src="https://pic2.zhimg.com/80/v2-c68ed27c07068dde4cec33536b7a7483_hd.jpg" alt=""></p>
 <ol>
@@ -525,10 +524,6 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/no-root-install-python/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
       
@@ -595,7 +590,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">84</span>
+              <span class="site-state-item-count">77</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -603,7 +598,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -612,7 +607,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签云</span>
               </a>
             </div>
