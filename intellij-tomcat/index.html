@@ -86,19 +86,19 @@
 
 
 
-<meta name="description" content="Tomcat部署中war与war exploded区别 war模式：即发布模式，将Web工程以war包的形式上传到服务器。  war exploded模式：将Web工程以当前文件夹的位置关系上传到服务器。 【注】  此模式直接把文件夹、jsp页面等相关文件移动到Tomcat部署文件夹里进行加载部署。因此此模式支持热部署。 使用热部署，需要对其他选项进行设置">
+<meta name="description" content="Tomcat部署中war与war exploded区别  war模式：即发布模式，将Web工程以war包的形式上传到服务器。 war exploded模式：将Web工程以当前文件夹的位置关系上传到服务器。  【注】  此模式直接把文件夹、jsp页面等相关文件移动到Tomcat部署文件夹里进行加载部署。因此此模式支持热部署。 使用热部署，需要对其他选项进行设置">
 <meta name="keywords" content="Intellij,Tomcat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Intellij部署Tomcat问题">
 <meta property="og:url" content="https://tianwenyu.github.io/intellij-tomcat/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="Tomcat部署中war与war exploded区别 war模式：即发布模式，将Web工程以war包的形式上传到服务器。  war exploded模式：将Web工程以当前文件夹的位置关系上传到服务器。 【注】  此模式直接把文件夹、jsp页面等相关文件移动到Tomcat部署文件夹里进行加载部署。因此此模式支持热部署。 使用热部署，需要对其他选项进行设置">
+<meta property="og:description" content="Tomcat部署中war与war exploded区别  war模式：即发布模式，将Web工程以war包的形式上传到服务器。 war exploded模式：将Web工程以当前文件夹的位置关系上传到服务器。  【注】  此模式直接把文件夹、jsp页面等相关文件移动到Tomcat部署文件夹里进行加载部署。因此此模式支持热部署。 使用热部署，需要对其他选项进行设置">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20170223094201219?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGxnZW4xNTczODc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:updated_time" content="2017-12-25T09:30:13.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Intellij部署Tomcat问题">
-<meta name="twitter:description" content="Tomcat部署中war与war exploded区别 war模式：即发布模式，将Web工程以war包的形式上传到服务器。  war exploded模式：将Web工程以当前文件夹的位置关系上传到服务器。 【注】  此模式直接把文件夹、jsp页面等相关文件移动到Tomcat部署文件夹里进行加载部署。因此此模式支持热部署。 使用热部署，需要对其他选项进行设置">
+<meta name="twitter:description" content="Tomcat部署中war与war exploded区别  war模式：即发布模式，将Web工程以war包的形式上传到服务器。 war exploded模式：将Web工程以当前文件夹的位置关系上传到服务器。  【注】  此模式直接把文件夹、jsp页面等相关文件移动到Tomcat部署文件夹里进行加载部署。因此此模式支持热部署。 使用热部署，需要对其他选项进行设置">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170223094201219?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGxnZW4xNTczODc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -362,17 +362,16 @@
       
 
       
-        <h2 id="Tomcat部署中war与war-exploded区别"><a href="#Tomcat部署中war与war-exploded区别" class="headerlink" title="Tomcat部署中war与war exploded区别"></a>Tomcat部署中war与war exploded区别</h2><ul>
-<li><p><code>war</code>模式：即发布模式，将Web工程以war包的形式上传到服务器。</p>
-</li>
-<li><p><code>war exploded</code>模式：将Web工程以当前文件夹的位置关系上传到服务器。</p>
-<p>【注】</p>
-<ol>
-<li>此模式直接把文件夹、jsp页面等相关文件移动到Tomcat部署文件夹里进行加载部署。因此此模式支持热部署。</li>
-<li>使用热部署，需要对其他选项进行设置<br><img src="http://img.blog.csdn.net/20170223094201219?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGxnZW4xNTczODc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></li>
-</ol>
-</li>
+        <h2 id="tomcat部署中war与war-exploded区别">Tomcat部署中war与war exploded区别</h2>
+<ul>
+<li><p><code>war</code>模式：即发布模式，将Web工程以war包的形式上传到服务器。</p></li>
+<li><p><code>war exploded</code>模式：将Web工程以当前文件夹的位置关系上传到服务器。</p></li>
 </ul>
+<p>【注】</p>
+<ol style="list-style-type: decimal">
+<li>此模式直接把文件夹、jsp页面等相关文件移动到Tomcat部署文件夹里进行加载部署。因此此模式支持热部署。</li>
+<li>使用热部署，需要对其他选项进行设置 <img src="http://img.blog.csdn.net/20170223094201219?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGxnZW4xNTczODc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></li>
+</ol>
 
         
       
@@ -555,7 +554,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat部署中war与war-exploded区别"><span class="nav-text">Tomcat部署中war与war exploded区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tomcat部署中war与war-exploded区别"><span class="nav-text">Tomcat部署中war与war exploded区别</span></a></li></ol></div>
             
           </div>
         </section>
@@ -898,7 +897,24 @@
 
   
 <script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 </body>

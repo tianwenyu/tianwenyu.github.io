@@ -86,20 +86,20 @@
 
 
 
-<meta name="description" content="主要模块任务型机器人核心模块主要包括三个模块：  自然语言理解模块（NLU） 对话管理模块 自然语言生成模块（NLG）">
+<meta name="description" content="主要模块 任务型机器人核心模块主要包括三个模块：  自然语言理解模块（NLU） 对话管理模块 自然语言生成模块（NLG）">
 <meta name="keywords" content="NLP,多轮对话">
 <meta property="og:type" content="article">
 <meta property="og:title" content="任务型多轮对话系统概述">
 <meta property="og:url" content="https://tianwenyu.github.io/task-oriented-dialog-system/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="主要模块任务型机器人核心模块主要包括三个模块：  自然语言理解模块（NLU） 对话管理模块 自然语言生成模块（NLG）">
+<meta property="og:description" content="主要模块 任务型机器人核心模块主要包括三个模块：  自然语言理解模块（NLU） 对话管理模块 自然语言生成模块（NLG）">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-b70539cc9a32d7f2711a086f0fbbda4f_hd.jpg">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-b08e6cd63a89448e47f4576ae3603067_hd.jpg">
 <meta property="og:updated_time" content="2018-07-26T09:36:24.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="任务型多轮对话系统概述">
-<meta name="twitter:description" content="主要模块任务型机器人核心模块主要包括三个模块：  自然语言理解模块（NLU） 对话管理模块 自然语言生成模块（NLG）">
+<meta name="twitter:description" content="主要模块 任务型机器人核心模块主要包括三个模块：  自然语言理解模块（NLU） 对话管理模块 自然语言生成模块（NLG）">
 <meta name="twitter:image" content="https://pic1.zhimg.com/80/v2-b70539cc9a32d7f2711a086f0fbbda4f_hd.jpg">
 
 
@@ -363,22 +363,29 @@
       
 
       
-        <h2 id="主要模块"><a href="#主要模块" class="headerlink" title="主要模块"></a>主要模块</h2><p>任务型机器人核心模块主要包括三个模块：</p>
+        <h2 id="主要模块">主要模块</h2>
+<p>任务型机器人核心模块主要包括三个模块：</p>
 <ul>
 <li>自然语言理解模块（NLU）</li>
 <li>对话管理模块</li>
-<li>自然语言生成模块（NLG）<a id="more"></a>
-</li>
+<li>自然语言生成模块（NLG） <a id="more"></a></li>
 </ul>
-<p><img src="https://pic1.zhimg.com/80/v2-b70539cc9a32d7f2711a086f0fbbda4f_hd.jpg" alt="img"></p>
-<h3 id="自然语言理解模块"><a href="#自然语言理解模块" class="headerlink" title="自然语言理解模块"></a>自然语言理解模块</h3><p>该模块一般包含以下三个模块：</p>
+<div class="figure">
+<img src="https://pic1.zhimg.com/80/v2-b70539cc9a32d7f2711a086f0fbbda4f_hd.jpg" alt="img">
+<p class="caption">img</p>
+</div>
+<h3 id="自然语言理解模块">自然语言理解模块</h3>
+<p>该模块一般包含以下三个模块：</p>
 <ul>
 <li>领域识别：即识别该语句是不是属于这个任务场景，一般有多个机器人集成时，如闲聊机器人，问答机器人等，领域识别应当在进入任务型机器人之前做判断与分发</li>
 <li>意图识别：即识别用户意图，细分该任务型场景下的子场景、</li>
 <li>语义槽填充：用于对话管理模块的输入</li>
 </ul>
-<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><p>假设Text=“人民币对美元的汇率是多少”；经过自然语言理解模块会解析为 act ( slot1 = value1, slot2 = value2 ……) 的形式，即意图，槽位，槽位信息三元组形式，即 Text会解析为“查询（槽位1=人民币，槽位2=美元)”这样的形式。</p>
-<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><h5 id="基于规则理解方法"><a href="#基于规则理解方法" class="headerlink" title="基于规则理解方法"></a>基于规则理解方法</h5><p>【优点】</p>
+<h4 id="举例">举例</h4>
+<p>假设Text=“人民币对美元的汇率是多少”；经过自然语言理解模块会解析为 act ( slot1 = value1, slot2 = value2 ......) 的形式，即意图，槽位，槽位信息三元组形式，即 Text会解析为“查询（槽位1=人民币，槽位2=美元)&quot;这样的形式。</p>
+<h4 id="方法">方法</h4>
+<h5 id="基于规则理解方法">基于规则理解方法</h5>
+<p>【优点】</p>
 <ul>
 <li>不需要大量训练数据</li>
 </ul>
@@ -387,38 +394,42 @@
 <li>容易出错</li>
 <li>调整规则费时费力，难以维护</li>
 </ul>
-<h5 id="统计方法（对齐）"><a href="#统计方法（对齐）" class="headerlink" title="统计方法（对齐）"></a>统计方法（对齐）</h5><p>基于词对齐数据的自然语言理解通常被看做一个序列标注问题。主要有以下两类方法：</p>
+<h5 id="统计方法对齐">统计方法（对齐）</h5>
+<p>基于词对齐数据的自然语言理解通常被看做一个序列标注问题。主要有以下两类方法：</p>
 <ul>
-<li>基于生成式模型<ul>
+<li>基于生成式模型</li>
 <li>随机有限状态机（FST）</li>
 <li>统计机器翻译（SMT）</li>
 <li>动态贝叶斯网络（DBN）</li>
-</ul>
-</li>
-<li>基于判别式模型<ul>
+<li>基于判别式模型</li>
 <li>CRF</li>
 <li>SVM</li>
 <li>MEMM</li>
 </ul>
-</li>
-</ul>
-<h5 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h5><ul>
+<h5 id="深度学习">深度学习</h5>
+<ul>
 <li>BiLSTM+CRF</li>
 <li>CNN：用于序列标注</li>
 <li>Seq2Seq</li>
 </ul>
-<h3 id="对话管理模块"><a href="#对话管理模块" class="headerlink" title="对话管理模块"></a>对话管理模块</h3><p>自然语言理解模块的三元组输出将作为对话管理系统的输入。它主要包括两部分：</p>
+<h3 id="对话管理模块">对话管理模块</h3>
+<p>自然语言理解模块的三元组输出将作为对话管理系统的输入。它主要包括两部分：</p>
 <ul>
 <li>状态追踪模块</li>
 <li>对话策略模块</li>
 </ul>
 <p>【状态追踪模块】</p>
 <p>该模块在对话的每一轮次对用户的目标进行预估，管理每个回合的输入和对话历史，输出当前对话状态。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-b08e6cd63a89448e47f4576ae3603067_hd.jpg" alt="img"></p>
+<div class="figure">
+<img src="https://pic1.zhimg.com/80/v2-b08e6cd63a89448e47f4576ae3603067_hd.jpg" alt="img">
+<p class="caption">img</p>
+</div>
 <p>【对话策略模块】</p>
 <p>该模块的主要功能是根据前面的对话状态决策采取的最优动作（如：提供结果，询问特定限制条件，澄清或确认需求等）从而最有效的辅助用户完成信息或服务获取的任务。该模块基于用户输入的语义表达和当前对话状态输出下一步的系统行为和更新的对话状态。</p>
-<h4 id="举例-1"><a href="#举例-1" class="headerlink" title="举例"></a>举例</h4><p>text=“人民币对美元的汇率是多少”。“查询（槽位1=人民币，槽位2=美元)”这样的形式将作为对话管理模块的输入，这时候状态追踪模块就要根据前几轮的信息，结合该输入判断该轮的查询状态，确定查询的槽位，以及与数据库的交互。如得到想要查询的确实是人民币对美元的汇率信息。这时候，根据现有的对话策略判断当前的槽位状态，最后给出对话管理模块的输出，如查询结果(源货币=人民币，目标货币=美元，汇率=1:0.16)</p>
-<h3 id="自然语言生成模块"><a href="#自然语言生成模块" class="headerlink" title="自然语言生成模块"></a>自然语言生成模块</h3><p>该模块主要任务是将对话策略输出的语义表达生成流畅可读的自然语言句子，反馈给用户。</p>
+<h4 id="举例-1">举例</h4>
+<p>text=“人民币对美元的汇率是多少”。“查询（槽位1=人民币，槽位2=美元)&quot;这样的形式将作为对话管理模块的输入，这时候状态追踪模块就要根据前几轮的信息，结合该输入判断该轮的查询状态，确定查询的槽位，以及与数据库的交互。如得到想要查询的确实是人民币对美元的汇率信息。这时候，根据现有的对话策略判断当前的槽位状态，最后给出对话管理模块的输出，如查询结果(源货币=人民币，目标货币=美元，汇率=1:0.16)</p>
+<h3 id="自然语言生成模块">自然语言生成模块</h3>
+<p>该模块主要任务是将对话策略输出的语义表达生成流畅可读的自然语言句子，反馈给用户。</p>
 
         
       
@@ -601,7 +612,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主要模块"><span class="nav-text">主要模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自然语言理解模块"><span class="nav-text">自然语言理解模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#举例"><span class="nav-text">举例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法"><span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基于规则理解方法"><span class="nav-text">基于规则理解方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#统计方法（对齐）"><span class="nav-text">统计方法（对齐）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#深度学习"><span class="nav-text">深度学习</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对话管理模块"><span class="nav-text">对话管理模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#举例-1"><span class="nav-text">举例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自然语言生成模块"><span class="nav-text">自然语言生成模块</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主要模块"><span class="nav-text">主要模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自然语言理解模块"><span class="nav-text">自然语言理解模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#举例"><span class="nav-text">举例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法"><span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基于规则理解方法"><span class="nav-text">基于规则理解方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#统计方法对齐"><span class="nav-text">统计方法（对齐）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#深度学习"><span class="nav-text">深度学习</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对话管理模块"><span class="nav-text">对话管理模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#举例-1"><span class="nav-text">举例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自然语言生成模块"><span class="nav-text">自然语言生成模块</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -944,7 +955,24 @@
 
   
 <script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 </body>

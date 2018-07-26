@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="背景将两个txt文件通过两者共有的某一项进行关联，类似于数据库中的不同表通过id相关联。txt1:#checkins(userID/venueID/time/offset)txt2:#pois(venueID/latitude/longtitude/words/country)通过共有项venueID，将txt1的数据以及txt2的数据关联起来，写入一个新的文件txt3。格式如userID/ven">
+<meta name="description" content="背景 将两个txt文件通过两者共有的某一项进行关联，类似于数据库中的不同表通过id相关联。 txt1:#checkins(userID/venueID/time/offset) txt2:#pois(venueID/latitude/longtitude/words/country) 通过共有项venueID，将txt1的数据以及txt2的数据关联起来，写入一个新的文件txt3。 格式如user">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Python】两个txt文件通过某一字段关联">
 <meta property="og:url" content="https://tianwenyu.github.io/python-txt/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="背景将两个txt文件通过两者共有的某一项进行关联，类似于数据库中的不同表通过id相关联。txt1:#checkins(userID/venueID/time/offset)txt2:#pois(venueID/latitude/longtitude/words/country)通过共有项venueID，将txt1的数据以及txt2的数据关联起来，写入一个新的文件txt3。格式如userID/ven">
+<meta property="og:description" content="背景 将两个txt文件通过两者共有的某一项进行关联，类似于数据库中的不同表通过id相关联。 txt1:#checkins(userID/venueID/time/offset) txt2:#pois(venueID/latitude/longtitude/words/country) 通过共有项venueID，将txt1的数据以及txt2的数据关联起来，写入一个新的文件txt3。 格式如user">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-24T14:05:08.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Python】两个txt文件通过某一字段关联">
-<meta name="twitter:description" content="背景将两个txt文件通过两者共有的某一项进行关联，类似于数据库中的不同表通过id相关联。txt1:#checkins(userID/venueID/time/offset)txt2:#pois(venueID/latitude/longtitude/words/country)通过共有项venueID，将txt1的数据以及txt2的数据关联起来，写入一个新的文件txt3。格式如userID/ven">
+<meta name="twitter:description" content="背景 将两个txt文件通过两者共有的某一项进行关联，类似于数据库中的不同表通过id相关联。 txt1:#checkins(userID/venueID/time/offset) txt2:#pois(venueID/latitude/longtitude/words/country) 通过共有项venueID，将txt1的数据以及txt2的数据关联起来，写入一个新的文件txt3。 格式如user">
 
 
 
@@ -358,11 +358,15 @@
       
 
       
-        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>将两个txt文件通过两者共有的某一项进行关联，类似于数据库中的不同表通过id相关联。<br>txt1:<code>#checkins(userID/venueID/time/offset)</code><br>txt2:#<code>pois(venueID/latitude/longtitude/words/country)</code><br>通过共有项<code>venueID</code>，将<code>txt1</code>的数据以及<code>txt2</code>的数据关联起来，写入一个新的文件<code>txt3</code>。<br>格式如<code>userID/venueID/time/offset/latitude/longitude/words/country</code></p>
+        <h3 id="背景">背景</h3>
+<p>将两个txt文件通过两者共有的某一项进行关联，类似于数据库中的不同表通过id相关联。 txt1:<code>#checkins(userID/venueID/time/offset)</code> txt2:#<code>pois(venueID/latitude/longtitude/words/country)</code> 通过共有项<code>venueID</code>，将<code>txt1</code>的数据以及<code>txt2</code>的数据关联起来，写入一个新的文件<code>txt3</code>。 格式如<code>userID/venueID/time/offset/latitude/longitude/words/country</code></p>
 <a id="more"></a>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>将<code>txt2</code>文件的<code>venueID</code>作为字典的<code>key</code>，然后将<code>latitude,longtitude,words,country</code>写入一个列表里作为字典的值。</p>
+<h3 id="思路">思路</h3>
+<p>将<code>txt2</code>文件的<code>venueID</code>作为字典的<code>key</code>，然后将<code>latitude,longtitude,words,country</code>写入一个列表里作为字典的值。</p>
 <p>比对<code>txt1</code>中的<code>venueID</code>，相同则直接将<code>txt1</code>的此行写入<code>txt3</code>，同时将字典中的<code>venueID</code>对应的值——<code>latitude,longtitude,words,country</code>写入<code>txt3</code></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">f1=<span class="keyword">open</span>(<span class="string">'f:\checkins.txt'</span>,<span class="string">'r'</span>)</span><br><span class="line">f2=<span class="keyword">open</span>(<span class="string">'f:\pois.txt'</span>,<span class="string">'r'</span>)</span><br><span class="line">fout=<span class="keyword">open</span>(<span class="string">'f:\dataset.txt'</span>,<span class="string">'a+'</span>)</span><br><span class="line"></span><br><span class="line">dicc=dict()</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">line</span> in f2:                     #将pois.txt截取出各个字段，写入字典中,key为venueID,value为[latitude,longitutde,words,country]</span><br><span class="line">    <span class="built_in">line</span>=<span class="built_in">line</span>.strip().<span class="keyword">split</span>(<span class="string">'\t'</span>)</span><br><span class="line">    <span class="built_in">values</span>=[]</span><br><span class="line">    latitude=<span class="built_in">line</span>[<span class="number">1</span>]</span><br><span class="line">    longitutde=<span class="built_in">line</span>[<span class="number">2</span>]</span><br><span class="line">    words=<span class="built_in">line</span>[<span class="number">3</span>]</span><br><span class="line">    country=<span class="built_in">line</span>[<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">    <span class="built_in">values</span>.<span class="keyword">append</span>(latitude)</span><br><span class="line">    <span class="built_in">values</span>.<span class="keyword">append</span>(longitutde)</span><br><span class="line">    <span class="built_in">values</span>.<span class="keyword">append</span>(words)</span><br><span class="line">    <span class="built_in">values</span>.<span class="keyword">append</span>(country)</span><br><span class="line">    dicc[<span class="built_in">line</span>[<span class="number">0</span>]]=<span class="built_in">values</span>        #venueID:[latitude,longitutde,words,country]</span><br><span class="line">#venueID_list=[]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line1 in f1:</span><br><span class="line">    venueID=line1.<span class="keyword">split</span>(<span class="string">'\t'</span>)[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(dicc.<span class="built_in">get</span>(venueID) != None):</span><br><span class="line">        #if(venueID not in venueID_list):       #去掉重复，不需要则注释掉</span><br><span class="line">            #venueID_list.<span class="keyword">append</span>(venueID)</span><br><span class="line"></span><br><span class="line">        fout.<span class="keyword">write</span>(line1.strip(<span class="string">'\n'</span>)+<span class="string">'\t'</span>+dicc[venueID][<span class="number">0</span>]+<span class="string">'\t'</span>+dicc[venueID][<span class="number">1</span>]+<span class="string">'\t'</span>+dicc[venueID][<span class="number">2</span>]+<span class="string">'\t'</span>+dicc[venueID][<span class="number">3</span>])</span><br><span class="line">        fout.<span class="keyword">write</span>(<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">f1.<span class="keyword">close</span>()</span><br><span class="line">f2.<span class="keyword">close</span>()</span><br><span class="line">fout.<span class="keyword">close</span>()</span><br></pre></td></tr></table></figure>
+<h3 id="代码">代码</h3>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">f1=<span class="keyword">open</span>(<span class="string">'f:\checkins.txt'</span>,<span class="string">'r'</span>)</span><br><span class="line">f2=<span class="keyword">open</span>(<span class="string">'f:\pois.txt'</span>,<span class="string">'r'</span>)</span><br><span class="line">fout=<span class="keyword">open</span>(<span class="string">'f:\dataset.txt'</span>,<span class="string">'a+'</span>)</span><br><span class="line"></span><br><span class="line">dicc=dict()</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">line</span> in f2:                     #将pois.txt截取出各个字段，写入字典中,key为venueID,value为[latitude,longitutde,words,country]</span><br><span class="line">    <span class="built_in">line</span>=<span class="built_in">line</span>.strip().<span class="keyword">split</span>(<span class="string">'\t'</span>)</span><br><span class="line">    <span class="built_in">values</span>=[]</span><br><span class="line">    latitude=<span class="built_in">line</span>[<span class="number">1</span>]</span><br><span class="line">    longitutde=<span class="built_in">line</span>[<span class="number">2</span>]</span><br><span class="line">    words=<span class="built_in">line</span>[<span class="number">3</span>]</span><br><span class="line">    country=<span class="built_in">line</span>[<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">    <span class="built_in">values</span>.<span class="keyword">append</span>(latitude)</span><br><span class="line">    <span class="built_in">values</span>.<span class="keyword">append</span>(longitutde)</span><br><span class="line">    <span class="built_in">values</span>.<span class="keyword">append</span>(words)</span><br><span class="line">    <span class="built_in">values</span>.<span class="keyword">append</span>(country)</span><br><span class="line">    dicc[<span class="built_in">line</span>[<span class="number">0</span>]]=<span class="built_in">values</span>        #venueID:[latitude,longitutde,words,country]</span><br><span class="line">#venueID_list=[]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line1 in f1:</span><br><span class="line">    venueID=line1.<span class="keyword">split</span>(<span class="string">'\t'</span>)[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(dicc.<span class="built_in">get</span>(venueID) != None):</span><br><span class="line">        #if(venueID not in venueID_list):       #去掉重复，不需要则注释掉</span><br><span class="line">            #venueID_list.<span class="keyword">append</span>(venueID)</span><br><span class="line"></span><br><span class="line">        fout.<span class="keyword">write</span>(line1.strip(<span class="string">'\n'</span>)+<span class="string">'\t'</span>+dicc[venueID][<span class="number">0</span>]+<span class="string">'\t'</span>+dicc[venueID][<span class="number">1</span>]+<span class="string">'\t'</span>+dicc[venueID][<span class="number">2</span>]+<span class="string">'\t'</span>+dicc[venueID][<span class="number">3</span>])</span><br><span class="line">        fout.<span class="keyword">write</span>(<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">f1.<span class="keyword">close</span>()</span><br><span class="line">f2.<span class="keyword">close</span>()</span><br><span class="line">fout.<span class="keyword">close</span>()</span><br></pre></td></tr></table></figure>
+
         
       
     </div>
@@ -885,7 +889,24 @@
 
   
 <script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 </body>

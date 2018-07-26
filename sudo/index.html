@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="sudo命令详解su、su-和sudo区别Linux中许多操作需要具有root用户权限才能执行，因此提供了su、su-、sudo命令使得用户具有root权限。 su与su-区别su命令用于切换当前用户身份到其他用户身份，切换时需要被切换用户的密码格式：su [参数] username【注】如果只是su命令，不带有username，则默认切换到root用户，su-同上。su与su-区别：   su切">
+<meta name="description" content="sudo命令详解 su、su-和sudo区别 Linux中许多操作需要具有root用户权限才能执行，因此提供了su、su-、sudo命令使得用户具有root权限。 su与su-区别 su命令用于切换当前用户身份到其他用户身份，切换时需要被切换用户的密码 格式：su [参数] username 【注】如果只是su命令，不带有username，则默认切换到root用户，su-同上。 su与su">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux中sudo命令详解">
 <meta property="og:url" content="https://tianwenyu.github.io/sudo/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="sudo命令详解su、su-和sudo区别Linux中许多操作需要具有root用户权限才能执行，因此提供了su、su-、sudo命令使得用户具有root权限。 su与su-区别su命令用于切换当前用户身份到其他用户身份，切换时需要被切换用户的密码格式：su [参数] username【注】如果只是su命令，不带有username，则默认切换到root用户，su-同上。su与su-区别：   su切">
+<meta property="og:description" content="sudo命令详解 su、su-和sudo区别 Linux中许多操作需要具有root用户权限才能执行，因此提供了su、su-、sudo命令使得用户具有root权限。 su与su-区别 su命令用于切换当前用户身份到其他用户身份，切换时需要被切换用户的密码 格式：su [参数] username 【注】如果只是su命令，不带有username，则默认切换到root用户，su-同上。 su与su">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-24T14:04:22.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux中sudo命令详解">
-<meta name="twitter:description" content="sudo命令详解su、su-和sudo区别Linux中许多操作需要具有root用户权限才能执行，因此提供了su、su-、sudo命令使得用户具有root权限。 su与su-区别su命令用于切换当前用户身份到其他用户身份，切换时需要被切换用户的密码格式：su [参数] username【注】如果只是su命令，不带有username，则默认切换到root用户，su-同上。su与su-区别：   su切">
+<meta name="twitter:description" content="sudo命令详解 su、su-和sudo区别 Linux中许多操作需要具有root用户权限才能执行，因此提供了su、su-、sudo命令使得用户具有root权限。 su与su-区别 su命令用于切换当前用户身份到其他用户身份，切换时需要被切换用户的密码 格式：su [参数] username 【注】如果只是su命令，不带有username，则默认切换到root用户，su-同上。 su与su">
 
 
 
@@ -358,25 +358,22 @@
       
 
       
-        <h1 id="sudo命令详解"><a href="#sudo命令详解" class="headerlink" title="sudo命令详解"></a><code>sudo</code>命令详解</h1><h2 id="su、su-和sudo区别"><a href="#su、su-和sudo区别" class="headerlink" title="su、su-和sudo区别"></a><code>su</code>、<code>su-</code>和<code>sudo</code>区别</h2><p>Linux中许多操作需要具有<code>root</code>用户权限才能执行，因此提供了<code>su</code>、<code>su-</code>、<code>sudo</code>命令使得用户具有<code>root</code>权限。</p>
-<h3 id="su与su-区别"><a href="#su与su-区别" class="headerlink" title="su与su-区别"></a><code>su</code>与<code>su-</code>区别</h3><p><code>su</code>命令用于切换当前用户身份到其他用户身份，切换时需要被切换用户的密码<br>格式：<code>su [参数] username</code><br>【注】如果只是<code>su</code>命令，不带有username，则默认切换到<code>root</code>用户，<code>su-</code>同上。<br><code>su</code>与<code>su-</code>区别： </p>
+        <h1 id="sudo命令详解"><code>sudo</code>命令详解</h1>
+<h2 id="susu-和sudo区别"><code>su</code>、<code>su-</code>和<code>sudo</code>区别</h2>
+<p>Linux中许多操作需要具有<code>root</code>用户权限才能执行，因此提供了<code>su</code>、<code>su-</code>、<code>sudo</code>命令使得用户具有<code>root</code>权限。</p>
+<h3 id="su与su-区别"><code>su</code>与<code>su-</code>区别</h3>
+<p><code>su</code>命令用于切换当前用户身份到其他用户身份，切换时需要被切换用户的密码 格式：<code>su [参数] username</code> 【注】如果只是<code>su</code>命令，不带有username，则默认切换到<code>root</code>用户，<code>su-</code>同上。 <code>su</code>与<code>su-</code>区别： * <code>su</code>切换到其他用户，但是不切换环境变量 * <code>su -</code>完整的切换一个用户环境,退出需要使用<code>exit</code>命令</p>
+<p>如果使用以上两个命令，建议使用<code>su-</code> <a id="more"></a> ### <code>su</code>与<code>sudo</code>区别</p>
+<p>由于Linux是多人多任务系统，而某些操作需要<code>root</code>用户权限，但不可能每个用户都有权力知道<code>root</code>用户密码，因此<code>root</code>用户便于管理，即相当于权力下放，允许某些用户能够拥有<code>root</code>用户权限，因此产生<code>sudo</code>命令。</p>
+<p><code>su</code>与<code>sudo</code>区别： * <code>su</code>需要被切换用户的密码，<code>sudo</code>只需要本用户密码 * <code>su</code>所有用户只要知道<code>root</code>用户密码就可以切换，<code>sudo</code>只有<code>root</code>用户在<code>/etc/sudoers</code>文件中配置了才能够拥有<code>root</code>权限</p>
+<h2 id="sudo命令特性"><code>sudo</code>命令特性</h2>
 <ul>
-<li><code>su</code>切换到其他用户，但是不切换环境变量 </li>
-<li><code>su -</code>完整的切换一个用户环境,退出需要使用<code>exit</code>命令</li>
-</ul>
-<p>如果使用以上两个命令，建议使用<code>su-</code><br><a id="more"></a></p>
-<h3 id="su与sudo区别"><a href="#su与sudo区别" class="headerlink" title="su与sudo区别"></a><code>su</code>与<code>sudo</code>区别</h3><p>由于Linux是多人多任务系统，而某些操作需要<code>root</code>用户权限，但不可能每个用户都有权力知道<code>root</code>用户密码，因此<code>root</code>用户便于管理，即相当于权力下放，允许某些用户能够拥有<code>root</code>用户权限，因此产生<code>sudo</code>命令。</p>
-<p><code>su</code>与<code>sudo</code>区别： </p>
-<ul>
-<li><code>su</code>需要被切换用户的密码，<code>sudo</code>只需要本用户密码 </li>
-<li><code>su</code>所有用户只要知道<code>root</code>用户密码就可以切换，<code>sudo</code>只有<code>root</code>用户在<code>/etc/sudoers</code>文件中配置了才能够拥有<code>root</code>权限</li>
-</ul>
-<h2 id="sudo命令特性"><a href="#sudo命令特性" class="headerlink" title="sudo命令特性"></a><code>sudo</code>命令特性</h2><ul>
 <li>能够限制用户在某台主机上运行某些命令，允许管理员集中管理</li>
 <li>提供丰富日志，详细记录了用户行为</li>
 <li>使用时间戳文件限制用户的使用时间，默认5分钟，超时需要重新登录。（值可以在编译时更改）</li>
 </ul>
-<h2 id="sudo命令配置"><a href="#sudo命令配置" class="headerlink" title="sudo命令配置"></a><code>sudo</code>命令配置</h2><p>某用户能够执行<code>sudo</code>命令需要事先<code>root</code>用户授权，即在<code>/etc/sudoers</code>文件中配置。<br>\1. 切换<code>root</code>用户。<code>su -</code><br>\2. 添加文件的写权限。<code>chmod u+w /etc/sudoers</code><br>\3. 编辑<code>/etc/sudoers</code>。<code>vim /etc/sudoers</code><br>找到<code>root ALL=(ALL) ALL</code>在下面添加<code>xxx ALL=(ALL) ALL</code>,其中<code>xxx</code>为用户名，保存退出。<br>4.撤销文件的写权限。<code>chmod u-w /etc/sudoers</code></p>
+<h2 id="sudo命令配置"><code>sudo</code>命令配置</h2>
+<p>某用户能够执行<code>sudo</code>命令需要事先<code>root</code>用户授权，即在<code>/etc/sudoers</code>文件中配置。 . 切换<code>root</code>用户。<code>su -</code> . 添加文件的写权限。<code>chmod u+w /etc/sudoers</code> . 编辑<code>/etc/sudoers</code>。<code>vim /etc/sudoers</code> 找到<code>root ALL=(ALL) ALL</code>在下面添加<code>xxx ALL=(ALL) ALL</code>,其中<code>xxx</code>为用户名，保存退出。 4.撤销文件的写权限。<code>chmod u-w /etc/sudoers</code></p>
 
         
       
@@ -557,7 +554,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sudo命令详解"><span class="nav-text">sudo命令详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#su、su-和sudo区别"><span class="nav-text">su、su-和sudo区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#su与su-区别"><span class="nav-text">su与su-区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#su与sudo区别"><span class="nav-text">su与sudo区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sudo命令特性"><span class="nav-text">sudo命令特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sudo命令配置"><span class="nav-text">sudo命令配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sudo命令详解"><span class="nav-text">sudo命令详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#susu-和sudo区别"><span class="nav-text">su、su-和sudo区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#su与su-区别"><span class="nav-text">su与su-区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sudo命令特性"><span class="nav-text">sudo命令特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sudo命令配置"><span class="nav-text">sudo命令配置</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -900,7 +897,24 @@
 
   
 <script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 </body>

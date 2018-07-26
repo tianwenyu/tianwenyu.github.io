@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="Lua中没有continue，通过另一种方式实现了continue的功能for var=exp1,exp2 do 	while true do 		if condition expressions  do			break		end		other statements		...		...		break	endend">
+<meta name="description" content="Lua中没有continue，通过另一种方式实现了continue的功能 for var=exp1,exp2 do 	while true do 		if condition expressions  do			break		end		other statements		...		...		break	endend">
 <meta name="keywords" content="Lua">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lua的一种continue实现">
 <meta property="og:url" content="https://tianwenyu.github.io/lua-continue/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="Lua中没有continue，通过另一种方式实现了continue的功能for var=exp1,exp2 do 	while true do 		if condition expressions  do			break		end		other statements		...		...		break	endend">
+<meta property="og:description" content="Lua中没有continue，通过另一种方式实现了continue的功能 for var=exp1,exp2 do 	while true do 		if condition expressions  do			break		end		other statements		...		...		break	endend">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-24T12:26:11.077Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lua的一种continue实现">
-<meta name="twitter:description" content="Lua中没有continue，通过另一种方式实现了continue的功能for var=exp1,exp2 do 	while true do 		if condition expressions  do			break		end		other statements		...		...		break	endend">
+<meta name="twitter:description" content="Lua中没有continue，通过另一种方式实现了continue的功能 for var=exp1,exp2 do 	while true do 		if condition expressions  do			break		end		other statements		...		...		break	endend">
 
 
 
@@ -358,7 +358,7 @@
       
 
       
-        <p>Lua中没有continue，通过另一种方式实现了continue的功能<br><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> var=exp1,exp2 <span class="keyword">do</span> </span><br><span class="line">	<span class="keyword">while</span> <span class="literal">true</span> <span class="keyword">do</span> </span><br><span class="line">		<span class="keyword">if</span> condition expressions  <span class="keyword">do</span></span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		<span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">		other statements</span><br><span class="line">		...</span><br><span class="line">		...</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+        <p>Lua中没有continue，通过另一种方式实现了continue的功能 <figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> var=exp1,exp2 <span class="keyword">do</span> </span><br><span class="line">	<span class="keyword">while</span> <span class="literal">true</span> <span class="keyword">do</span> </span><br><span class="line">		<span class="keyword">if</span> condition expressions  <span class="keyword">do</span></span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		<span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">		other statements</span><br><span class="line">		...</span><br><span class="line">		...</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
 
         
       
@@ -882,7 +882,24 @@
 
   
 <script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 </body>

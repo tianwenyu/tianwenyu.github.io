@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="此前配置好分布式Hadoop环境，此篇主要讲解通过Intellij IDEA编写分布式MapReduce程序以及利用Hadoop实现词频统计 系统环境 虚拟机：VirtualBox Linux：Ubuntu 16.04 LTS Hadoop 2.7.5 IDE：Intellij IDEA  JDK 1.8.0_151">
+<meta name="description" content="此前配置好分布式Hadoop环境，此篇主要讲解通过Intellij IDEA编写分布式MapReduce程序以及利用Hadoop实现词频统计 系统环境  虚拟机：VirtualBox Linux：Ubuntu 16.04 LTS Hadoop 2.7.5 IDE：Intellij IDEA JDK 1.8.0_151">
 <meta name="keywords" content="Hadoop,文本分类">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【分布式编程】二——基于Hadoop的MapReduce程序">
 <meta property="og:url" content="https://tianwenyu.github.io/hadoop-wordcount/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="此前配置好分布式Hadoop环境，此篇主要讲解通过Intellij IDEA编写分布式MapReduce程序以及利用Hadoop实现词频统计 系统环境 虚拟机：VirtualBox Linux：Ubuntu 16.04 LTS Hadoop 2.7.5 IDE：Intellij IDEA  JDK 1.8.0_151">
+<meta property="og:description" content="此前配置好分布式Hadoop环境，此篇主要讲解通过Intellij IDEA编写分布式MapReduce程序以及利用Hadoop实现词频统计 系统环境  虚拟机：VirtualBox Linux：Ubuntu 16.04 LTS Hadoop 2.7.5 IDE：Intellij IDEA JDK 1.8.0_151">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180112/FmL2jD01aF.png?imageslim">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180112/iCAcgIIj3b.png?imageslim">
@@ -104,7 +104,7 @@
 <meta property="og:updated_time" content="2018-01-14T06:43:59.818Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【分布式编程】二——基于Hadoop的MapReduce程序">
-<meta name="twitter:description" content="此前配置好分布式Hadoop环境，此篇主要讲解通过Intellij IDEA编写分布式MapReduce程序以及利用Hadoop实现词频统计 系统环境 虚拟机：VirtualBox Linux：Ubuntu 16.04 LTS Hadoop 2.7.5 IDE：Intellij IDEA  JDK 1.8.0_151">
+<meta name="twitter:description" content="此前配置好分布式Hadoop环境，此篇主要讲解通过Intellij IDEA编写分布式MapReduce程序以及利用Hadoop实现词频统计 系统环境  虚拟机：VirtualBox Linux：Ubuntu 16.04 LTS Hadoop 2.7.5 IDE：Intellij IDEA JDK 1.8.0_151">
 <meta name="twitter:image" content="http://p15qizl76.bkt.clouddn.com/blog/180112/FmL2jD01aF.png?imageslim">
 
 
@@ -369,53 +369,78 @@
 
       
         <p>此前配置好<a href="https://tianwenyu.github.io/virtualbox-haddop/">分布式Hadoop环境</a>，此篇主要讲解通过Intellij IDEA编写分布式MapReduce程序以及利用Hadoop实现词频统计</p>
-<h2 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h2><ul>
+<h2 id="系统环境">系统环境</h2>
+<ul>
 <li>虚拟机：VirtualBox</li>
 <li>Linux：Ubuntu 16.04 LTS</li>
 <li>Hadoop 2.7.5</li>
-<li>IDE：Intellij IDEA </li>
-<li>JDK 1.8.0_151<a id="more"></a>
-<h2 id="安装Intellij及破解"><a href="#安装Intellij及破解" class="headerlink" title="安装Intellij及破解"></a>安装Intellij及破解</h2></li>
+<li>IDE：Intellij IDEA</li>
+<li>JDK 1.8.0_151 <a id="more"></a> ## 安装Intellij及破解</li>
 </ul>
 <p><a href="https://tianwenyu.github.io/ubuntu-intellij/">安装Intellij IDEA</a></p>
 <p><a href="https://tianwenyu.github.io/Idea2017-license/">破解Intellij IDEA</a></p>
-<h2 id="创建Hadoop工程"><a href="#创建Hadoop工程" class="headerlink" title="创建Hadoop工程"></a>创建Hadoop工程</h2><h3 id="创建新工程"><a href="#创建新工程" class="headerlink" title="创建新工程"></a>创建新工程</h3><ol>
-<li><p>打开Intellij IDEA，创建一个新工程</p>
-<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180112/FmL2jD01aF.png?imageslim" alt="mark"></p>
-</li>
-<li><p>选择Java项目，并添加JDK路径</p>
-<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180112/iCAcgIIj3b.png?imageslim" alt="mark"></p>
-</li>
+<h2 id="创建hadoop工程">创建Hadoop工程</h2>
+<h3 id="创建新工程">创建新工程</h3>
+<ol style="list-style-type: decimal">
+<li>打开Intellij IDEA，创建一个新工程</li>
 </ol>
-<h3 id="添加依赖包"><a href="#添加依赖包" class="headerlink" title="添加依赖包"></a>添加依赖包</h3><p>点击<code>File-Project Structure</code></p>
+<div class="figure">
+<img src="http://p15qizl76.bkt.clouddn.com/blog/180112/FmL2jD01aF.png?imageslim" alt="mark">
+<p class="caption">mark</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>选择Java项目，并添加JDK路径</li>
+</ol>
+<div class="figure">
+<img src="http://p15qizl76.bkt.clouddn.com/blog/180112/iCAcgIIj3b.png?imageslim" alt="mark">
+<p class="caption">mark</p>
+</div>
+<h3 id="添加依赖包">添加依赖包</h3>
+<p>点击<code>File-Project Structure</code></p>
 <p>打开后点击左侧<code>Modules</code>，然后点击<code>Dependencies</code></p>
-<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180114/5J0ked69Bk.png?imageslim" alt="mark"></p>
+<div class="figure">
+<img src="http://p15qizl76.bkt.clouddn.com/blog/180114/5J0ked69Bk.png?imageslim" alt="mark">
+<p class="caption">mark</p>
+</div>
 <p>点击右侧<code>+</code>，选择<code>JARs or directories</code>，将下图所有依赖包的目录导入</p>
-<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180114/7Al8HAmi0G.png?imageslim" alt="mark"></p>
+<div class="figure">
+<img src="http://p15qizl76.bkt.clouddn.com/blog/180114/7Al8HAmi0G.png?imageslim" alt="mark">
+<p class="caption">mark</p>
+</div>
 <p>【注】<code>/usr/hadoop-2.7.5</code>是Hadoop安装目录</p>
-<h3 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h3><p>新建一个类名为<code>WordCount</code>，代码如下</p>
+<h3 id="编写代码">编写代码</h3>
+<p>新建一个类名为<code>WordCount</code>，代码如下</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.LongWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WordCount</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TokenizerMapper</span></span></span><br><span class="line"><span class="class">            <span class="keyword">extends</span> <span class="title">Mapper</span>&lt;<span class="title">Object</span>, <span class="title">Text</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> IntWritable one = <span class="keyword">new</span> IntWritable(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">private</span> Text word = <span class="keyword">new</span> Text();</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">map</span><span class="params">(Object key, Text value, Context context</span></span></span><br><span class="line"><span class="function"><span class="params">        )</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">            StringTokenizer itr = <span class="keyword">new</span> StringTokenizer(value.toString());</span><br><span class="line">            <span class="keyword">while</span> (itr.hasMoreTokens()) &#123;</span><br><span class="line">                word.set(itr.nextToken());</span><br><span class="line">                context.write(word, one);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IntSumReducer</span></span></span><br><span class="line"><span class="class">            <span class="keyword">extends</span> <span class="title">Reducer</span>&lt;<span class="title">Text</span>,<span class="title">IntWritable</span>,<span class="title">Text</span>,<span class="title">IntWritable</span>&gt; </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> IntWritable result = <span class="keyword">new</span> IntWritable();</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values,</span></span></span><br><span class="line"><span class="function"><span class="params">                           Context context</span></span></span><br><span class="line"><span class="function"><span class="params">        )</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (IntWritable val : values) &#123;</span><br><span class="line">                sum += val.get();</span><br><span class="line">            &#125;</span><br><span class="line">            result.set(sum);</span><br><span class="line">            context.write(key, result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Configuration conf = <span class="keyword">new</span> Configuration();</span><br><span class="line">        Job job = Job.getInstance(conf, <span class="string">"word count"</span>);</span><br><span class="line">        job.setJarByClass(WordCount.class);</span><br><span class="line">        job.setMapperClass(TokenizerMapper.class);</span><br><span class="line">        job.setCombinerClass(IntSumReducer.class);</span><br><span class="line">        job.setReducerClass(IntSumReducer.class);</span><br><span class="line">        job.setOutputKeyClass(Text.class);</span><br><span class="line">        job.setOutputValueClass(IntWritable.class);</span><br><span class="line">        FileInputFormat.addInputPath(job, <span class="keyword">new</span> Path(args[<span class="number">0</span>]));</span><br><span class="line">        FileOutputFormat.setOutputPath(job, <span class="keyword">new</span> Path(args[<span class="number">1</span>]));</span><br><span class="line">        System.exit(job.waitForCompletion(<span class="keyword">true</span>) ? <span class="number">0</span> : <span class="number">1</span>);</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="配置编译环境"><a href="#配置编译环境" class="headerlink" title="配置编译环境"></a>配置编译环境</h3><p>点击<code>Run-Edit Configuration</code></p>
+<h3 id="配置编译环境">配置编译环境</h3>
+<p>点击<code>Run-Edit Configuration</code></p>
 <p>点击左上角<code>+</code>，然后点击<code>Application</code></p>
-<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180114/0Ee3j1CIaF.png?imageslim" alt="mark"></p>
-<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180114/cdaF1d4HKb.png?imageslim" alt="mark"></p>
+<div class="figure">
+<img src="http://p15qizl76.bkt.clouddn.com/blog/180114/0Ee3j1CIaF.png?imageslim" alt="mark">
+<p class="caption">mark</p>
+</div>
+<div class="figure">
+<img src="http://p15qizl76.bkt.clouddn.com/blog/180114/cdaF1d4HKb.png?imageslim" alt="mark">
+<p class="caption">mark</p>
+</div>
 <ul>
-<li><p><code>Name</code>，即该运行配置的名字，这里命名为<code>RunHadoop</code></p>
-</li>
-<li><p><code>Main Class</code>，即需要运行的主类，这里使用的默认包，所以填写<code>WordCount</code></p>
-</li>
-<li><p><code>Program arguments</code>，即运行时需要输入的参数，此处填写参数为<code>hdfs://master:9000/data/input/README.txt hdfs://master:9000/output/</code></p>
+<li><p><code>Name</code>，即该运行配置的名字，这里命名为<code>RunHadoop</code></p></li>
+<li><p><code>Main Class</code>，即需要运行的主类，这里使用的默认包，所以填写<code>WordCount</code></p></li>
+<li><p><code>Program arguments</code>，即运行时需要输入的参数，此处填写参数为<code>hdfs://master:9000/data/input/README.txt hdfs://master:9000/output/</code></p></li>
+</ul>
 <p>此处，第一个参数为输入文件路径，第二个参数为输出文件路径。</p>
 <p><code>master:9000</code>为<a href="https://tianwenyu.github.io/virtualbox-haddop/">分布式Hadoop环境</a>中<code>core-site.xml</code>配置文件中<code>fs.default.name</code>的值</p>
 <p><code>/data/input/README.txt</code>为<a href="https://tianwenyu.github.io/virtualbox-haddop/">分布式Hadoop环境</a>中利用</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hdfs dfs -mkdir -p /data/input</span><br><span class="line">hdfs dfs -put README.txt /data/input</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hdfs dfs -mkdir -p /data/input</span><br><span class="line">hdfs dfs -put README.txt /data/input</span><br></pre></td></tr></table></figure></p>
 <p>创建并上传到HDFS系统中的文件路径。</p>
-</li>
-</ul>
 <p>【注】若<code>hdfs://master:9000/output</code>已经存在，需要手动删除</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hdfs dfs -rm -r /output</span><br></pre></td></tr></table></figure>
-<h3 id="查看运行结果"><a href="#查看运行结果" class="headerlink" title="查看运行结果"></a>查看运行结果</h3><h4 id="web界面查看"><a href="#web界面查看" class="headerlink" title="web界面查看"></a>web界面查看</h4><p>通过<code>http://localhost:50070</code>查看各个结点运行状况</p>
-<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180114/0jfAihfLm7.png?imageslim" alt="mark"></p>
+<h3 id="查看运行结果">查看运行结果</h3>
+<h4 id="web界面查看">web界面查看</h4>
+<p>通过<code>http://localhost:50070</code>查看各个结点运行状况</p>
+<div class="figure">
+<img src="http://p15qizl76.bkt.clouddn.com/blog/180114/0jfAihfLm7.png?imageslim" alt="mark">
+<p class="caption">mark</p>
+</div>
 
         
       
@@ -598,7 +623,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统环境"><span class="nav-text">系统环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Intellij及破解"><span class="nav-text">安装Intellij及破解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Hadoop工程"><span class="nav-text">创建Hadoop工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建新工程"><span class="nav-text">创建新工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加依赖包"><span class="nav-text">添加依赖包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写代码"><span class="nav-text">编写代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置编译环境"><span class="nav-text">配置编译环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看运行结果"><span class="nav-text">查看运行结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#web界面查看"><span class="nav-text">web界面查看</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统环境"><span class="nav-text">系统环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建hadoop工程"><span class="nav-text">创建Hadoop工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建新工程"><span class="nav-text">创建新工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加依赖包"><span class="nav-text">添加依赖包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写代码"><span class="nav-text">编写代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置编译环境"><span class="nav-text">配置编译环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看运行结果"><span class="nav-text">查看运行结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#web界面查看"><span class="nav-text">web界面查看</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -941,7 +966,24 @@
 
   
 <script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 </body>

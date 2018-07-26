@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="利用set去除list重复元素set是一个无序不重复元素集，基本功能包括关系测试和消除重复元素。若需要消除重复元素，如下 a=[5,2,5,1,4,3,3]a=list(set(a))12 提取两个list中出现过的非重复元素line1=[&apos;a&apos;,&apos;b&apos;,&apos;a&apos;]line2=[&apos;a&apos;,&apos;c&apos;]line=line1+line2line=list(set(line))1234 两个set的并集set1">
+<meta name="description" content="利用set去除list重复元素 set是一个无序不重复元素集，基本功能包括关系测试和消除重复元素。 若需要消除重复元素，如下 a=[5,2,5,1,4,3,3]a=list(set(a))12 提取两个list中出现过的非重复元素 line1=[&apos;a&apos;,&apos;b&apos;,&apos;a&apos;]line2=[&apos;a&apos;,&apos;c&apos;]line=line1+line2line=list(set(line))1234 两个se">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Python Trick】set与list">
 <meta property="og:url" content="https://tianwenyu.github.io/python-set-list/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="利用set去除list重复元素set是一个无序不重复元素集，基本功能包括关系测试和消除重复元素。若需要消除重复元素，如下 a=[5,2,5,1,4,3,3]a=list(set(a))12 提取两个list中出现过的非重复元素line1=[&apos;a&apos;,&apos;b&apos;,&apos;a&apos;]line2=[&apos;a&apos;,&apos;c&apos;]line=line1+line2line=list(set(line))1234 两个set的并集set1">
+<meta property="og:description" content="利用set去除list重复元素 set是一个无序不重复元素集，基本功能包括关系测试和消除重复元素。 若需要消除重复元素，如下 a=[5,2,5,1,4,3,3]a=list(set(a))12 提取两个list中出现过的非重复元素 line1=[&apos;a&apos;,&apos;b&apos;,&apos;a&apos;]line2=[&apos;a&apos;,&apos;c&apos;]line=line1+line2line=list(set(line))1234 两个se">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-25T10:53:21.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Python Trick】set与list">
-<meta name="twitter:description" content="利用set去除list重复元素set是一个无序不重复元素集，基本功能包括关系测试和消除重复元素。若需要消除重复元素，如下 a=[5,2,5,1,4,3,3]a=list(set(a))12 提取两个list中出现过的非重复元素line1=[&apos;a&apos;,&apos;b&apos;,&apos;a&apos;]line2=[&apos;a&apos;,&apos;c&apos;]line=line1+line2line=list(set(line))1234 两个set的并集set1">
+<meta name="twitter:description" content="利用set去除list重复元素 set是一个无序不重复元素集，基本功能包括关系测试和消除重复元素。 若需要消除重复元素，如下 a=[5,2,5,1,4,3,3]a=list(set(a))12 提取两个list中出现过的非重复元素 line1=[&apos;a&apos;,&apos;b&apos;,&apos;a&apos;]line2=[&apos;a&apos;,&apos;c&apos;]line=line1+line2line=list(set(line))1234 两个se">
 
 
 
@@ -358,10 +358,14 @@
       
 
       
-        <h2 id="利用set去除list重复元素"><a href="#利用set去除list重复元素" class="headerlink" title="利用set去除list重复元素"></a>利用<code>set</code>去除<code>list</code>重复元素</h2><p><code>set</code>是一个无序不重复元素集，基本功能包括关系测试和消除重复元素。<br>若需要消除重复元素，如下</p>
+        <h2 id="利用set去除list重复元素">利用<code>set</code>去除<code>list</code>重复元素</h2>
+<p><code>set</code>是一个无序不重复元素集，基本功能包括关系测试和消除重复元素。 若需要消除重复元素，如下</p>
 <figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">a=[<span class="number">5</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">3</span>]</span><br><span class="line">a=<span class="type">list</span>(set(a))<span class="number">12</span></span><br></pre></td></tr></table></figure>
-<h2 id="提取两个list中出现过的非重复元素"><a href="#提取两个list中出现过的非重复元素" class="headerlink" title="提取两个list中出现过的非重复元素"></a>提取两个<code>list</code>中出现过的非重复元素</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">line1</span>=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'a'</span>]</span><br><span class="line"><span class="attr">line2</span>=[<span class="string">'a'</span>,<span class="string">'c'</span>]</span><br><span class="line"><span class="attr">line</span>=line1+line2</span><br><span class="line"><span class="attr">line</span>=list(set(line))<span class="number">1234</span></span><br></pre></td></tr></table></figure>
-<h2 id="两个set的并集"><a href="#两个set的并集" class="headerlink" title="两个set的并集"></a>两个<code>set</code>的并集</h2><figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">set1=set(['a','b'])</span><br><span class="line">set2=set(['a','c'])</span><br><span class="line">set(<span class="name">list</span>(<span class="name">set1</span>)+list(<span class="name">set2</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="提取两个list中出现过的非重复元素">提取两个<code>list</code>中出现过的非重复元素</h2>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">line1</span>=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'a'</span>]</span><br><span class="line"><span class="attr">line2</span>=[<span class="string">'a'</span>,<span class="string">'c'</span>]</span><br><span class="line"><span class="attr">line</span>=line1+line2</span><br><span class="line"><span class="attr">line</span>=list(set(line))<span class="number">1234</span></span><br></pre></td></tr></table></figure>
+<h2 id="两个set的并集">两个<code>set</code>的并集</h2>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">set1=set(['a','b'])</span><br><span class="line">set2=set(['a','c'])</span><br><span class="line">set(<span class="name">list</span>(<span class="name">set1</span>)+list(<span class="name">set2</span>))</span><br></pre></td></tr></table></figure>
+
         
       
     </div>
@@ -393,8 +397,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/windows-git/" rel="next" title="Windows下Git 2.15.0安装、配置">
-                <i class="fa fa-chevron-left"></i> Windows下Git 2.15.0安装、配置
+              <a href="/intellij-mayun/" rel="next" title="Intellij Idea 码云教程">
+                <i class="fa fa-chevron-left"></i> Intellij Idea 码云教程
               </a>
             
           </div>
@@ -884,7 +888,24 @@
 
   
 <script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 </body>

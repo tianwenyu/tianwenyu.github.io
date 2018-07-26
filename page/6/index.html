@@ -342,11 +342,10 @@
 
       
         
-          <h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><ul>
-<li>单行注释<br>两个减号，<code>--</code></li>
-<li>多行注释<br><code>--[[
-内容
---]]</code>
+          <h2 id="注释">注释</h2>
+<ul>
+<li>单行注释 两个减号，<code>--</code></li>
+<li>多行注释 <code>--[[ 内容 --]]</code>
           <div class="post-more-link text-center">
             <a class="btn" href="/lua/" rel="contents">
               阅读全文 &raquo;
@@ -461,14 +460,9 @@
 
       
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>几年前就听说Markdown的便利，但是懒于去记忆语法，一直拖到现在才去尝试。我想，一个善于学习的人应该“拥抱变化”，人生也应该多去尝试，固守陈规是不可取的。</p>
-<p>##简易语法<br><strong>注：本文以马克飞象为例</strong></p>
-<h4 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h4><p><code>#</code>，<code>#</code>的个数表示级数</p>
-<h4 id="2-列表"><a href="#2-列表" class="headerlink" title="2.  列表"></a>2.  列表</h4><ul>
-<li>创建无序列表，<code>*</code></li>
-<li>创建有序列表，直接使用 <code>1.</code>、<code>2.</code>、<code>3</code></li>
-<li>符号与文本之间用空格分开</li>
-<li>多级列表用Tab键<br><img src="http://img.blog.csdn.net/20151003094114524" alt="pic">
+          <h2 id="前言">前言</h2>
+<p>几年前就听说Markdown的便利，但是懒于去记忆语法，一直拖到现在才去尝试。我想，一个善于学习的人应该“拥抱变化”，人生也应该多去尝试，固守陈规是不可取的。 ##简易语法 <strong>注：本文以马克飞象为例</strong> #### 1. 标题 <code>#</code>，<code>#</code>的个数表示级数 #### 2. 列表<br>
+* 创建无序列表，<code>*</code> * 创建有序列表，直接使用 <code>1.</code>、<code>2.</code>、<code>3</code> * 符号与文本之间用空格分开 * 多级列表用Tab键 <img src="http://img.blog.csdn.net/20151003094114524" alt="pic">
           <div class="post-more-link text-center">
             <a class="btn" href="/markdown-tutorial/" rel="contents">
               阅读全文 &raquo;
@@ -943,7 +937,24 @@
 
   
 <script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 </body>

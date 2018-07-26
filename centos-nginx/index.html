@@ -368,43 +368,57 @@
       
         <p>CentOS 7 中的 yum 没法直接使用 yum install nginx 这个指令去安装nginx，因为nginx这个服务不是yum库中自带的。图1是官方提供的大致安装步骤，图2是官网提供的多个版本的nginx安装包，下面是我给合自己的系统环境总结的安装方法，供大家参考：</p>
 <a id="more"></a>
-<p><img src="http://img.blog.csdn.net/20170708094730752?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbG5ib3h1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="图1"></p>
-<p><img src="http://img.blog.csdn.net/20170708094951337?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbG5ib3h1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="图2"></p>
+<div class="figure">
+<img src="http://img.blog.csdn.net/20170708094730752?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbG5ib3h1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="图1">
+<p class="caption">图1</p>
+</div>
+<div class="figure">
+<img src="http://img.blog.csdn.net/20170708094951337?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbG5ib3h1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="图2">
+<p class="caption">图2</p>
+</div>
 <p>在<code>/etc/yum.repos.d/</code>文件夹下执行</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo rpm -ivh http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>按图1中的要求vi nginx.repo这个文件，将图中[nginx]字段中的内容复制进去，保存退出！</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@lnboxue ~]<span class="comment"># vi  /etc/yum.repos.d/nginx.repo</span></span><br><span class="line">[nginx]</span><br><span class="line">name=nginx repo</span><br><span class="line">baseurl=http://nginx.org/packages/centos/7/x86_64/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure>
-<p>这里需要注意的是：要将$releasever替换为7，将$basearch替换成x86_64。可以通过下面这条指令获取你自己系统的$releasever和$basearch。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@lnboxue ~]<span class="comment"># rpm -qa | grep centos-release</span></span><br><span class="line">centos-release-7-3.1611.el7.centos.x86_64</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>yum安装nginx，参见图3和图4。</p>
-</li>
+<ol style="list-style-type: decimal">
+<li>按图1中的要求vi nginx.repo这个文件，将图中[nginx]字段中的内容复制进去，保存退出！</li>
+</ol>
+<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@lnboxue ~]<span class="comment"># vi  /etc/yum.repos.d/nginx.repo</span></span><br><span class="line">[nginx]</span><br><span class="line">name=nginx repo</span><br><span class="line">baseurl=http://nginx.org/packages/centos/7/x86_64/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure></p>
+<p>这里需要注意的是：要将<span class="math inline">\(releasever替换为7，将\)</span>basearch替换成x86_64。可以通过下面这条指令获取你自己系统的<span class="math inline">\(releasever和\)</span>basearch。</p>
+<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@lnboxue ~]<span class="comment"># rpm -qa | grep centos-release</span></span><br><span class="line">centos-release-7-3.1611.el7.centos.x86_64</span><br></pre></td></tr></table></figure></p>
+<ol start="2" style="list-style-type: decimal">
+<li>yum安装nginx，参见图3和图4。</li>
 </ol>
 <p><code>[root@lnboxue ~]# yum install nginx</code></p>
-<p><img src="http://img.blog.csdn.net/20170708095110446?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbG5ib3h1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="图3"></p>
-<p><img src="http://img.blog.csdn.net/20170708095211782?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbG5ib3h1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="图4"></p>
-<ol>
+<div class="figure">
+<img src="http://img.blog.csdn.net/20170708095110446?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbG5ib3h1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="图3">
+<p class="caption">图3</p>
+</div>
+<div class="figure">
+<img src="http://img.blog.csdn.net/20170708095211782?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbG5ib3h1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="图4">
+<p class="caption">图4</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
 <li>可以使用两种方法启动nginx服务</li>
 </ol>
 <p><code>[root@lnboxue ~]# service nginx start</code></p>
 <p>或</p>
 <p><code>[root@lnboxue ~]# systemctl start nginx</code></p>
-<ol>
+<ol start="4" style="list-style-type: decimal">
 <li>查看nginx服务是否已经启动</li>
 </ol>
 <p><code>[root@lnboxue ~]# netstat -ntl</code></p>
-<p><img src="http://img.blog.csdn.net/20170708095354350?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbG5ib3h1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="图5"></p>
-<ol>
+<div class="figure">
+<img src="http://img.blog.csdn.net/20170708095354350?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbG5ib3h1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="图5">
+<p class="caption">图5</p>
+</div>
+<ol start="5" style="list-style-type: decimal">
 <li>查看nginx版本</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@lnboxue ~]<span class="comment"># nginx -v</span></span><br><span class="line">nginx version: nginx/1.12.0</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>本地测试nginx服务</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@lnboxue ~]<span class="comment"># curl -i localhost</span></span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Server: nginx/1.12.0</span><br><span class="line">Date: Tue, 04 Jul 2017 05:27:07 GMT</span><br><span class="line">Content-Type: text/html</span><br><span class="line">Content-Length: 612</span><br><span class="line">Last-Modified: Wed, 12 Apr 2017 15:23:46 GMT</span><br><span class="line">…………</span><br><span class="line">…………</span><br><span class="line">&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;</span><br><span class="line">&lt;p&gt;If you see this page, the nginx web server is successfully installed and</span><br><span class="line">working. Further configuration is required.&lt;/p&gt;</span><br><span class="line">&lt;p&gt;For online documentation and support please refer to</span><br><span class="line">nginx.org.&lt;br/&gt;</span><br><span class="line">Commercial support is available at</span><br><span class="line">nginx.com.&lt;/p&gt;</span><br><span class="line">&lt;p&gt;&lt;em&gt;Thank you <span class="keyword">for</span> using nginx.&lt;/em&gt;&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>看到以上信息，说明你的nginx服务已安装成功！</p>
-</li>
+<ol start="6" style="list-style-type: decimal">
+<li>本地测试nginx服务</li>
 </ol>
+<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@lnboxue ~]<span class="comment"># curl -i localhost</span></span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Server: nginx/1.12.0</span><br><span class="line">Date: Tue, 04 Jul 2017 05:27:07 GMT</span><br><span class="line">Content-Type: text/html</span><br><span class="line">Content-Length: 612</span><br><span class="line">Last-Modified: Wed, 12 Apr 2017 15:23:46 GMT</span><br><span class="line">…………</span><br><span class="line">…………</span><br><span class="line">&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;</span><br><span class="line">&lt;p&gt;If you see this page, the nginx web server is successfully installed and</span><br><span class="line">working. Further configuration is required.&lt;/p&gt;</span><br><span class="line">&lt;p&gt;For online documentation and support please refer to</span><br><span class="line">nginx.org.&lt;br/&gt;</span><br><span class="line">Commercial support is available at</span><br><span class="line">nginx.com.&lt;/p&gt;</span><br><span class="line">&lt;p&gt;&lt;em&gt;Thank you <span class="keyword">for</span> using nginx.&lt;/em&gt;&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>看到以上信息，说明你的nginx服务已安装成功！</p>
 
         
       
@@ -930,7 +944,24 @@
 
   
 <script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 </body>

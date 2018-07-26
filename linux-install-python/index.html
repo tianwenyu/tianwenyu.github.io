@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="准备编译环境  sudo yum groupinstall &apos;Development Tools&apos;sudo yum install zlib-devel bzip2-devel  openssl-devel ncurses-devel12">
+<meta name="description" content="准备编译环境  sudo yum groupinstall &apos;Development Tools&apos;sudo yum install zlib-devel bzip2-devel  openssl-devel ncurses-devel12">
 <meta name="keywords" content="Linux,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux下安装Python 3.6.1">
 <meta property="og:url" content="https://tianwenyu.github.io/linux-install-python/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="准备编译环境  sudo yum groupinstall &apos;Development Tools&apos;sudo yum install zlib-devel bzip2-devel  openssl-devel ncurses-devel12">
+<meta property="og:description" content="准备编译环境  sudo yum groupinstall &apos;Development Tools&apos;sudo yum install zlib-devel bzip2-devel  openssl-devel ncurses-devel12">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-25T09:20:08.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux下安装Python 3.6.1">
-<meta name="twitter:description" content="准备编译环境  sudo yum groupinstall &apos;Development Tools&apos;sudo yum install zlib-devel bzip2-devel  openssl-devel ncurses-devel12">
+<meta name="twitter:description" content="准备编译环境  sudo yum groupinstall &apos;Development Tools&apos;sudo yum install zlib-devel bzip2-devel  openssl-devel ncurses-devel12">
 
 
 
@@ -360,21 +360,21 @@
       
 
       
-        <ol>
+        <ol style="list-style-type: decimal">
 <li>准备编译环境</li>
 </ol>
 <figure class="highlight nsis"><table><tr><td class="code"><pre><span class="line">sudo yum groupinstall <span class="string">'Development Tools'</span></span><br><span class="line">sudo yum install <span class="literal">zlib</span>-devel <span class="literal">bzip2</span>-devel  openssl-devel ncurses-devel12</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>2.下载Python 3.6.1源码包</p>
-<p>打开<a href="https://www.python.org/downloads/release/python-361/" target="_blank" rel="external">https://www.python.org/downloads/release/python-361/</a>,下载<code>XZ compressed source tarball</code></p>
+<p>打开<a href="https://www.python.org/downloads/release/python-361/" class="uri" target="_blank" rel="external">https://www.python.org/downloads/release/python-361/</a>,下载<code>XZ compressed source tarball</code></p>
 <p>3.安装</p>
-<p>3.1 创建安装文件的目录<br><code>sudo mkdir /usr/local/python3</code></p>
-<p>3.2 进入到下载的目录解压缩<br><code>tar -Jxvf Python-3.6.1.tar.xz</code></p>
-<p>3.3 配置<br><code>./configure --prefix=/usr/local/python3</code></p>
-<p>3.4 编译<br><code>make</code></p>
-<p>3.5安装<br><code>sudo make install</code></p>
+<p>3.1 创建安装文件的目录 <code>sudo mkdir /usr/local/python3</code></p>
+<p>3.2 进入到下载的目录解压缩 <code>tar -Jxvf Python-3.6.1.tar.xz</code></p>
+<p>3.3 配置 <code>./configure --prefix=/usr/local/python3</code></p>
+<p>3.4 编译 <code>make</code></p>
+<p>3.5安装 <code>sudo make install</code></p>
 <p>4.安装后已自动做软链，无需再进行操作</p>
-<p>5.pip做软链<br><code>sudo ln -s /usr/local/python3/bin/pip3.6 /usr/bin/pip</code></p>
+<p>5.pip做软链 <code>sudo ln -s /usr/local/python3/bin/pip3.6 /usr/bin/pip</code></p>
 
         
       
@@ -900,7 +900,24 @@
 
   
 <script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 </body>

@@ -86,20 +86,20 @@
 
 
 
-<meta name="description" content="概述DeepoDeepo是一个几乎包含所有流行深度学习框架的Docker映像，拥有一个完整的可复制的深度学习研究环境。它涵盖了  theano tensorflow sonnet pytorch keras lasagne mxnet cntk chainer caffe torch">
+<meta name="description" content="概述 Deepo Deepo是一个几乎包含所有流行深度学习框架的Docker映像，拥有一个完整的可复制的深度学习研究环境。它涵盖了  theano tensorflow sonnet pytorch keras lasagne mxnet cntk chainer caffe torch">
 <meta name="keywords" content="Windows,Docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows10下Docker搭建深度学习框架">
 <meta property="og:url" content="https://tianwenyu.github.io/docker-deeplearning/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="概述DeepoDeepo是一个几乎包含所有流行深度学习框架的Docker映像，拥有一个完整的可复制的深度学习研究环境。它涵盖了  theano tensorflow sonnet pytorch keras lasagne mxnet cntk chainer caffe torch">
+<meta property="og:description" content="概述 Deepo Deepo是一个几乎包含所有流行深度学习框架的Docker映像，拥有一个完整的可复制的深度学习研究环境。它涵盖了  theano tensorflow sonnet pytorch keras lasagne mxnet cntk chainer caffe torch">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180307/E9gbbiD8dH.png?imageslim">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180307/0LLJg73D1G.png?imageslim">
 <meta property="og:updated_time" content="2018-03-07T12:12:28.392Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows10下Docker搭建深度学习框架">
-<meta name="twitter:description" content="概述DeepoDeepo是一个几乎包含所有流行深度学习框架的Docker映像，拥有一个完整的可复制的深度学习研究环境。它涵盖了  theano tensorflow sonnet pytorch keras lasagne mxnet cntk chainer caffe torch">
+<meta name="twitter:description" content="概述 Deepo Deepo是一个几乎包含所有流行深度学习框架的Docker映像，拥有一个完整的可复制的深度学习研究环境。它涵盖了  theano tensorflow sonnet pytorch keras lasagne mxnet cntk chainer caffe torch">
 <meta name="twitter:image" content="http://p15qizl76.bkt.clouddn.com/blog/180307/E9gbbiD8dH.png?imageslim">
 
 
@@ -363,7 +363,9 @@
       
 
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h2 id="Deepo"><a href="#Deepo" class="headerlink" title="Deepo"></a>Deepo</h2><p><code>Deepo</code>是一个几乎包含所有流行深度学习框架的Docker映像，拥有一个完整的可复制的深度学习研究环境。它涵盖了</p>
+        <h2 id="概述">概述</h2>
+<h2 id="deepo">Deepo</h2>
+<p><code>Deepo</code>是一个几乎包含所有流行深度学习框架的Docker映像，拥有一个完整的可复制的深度学习研究环境。它涵盖了</p>
 <ul>
 <li>theano</li>
 <li>tensorflow</li>
@@ -378,7 +380,8 @@
 <li>torch</li>
 </ul>
 <a id="more"></a>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>直接从<code>Docker Hub</code>下载<code>Deepo</code>镜像。<a href="https://github.com/ufoym/deepo" target="_blank" rel="external">Github地址</a></p>
+<h3 id="安装">安装</h3>
+<p>直接从<code>Docker Hub</code>下载<code>Deepo</code>镜像。<a href="https://github.com/ufoym/deepo" target="_blank" rel="external">Github地址</a></p>
 <ul>
 <li>CPU版本</li>
 </ul>
@@ -387,9 +390,11 @@
 <li>GPU版本</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull ufoym/deepo</span><br></pre></td></tr></table></figure>
-<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>打开<code>powershell</code>执行以下命令，以bash方式运行该容器。</p>
+<h3 id="运行">运行</h3>
+<p>打开<code>powershell</code>执行以下命令，以bash方式运行该容器。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -it ufoym/deepo:cpu bash</span><br></pre></td></tr></table></figure>
-<h2 id="DL-docker"><a href="#DL-docker" class="headerlink" title="DL-docker"></a>DL-docker</h2><p>包含的框架及系统依赖</p>
+<h2 id="dl-docker">DL-docker</h2>
+<p>包含的框架及系统依赖</p>
 <ul>
 <li>Ubuntu 14.04</li>
 <li>CUDA 7.5 (GPU version only)</li>
@@ -404,15 +409,23 @@
 <li>Numpy, SciPy, Pandas, Scikit Learn, Matplotlib</li>
 <li>A few common libraries used for deep learning</li>
 </ul>
-<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><ul>
+<h3 id="安装-1">安装</h3>
+<ul>
 <li>cpu版本</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull floydhub/dl-docker:cpu</span><br></pre></td></tr></table></figure>
-<h3 id="运行-1"><a href="#运行-1" class="headerlink" title="运行"></a>运行</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder floydhub/dl-docker:cpu bash</span><br></pre></td></tr></table></figure>
+<h3 id="运行-1">运行</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder floydhub/dl-docker:cpu bash</span><br></pre></td></tr></table></figure>
 <p>运行以上命令后，会连接到bash，执行<code>jupyter notebook</code>。</p>
-<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180307/E9gbbiD8dH.png?imageslim" alt="mark"></p>
+<div class="figure">
+<img src="http://p15qizl76.bkt.clouddn.com/blog/180307/E9gbbiD8dH.png?imageslim" alt="mark">
+<p class="caption">mark</p>
+</div>
 <p>然后在Windows的浏览器中输入<code>localhost:8888</code>，会连接到该容器的<code>Jupyter notebook</code></p>
-<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180307/0LLJg73D1G.png?imageslim" alt="mark"></p>
+<div class="figure">
+<img src="http://p15qizl76.bkt.clouddn.com/blog/180307/0LLJg73D1G.png?imageslim" alt="mark">
+<p class="caption">mark</p>
+</div>
 
         
       
@@ -595,7 +608,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deepo"><span class="nav-text">Deepo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行"><span class="nav-text">运行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DL-docker"><span class="nav-text">DL-docker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-1"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行-1"><span class="nav-text">运行</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deepo"><span class="nav-text">Deepo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行"><span class="nav-text">运行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dl-docker"><span class="nav-text">DL-docker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-1"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行-1"><span class="nav-text">运行</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -938,7 +951,24 @@
 
   
 <script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 </body>

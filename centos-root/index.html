@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="切换到root用户su -  添加新用户useradd xxx">
+<meta name="description" content="切换到root用户 su - 添加新用户 useradd xxx">
 <meta name="keywords" content="CentOS,Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS 添加新用户并授权Root权限">
 <meta property="og:url" content="https://tianwenyu.github.io/centos-root/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="切换到root用户su -  添加新用户useradd xxx">
+<meta property="og:description" content="切换到root用户 su - 添加新用户 useradd xxx">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-25T10:53:21.469Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 添加新用户并授权Root权限">
-<meta name="twitter:description" content="切换到root用户su -  添加新用户useradd xxx">
+<meta name="twitter:description" content="切换到root用户 su - 添加新用户 useradd xxx">
 
 
 
@@ -360,22 +360,17 @@
       
 
       
-        <ol>
-<li><p>切换到<code>root</code>用户<br><code>su -</code></p>
-</li>
-<li><p>添加新用户<br><code>useradd xxx</code></p>
-<a id="more"></a>
-</li>
-<li><p>查看是否在<code>/home</code>下创建用户<br><code>ls /home</code></p>
-</li>
-<li><p>删除用户<br><code>userdel -rf xxx</code></p>
-</li>
-<li><p>为新创建的用户添加密码<br><code>passwd xxx</code><br>【注】<code>xxx</code>为用户名</p>
-</li>
-<li><p>查看新建用户信息<br><code>tail -3 /etc/passwd</code></p>
-</li>
-<li><p>切换用户<br><code>su - xxx</code></p>
-</li>
+        <ol style="list-style-type: decimal">
+<li><p>切换到<code>root</code>用户 <code>su -</code></p></li>
+<li><p>添加新用户 <code>useradd xxx</code></p></li>
+</ol>
+<p><a id="more"></a></p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>查看是否在<code>/home</code>下创建用户 <code>ls /home</code></p></li>
+<li><p>删除用户 <code>userdel -rf xxx</code></p></li>
+<li><p>为新创建的用户添加密码 <code>passwd xxx</code> 【注】<code>xxx</code>为用户名</p></li>
+<li><p>查看新建用户信息 <code>tail -3 /etc/passwd</code></p></li>
+<li><p>切换用户 <code>su - xxx</code></p></li>
 </ol>
 
         
@@ -902,7 +897,24 @@
 
   
 <script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 </body>

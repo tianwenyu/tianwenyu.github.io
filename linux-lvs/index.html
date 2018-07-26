@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="系统架构 虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR  【注】所有连接方式都采用桥接方式    主机 IP 角色     Client 192.168.33.145 客户机，用来访问网页   VS 192.168.33.150 VIP，Virtual Ip对外提供的IP   VS 192.168.33.149 DIP，Director">
+<meta name="description" content="系统架构  虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR  【注】所有连接方式都采用桥接方式    主机 IP 角色     Client 192.168.33.145 客户机，用来访问网页   VS 192.168.33.150 VIP，Virtual Ip对外提供的IP   VS">
 <meta name="keywords" content="Linux,VirtualBox,LVS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Virtualbox 下LVS-NAT模式集群部署">
 <meta property="og:url" content="https://tianwenyu.github.io/linux-lvs/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="系统架构 虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR  【注】所有连接方式都采用桥接方式    主机 IP 角色     Client 192.168.33.145 客户机，用来访问网页   VS 192.168.33.150 VIP，Virtual Ip对外提供的IP   VS 192.168.33.149 DIP，Director">
+<meta property="og:description" content="系统架构  虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR  【注】所有连接方式都采用桥接方式    主机 IP 角色     Client 192.168.33.145 客户机，用来访问网页   VS 192.168.33.150 VIP，Virtual Ip对外提供的IP   VS">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20171204231827222?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171204231840284?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
@@ -108,7 +108,7 @@
 <meta property="og:updated_time" content="2018-01-05T05:07:01.137Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Virtualbox 下LVS-NAT模式集群部署">
-<meta name="twitter:description" content="系统架构 虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR  【注】所有连接方式都采用桥接方式    主机 IP 角色     Client 192.168.33.145 客户机，用来访问网页   VS 192.168.33.150 VIP，Virtual Ip对外提供的IP   VS 192.168.33.149 DIP，Director">
+<meta name="twitter:description" content="系统架构  虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR  【注】所有连接方式都采用桥接方式    主机 IP 角色     Client 192.168.33.145 客户机，用来访问网页   VS 192.168.33.150 VIP，Virtual Ip对外提供的IP   VS">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20171204231827222?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -374,7 +374,8 @@
       
 
       
-        <h2 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h2><ul>
+        <h2 id="系统架构">系统架构</h2>
+<ul>
 <li>虚拟机环境：VirtualBox</li>
 <li>Linux系统：CentOS 7</li>
 <li>模型：LVS-NAT</li>
@@ -383,34 +384,34 @@
 <p>【注】所有连接方式都采用<code>桥接</code>方式</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>主机</th>
 <th>IP</th>
 <th>角色</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Client</td>
 <td>192.168.33.145</td>
 <td>客户机，用来访问网页</td>
 </tr>
-<tr>
+<tr class="even">
 <td>VS</td>
 <td>192.168.33.150</td>
 <td>VIP，Virtual Ip对外提供的IP</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>VS</td>
 <td>192.168.33.149</td>
 <td>DIP，Director IP</td>
 </tr>
-<tr>
+<tr class="even">
 <td>RS1</td>
 <td>192.168.33.148</td>
 <td>Real Server IP，安装Nginx</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>RS2</td>
 <td>192.168.33.147</td>
 <td>Real Server IP，安装Nginx</td>
@@ -418,108 +419,158 @@
 </tbody>
 </table>
 <a id="more"></a>
-<h2 id="客户机配置"><a href="#客户机配置" class="headerlink" title="客户机配置"></a>客户机配置</h2><h3 id="桥接IP设置"><a href="#桥接IP设置" class="headerlink" title="桥接IP设置"></a>桥接IP设置</h3><ol>
-<li><p>打开<code>网络与共享中心</code></p>
-</li>
-<li><p>点击<code>更改适配器设置</code> </p>
-<p><img src="http://img.blog.csdn.net/20171204231827222?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-</li>
-<li><p>选择客户机（即物理机）网卡</p>
-</li>
+<h2 id="客户机配置">客户机配置</h2>
+<h3 id="桥接ip设置">桥接IP设置</h3>
+<ol style="list-style-type: decimal">
+<li><p>打开<code>网络与共享中心</code></p></li>
+<li><p>点击<code>更改适配器设置</code></p></li>
 </ol>
-<p><img src="http://img.blog.csdn.net/20171204231840284?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<div class="figure">
+<img src="http://img.blog.csdn.net/20171204231827222?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>选择客户机（即物理机）网卡</li>
+</ol>
+<div class="figure">
+<img src="http://img.blog.csdn.net/20171204231840284?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+</div>
 <p>4.打开<code>属性</code>，设置IPV4地址</p>
-<p><img src="http://img.blog.csdn.net/20171204231850568?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<h2 id="虚拟机环境配置"><a href="#虚拟机环境配置" class="headerlink" title="虚拟机环境配置"></a>虚拟机环境配置</h2><h3 id="1-网卡模式设置"><a href="#1-网卡模式设置" class="headerlink" title="1.网卡模式设置"></a>1.网卡模式设置</h3><p>【注】所有Virtual Box虚拟机网络设置都要设置为<code>桥接</code>方式</p>
-<ol>
-<li><p>打开<code>控制-&gt;设置-&gt;网络</code></p>
-</li>
-<li><p><code>连接方式</code>选择<code>桥接网卡</code>，<code>高级-&gt;混杂模式</code>选<code>全部允许</code> </p>
-<p><img src="http://img.blog.csdn.net/20171204232024897?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-</li>
+<div class="figure">
+<img src="http://img.blog.csdn.net/20171204231850568?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+</div>
+<h2 id="虚拟机环境配置">虚拟机环境配置</h2>
+<h3 id="网卡模式设置">1.网卡模式设置</h3>
+<p>【注】所有Virtual Box虚拟机网络设置都要设置为<code>桥接</code>方式</p>
+<ol style="list-style-type: decimal">
+<li><p>打开<code>控制-&gt;设置-&gt;网络</code></p></li>
+<li><p><code>连接方式</code>选择<code>桥接网卡</code>，<code>高级-&gt;混杂模式</code>选<code>全部允许</code></p></li>
 </ol>
-<h3 id="2-sudo命令配置"><a href="#2-sudo命令配置" class="headerlink" title="2.sudo命令配置"></a>2.<code>sudo</code>命令配置</h3><p>【注】以一台虚拟机为例，其余虚拟机与此类似</p>
-<ol>
-<li><p>切换到<code>root</code>用户</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">su <span class="number">-1</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加<code>/etc/sudoers</code>文件写权限</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">chmod u+w <span class="regexp">/etc/</span>sudoers1</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编辑<code>/etc/sudoers</code></p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>sudoers1</span><br></pre></td></tr></table></figure>
-</li>
+<div class="figure">
+<img src="http://img.blog.csdn.net/20171204232024897?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+</div>
+<h3 id="sudo命令配置">2.<code>sudo</code>命令配置</h3>
+<p>【注】以一台虚拟机为例，其余虚拟机与此类似</p>
+<ol style="list-style-type: decimal">
+<li>切换到<code>root</code>用户</li>
 </ol>
+<p><figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">su <span class="number">-1</span></span><br></pre></td></tr></table></figure></p>
+<ol start="2" style="list-style-type: decimal">
+<li>添加<code>/etc/sudoers</code>文件写权限</li>
+</ol>
+<p><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">chmod u+w <span class="regexp">/etc/</span>sudoers1</span><br></pre></td></tr></table></figure></p>
+<ol start="3" style="list-style-type: decimal">
+<li>编辑<code>/etc/sudoers</code></li>
+</ol>
+<p><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>sudoers1</span><br></pre></td></tr></table></figure></p>
 <p>找到<code>root ALL=(ALL) ALL</code>在下面添加<code>21751096_1 ALL=(ALL) ALL</code>，并保存退出</p>
-<p><img src="http://img.blog.csdn.net/20171204232111043?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<div class="figure">
+<img src="http://img.blog.csdn.net/20171204232111043?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+</div>
 <p>4.撤销<code>/etc/sudoers</code>文件的写权限</p>
 <p><code>bash chmod u-w /etc/sudoers</code></p>
-<h2 id="Director配置"><a href="#Director配置" class="headerlink" title="Director配置"></a>Director配置</h2><h3 id="1-安装ipvsadm"><a href="#1-安装ipvsadm" class="headerlink" title="1.安装ipvsadm"></a>1.安装<code>ipvsadm</code></h3><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> -y ipvsadm1</span><br></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20171204232138345?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<h3 id="2-建立一个虚拟IP地址进行广播"><a href="#2-建立一个虚拟IP地址进行广播" class="headerlink" title="2.建立一个虚拟IP地址进行广播"></a>2.建立一个虚拟IP地址进行广播</h3><figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">sudo ifconfig enp<span class="number">0s3:0 192</span>.<span class="number">168.33.150/24</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-将该虚拟机地址添加到路由表"><a href="#3-将该虚拟机地址添加到路由表" class="headerlink" title="3.将该虚拟机地址添加到路由表"></a>3.将该虚拟机地址添加到路由表</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">sudo<span class="built_in"> route </span><span class="builtin-name">add</span> -host 192.168.33.150 dev enp0s31</span><br></pre></td></tr></table></figure>
-<h3 id="4-使用ipvsadm安装LVS服务"><a href="#4-使用ipvsadm安装LVS服务" class="headerlink" title="4.使用ipvsadm安装LVS服务"></a>4.使用<code>ipvsadm</code>安装LVS服务</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">ipvsadm</span> <span class="selector-tag">-At</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.150</span><span class="selector-pseudo">:80</span> <span class="selector-tag">-s</span> <span class="selector-tag">rr1</span></span><br></pre></td></tr></table></figure>
-<h3 id="5-增加真实服务器"><a href="#5-增加真实服务器" class="headerlink" title="5.增加真实服务器"></a>5.增加真实服务器</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">ipvsadm</span> <span class="selector-tag">-at</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.150</span><span class="selector-pseudo">:80</span> <span class="selector-tag">-r</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.148</span> <span class="selector-tag">-g</span></span><br><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">ipvsadm</span> <span class="selector-tag">-at</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.150</span><span class="selector-pseudo">:80</span> <span class="selector-tag">-r</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.147</span> <span class="selector-tag">-g12</span></span><br></pre></td></tr></table></figure>
-<h3 id="6-设置DirectorIP"><a href="#6-设置DirectorIP" class="headerlink" title="6.设置DirectorIP"></a>6.设置DirectorIP</h3><figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">sudo ifconfig enp0s3 <span class="number">192.168</span><span class="number">.33</span><span class="number">.149</span>/<span class="number">241</span></span><br></pre></td></tr></table></figure>
-<h3 id="7-查看ifconfig设置"><a href="#7-查看ifconfig设置" class="headerlink" title="7.查看ifconfig设置"></a>7.查看<code>ifconfig</code>设置</h3><figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">sudo ifco<span class="symbol">nfig1</span></span><br></pre></td></tr></table></figure>
+<h2 id="director配置">Director配置</h2>
+<h3 id="安装ipvsadm">1.安装<code>ipvsadm</code></h3>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> -y ipvsadm1</span><br></pre></td></tr></table></figure>
+<div class="figure">
+<img src="http://img.blog.csdn.net/20171204232138345?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+</div>
+<h3 id="建立一个虚拟ip地址进行广播">2.建立一个虚拟IP地址进行广播</h3>
+<figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">sudo ifconfig enp<span class="number">0s3:0 192</span>.<span class="number">168.33.150/24</span></span><br></pre></td></tr></table></figure>
+<h3 id="将该虚拟机地址添加到路由表">3.将该虚拟机地址添加到路由表</h3>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">sudo<span class="built_in"> route </span><span class="builtin-name">add</span> -host 192.168.33.150 dev enp0s31</span><br></pre></td></tr></table></figure>
+<h3 id="使用ipvsadm安装lvs服务">4.使用<code>ipvsadm</code>安装LVS服务</h3>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">ipvsadm</span> <span class="selector-tag">-At</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.150</span><span class="selector-pseudo">:80</span> <span class="selector-tag">-s</span> <span class="selector-tag">rr1</span></span><br></pre></td></tr></table></figure>
+<h3 id="增加真实服务器">5.增加真实服务器</h3>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">ipvsadm</span> <span class="selector-tag">-at</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.150</span><span class="selector-pseudo">:80</span> <span class="selector-tag">-r</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.148</span> <span class="selector-tag">-g</span></span><br><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">ipvsadm</span> <span class="selector-tag">-at</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.150</span><span class="selector-pseudo">:80</span> <span class="selector-tag">-r</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.147</span> <span class="selector-tag">-g12</span></span><br></pre></td></tr></table></figure>
+<h3 id="设置directorip">6.设置DirectorIP</h3>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">sudo ifconfig enp0s3 <span class="number">192.168</span><span class="number">.33</span><span class="number">.149</span>/<span class="number">241</span></span><br></pre></td></tr></table></figure>
+<h3 id="查看ifconfig设置">7.查看<code>ifconfig</code>设置</h3>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">sudo ifco<span class="symbol">nfig1</span></span><br></pre></td></tr></table></figure>
 <p>所有设置如图</p>
-<p><img src="http://img.blog.csdn.net/20171204232204048?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<h2 id="Real-Server配置"><a href="#Real-Server配置" class="headerlink" title="Real Server配置"></a>Real Server配置</h2><h3 id="1-安装nginx服务"><a href="#1-安装nginx服务" class="headerlink" title="1.安装nginx服务"></a>1.安装<code>nginx</code>服务</h3><p>【注】需要在<code>21751096_2</code>和<code>21751096_3</code>两台RealServer上安装<code>nginx</code>服务，以其中一台为例</p>
-<ol>
-<li><p>使用<code>yum</code>安装<code>nginx</code>,需要安装<code>nginx</code>的库</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">cd /etc/yum<span class="selector-class">.repos</span><span class="selector-class">.d</span>/nginx.repo</span><br><span class="line">sudo rpm -Uvh http:<span class="comment">//nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm12</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编辑<code>nginx.repo</code>文件</p>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/yum.repos.d/nginx.repo</span><br><span class="line"></span><br><span class="line">name=nginx repo</span><br><span class="line">baseurl=http://nginx.org/packages/centos/7/x86_64/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1123456</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用<code>yum</code>安装<code>nginx</code></p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> nginx1</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装完成后启动<code>nginx</code>服务</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>nginx start1</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改<code>index.html</code>首页区分两个nginx服务器</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sudo vim <span class="regexp">/usr/</span>share<span class="regexp">/nginx/</span>html<span class="regexp">/index.html1</span></span><br></pre></td></tr></table></figure>
+<div class="figure">
+<img src="http://img.blog.csdn.net/20171204232204048?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+</div>
+<h2 id="real-server配置">Real Server配置</h2>
+<h3 id="安装nginx服务">1.安装<code>nginx</code>服务</h3>
+<p>【注】需要在<code>21751096_2</code>和<code>21751096_3</code>两台RealServer上安装<code>nginx</code>服务，以其中一台为例</p>
+<ol style="list-style-type: decimal">
+<li>使用<code>yum</code>安装<code>nginx</code>,需要安装<code>nginx</code>的库</li>
+</ol>
+<p><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">cd /etc/yum<span class="selector-class">.repos</span><span class="selector-class">.d</span>/nginx.repo</span><br><span class="line">sudo rpm -Uvh http:<span class="comment">//nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm12</span></span><br></pre></td></tr></table></figure></p>
+<ol start="2" style="list-style-type: decimal">
+<li>编辑<code>nginx.repo</code>文件</li>
+</ol>
+<p><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/yum.repos.d/nginx.repo</span><br><span class="line"></span><br><span class="line">name=nginx repo</span><br><span class="line">baseurl=http://nginx.org/packages/centos/7/x86_64/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1123456</span><br></pre></td></tr></table></figure></p>
+<ol start="3" style="list-style-type: decimal">
+<li>使用<code>yum</code>安装<code>nginx</code></li>
+</ol>
+<p><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> nginx1</span><br></pre></td></tr></table></figure></p>
+<ol start="4" style="list-style-type: decimal">
+<li>安装完成后启动<code>nginx</code>服务</li>
+</ol>
+<p><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>nginx start1</span><br></pre></td></tr></table></figure></p>
+<ol start="5" style="list-style-type: decimal">
+<li>修改<code>index.html</code>首页区分两个nginx服务器</li>
+</ol>
+<p><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">sudo vim <span class="regexp">/usr/</span>share<span class="regexp">/nginx/</span>html<span class="regexp">/index.html1</span></span><br></pre></td></tr></table></figure></p>
 <p>修改内容如下</p>
-</li>
+<div class="figure">
+<img src="http://img.blog.csdn.net/20171204232221573?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>查看是否启动服务</li>
 </ol>
-<p>   <img src="http://img.blog.csdn.net/20171204232221573?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<ol>
-<li><p>查看是否启动服务</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">curl -<span class="selector-tag">i</span> localhost1</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="2-IP设置"><a href="#2-IP设置" class="headerlink" title="2.IP设置"></a>2.IP设置</h3><ol>
+<p><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">curl -<span class="selector-tag">i</span> localhost1</span><br></pre></td></tr></table></figure></p>
+<h3 id="ip设置">2.IP设置</h3>
+<ol style="list-style-type: decimal">
 <li>切换到<code>root</code>账户</li>
 </ol>
 <figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">su <span class="number">-1</span></span><br></pre></td></tr></table></figure>
-<ol>
+<ol style="list-style-type: decimal">
 <li>设置虚拟IP</li>
 </ol>
 <figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">ifconfig lo:<span class="number">0 192.168.33</span>.<span class="number">150/361</span></span><br></pre></td></tr></table></figure>
-<ol>
+<ol style="list-style-type: decimal">
 <li>添加到路由表</li>
 </ol>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">route</span> <span class="selector-tag">add</span> <span class="selector-tag">-host</span> 192<span class="selector-class">.168</span><span class="selector-class">.33</span><span class="selector-class">.150</span> <span class="selector-tag">dev</span> <span class="selector-tag">lo</span><span class="selector-pseudo">:01</span></span><br></pre></td></tr></table></figure>
-<ol>
+<ol style="list-style-type: decimal">
 <li>设置IPV4转发</li>
 </ol>
 <p><code>bash echo &quot;1&quot; &gt;/proc/sys/net/ipv4/ip_forward</code></p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>设置RS1的IP</li>
 </ol>
 <figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">ifconfig enp0s3 <span class="number">192.168</span><span class="number">.33</span><span class="number">.148</span>/<span class="number">241</span></span><br></pre></td></tr></table></figure>
-<ol>
+<ol style="list-style-type: decimal">
 <li>查看<code>ifconfig</code>设置</li>
 </ol>
 <figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">ifco<span class="symbol">nfig1</span></span><br></pre></td></tr></table></figure>
 <p>全部设置如图所示</p>
-<p><img src="http://img.blog.csdn.net/20171204232238350?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<h2 id="运行测试"><a href="#运行测试" class="headerlink" title="运行测试"></a>运行测试</h2><p>在浏览器中输入<code>192.168.33.150</code></p>
+<div class="figure">
+<img src="http://img.blog.csdn.net/20171204232238350?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+</div>
+<h2 id="运行测试">运行测试</h2>
+<p>在浏览器中输入<code>192.168.33.150</code></p>
 <p>第一次显示Real Sever 1的页面</p>
-<p><img src="http://img.blog.csdn.net/20171204232312949?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<div class="figure">
+<img src="http://img.blog.csdn.net/20171204232312949?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+</div>
 <p>刷新后显示Real Server 2的页面</p>
-<p><img src="http://img.blog.csdn.net/20171204232326590?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<div class="figure">
+<img src="http://img.blog.csdn.net/20171204232326590?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+</div>
 
         
       
@@ -556,16 +607,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/hexo-indigo/" rel="next" title="Hexo之Indigo主题配置">
-                <i class="fa fa-chevron-left"></i> Hexo之Indigo主题配置
+              <a href="/text-classification/" rel="next" title="【评论文本分类】1.爬取评论数据">
+                <i class="fa fa-chevron-left"></i> 【评论文本分类】1.爬取评论数据
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/gitpage-hexo/" rel="prev" title="利用Github Pages+Hexo搭建个人博客">
-                利用Github Pages+Hexo搭建个人博客 <i class="fa fa-chevron-right"></i>
+              <a href="/hexo-indigo/" rel="prev" title="Hexo之Indigo主题配置">
+                Hexo之Indigo主题配置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -704,7 +755,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统架构"><span class="nav-text">系统架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户机配置"><span class="nav-text">客户机配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#桥接IP设置"><span class="nav-text">桥接IP设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机环境配置"><span class="nav-text">虚拟机环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-网卡模式设置"><span class="nav-text">1.网卡模式设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-sudo命令配置"><span class="nav-text">2.sudo命令配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Director配置"><span class="nav-text">Director配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装ipvsadm"><span class="nav-text">1.安装ipvsadm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-建立一个虚拟IP地址进行广播"><span class="nav-text">2.建立一个虚拟IP地址进行广播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-将该虚拟机地址添加到路由表"><span class="nav-text">3.将该虚拟机地址添加到路由表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-使用ipvsadm安装LVS服务"><span class="nav-text">4.使用ipvsadm安装LVS服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-增加真实服务器"><span class="nav-text">5.增加真实服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-设置DirectorIP"><span class="nav-text">6.设置DirectorIP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-查看ifconfig设置"><span class="nav-text">7.查看ifconfig设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Real-Server配置"><span class="nav-text">Real Server配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装nginx服务"><span class="nav-text">1.安装nginx服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-IP设置"><span class="nav-text">2.IP设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行测试"><span class="nav-text">运行测试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统架构"><span class="nav-text">系统架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户机配置"><span class="nav-text">客户机配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#桥接ip设置"><span class="nav-text">桥接IP设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机环境配置"><span class="nav-text">虚拟机环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网卡模式设置"><span class="nav-text">1.网卡模式设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sudo命令配置"><span class="nav-text">2.sudo命令配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#director配置"><span class="nav-text">Director配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装ipvsadm"><span class="nav-text">1.安装ipvsadm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立一个虚拟ip地址进行广播"><span class="nav-text">2.建立一个虚拟IP地址进行广播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将该虚拟机地址添加到路由表"><span class="nav-text">3.将该虚拟机地址添加到路由表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用ipvsadm安装lvs服务"><span class="nav-text">4.使用ipvsadm安装LVS服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加真实服务器"><span class="nav-text">5.增加真实服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置directorip"><span class="nav-text">6.设置DirectorIP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看ifconfig设置"><span class="nav-text">7.查看ifconfig设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#real-server配置"><span class="nav-text">Real Server配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装nginx服务"><span class="nav-text">1.安装nginx服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ip设置"><span class="nav-text">2.IP设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行测试"><span class="nav-text">运行测试</span></a></li></ol></div>
             
           </div>
         </section>
@@ -1047,7 +1098,24 @@
 
   
 <script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 </body>

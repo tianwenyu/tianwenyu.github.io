@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="目标假设在α=0.05的情况下，根据舆情监测项目需求，查看召回率和准确率的置信区间，均值。">
+<meta name="description" content="目标 假设在α=0.05的情况下，根据舆情监测项目需求，查看召回率和准确率的置信区间，均值。">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习评估方法——P值校验">
 <meta property="og:url" content="https://tianwenyu.github.io/ml-pvalue/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="目标假设在α=0.05的情况下，根据舆情监测项目需求，查看召回率和准确率的置信区间，均值。">
+<meta property="og:description" content="目标 假设在α=0.05的情况下，根据舆情监测项目需求，查看召回率和准确率的置信区间，均值。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20171126193032268?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171126193828100?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
@@ -102,7 +102,7 @@
 <meta property="og:updated_time" content="2017-12-25T10:53:21.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习评估方法——P值校验">
-<meta name="twitter:description" content="目标假设在α=0.05的情况下，根据舆情监测项目需求，查看召回率和准确率的置信区间，均值。">
+<meta name="twitter:description" content="目标 假设在α=0.05的情况下，根据舆情监测项目需求，查看召回率和准确率的置信区间，均值。">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20171126193032268?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -364,15 +364,17 @@
       
 
       
-        <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>假设在α=0.05的情况下，根据舆情监测项目需求，查看召回率和准确率的置信区间，均值。</p>
+        <h2 id="目标">目标</h2>
+<p>假设在α=0.05的情况下，根据舆情监测项目需求，查看召回率和准确率的置信区间，均值。</p>
 <a id="more"></a>
-<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>1.输入数据，三列分别是<code>precision</code>,<code>recall</code>,<code>f1-score</code>，每一列分别计算，以此为例，一共四十行。即样本容量为40<br><img src="http://img.blog.csdn.net/20171126193032268?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>2.计算标准差<br><code>STDEV(A2:A41)</code><br>计算出的标准差放在<code>A43</code>单元格<br><img src="http://img.blog.csdn.net/20171126193828100?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>3.计算置信区间<br>3.1<code>公式-&gt;插入函数-&gt;CONFIDENCE.NORMAL</code><br><code>CONFIDENCE.NORMAL(0.05,A43,40)</code><img src="http://img.blog.csdn.net/20171126193908680?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>【解释】</p>
+<h2 id="过程">过程</h2>
+<p>1.输入数据，三列分别是<code>precision</code>,<code>recall</code>,<code>f1-score</code>，每一列分别计算，以此为例，一共四十行。即样本容量为40 <img src="http://img.blog.csdn.net/20171126193032268?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"> 2.计算标准差 <code>STDEV(A2:A41)</code> 计算出的标准差放在<code>A43</code>单元格 <img src="http://img.blog.csdn.net/20171126193828100?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"> 3.计算置信区间 3.1<code>公式-&gt;插入函数-&gt;CONFIDENCE.NORMAL</code> <code>CONFIDENCE.NORMAL(0.05,A43,40)</code><img src="http://img.blog.csdn.net/20171126193908680?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"> 【解释】</p>
 <ul>
-<li><code>Alpha=0.05</code>即说明置信区间的显著性水平，<br>置信水平是指总体参数值落在样本统计值某一区内的概率，一般用1-α表示，即在这个区间内的可能性为<code>1-0.05=0.95</code>，即有95％的可能认为落在这个区间。</li>
+<li><code>Alpha=0.05</code>即说明置信区间的显著性水平， 置信水平是指总体参数值落在样本统计值某一区内的概率，一般用1-α表示，即在这个区间内的可能性为<code>1-0.05=0.95</code>，即有95％的可能认为落在这个区间。</li>
 <li><code>Standard_dev=A43</code>即上一步骤算出的标准差,上一步的标准差存储在<code>A43</code>单元格</li>
 <li><code>Size=40</code>即样本容量为40</li>
 </ul>
-<p>4.计算平均值<br><code>AVERAGE(A2:A41)</code><br>5.理论解释<br><img src="http://img.blog.csdn.net/20171126195547711?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>6.操作动态图<br><img src="http://img.blog.csdn.net/20171126200943735?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>4.计算平均值 <code>AVERAGE(A2:A41)</code> 5.理论解释 <img src="http://img.blog.csdn.net/20171126195547711?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"> 6.操作动态图 <img src="http://img.blog.csdn.net/20171126200943735?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 
         
       
@@ -896,7 +898,24 @@
 
   
 <script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 </body>
