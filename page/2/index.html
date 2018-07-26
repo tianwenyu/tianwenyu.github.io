@@ -1357,8 +1357,8 @@
             
               
                 
-                <a class="post-title-link" href="/hexo-indigo/" itemprop="url">
-                  Hexo之Indigo主题配置
+                <a class="post-title-link" href="/linux-lvs/" itemprop="url">
+                  Virtualbox 下LVS-NAT模式集群部署
                 </a>
               
             
@@ -1385,8 +1385,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/个人建站/" itemprop="url" rel="index">
-                    <span itemprop="name">个人建站</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -1419,11 +1419,53 @@
 
       
         
-          <h2 id="正文宽度加宽"><a href="#正文宽度加宽" class="headerlink" title="正文宽度加宽"></a>正文宽度加宽</h2><p><code>/themes/indigo/source/css/_partial/variable.less</code></p>
-<p>把<code>@contentWidth: 960px</code>改成<code>@contentWidth: 90%</code></p>
-<p>同时<code>config</code>文件中修改<code>cdn:false</code></p>
+          <h2 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h2><ul>
+<li>虚拟机环境：VirtualBox</li>
+<li>Linux系统：CentOS 7</li>
+<li>模型：LVS-NAT</li>
+<li>调度算法：RR</li>
+</ul>
+<p>【注】所有连接方式都采用<code>桥接</code>方式</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>主机</th>
+<th>IP</th>
+<th>角色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client</td>
+<td>192.168.33.145</td>
+<td>客户机，用来访问网页</td>
+</tr>
+<tr>
+<td>VS</td>
+<td>192.168.33.150</td>
+<td>VIP，Virtual Ip对外提供的IP</td>
+</tr>
+<tr>
+<td>VS</td>
+<td>192.168.33.149</td>
+<td>DIP，Director IP</td>
+</tr>
+<tr>
+<td>RS1</td>
+<td>192.168.33.148</td>
+<td>Real Server IP，安装Nginx</td>
+</tr>
+<tr>
+<td>RS2</td>
+<td>192.168.33.147</td>
+<td>Real Server IP，安装Nginx</td>
+</tr>
+</tbody>
+</table>
+</div>
           <div class="post-more-link text-center">
-            <a class="btn" href="/hexo-indigo/" rel="contents">
+            <a class="btn" href="/linux-lvs/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1599,8 +1641,8 @@
             
               
                 
-                <a class="post-title-link" href="/linux-lvs/" itemprop="url">
-                  Virtualbox 下LVS-NAT模式集群部署
+                <a class="post-title-link" href="/hexo-indigo/" itemprop="url">
+                  Hexo之Indigo主题配置
                 </a>
               
             
@@ -1627,8 +1669,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/个人建站/" itemprop="url" rel="index">
+                    <span itemprop="name">个人建站</span>
                   </a>
                 </span>
 
@@ -1661,53 +1703,11 @@
 
       
         
-          <h2 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h2><ul>
-<li>虚拟机环境：VirtualBox</li>
-<li>Linux系统：CentOS 7</li>
-<li>模型：LVS-NAT</li>
-<li>调度算法：RR</li>
-</ul>
-<p>【注】所有连接方式都采用<code>桥接</code>方式</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>主机</th>
-<th>IP</th>
-<th>角色</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Client</td>
-<td>192.168.33.145</td>
-<td>客户机，用来访问网页</td>
-</tr>
-<tr>
-<td>VS</td>
-<td>192.168.33.150</td>
-<td>VIP，Virtual Ip对外提供的IP</td>
-</tr>
-<tr>
-<td>VS</td>
-<td>192.168.33.149</td>
-<td>DIP，Director IP</td>
-</tr>
-<tr>
-<td>RS1</td>
-<td>192.168.33.148</td>
-<td>Real Server IP，安装Nginx</td>
-</tr>
-<tr>
-<td>RS2</td>
-<td>192.168.33.147</td>
-<td>Real Server IP，安装Nginx</td>
-</tr>
-</tbody>
-</table>
-</div>
+          <h2 id="正文宽度加宽"><a href="#正文宽度加宽" class="headerlink" title="正文宽度加宽"></a>正文宽度加宽</h2><p><code>/themes/indigo/source/css/_partial/variable.less</code></p>
+<p>把<code>@contentWidth: 960px</code>改成<code>@contentWidth: 90%</code></p>
+<p>同时<code>config</code>文件中修改<code>cdn:false</code></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/linux-lvs/" rel="contents">
+            <a class="btn" href="/hexo-indigo/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
