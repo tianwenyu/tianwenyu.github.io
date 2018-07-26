@@ -250,6 +250,33 @@
   </entry>
   
   <entry>
+    <title>Ubuntu下安装Anaconda</title>
+    <link href="https://tianwenyu.github.io/ubuntu-ancaconda/"/>
+    <id>https://tianwenyu.github.io/ubuntu-ancaconda/</id>
+    <published>2018-02-09T12:29:30.000Z</published>
+    <updated>2018-02-27T07:29:31.087Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Anaconda安装"><a href="#Anaconda安装" class="headerlink" title="Anaconda安装"></a>Anaconda安装</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>使用<code>Python3.6</code>版本的<code>Anaconda 5.1</code>，<a href="https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh" target="_blank" rel="external">点击下载</a></p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol><li><p>进入到下载后的文件目录，执行</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash Anaconda3-5.1.0-Linux-x86_64.sh</span><br></pre></td></tr></table></figure><a id="more"></a></li><li><p>根据提示输入回车</p><p><img src="http://img.blog.csdn.net/20170628223151678?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjMxODA3NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p></li><li><p>查看注册信息，一直回车到输入<code>yes</code></p><p><img src="http://img.blog.csdn.net/20170628223509298?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjMxODA3NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p><p><img src="http://img.blog.csdn.net/20170628223600909?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjMxODA3NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p></li><li><p>输入安装目录路径，默认回车即可</p><p><img src="http://img.blog.csdn.net/20170628223649697?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjMxODA3NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p></li><li><p>是否加入环境变量，输入<code>yes</code></p><p><img src="http://img.blog.csdn.net/20170628223754787?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjMxODA3NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p></li><li><p>安装成功后，新打开一个终端输入以下命令查看版本号</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">anaconda -V</span><br></pre></td></tr></table></figure></li></ol><h2 id="使用Jupyter-Notebook"><a href="#使用Jupyter-Notebook" class="headerlink" title="使用Jupyter Notebook"></a>使用Jupyter Notebook</h2><p>输入以下命令则能够使用<code>Jupyter Notebook</code></p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ipython notebook</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Anaconda安装&quot;&gt;&lt;a href=&quot;#Anaconda安装&quot; class=&quot;headerlink&quot; title=&quot;Anaconda安装&quot;&gt;&lt;/a&gt;Anaconda安装&lt;/h2&gt;&lt;h3 id=&quot;下载&quot;&gt;&lt;a href=&quot;#下载&quot; class=&quot;headerlink&quot; title=&quot;下载&quot;&gt;&lt;/a&gt;下载&lt;/h3&gt;&lt;p&gt;使用&lt;code&gt;Python3.6&lt;/code&gt;版本的&lt;code&gt;Anaconda 5.1&lt;/code&gt;，&lt;a href=&quot;https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;点击下载&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;进入到下载后的文件目录，执行&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bash Anaconda3-5.1.0-Linux-x86_64.sh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://tianwenyu.github.io/categories/Linux/"/>
+    
+    
+      <category term="Ubuntu" scheme="https://tianwenyu.github.io/tags/Ubuntu/"/>
+    
+      <category term="Anaconda" scheme="https://tianwenyu.github.io/tags/Anaconda/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Windows下安装Jupyter Notebook</title>
     <link href="https://tianwenyu.github.io/windows-jupyter-notebook/"/>
     <id>https://tianwenyu.github.io/windows-jupyter-notebook/</id>
@@ -276,33 +303,6 @@
     
     
       <category term="Notebook" scheme="https://tianwenyu.github.io/tags/Notebook/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu下安装Anaconda</title>
-    <link href="https://tianwenyu.github.io/ubuntu-ancaconda/"/>
-    <id>https://tianwenyu.github.io/ubuntu-ancaconda/</id>
-    <published>2018-02-09T12:29:30.000Z</published>
-    <updated>2018-02-27T07:29:31.087Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Anaconda安装"><a href="#Anaconda安装" class="headerlink" title="Anaconda安装"></a>Anaconda安装</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>使用<code>Python3.6</code>版本的<code>Anaconda 5.1</code>，<a href="https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh" target="_blank" rel="external">点击下载</a></p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol><li><p>进入到下载后的文件目录，执行</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash Anaconda3-5.1.0-Linux-x86_64.sh</span><br></pre></td></tr></table></figure><a id="more"></a></li><li><p>根据提示输入回车</p><p><img src="http://img.blog.csdn.net/20170628223151678?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjMxODA3NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p></li><li><p>查看注册信息，一直回车到输入<code>yes</code></p><p><img src="http://img.blog.csdn.net/20170628223509298?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjMxODA3NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p><p><img src="http://img.blog.csdn.net/20170628223600909?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjMxODA3NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p></li><li><p>输入安装目录路径，默认回车即可</p><p><img src="http://img.blog.csdn.net/20170628223649697?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjMxODA3NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p></li><li><p>是否加入环境变量，输入<code>yes</code></p><p><img src="http://img.blog.csdn.net/20170628223754787?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjMxODA3NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p></li><li><p>安装成功后，新打开一个终端输入以下命令查看版本号</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">anaconda -V</span><br></pre></td></tr></table></figure></li></ol><h2 id="使用Jupyter-Notebook"><a href="#使用Jupyter-Notebook" class="headerlink" title="使用Jupyter Notebook"></a>使用Jupyter Notebook</h2><p>输入以下命令则能够使用<code>Jupyter Notebook</code></p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ipython notebook</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Anaconda安装&quot;&gt;&lt;a href=&quot;#Anaconda安装&quot; class=&quot;headerlink&quot; title=&quot;Anaconda安装&quot;&gt;&lt;/a&gt;Anaconda安装&lt;/h2&gt;&lt;h3 id=&quot;下载&quot;&gt;&lt;a href=&quot;#下载&quot; class=&quot;headerlink&quot; title=&quot;下载&quot;&gt;&lt;/a&gt;下载&lt;/h3&gt;&lt;p&gt;使用&lt;code&gt;Python3.6&lt;/code&gt;版本的&lt;code&gt;Anaconda 5.1&lt;/code&gt;，&lt;a href=&quot;https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;点击下载&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;进入到下载后的文件目录，执行&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bash Anaconda3-5.1.0-Linux-x86_64.sh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://tianwenyu.github.io/categories/Linux/"/>
-    
-    
-      <category term="Ubuntu" scheme="https://tianwenyu.github.io/tags/Ubuntu/"/>
-    
-      <category term="Anaconda" scheme="https://tianwenyu.github.io/tags/Anaconda/"/>
     
   </entry>
   
@@ -370,29 +370,6 @@
   </entry>
   
   <entry>
-    <title>【Python Trick】Python的switch-case实现</title>
-    <link href="https://tianwenyu.github.io/python-switch/"/>
-    <id>https://tianwenyu.github.io/python-switch/</id>
-    <published>2018-02-07T12:29:30.000Z</published>
-    <updated>2018-02-07T02:58:20.811Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Python中，并没有实现<code>switch-case</code>语句，通过<code>if-elif</code>实现会显得麻烦，因此通过以下方式实现该语句功能。</p><h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><h3 id="通过字典实现"><a href="#通过字典实现" class="headerlink" title="通过字典实现"></a>通过字典实现</h3><p>以如下情景为例，将百分制分数转换为五分制分数。如<code>100%</code>转换为<code>5</code>，<code>80%</code>转换为<code>4</code>等。</p><a id="more"></a><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(score)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="string">'100%'</span>:<span class="number">5</span>,</span><br><span class="line">            <span class="string">'80%'</span>:<span class="number">4</span>,</span><br><span class="line">            <span class="string">'60%'</span>:<span class="number">3</span>,</span><br><span class="line">            <span class="string">'40%'</span>:<span class="number">2</span>,</span><br><span class="line">            <span class="string">'20%'</span>:<span class="number">1</span>,</span><br><span class="line">            <span class="string">'0%'</span>:<span class="number">0</span></span><br><span class="line">        &#125;.get(score)</span><br><span class="line"></span><br><span class="line">print(foo(<span class="string">'100%'</span>)) <span class="comment">#输出5</span></span><br><span class="line">print(foo(<span class="string">'80%'</span>)) <span class="comment">#输出4</span></span><br></pre></td></tr></table></figure><h3 id="通过匿名函数实现"><a href="#通过匿名函数实现" class="headerlink" title="通过匿名函数实现"></a>通过匿名函数实现</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(score,x)</span>:</span></span><br><span class="line"><span class="keyword">return</span>&#123;</span><br><span class="line"><span class="string">'100%'</span>:<span class="keyword">lambda</span> x:x+<span class="number">5</span>,</span><br><span class="line"><span class="string">'80%'</span>:<span class="keyword">lambda</span> x:x+<span class="number">4</span>,</span><br><span class="line"><span class="string">'60%'</span>:<span class="keyword">lambda</span> x:x+<span class="number">3</span>,</span><br><span class="line"><span class="string">'40%'</span>:<span class="keyword">lambda</span> x:x+<span class="number">2</span>,</span><br><span class="line"><span class="string">'20%'</span>:<span class="keyword">lambda</span> x:x+<span class="number">1</span>,</span><br><span class="line"><span class="string">'0%'</span>:<span class="keyword">lambda</span> x:x+<span class="number">0</span>,</span><br><span class="line">&#125;[score](x)</span><br><span class="line"></span><br><span class="line">print(foo(<span class="string">'100%'</span>,<span class="number">0</span>)) <span class="comment">#输出5</span></span><br><span class="line">print(foo(<span class="string">'80%'</span>,<span class="number">0</span>)) <span class="comment">#输出4</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在Python中，并没有实现&lt;code&gt;switch-case&lt;/code&gt;语句，通过&lt;code&gt;if-elif&lt;/code&gt;实现会显得麻烦，因此通过以下方式实现该语句功能。&lt;/p&gt;
-&lt;h2 id=&quot;实现方式&quot;&gt;&lt;a href=&quot;#实现方式&quot; class=&quot;headerlink&quot; title=&quot;实现方式&quot;&gt;&lt;/a&gt;实现方式&lt;/h2&gt;&lt;h3 id=&quot;通过字典实现&quot;&gt;&lt;a href=&quot;#通过字典实现&quot; class=&quot;headerlink&quot; title=&quot;通过字典实现&quot;&gt;&lt;/a&gt;通过字典实现&lt;/h3&gt;&lt;p&gt;以如下情景为例，将百分制分数转换为五分制分数。如&lt;code&gt;100%&lt;/code&gt;转换为&lt;code&gt;5&lt;/code&gt;，&lt;code&gt;80%&lt;/code&gt;转换为&lt;code&gt;4&lt;/code&gt;等。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="https://tianwenyu.github.io/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="https://tianwenyu.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Windows下pip更换源地址</title>
     <link href="https://tianwenyu.github.io/windows-pip/"/>
     <id>https://tianwenyu.github.io/windows-pip/</id>
@@ -418,6 +395,29 @@
       <category term="Windows" scheme="https://tianwenyu.github.io/tags/Windows/"/>
     
       <category term="pip" scheme="https://tianwenyu.github.io/tags/pip/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Python Trick】Python的switch-case实现</title>
+    <link href="https://tianwenyu.github.io/python-switch/"/>
+    <id>https://tianwenyu.github.io/python-switch/</id>
+    <published>2018-02-07T12:29:30.000Z</published>
+    <updated>2018-02-07T02:58:20.811Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Python中，并没有实现<code>switch-case</code>语句，通过<code>if-elif</code>实现会显得麻烦，因此通过以下方式实现该语句功能。</p><h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><h3 id="通过字典实现"><a href="#通过字典实现" class="headerlink" title="通过字典实现"></a>通过字典实现</h3><p>以如下情景为例，将百分制分数转换为五分制分数。如<code>100%</code>转换为<code>5</code>，<code>80%</code>转换为<code>4</code>等。</p><a id="more"></a><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(score)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="string">'100%'</span>:<span class="number">5</span>,</span><br><span class="line">            <span class="string">'80%'</span>:<span class="number">4</span>,</span><br><span class="line">            <span class="string">'60%'</span>:<span class="number">3</span>,</span><br><span class="line">            <span class="string">'40%'</span>:<span class="number">2</span>,</span><br><span class="line">            <span class="string">'20%'</span>:<span class="number">1</span>,</span><br><span class="line">            <span class="string">'0%'</span>:<span class="number">0</span></span><br><span class="line">        &#125;.get(score)</span><br><span class="line"></span><br><span class="line">print(foo(<span class="string">'100%'</span>)) <span class="comment">#输出5</span></span><br><span class="line">print(foo(<span class="string">'80%'</span>)) <span class="comment">#输出4</span></span><br></pre></td></tr></table></figure><h3 id="通过匿名函数实现"><a href="#通过匿名函数实现" class="headerlink" title="通过匿名函数实现"></a>通过匿名函数实现</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(score,x)</span>:</span></span><br><span class="line"><span class="keyword">return</span>&#123;</span><br><span class="line"><span class="string">'100%'</span>:<span class="keyword">lambda</span> x:x+<span class="number">5</span>,</span><br><span class="line"><span class="string">'80%'</span>:<span class="keyword">lambda</span> x:x+<span class="number">4</span>,</span><br><span class="line"><span class="string">'60%'</span>:<span class="keyword">lambda</span> x:x+<span class="number">3</span>,</span><br><span class="line"><span class="string">'40%'</span>:<span class="keyword">lambda</span> x:x+<span class="number">2</span>,</span><br><span class="line"><span class="string">'20%'</span>:<span class="keyword">lambda</span> x:x+<span class="number">1</span>,</span><br><span class="line"><span class="string">'0%'</span>:<span class="keyword">lambda</span> x:x+<span class="number">0</span>,</span><br><span class="line">&#125;[score](x)</span><br><span class="line"></span><br><span class="line">print(foo(<span class="string">'100%'</span>,<span class="number">0</span>)) <span class="comment">#输出5</span></span><br><span class="line">print(foo(<span class="string">'80%'</span>,<span class="number">0</span>)) <span class="comment">#输出4</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在Python中，并没有实现&lt;code&gt;switch-case&lt;/code&gt;语句，通过&lt;code&gt;if-elif&lt;/code&gt;实现会显得麻烦，因此通过以下方式实现该语句功能。&lt;/p&gt;
+&lt;h2 id=&quot;实现方式&quot;&gt;&lt;a href=&quot;#实现方式&quot; class=&quot;headerlink&quot; title=&quot;实现方式&quot;&gt;&lt;/a&gt;实现方式&lt;/h2&gt;&lt;h3 id=&quot;通过字典实现&quot;&gt;&lt;a href=&quot;#通过字典实现&quot; class=&quot;headerlink&quot; title=&quot;通过字典实现&quot;&gt;&lt;/a&gt;通过字典实现&lt;/h3&gt;&lt;p&gt;以如下情景为例，将百分制分数转换为五分制分数。如&lt;code&gt;100%&lt;/code&gt;转换为&lt;code&gt;5&lt;/code&gt;，&lt;code&gt;80%&lt;/code&gt;转换为&lt;code&gt;4&lt;/code&gt;等。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="https://tianwenyu.github.io/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://tianwenyu.github.io/tags/Python/"/>
     
   </entry>
   

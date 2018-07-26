@@ -97,17 +97,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Windows下安装Jupyter Notebook]]></title>
-    <url>%2Fwindows-jupyter-notebook%2F</url>
-    <content type="text"><![CDATA[简介文学编程文学编程(Literate Programming)是由Donald Knuth提出的编程方法。传统的结构化编程，人要按照计算机的逻辑顺序来编写代码，而文学编程则可以让人们按照自己的逻辑来开发程序。 Jupyter NotebookJupyter Notebook是一个交互式笔记本，支持运行40多种编程语言。它的本质是一个Web应用程序，便于创建和共享文学化程序文档，支持实时代码、数学方程、可视化和markdown。 Jupyter Notebook优点： 适合数据分析 支持多语言 分享便捷 远程运行 交互式展示 ##安装 安装Anaconda即自带，不需要安装 启动点击Jupyter Notebook即可启动，或在cmd中输入jupyter notebook 默认地址为http:localhost:8888 使用更改Jupyter Notebook工作空间最新版Ipython和Jupyter配置文件是分开的，需要分别配置文件。 打开cmd输入命令jupyter notebook --generate-config 【注】-config之前没有空格 打开该目录下的文件，改文件夹路径 【注】若存在编码问题，可改成f://file//jupyter_notebook 启动Jupyter Notebook 新建Notebook点击new创建新的Notebook 界面 菜单栏各项功能概述 File Save and Checkpoint 保存并记录点，类似于不同版本 Revert to Checkpoint返回到某一记录点 View Toggle Header是否显示头部信息，包括文件名和上次保存时间 Toggle ToolBar是否显示工具栏 Kernel Change kernel更换内核环境 Notebook文档由一系列单元(cell),主要有两种形式的单元： 代码状态单元：编写代码的区域，使用Shift+Enter运行代码，结果显示在本单元下方。代码单元左边有In[1]：类似的序列标记，方便人们查看代码的执行次序。 Markdown状态单元：编写文本的区域，使用Shift+Enter显示格式化的文本。 模式 编辑模式：编辑文本和代码。选中单元按Enter进入编辑模式，单元左侧显示绿色竖线 命令模式：执行输入的命令。按Esc进入命令模式，单元左侧显示蓝色竖线 快捷键命令模式 查看快捷键：H 执行当前单元，并自动跳到下一个单元：Shift+Enter 执行当前单元，不自动跳到下一个单元：Ctrl+Enter 进入编辑模式：Enter 进入命令模式：Esc 删除当前单元：双击D 变为代码状态：Y 变为Markdown状态：M 在下方插入新单元：B 剪切选中单元：X 复制选中单元：C 粘贴到下方单元：V 选中上方单元：J 选中下方单元：K 恢复删除的最后一个单元：Z 保存当前Notebook：Ctrl+S 编辑模式 代码缩进或补全：Tab 代码提示：Shift+Tab 注释：Ctrl+/ Magic命令Magic命令以%或%%开头 %：行命令 %%：单元命令。必须出现在单元第一行。 以下为常用Magic命令 %lsmagic：列举所有Magic命令 %magic：查看Magic命令说明 %timeit：代码运行时间 %matplotlib inline：显示matplotlib包生成的图形 使用技巧运行Python文件运行以下命令 %run xxx.py 【注】xxx.py是当前工作空间下的一个python文件 导入代码运行以下命令 %load xxx.py 【注】xxx.py是当前工作空间下的一个python文件 重置单元格序号重置单元格In[x]序号 点击Kernel-Restart即可。 使用Seaborn绘图需要使用%matplotlib inline命令。]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>Notebook</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Ubuntu下安装Anaconda]]></title>
     <url>%2Fubuntu-ancaconda%2F</url>
     <content type="text"><![CDATA[Anaconda安装下载使用Python3.6版本的Anaconda 5.1，点击下载 安装 进入到下载后的文件目录，执行 bash Anaconda3-5.1.0-Linux-x86_64.sh 根据提示输入回车 查看注册信息，一直回车到输入yes 输入安装目录路径，默认回车即可 是否加入环境变量，输入yes 安装成功后，新打开一个终端输入以下命令查看版本号 anaconda -V 使用Jupyter Notebook输入以下命令则能够使用Jupyter Notebook ipython notebook]]></content>
@@ -117,6 +106,17 @@
       <tags>
         <tag>Ubuntu</tag>
         <tag>Anaconda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Windows下安装Jupyter Notebook]]></title>
+    <url>%2Fwindows-jupyter-notebook%2F</url>
+    <content type="text"><![CDATA[简介文学编程文学编程(Literate Programming)是由Donald Knuth提出的编程方法。传统的结构化编程，人要按照计算机的逻辑顺序来编写代码，而文学编程则可以让人们按照自己的逻辑来开发程序。 Jupyter NotebookJupyter Notebook是一个交互式笔记本，支持运行40多种编程语言。它的本质是一个Web应用程序，便于创建和共享文学化程序文档，支持实时代码、数学方程、可视化和markdown。 Jupyter Notebook优点： 适合数据分析 支持多语言 分享便捷 远程运行 交互式展示 ##安装 安装Anaconda即自带，不需要安装 启动点击Jupyter Notebook即可启动，或在cmd中输入jupyter notebook 默认地址为http:localhost:8888 使用更改Jupyter Notebook工作空间最新版Ipython和Jupyter配置文件是分开的，需要分别配置文件。 打开cmd输入命令jupyter notebook --generate-config 【注】-config之前没有空格 打开该目录下的文件，改文件夹路径 【注】若存在编码问题，可改成f://file//jupyter_notebook 启动Jupyter Notebook 新建Notebook点击new创建新的Notebook 界面 菜单栏各项功能概述 File Save and Checkpoint 保存并记录点，类似于不同版本 Revert to Checkpoint返回到某一记录点 View Toggle Header是否显示头部信息，包括文件名和上次保存时间 Toggle ToolBar是否显示工具栏 Kernel Change kernel更换内核环境 Notebook文档由一系列单元(cell),主要有两种形式的单元： 代码状态单元：编写代码的区域，使用Shift+Enter运行代码，结果显示在本单元下方。代码单元左边有In[1]：类似的序列标记，方便人们查看代码的执行次序。 Markdown状态单元：编写文本的区域，使用Shift+Enter显示格式化的文本。 模式 编辑模式：编辑文本和代码。选中单元按Enter进入编辑模式，单元左侧显示绿色竖线 命令模式：执行输入的命令。按Esc进入命令模式，单元左侧显示蓝色竖线 快捷键命令模式 查看快捷键：H 执行当前单元，并自动跳到下一个单元：Shift+Enter 执行当前单元，不自动跳到下一个单元：Ctrl+Enter 进入编辑模式：Enter 进入命令模式：Esc 删除当前单元：双击D 变为代码状态：Y 变为Markdown状态：M 在下方插入新单元：B 剪切选中单元：X 复制选中单元：C 粘贴到下方单元：V 选中上方单元：J 选中下方单元：K 恢复删除的最后一个单元：Z 保存当前Notebook：Ctrl+S 编辑模式 代码缩进或补全：Tab 代码提示：Shift+Tab 注释：Ctrl+/ Magic命令Magic命令以%或%%开头 %：行命令 %%：单元命令。必须出现在单元第一行。 以下为常用Magic命令 %lsmagic：列举所有Magic命令 %magic：查看Magic命令说明 %timeit：代码运行时间 %matplotlib inline：显示matplotlib包生成的图形 使用技巧运行Python文件运行以下命令 %run xxx.py 【注】xxx.py是当前工作空间下的一个python文件 导入代码运行以下命令 %load xxx.py 【注】xxx.py是当前工作空间下的一个python文件 重置单元格序号重置单元格In[x]序号 点击Kernel-Restart即可。 使用Seaborn绘图需要使用%matplotlib inline命令。]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>Notebook</tag>
       </tags>
   </entry>
   <entry>
@@ -142,17 +142,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[【Python Trick】Python的switch-case实现]]></title>
-    <url>%2Fpython-switch%2F</url>
-    <content type="text"><![CDATA[前言在Python中，并没有实现switch-case语句，通过if-elif实现会显得麻烦，因此通过以下方式实现该语句功能。 实现方式通过字典实现以如下情景为例，将百分制分数转换为五分制分数。如100%转换为5，80%转换为4等。 def foo(score): return &#123; '100%':5, '80%':4, '60%':3, '40%':2, '20%':1, '0%':0 &#125;.get(score)print(foo('100%')) #输出5print(foo('80%')) #输出4 通过匿名函数实现def foo(score,x): return&#123; '100%':lambda x:x+5, '80%':lambda x:x+4, '60%':lambda x:x+3, '40%':lambda x:x+2, '20%':lambda x:x+1, '0%':lambda x:x+0, &#125;[score](x) print(foo('100%',0)) #输出5print(foo('80%',0)) #输出4]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Windows下pip更换源地址]]></title>
     <url>%2Fwindows-pip%2F</url>
     <content type="text"><![CDATA[打开cmd，输入 echo %APPDATA% 进入到显示的路径中 进入该路径，新建pip文件夹，然后在该文件夹下新建pip.ini 编辑pip.ini，输入以下内容，即把源地址改为阿里云地址。 [global]timeout = 6000index-url = http://mirrors.aliyun.com/pypi/simple/[install]trusted-host=mirrors.aliyun.com ​]]></content>
@@ -162,6 +151,17 @@
       <tags>
         <tag>Windows</tag>
         <tag>pip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Python Trick】Python的switch-case实现]]></title>
+    <url>%2Fpython-switch%2F</url>
+    <content type="text"><![CDATA[前言在Python中，并没有实现switch-case语句，通过if-elif实现会显得麻烦，因此通过以下方式实现该语句功能。 实现方式通过字典实现以如下情景为例，将百分制分数转换为五分制分数。如100%转换为5，80%转换为4等。 def foo(score): return &#123; '100%':5, '80%':4, '60%':3, '40%':2, '20%':1, '0%':0 &#125;.get(score)print(foo('100%')) #输出5print(foo('80%')) #输出4 通过匿名函数实现def foo(score,x): return&#123; '100%':lambda x:x+5, '80%':lambda x:x+4, '60%':lambda x:x+3, '40%':lambda x:x+2, '20%':lambda x:x+1, '0%':lambda x:x+0, &#125;[score](x) print(foo('100%',0)) #输出5print(foo('80%',0)) #输出4]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -292,17 +292,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[【评论文本分类】1.爬取评论数据]]></title>
-    <url>%2Ftext-classification%2F</url>
-    <content type="text"><![CDATA[环境配置 Ubuntu 16.04 Python 3.5 技术框架 Scrapy Selenium PhantomJS 需求目标对网址http://liuyan.cjn.cn/index.html进行数据爬取 本文爬虫有三层爬取，爬取结构层次如图所示， 主页面 列表页面，需要利用selenium+phantomJS模拟点击加载更多按钮 详情页面 把主页面中的红框中的各区（功能区）、政府部门、法检及其他单位等作为一级类保存，然后依次爬取一级类中各个分类 进入到列表页面，因为此页面是动态加载，并且是简介列表，因此需要加载完所有列表进入到详情页面。 进入到详情页面，爬取相应内容。 设计方案动态爬取数据一般有两种方法 分析包，构造Request 通过模拟浏览器行为加载页面 通过尝试，第一种方法对于此网站不适合，采用第二种方法。 采用Scrapy+Selenium+PhantomJS来进行动态网页的爬取。 SeleniumSelenium是一个自动化测试工具，本文用到的是其Webdriver，用其来操作浏览器，可以操作多种主流浏览器，如Chrome，Firefox等，下文中的PhantomJS是一种无界面的浏览器。 PhantomJSPhantomJS是一个无界面浏览器，提供JavaScript接口。通过这个工具，可以进行页面的加载、解析、操作等。 爬取方案 先爬取主页面各个主类（如各区（功能区）、政府部门等）下的子类链接，如（江岸区、江夏区等） 按照先前爬取的子类链接依次打开跳转到列表界面，然后利用Selenium+PhantomJS模拟浏览器动态加载完全部列表，解析出所有列表的链接，跳转到详情页面 进入到详情页面，解析所要提取的内容 详细步骤安装Scrapysudo pip3 install scrapy 安装PhantomJS 安装PhantomJS sudo apt-get install phantomjs apt-get会安装不完整，需要安装以下 sudo apt-get install nodejssudo apt-get install nodejs-legacysudo apt-get install npmsudo npm -g install phantomjs-prebuilt 安装Seleniumsudo pip3 install selenium 使用Scrapy 创建新工程 scrapy startproject xxxx 编辑items.py文件 from scrapy import Itemfrom scrapy import Field class MessageboardspiderItem(Item): # define the fields for your item here like: dir_name=Field() url=Field() title=Field() domain=Field() type=Field() content=Field()​ 3. 编写Spider 流程： - 先通过scrapy爬取`主页面`上的所有子分类链接， - 然后依次利用`PhantomJS`模拟点击`列表页面`的`加载更多`按钮，动态加载所有列表项，然后保存网页源码，抽取出其中的列表项的链接，进入`详情页面` 此两过程的代码都在`parse(self,response)`方法中 - 通过`parse_detailed_remark(self,response)`方法，解析出需要的内容 【注】目前版本爬取`主页面`上不同的主类需要手动改动`baseDir`与`self.start_urls` ```python import os import stat import scrapy import time from selenium import webdriver from scrapy.selector import Selector from scrapy.http import HtmlResponse from messageBoardSpider.items import MessageboardspiderItem baseDir = '/home/t/dataset/msgBoard/department/' #爬取不同主分类，需要手动改动 baseUrl='http://liuyan.cjn.cn' global subclass_name global brower class DistrictSpider(scrapy.Spider): name='spider' def __init__(self): global brower self.start_urls=['http://liuyan.cjn.cn/forum/list?fid=4'] #爬取不同主分类，需要手动改动 brower=webdriver.PhantomJS() #创建PhantomJS浏览器 def parse(self,response): global brower global subclass_name subclasses=response.xpath('/html/body/div[7]/ul/li/b/a') #解析出所有子分类 for subclass in subclasses: #逐条解析子分类 subclass_name=subclass.xpath('text()').extract() #解析 #make district directory self.mkdirs(baseDir+subclass_name[0]) #extrat new link link=subclass.xpath('@href').extract() #解析出子类的链接 #joint link link=str(baseUrl+link[0].split('..')[1]) #拼接链接 brower.get(link) #利用PhantomJS打开链接 #进行动态解析，直到没有'加载更多'按钮之后停止 while True: try: more=brower.find_element_by_id('show_more') #找到'加载更多'按钮 time.sleep(0.5) more.click() time.sleep(0.5) except: with open(baseDir+subclass_name[0]+'/web_page.txt','w',encoding='utf-8') as f: f.write(brower.page_source) print('ending') break #对加载完后的源码进行解析，解析出列表标题 items=brower.find_elements_by_xpath('//*[@id="list_content"]/li/h2/b/a') for item in items: #解析出列表标题链接 title_link=item.get_attribute('href') print(title_link+'.........') yield scrapy.Request(url=title_link,callback=self.parse_detailed_remark) #解析详情页面 def parse_detailed_remark(self,response): global subclass_name item=MessageboardspiderItem() item['dir_name']=subclass_name[0] item['url']=response.url item['title']=response.xpath('/html/body/div[6]/h2/b/text()').extract() item['domain']=response.xpath('/html/body/div[6]/h3/em[1]/a/text()').extract() item['type']=response.xpath('/html/body/div[6]/h3/em[2]/a/text()').extract() item['content']=response.xpath('//*[@id="zoom"]/text()').extract() yield item def mkdirs(self,path): if not os.path.exists(path): os.makedirs(path) os.chmod(path,stat.S_IRWXU|stat.S_IRWXG|stat.S_IRWXO) 编辑pipelines.py文件 import jsonimport codecsbaseDir = '/home/t/dataset/msgBoard/department/'class DistrictPipeline(object): def process_item(self, item, spider): with codecs.open(baseDir+item['dir_name']+'/data.json','a+',encoding='utf-8') as f: self.file=f line=json.dumps(dict(item),ensure_ascii=False)+'\n' self.file.write(line) return item 编辑settings.py文件 编辑pipelines的设置，把如下内容的注释去掉即可 #ITEM_PIPELINES = &#123;# 'messageBoardSpider.pipelines.DistrictPipeline': 300,#&#125; 运行爬虫 在项目根目录下新建一个main.py文件，运行爬虫执行该文件即可。 from scrapy.cmdline import executeexecute(['scrapy','crawl','spider']) 【注】execute([&#39;scrapy&#39;,&#39;crawl&#39;,&#39;spider&#39;]) 其中spider是爬虫名，按需更改即可。]]></content>
-      <categories>
-        <category>项目</category>
-      </categories>
-      <tags>
-        <tag>scrapy</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Virtualbox 下LVS-NAT模式集群部署]]></title>
     <url>%2Flinux-lvs%2F</url>
     <content type="text"><![CDATA[系统架构 虚拟机环境：VirtualBox Linux系统：CentOS 7 模型：LVS-NAT 调度算法：RR 【注】所有连接方式都采用桥接方式 主机 IP 角色 Client 192.168.33.145 客户机，用来访问网页 VS 192.168.33.150 VIP，Virtual Ip对外提供的IP VS 192.168.33.149 DIP，Director IP RS1 192.168.33.148 Real Server IP，安装Nginx RS2 192.168.33.147 Real Server IP，安装Nginx 客户机配置桥接IP设置 打开网络与共享中心 点击更改适配器设置 选择客户机（即物理机）网卡 4.打开属性，设置IPV4地址 虚拟机环境配置1.网卡模式设置【注】所有Virtual Box虚拟机网络设置都要设置为桥接方式 打开控制-&gt;设置-&gt;网络 连接方式选择桥接网卡，高级-&gt;混杂模式选全部允许 2.sudo命令配置【注】以一台虚拟机为例，其余虚拟机与此类似 切换到root用户 su -1 添加/etc/sudoers文件写权限 chmod u+w /etc/sudoers1 编辑/etc/sudoers vim /etc/sudoers1 找到root ALL=(ALL) ALL在下面添加21751096_1 ALL=(ALL) ALL，并保存退出 4.撤销/etc/sudoers文件的写权限 bash chmod u-w /etc/sudoers Director配置1.安装ipvsadmsudo yum install -y ipvsadm1 2.建立一个虚拟IP地址进行广播sudo ifconfig enp0s3:0 192.168.33.150/24 3.将该虚拟机地址添加到路由表sudo route add -host 192.168.33.150 dev enp0s31 4.使用ipvsadm安装LVS服务sudo ipvsadm -At 192.168.33.150:80 -s rr1 5.增加真实服务器sudo ipvsadm -at 192.168.33.150:80 -r 192.168.33.148 -gsudo ipvsadm -at 192.168.33.150:80 -r 192.168.33.147 -g12 6.设置DirectorIPsudo ifconfig enp0s3 192.168.33.149/241 7.查看ifconfig设置sudo ifconfig1 所有设置如图 Real Server配置1.安装nginx服务【注】需要在21751096_2和21751096_3两台RealServer上安装nginx服务，以其中一台为例 使用yum安装nginx,需要安装nginx的库 cd /etc/yum.repos.d/nginx.reposudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm12 编辑nginx.repo文件 sudo vim /etc/yum.repos.d/nginx.reponame=nginx repobaseurl=http://nginx.org/packages/centos/7/x86_64/gpgcheck=0enabled=1123456 使用yum安装nginx sudo yum install nginx1 安装完成后启动nginx服务 sudo service nginx start1 修改index.html首页区分两个nginx服务器 sudo vim /usr/share/nginx/html/index.html1 修改内容如下 查看是否启动服务 curl -i localhost1 2.IP设置 切换到root账户 su -1 设置虚拟IP ifconfig lo:0 192.168.33.150/361 添加到路由表 route add -host 192.168.33.150 dev lo:01 设置IPV4转发 bash echo &quot;1&quot; &gt;/proc/sys/net/ipv4/ip_forward 设置RS1的IP ifconfig enp0s3 192.168.33.148/241 查看ifconfig设置 ifconfig1 全部设置如图所示 运行测试在浏览器中输入192.168.33.150 第一次显示Real Sever 1的页面 刷新后显示Real Server 2的页面]]></content>
@@ -313,6 +302,17 @@
         <tag>Linux</tag>
         <tag>VirtualBox</tag>
         <tag>LVS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【评论文本分类】1.爬取评论数据]]></title>
+    <url>%2Ftext-classification%2F</url>
+    <content type="text"><![CDATA[环境配置 Ubuntu 16.04 Python 3.5 技术框架 Scrapy Selenium PhantomJS 需求目标对网址http://liuyan.cjn.cn/index.html进行数据爬取 本文爬虫有三层爬取，爬取结构层次如图所示， 主页面 列表页面，需要利用selenium+phantomJS模拟点击加载更多按钮 详情页面 把主页面中的红框中的各区（功能区）、政府部门、法检及其他单位等作为一级类保存，然后依次爬取一级类中各个分类 进入到列表页面，因为此页面是动态加载，并且是简介列表，因此需要加载完所有列表进入到详情页面。 进入到详情页面，爬取相应内容。 设计方案动态爬取数据一般有两种方法 分析包，构造Request 通过模拟浏览器行为加载页面 通过尝试，第一种方法对于此网站不适合，采用第二种方法。 采用Scrapy+Selenium+PhantomJS来进行动态网页的爬取。 SeleniumSelenium是一个自动化测试工具，本文用到的是其Webdriver，用其来操作浏览器，可以操作多种主流浏览器，如Chrome，Firefox等，下文中的PhantomJS是一种无界面的浏览器。 PhantomJSPhantomJS是一个无界面浏览器，提供JavaScript接口。通过这个工具，可以进行页面的加载、解析、操作等。 爬取方案 先爬取主页面各个主类（如各区（功能区）、政府部门等）下的子类链接，如（江岸区、江夏区等） 按照先前爬取的子类链接依次打开跳转到列表界面，然后利用Selenium+PhantomJS模拟浏览器动态加载完全部列表，解析出所有列表的链接，跳转到详情页面 进入到详情页面，解析所要提取的内容 详细步骤安装Scrapysudo pip3 install scrapy 安装PhantomJS 安装PhantomJS sudo apt-get install phantomjs apt-get会安装不完整，需要安装以下 sudo apt-get install nodejssudo apt-get install nodejs-legacysudo apt-get install npmsudo npm -g install phantomjs-prebuilt 安装Seleniumsudo pip3 install selenium 使用Scrapy 创建新工程 scrapy startproject xxxx 编辑items.py文件 from scrapy import Itemfrom scrapy import Field class MessageboardspiderItem(Item): # define the fields for your item here like: dir_name=Field() url=Field() title=Field() domain=Field() type=Field() content=Field()​ 3. 编写Spider 流程： - 先通过scrapy爬取`主页面`上的所有子分类链接， - 然后依次利用`PhantomJS`模拟点击`列表页面`的`加载更多`按钮，动态加载所有列表项，然后保存网页源码，抽取出其中的列表项的链接，进入`详情页面` 此两过程的代码都在`parse(self,response)`方法中 - 通过`parse_detailed_remark(self,response)`方法，解析出需要的内容 【注】目前版本爬取`主页面`上不同的主类需要手动改动`baseDir`与`self.start_urls` ```python import os import stat import scrapy import time from selenium import webdriver from scrapy.selector import Selector from scrapy.http import HtmlResponse from messageBoardSpider.items import MessageboardspiderItem baseDir = '/home/t/dataset/msgBoard/department/' #爬取不同主分类，需要手动改动 baseUrl='http://liuyan.cjn.cn' global subclass_name global brower class DistrictSpider(scrapy.Spider): name='spider' def __init__(self): global brower self.start_urls=['http://liuyan.cjn.cn/forum/list?fid=4'] #爬取不同主分类，需要手动改动 brower=webdriver.PhantomJS() #创建PhantomJS浏览器 def parse(self,response): global brower global subclass_name subclasses=response.xpath('/html/body/div[7]/ul/li/b/a') #解析出所有子分类 for subclass in subclasses: #逐条解析子分类 subclass_name=subclass.xpath('text()').extract() #解析 #make district directory self.mkdirs(baseDir+subclass_name[0]) #extrat new link link=subclass.xpath('@href').extract() #解析出子类的链接 #joint link link=str(baseUrl+link[0].split('..')[1]) #拼接链接 brower.get(link) #利用PhantomJS打开链接 #进行动态解析，直到没有'加载更多'按钮之后停止 while True: try: more=brower.find_element_by_id('show_more') #找到'加载更多'按钮 time.sleep(0.5) more.click() time.sleep(0.5) except: with open(baseDir+subclass_name[0]+'/web_page.txt','w',encoding='utf-8') as f: f.write(brower.page_source) print('ending') break #对加载完后的源码进行解析，解析出列表标题 items=brower.find_elements_by_xpath('//*[@id="list_content"]/li/h2/b/a') for item in items: #解析出列表标题链接 title_link=item.get_attribute('href') print(title_link+'.........') yield scrapy.Request(url=title_link,callback=self.parse_detailed_remark) #解析详情页面 def parse_detailed_remark(self,response): global subclass_name item=MessageboardspiderItem() item['dir_name']=subclass_name[0] item['url']=response.url item['title']=response.xpath('/html/body/div[6]/h2/b/text()').extract() item['domain']=response.xpath('/html/body/div[6]/h3/em[1]/a/text()').extract() item['type']=response.xpath('/html/body/div[6]/h3/em[2]/a/text()').extract() item['content']=response.xpath('//*[@id="zoom"]/text()').extract() yield item def mkdirs(self,path): if not os.path.exists(path): os.makedirs(path) os.chmod(path,stat.S_IRWXU|stat.S_IRWXG|stat.S_IRWXO) 编辑pipelines.py文件 import jsonimport codecsbaseDir = '/home/t/dataset/msgBoard/department/'class DistrictPipeline(object): def process_item(self, item, spider): with codecs.open(baseDir+item['dir_name']+'/data.json','a+',encoding='utf-8') as f: self.file=f line=json.dumps(dict(item),ensure_ascii=False)+'\n' self.file.write(line) return item 编辑settings.py文件 编辑pipelines的设置，把如下内容的注释去掉即可 #ITEM_PIPELINES = &#123;# 'messageBoardSpider.pipelines.DistrictPipeline': 300,#&#125; 运行爬虫 在项目根目录下新建一个main.py文件，运行爬虫执行该文件即可。 from scrapy.cmdline import executeexecute(['scrapy','crawl','spider']) 【注】execute([&#39;scrapy&#39;,&#39;crawl&#39;,&#39;spider&#39;]) 其中spider是爬虫名，按需更改即可。]]></content>
+      <categories>
+        <category>项目</category>
+      </categories>
+      <tags>
+        <tag>scrapy</tag>
       </tags>
   </entry>
   <entry>
@@ -395,6 +395,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Windows下Git 2.15.0安装、配置]]></title>
+    <url>%2Fwindows-git%2F</url>
+    <content type="text"><![CDATA[安装下载链接:http://git-scm.com/download 安装 配置 用户名和邮箱地址的作用：用户名和邮箱地址是本地Git客户端的一个变量，不随Git库而改变。每次Commit都会用用户名和邮箱地址记录。 git config --global user.name "xxxx"git config --global user.email "xxxx"]]></content>
+      <categories>
+        <category>工具教程</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Intellij Idea 码云教程]]></title>
     <url>%2Fintellij-mayun%2F</url>
     <content type="text"><![CDATA[1.点击导航栏 VCS -&gt; Import into Version Control -&gt; 托管项目到码云 2.输入码云帐号密码，点击login。 3.勾选private，点击托管按钮。 4.点击OK。 5.在项目上右键 -&gt;Git -&gt;Commit Directory 6.填写Commit Message（养成良好编码习惯），点击Commit按钮 如果没有定义Git的用户名，点击Commit会弹出此弹窗，输入 name和email 点击 Set and Commit即可。 8.项目右键 -&gt; Git -&gt; Repository -&gt; Push 9.点击Push。 10.登录码云查看。到此，项目上传码云成功！~ 注意：（private勾选后项目并未成为私有项目，需要到码云网页上进行私有设置）]]></content>
@@ -404,17 +415,6 @@
       <tags>
         <tag>Intellij</tag>
         <tag>码云</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Windows下Git 2.15.0安装、配置]]></title>
-    <url>%2Fwindows-git%2F</url>
-    <content type="text"><![CDATA[安装下载链接:http://git-scm.com/download 安装 配置 用户名和邮箱地址的作用：用户名和邮箱地址是本地Git客户端的一个变量，不随Git库而改变。每次Commit都会用用户名和邮箱地址记录。 git config --global user.name "xxxx"git config --global user.email "xxxx"]]></content>
-      <categories>
-        <category>工具教程</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -545,9 +545,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Notepad++没有插件管理器(Plugin Manager)的原因以及解决方法]]></title>
-    <url>%2Fnotepad-plugin-error%2F</url>
-    <content type="text"><![CDATA[今天想下几个notepad++的插件玩玩，结果发现根本就没有插件管理器。 后来上官网发现了这样一句话Note that the most of plugins (including Plugin Manager) are not yet available in x64 于是重新安装了一个32位的版本]]></content>
+    <title><![CDATA[Notepad++中代码格式化插件NppAStyle]]></title>
+    <url>%2Fnotepad-nppastyle%2F</url>
+    <content type="text"><![CDATA[工具/原料 Windows7 Notepad++ NppAStyle(Notepad++的一个插件) 方法/步骤 直接在插件扩展中安装 下载Notepad++并安装NppExec插件。 插件—&gt;Plugin Manager—&gt;show Plugin Manager—&gt;安装NppAStyle插件。 自己下载dll插件 或者直接下载NppAStyle插件。登录NppAStyle网站下载，网址： http://sourceforge.net/projects/nppastyle/files/ 我们选择下载NppAStyle_bin_0.10.02.14.zip这个文件。 ​ 解压 下载后我们打开这个压缩文件，发现有两个文件夹ansi和unicode(ansi是标准编码，支持语言少；unicode是通用编码，支持更多的语言)。 打开unicode文件夹，将里面的NppAStyle.dll解压出来，将NppAStyle.dll放置到Notepad++安装目录下的plugins文件夹下。 ​ 重启Notepad++看NppAStyle是否安装成功，看到如图所示的信息就说明安装成功。 ​ 配置NppAStyle。 点击菜单栏中的”插件”—&gt;”NppAStyle”—&gt;”options”，在代码风格中选择java。 ​ 点击菜单栏中的”插件”—&gt;”NppAStyle”—&gt;”Format code”（或者按快捷键Alt+f），欣赏格式化后的代码风格。 ​ ​ 体验不同的代码风格并选择自己中意的某种代码风格。 重复第4步骤，例如将代码风格选中ANSI，按下快捷键Alt+f，欣赏格式化后的代码风格，并与第5步骤中格式化后的代码风格相比较。 ​ ​ 特别要注意：目前NppAStyle插件只支持格式化C、C++、C#、Java这四种编程语言的代码。]]></content>
       <categories>
         <category>IDE</category>
       </categories>
@@ -556,9 +556,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Notepad++中代码格式化插件NppAStyle]]></title>
-    <url>%2Fnotepad-nppastyle%2F</url>
-    <content type="text"><![CDATA[工具/原料 Windows7 Notepad++ NppAStyle(Notepad++的一个插件) 方法/步骤 直接在插件扩展中安装 下载Notepad++并安装NppExec插件。 插件—&gt;Plugin Manager—&gt;show Plugin Manager—&gt;安装NppAStyle插件。 自己下载dll插件 或者直接下载NppAStyle插件。登录NppAStyle网站下载，网址： http://sourceforge.net/projects/nppastyle/files/ 我们选择下载NppAStyle_bin_0.10.02.14.zip这个文件。 ​ 解压 下载后我们打开这个压缩文件，发现有两个文件夹ansi和unicode(ansi是标准编码，支持语言少；unicode是通用编码，支持更多的语言)。 打开unicode文件夹，将里面的NppAStyle.dll解压出来，将NppAStyle.dll放置到Notepad++安装目录下的plugins文件夹下。 ​ 重启Notepad++看NppAStyle是否安装成功，看到如图所示的信息就说明安装成功。 ​ 配置NppAStyle。 点击菜单栏中的”插件”—&gt;”NppAStyle”—&gt;”options”，在代码风格中选择java。 ​ 点击菜单栏中的”插件”—&gt;”NppAStyle”—&gt;”Format code”（或者按快捷键Alt+f），欣赏格式化后的代码风格。 ​ ​ 体验不同的代码风格并选择自己中意的某种代码风格。 重复第4步骤，例如将代码风格选中ANSI，按下快捷键Alt+f，欣赏格式化后的代码风格，并与第5步骤中格式化后的代码风格相比较。 ​ ​ 特别要注意：目前NppAStyle插件只支持格式化C、C++、C#、Java这四种编程语言的代码。]]></content>
+    <title><![CDATA[Notepad++没有插件管理器(Plugin Manager)的原因以及解决方法]]></title>
+    <url>%2Fnotepad-plugin-error%2F</url>
+    <content type="text"><![CDATA[今天想下几个notepad++的插件玩玩，结果发现根本就没有插件管理器。 后来上官网发现了这样一句话Note that the most of plugins (including Plugin Manager) are not yet available in x64 于是重新安装了一个32位的版本]]></content>
       <categories>
         <category>IDE</category>
       </categories>
@@ -615,15 +615,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Win10利用DiskGenius重建分区表]]></title>
-    <url>%2Fwin10-diskgenius-partition%2F</url>
-    <content type="text"><![CDATA[安装DiskGenius 工具--&gt;搜索已丢失的分区界面如下： 开始搜索后，如果找到一个分区，会提示你忽略还是保留。【注】搜索到的第一个结果一般是系统盘C盘，这个结果需要忽略，否则后面无法找到其他分区。后面搜索到的分区需要确认其中是否为你原来分区中保存的文件之后才选择保留。 搜索完成后，点击硬盘--&gt;保存分区表.win10系统保存为GUID格式。]]></content>
+    <title><![CDATA[安全的将动态磁盘转为基本磁盘]]></title>
+    <url>%2Fhdware-dynamic2basic%2F</url>
+    <content type="text"><![CDATA[前言手里有一块拆机硬盘，想着格式化几个分区，空间就大了，然后不知怎的就识别不了了，在windows磁盘管理显示为动态磁盘，用diskgenius打开，可以看到磁盘里的文件，但是如果想拷贝出来就得花钱，可是我又不想花钱，而且我还不想拷贝出来，有没有什么办法使硬盘恢复正常呢，百度了一通，答案大同小异，其中有个什么傲什么的软件，安装后提示该硬盘是MBR分区表，不支持，shit,纠结了好久，感觉还是不能放弃啊，咱身为一个技术人员一块硬盘都搞不定以后还怎么生（装）存（逼），终于自己摸索出来了一条新路子。由于直接将动态磁盘转为基本磁盘会丢失所有数据，这里我们还是先了解下硬盘为什么会变为动态磁盘。硬盘之所以能被系统识别，是因为每一个分区都有一份分区表，这份分区表保存在注册表里，就像是一块地图，系统根据这个地图到达每一个硬盘分区，如果这份地图丢失，那么这几个分区就变成未知的新大陆了，当然还有其他原因，不过误删分区引起的分区表丢失是最容易遇到的，这里我就针对此问题抛出我的解决方案。相信你也猜到了，那就是恢复分区表。 恢复丢失的分区表这里利用diskgenius磁盘分区软件，百度搜一大堆，这里就不给下载地址了，免安装的直接运行 我是用一个移动硬盘盒，将硬盘插进去，作为一个移动硬盘插到电脑上，当然你也可以用光驱硬盘驱动器，道理一样。 右键选中移动硬盘的根节点，注意，不是单独的分区，也不是动态磁盘根节点，是移动硬盘根节点。点菜单栏第二个 1.硬盘—&gt;重建主引导记录（MBR）2.弹出一个框，直接点确定，会搜索丢失的分区3.最后会发现左侧分区树发生了变化，动态磁盘已经变成逻辑磁盘了4.然后点击保存分区表，会问保存为MBR还是GUID格式，这个看你自己了，应该是都可以，我选了GUID,然后提示会将分区表保存在硬盘上，会影响磁盘结构啥的，不用管，点确定。然后在我的电脑里可以看到，移动硬盘的分区一个接一个都显示出来了,数据都在，完好无损。 如果上面执行第一步时没有可选菜单，先将磁盘转为不同于当前模式的磁盘，比如当前是MBR转为GUID，或者GUID转为MBR，只要跟当前格式不一样就行。然后进行上面操作 总结套路为：搜索分区，一路都点保留按钮，完毕后点击左上角的保存按钮，退出即可。]]></content>
       <categories>
         <category>运维技术</category>
       </categories>
       <tags>
         <tag>Windows</tag>
-        <tag>DiskGenius</tag>
       </tags>
   </entry>
   <entry>
@@ -640,14 +639,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[安全的将动态磁盘转为基本磁盘]]></title>
-    <url>%2Fhdware-dynamic2basic%2F</url>
-    <content type="text"><![CDATA[前言手里有一块拆机硬盘，想着格式化几个分区，空间就大了，然后不知怎的就识别不了了，在windows磁盘管理显示为动态磁盘，用diskgenius打开，可以看到磁盘里的文件，但是如果想拷贝出来就得花钱，可是我又不想花钱，而且我还不想拷贝出来，有没有什么办法使硬盘恢复正常呢，百度了一通，答案大同小异，其中有个什么傲什么的软件，安装后提示该硬盘是MBR分区表，不支持，shit,纠结了好久，感觉还是不能放弃啊，咱身为一个技术人员一块硬盘都搞不定以后还怎么生（装）存（逼），终于自己摸索出来了一条新路子。由于直接将动态磁盘转为基本磁盘会丢失所有数据，这里我们还是先了解下硬盘为什么会变为动态磁盘。硬盘之所以能被系统识别，是因为每一个分区都有一份分区表，这份分区表保存在注册表里，就像是一块地图，系统根据这个地图到达每一个硬盘分区，如果这份地图丢失，那么这几个分区就变成未知的新大陆了，当然还有其他原因，不过误删分区引起的分区表丢失是最容易遇到的，这里我就针对此问题抛出我的解决方案。相信你也猜到了，那就是恢复分区表。 恢复丢失的分区表这里利用diskgenius磁盘分区软件，百度搜一大堆，这里就不给下载地址了，免安装的直接运行 我是用一个移动硬盘盒，将硬盘插进去，作为一个移动硬盘插到电脑上，当然你也可以用光驱硬盘驱动器，道理一样。 右键选中移动硬盘的根节点，注意，不是单独的分区，也不是动态磁盘根节点，是移动硬盘根节点。点菜单栏第二个 1.硬盘—&gt;重建主引导记录（MBR）2.弹出一个框，直接点确定，会搜索丢失的分区3.最后会发现左侧分区树发生了变化，动态磁盘已经变成逻辑磁盘了4.然后点击保存分区表，会问保存为MBR还是GUID格式，这个看你自己了，应该是都可以，我选了GUID,然后提示会将分区表保存在硬盘上，会影响磁盘结构啥的，不用管，点确定。然后在我的电脑里可以看到，移动硬盘的分区一个接一个都显示出来了,数据都在，完好无损。 如果上面执行第一步时没有可选菜单，先将磁盘转为不同于当前模式的磁盘，比如当前是MBR转为GUID，或者GUID转为MBR，只要跟当前格式不一样就行。然后进行上面操作 总结套路为：搜索分区，一路都点保留按钮，完毕后点击左上角的保存按钮，退出即可。]]></content>
+    <title><![CDATA[Win10利用DiskGenius重建分区表]]></title>
+    <url>%2Fwin10-diskgenius-partition%2F</url>
+    <content type="text"><![CDATA[安装DiskGenius 工具--&gt;搜索已丢失的分区界面如下： 开始搜索后，如果找到一个分区，会提示你忽略还是保留。【注】搜索到的第一个结果一般是系统盘C盘，这个结果需要忽略，否则后面无法找到其他分区。后面搜索到的分区需要确认其中是否为你原来分区中保存的文件之后才选择保留。 搜索完成后，点击硬盘--&gt;保存分区表.win10系统保存为GUID格式。]]></content>
       <categories>
         <category>运维技术</category>
       </categories>
       <tags>
         <tag>Windows</tag>
+        <tag>DiskGenius</tag>
       </tags>
   </entry>
   <entry>
