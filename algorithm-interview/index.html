@@ -1,0 +1,1119 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.useso.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="算法," />
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="Wenyu's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="[TOC] 查找二分查找int BiSearch(int a[],int size,int key)&amp;#123;    if(a==NULL || size==0)        return -1;    int low=0;    int high=size-1;    int mid=0;    while(low&amp;lt;high)&amp;#123;        mid=(low+high)/2">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【算法】面试算法题总结">
+<meta property="og:url" content="https://tianwenyu.github.io/algorithm-interview/index.html">
+<meta property="og:site_name" content="Wenyu&#39;s Blog">
+<meta property="og:description" content="[TOC] 查找二分查找int BiSearch(int a[],int size,int key)&amp;#123;    if(a==NULL || size==0)        return -1;    int low=0;    int high=size-1;    int mid=0;    while(low&amp;lt;high)&amp;#123;        mid=(low+high)/2">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180409/4e4Imi609e.png?imageslim">
+<meta property="og:image" content="https://images0.cnblogs.com/i/497634/201403/151545571211442.jpg">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180326/20HgFe8FGe.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180327/mif6Lg5jHL.png?imageslim">
+<meta property="og:updated_time" content="2018-05-04T07:42:35.627Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【算法】面试算法题总结">
+<meta name="twitter:description" content="[TOC] 查找二分查找int BiSearch(int a[],int size,int key)&amp;#123;    if(a==NULL || size==0)        return -1;    int low=0;    int high=size-1;    int mid=0;    while(low&amp;lt;high)&amp;#123;        mid=(low+high)/2">
+<meta name="twitter:image" content="http://p15qizl76.bkt.clouddn.com/blog/180409/4e4Imi609e.png?imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://tianwenyu.github.io/algorithm-interview/"/>
+
+  <title> 【算法】面试算法题总结 | Wenyu's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s6.cnzz.com/stat.php?id=1271854965&web_id=1271854965" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader" style="background-image: url('/images/home_bg.jpg');">
+      <div class="header-inner"><a class="site-home" href="/">Wenyu's Blog</a>
+
+<div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <div href="/"  class="brand">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wenyu's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </div>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            博文归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签云
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <input type="text" id="local-search-input">
+ <span class="search-icon fa fa-search"></span>
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+      <div class="header-post"> 
+  <div class="post-header">
+      <div class="tags">
+      
+        <a href="/tags/算法/" rel="tag" title="算法">算法</a>
+      
+      </div>
+      <h1>【算法】面试算法题总结</h1>
+      <h2 class="subtitle"></h2>
+      <div class="post-time">
+        <span class="post-meta-item-text">发表于 </span>
+        <time itemprop="dateCreated" datetime="2018-03-20T19:29:36+08:00" content="2018-03-20" title="2018-03-20 19:29:36">
+          2018-03-20
+        </time>
+      </div>
+  </div>
+ </div>
+    </header>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【算法】面试算法题总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-03-20T19:29:36+08:00" content="2018-03-20">
+              2018-03-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <!-- 
+            
+           -->
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BiSearch</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> size,<span class="keyword">int</span> key)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a==<span class="literal">NULL</span> || size==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> low=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high=size<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> mid=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(low&lt;high)&#123;</span><br><span class="line">        mid=(low+high)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h3><p><img src="http://p15qizl76.bkt.clouddn.com/blog/180409/4e4Imi609e.png?imageslim" alt="mark"></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//一次划分，选取第一个记录作为关键码</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> first,<span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=first;	<span class="comment">//初始化</span></span><br><span class="line">    <span class="keyword">int</span> j=end;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;j &amp;&amp; a[i]&lt;=a[j])	<span class="comment">//右侧扫描</span></span><br><span class="line">            j--;</span><br><span class="line">        <span class="keyword">if</span>(i&lt;j)&#123;					<span class="comment">//将较小的记录交换到前面</span></span><br><span class="line">            swap(a[i],a[j]);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;j &amp;&amp; a[i]&lt;=a[j])	<span class="comment">//左侧扫描</span></span><br><span class="line">            i++;</span><br><span class="line">        <span class="keyword">if</span>(i&lt;j)&#123;</span><br><span class="line">            swap(a[i],a[j]);		<span class="comment">//将较大的记录交换到后面</span></span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//整个快排的过程可递归进行，若待排序序列中只有一个记录，则结束递归，否则进行一次划分后，再分别对划分得到的两个子序列进行快排（即递归处理）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> first,<span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(first&lt;end)&#123;</span><br><span class="line">        <span class="keyword">int</span> pivot=partition(a,first,end);</span><br><span class="line">        quickSort(a,first,pivot<span class="number">-1</span>);</span><br><span class="line">        quickSort(a,pivot+<span class="number">1</span>,end);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>【思路】</p>
+<ul>
+<li><p>设置exchange变量记载每次记录交换的位置，则一趟排序后，exchange记载的一定是这趟排序中记录的最后一次交换的位置，从此位置后所有记录均有序。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(r[j]&gt;r[j+<span class="number">1</span>])&#123;</span><br><span class="line">  swap(r[j],r[j+<span class="number">1</span>]);</span><br><span class="line">  exchange=j;	<span class="comment">//记载每一次记录交换的位置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设bound位置的记录是无序区的最后一个记录，则每趟冒泡排序的范围是r[1]~r[bound]。在一趟排序后，exchange位置之后的记录一定是有序的，所以下一趟冒泡排序汇总无序区的最后一个记录的位置是exchange，即bound=exchange</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;bound;j++)&#123;</span><br><span class="line">  <span class="keyword">if</span>(r[j]&gt;r[j+<span class="number">1</span>])&#123;</span><br><span class="line">    swap(r[j],r[j+<span class="number">1</span>]);</span><br><span class="line">    exchange=j;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判别冒泡排序的结束条件应该是在一趟排序过程中没有进行交换记录的操作。为此，在每趟冒泡排开始之前，设exchange初值为0，在该趟排序的过程中，只要有记录的交换，则exchange值大于0.</p>
+<p>通过exchange的值是否为0可以判断是否有记录的交换，从而判断整个冒泡排序是否结束。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(exchange != <span class="number">0</span>)&#123;</span><br><span class="line">  bound=exchagne;</span><br><span class="line">  exchange=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;bound;j++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(r[j]&gt;r[j+<span class="number">1</span>])&#123;</span><br><span class="line">      swap(r[j],r[j+<span class="number">1</span>]);</span><br><span class="line">      exchange=j;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>【实现】</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    <span class="keyword">int</span> exchange=n;		<span class="comment">//第一趟冒泡排序的区间是[1,n]</span></span><br><span class="line">    <span class="keyword">while</span>(exchange != <span class="number">0</span>)&#123;	<span class="comment">//当上一趟排序有记录交换时</span></span><br><span class="line">        <span class="keyword">int</span> bound=exchange;</span><br><span class="line">        exchange=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;bound;i++)&#123;	<span class="comment">//一趟冒泡排序，区间是[1,bound]</span></span><br><span class="line">            <span class="keyword">if</span>(a[i]&gt;a[i+<span class="number">1</span>])&#123;</span><br><span class="line">                swap(a[i],a[i+<span class="number">1</span>]);</span><br><span class="line">                exchange=i;			<span class="comment">//记载每一次记录交换的位置</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="堆排"><a href="#堆排" class="headerlink" title="堆排"></a>堆排</h3><p>以最大堆进行升序排序为例</p>
+<ul>
+<li>初始化堆：即构造堆</li>
+<li>交换数据，调整堆</li>
+</ul>
+<p><img src="https://images0.cnblogs.com/i/497634/201403/151545571211442.jpg" alt="img"></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//向下调整</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DownAdjust</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> i,<span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">    <span class="comment">//i是指欲调整结点</span></span><br><span class="line">    <span class="keyword">int</span> lchild=<span class="number">2</span>*i;</span><br><span class="line">    <span class="keyword">int</span> rchild=<span class="number">2</span>*i+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> maxIndex=i;</span><br><span class="line">    <span class="keyword">if</span>(i&lt;=size/<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(lchild&lt;=size &amp;&amp; a[lchild] &gt; a[maxIndex])</span><br><span class="line">            maxIndex=lchild;</span><br><span class="line">        <span class="keyword">if</span>(rchild&lt;=size &amp;&amp; a[rchild] &gt; a[maxIndex])</span><br><span class="line">            maxIndex=rchild;</span><br><span class="line">        <span class="keyword">if</span>(maxIndex != i)&#123;  <span class="comment">//如果最大值maxIndex更新了</span></span><br><span class="line">            swap(a[maxIndex],a[i]);</span><br><span class="line">            DownAdjust(a,maxIndex,size);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//建堆，对每一个非叶结点进行堆调整（从最后一个非叶结点开始）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BuildHeap</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=size/<span class="number">2</span>;i&gt;=<span class="number">1</span>;i--)  <span class="comment">//注意：这里从(size/2)开始到1</span></span><br><span class="line">        DownAdjust(a,i,size);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HeapSort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> size)</span></span>&#123;</span><br><span class="line">    BuildHeap(a,size);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=size;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">        swap(a[<span class="number">1</span>],a[i]);    <span class="comment">//将堆顶放在末尾</span></span><br><span class="line">        DownAdjust(a,<span class="number">1</span>,i<span class="number">-1</span>);  <span class="comment">//将未完成排序的部分进行堆排序</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">array</span>[<span class="number">8</span>] = &#123;<span class="number">8</span>, <span class="number">1</span>, <span class="number">14</span>, <span class="number">3</span>, <span class="number">21</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">10</span>&#125;;</span><br><span class="line">    HeapSort(<span class="built_in">array</span>,<span class="number">8</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">9</span>;i++)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">array</span>[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Trie树"><a href="#Trie树" class="headerlink" title="Trie树"></a>Trie树</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Trie</span>&#123;</span>    <span class="comment">//字典树定义</span></span><br><span class="line">    Trie* next[<span class="number">26</span>];</span><br><span class="line">    <span class="keyword">int</span> num;    <span class="comment">//以当前字符串为前缀的单词的数量</span></span><br><span class="line">    Trie()    <span class="comment">//构造函数</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">26</span>;i++)&#123;</span><br><span class="line">            next[i] = <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        num=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">Trie root;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Insert</span><span class="params">(<span class="keyword">char</span> word[])</span>    <span class="comment">//将字符串word插入到字典树中</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Trie *p = &amp;root;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;word[i];i++)&#123;    <span class="comment">//遍历word的每一个字符</span></span><br><span class="line">        <span class="keyword">if</span>(p-&gt;next[word[i]-<span class="string">'a'</span>]==<span class="literal">NULL</span>)    <span class="comment">//如果该字符没有对应的节点</span></span><br><span class="line">            p-&gt;next[word[i]-<span class="string">'a'</span>] = <span class="keyword">new</span> Trie;    <span class="comment">//创建一个</span></span><br><span class="line">        p = p-&gt;next[word[i]-<span class="string">'a'</span>];</span><br><span class="line">        p-&gt;num++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">char</span> word[])</span>    <span class="comment">//返回以字符串word为前缀的单词的数量</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Trie *p = &amp;root;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;word[i];i++)&#123;    <span class="comment">//在字典树找到该单词的结尾位置</span></span><br><span class="line">        <span class="keyword">if</span>(p-&gt;next[word[i]-<span class="string">'a'</span>]==<span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        p = p-&gt;next[word[i]-<span class="string">'a'</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> p-&gt;num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="树结点结构"><a href="#树结点结构" class="headerlink" title="树结点结构"></a>树结点结构</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BiNode</span>&#123;</span></span><br><span class="line">    <span class="keyword">char</span> data;</span><br><span class="line">    BiNode *lchild,*rchild;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="创建二叉树"><a href="#创建二叉树" class="headerlink" title="创建二叉树"></a>创建二叉树</h3><p>此处是按先序序列构造一颗二叉树</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">BiNode *BiTree::Create()&#123;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    c=<span class="built_in">cin</span>.get();</span><br><span class="line">    BiNode *pnode;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(c==<span class="string">'#'</span>)</span><br><span class="line">        pnode=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        pnode=<span class="keyword">new</span> BiNode;</span><br><span class="line">        pnode-&gt;data=c;</span><br><span class="line">        pnode-&gt;lchild=Create();</span><br><span class="line">        pnode-&gt;rchild=Create();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pnode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h3><p>【访问顺序】根左右</p>
+<h4 id="递归方法"><a href="#递归方法" class="headerlink" title="递归方法"></a>递归方法</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::PreOrder(BiNode *node)&#123;</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="literal">NULL</span>)            <span class="comment">//递归调用的结束条件</span></span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;node-&gt;data;       <span class="comment">//访问根节点的数据域</span></span><br><span class="line">        PreOrder(node-&gt;lchild); <span class="comment">//前序递归遍历左子树</span></span><br><span class="line">        PreOrder(node-&gt;rchild); <span class="comment">//前序递归遍历右子树</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="非递归方法"><a href="#非递归方法" class="headerlink" title="非递归方法"></a>非递归方法</h4><p>【思路】</p>
+<p>对任一结点</p>
+<ol>
+<li>访问结点p，并将p入栈</li>
+<li>判断结点p的左孩子是否为空<ul>
+<li>若为空，则弹出栈顶结点，将栈顶结点的右孩子置为当前结点p，循环至1</li>
+<li>若不为空，则将结点p的左孩子置为当前结点p</li>
+</ul>
+</li>
+<li>直到结点p为NULl且栈为空，遍历结束。</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::PreOrderNonRec(BiNode *node)&#123;</span><br><span class="line">  	<span class="keyword">if</span>(node == <span class="literal">NULL</span>)</span><br><span class="line">      <span class="keyword">return</span> ;</span><br><span class="line">    <span class="built_in">stack</span>&lt;BiNode *&gt; s;</span><br><span class="line">    BiNode *p=node;</span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span> || !s.empty())&#123;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;p-&gt;data;</span><br><span class="line">            s.push(p);</span><br><span class="line">            p=p-&gt;lchild;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!s.empty())&#123;</span><br><span class="line">            p=s.top();</span><br><span class="line">            s.pop();</span><br><span class="line">            p=p-&gt;rchild;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><p>【访问顺序】左根右</p>
+<h4 id="递归方法-1"><a href="#递归方法-1" class="headerlink" title="递归方法"></a>递归方法</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::InOrder(BiNode *node)&#123;</span><br><span class="line">    <span class="keyword">if</span>(node==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        InOrder(node-&gt;lchild);</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;node-&gt;data;</span><br><span class="line">        InOrder(node-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="非递归方法-1"><a href="#非递归方法-1" class="headerlink" title="非递归方法"></a>非递归方法</h4><p>对于任一结点p：</p>
+<ol>
+<li>判断当前结点p左孩子结点是否为空<ul>
+<li>若其左孩子结点不为空，则将p入栈，并将p的左孩子结点置为当前p，对当前结点p做相同处理。</li>
+<li>若其左孩子结点为空，则弹出栈顶结点，将当前结点p置为栈顶结点的右孩子结点。</li>
+</ul>
+</li>
+<li>直到当前结点p为NULL且栈为空，遍历结束。</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::InOrderNonRec(BiNode *node)&#123;</span><br><span class="line">  	<span class="keyword">if</span>(node==<span class="literal">NULL</span>)</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">stack</span>&lt;BiNode *&gt; s;</span><br><span class="line">    BiNode *p=node;</span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span> || !s.empty())&#123;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            s.push(p);</span><br><span class="line">            p=p-&gt;lchild;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!s.empty())&#123;</span><br><span class="line">            p=s.top();</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;p-&gt;data;</span><br><span class="line">            s.pop();</span><br><span class="line">            p=p-&gt;rchild;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><p>【访问顺序】左右根</p>
+<h4 id="递归方法-2"><a href="#递归方法-2" class="headerlink" title="递归方法"></a>递归方法</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::PostOrder(BiNode *node)&#123;</span><br><span class="line">    <span class="keyword">if</span>(node==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        PostOrder(node-&gt;lchild);</span><br><span class="line">        PostOrder(node-&gt;rchild);</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;node-&gt;data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="非递归方法-2"><a href="#非递归方法-2" class="headerlink" title="非递归方法"></a>非递归方法</h4><p>【思路】要保证根结点在左孩子和右孩子访问之后才能访问。</p>
+<p>对于任一结点p，</p>
+<ol>
+<li>将p入栈<ul>
+<li>若结点p不存在左孩子结点和右孩子结点，则直接访问该结点p；</li>
+<li>若结点p存在左孩子结点或右孩子结点，但其左孩子结点和右孩子结点都已被访问，则直接访问该结点p</li>
+</ul>
+</li>
+<li>若非上述两种情况，则将结点p的右孩子结点和左孩子结点依次入栈，这就保证了每次取栈顶元素时，左孩子在右孩子前面被访问，左孩子和右孩子在根结点前被访问。</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::PostOrderNonRec(BiNode *node)&#123;</span><br><span class="line">  	<span class="keyword">if</span>(node==<span class="literal">NULL</span>)</span><br><span class="line">      <span class="keyword">return</span> ;</span><br><span class="line">    <span class="built_in">stack</span>&lt;BiNode *&gt; s;</span><br><span class="line">    BiNode *p;<span class="comment">//当前结点</span></span><br><span class="line">    BiNode *pre=<span class="literal">NULL</span>;<span class="comment">//前一次访问的结点</span></span><br><span class="line"></span><br><span class="line">    s.push(node);</span><br><span class="line">    <span class="keyword">while</span>(!s.empty())&#123;</span><br><span class="line">        p=s.top();</span><br><span class="line">        <span class="comment">//如果当前结点没有孩子结点或孩子结点都被访问过</span></span><br><span class="line">        <span class="keyword">if</span>((p-&gt;lchild == <span class="literal">NULL</span> &amp;&amp; p-&gt;rchild == <span class="literal">NULL</span>)||(pre!=<span class="literal">NULL</span>&amp;&amp;(pre==p-&gt;lchild || pre==p-&gt;rchild)))&#123;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;p-&gt;data;</span><br><span class="line">            s.pop();</span><br><span class="line">            pre=p;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(p-&gt;rchild != <span class="literal">NULL</span>)</span><br><span class="line">                s.push(p-&gt;rchild);</span><br><span class="line">            <span class="keyword">if</span>(p-&gt;lchild != <span class="literal">NULL</span>)</span><br><span class="line">                s.push(p-&gt;lchild);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="层序遍历"><a href="#层序遍历" class="headerlink" title="层序遍历"></a>层序遍历</h3><p>层序遍历需要用到队列，使用<code>#include&lt;queue&gt;</code></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180326/20HgFe8FGe.png?imageslim" alt="mark"></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::LevelOrder(BiNode *node)&#123;</span><br><span class="line">    <span class="comment">//使用队列实现</span></span><br><span class="line">    <span class="built_in">queue</span>&lt;BiNode*&gt; q;</span><br><span class="line">    BiNode *s=node;</span><br><span class="line">    <span class="keyword">if</span>(s==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    q.push(s);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        s=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;s-&gt;data;</span><br><span class="line">        <span class="keyword">if</span>(s-&gt;lchild!=<span class="literal">NULL</span>)</span><br><span class="line">            q.push(s-&gt;lchild);</span><br><span class="line">        <span class="keyword">if</span>(s-&gt;rchild!=<span class="literal">NULL</span>)</span><br><span class="line">            q.push(s-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h3><p>【思路】</p>
+<p>即前中后序三种遍历方式。</p>
+<p>这里给出深度优先前序遍历的另一种实现方式，利用栈。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::DFS(BiNode *node)&#123;</span><br><span class="line">    <span class="built_in">stack</span>&lt;BiNode*&gt; s;</span><br><span class="line">    BiNode *p;</span><br><span class="line">    s.push(node);</span><br><span class="line">    <span class="keyword">while</span>(!s.empty())&#123;</span><br><span class="line">        p=s.top();</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;p-&gt;data;</span><br><span class="line">        s.pop();</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;rchild != <span class="literal">NULL</span>)</span><br><span class="line">            s.push(p-&gt;rchild);</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;lchild != <span class="literal">NULL</span>)</span><br><span class="line">            s.push(p-&gt;lchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h3><p>【思路】</p>
+<p>即层次遍历</p>
+<h3 id="求深度"><a href="#求深度" class="headerlink" title="求深度"></a>求深度</h3><p>【思路】</p>
+<ul>
+<li>每个节点都有自己的左右子树</li>
+<li>每次返回当前节点左右子树长度大的那个</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> BiTree::GetTreeDepth(BiNode *node)&#123;</span><br><span class="line">    <span class="keyword">int</span> lchildDep=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> rchildDep=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果根节点为空，深度为0，返回0，递归的出口</span></span><br><span class="line">    <span class="comment">//否则深度至少为1，然后累加它们左右子树的深度</span></span><br><span class="line">    <span class="keyword">if</span>(node == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    lchildDep+=GetTreeDepth(node-&gt;lchild);</span><br><span class="line">    rchildDep+=GetTreeDepth(node-&gt;rchild);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (lchildDep&gt;rchildDep)?(lchildDep):(rchildDep);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="求两个节点距离"><a href="#求两个节点距离" class="headerlink" title="求两个节点距离"></a>求两个节点距离</h3><h3 id="翻转二叉树"><a href="#翻转二叉树" class="headerlink" title="翻转二叉树"></a>翻转二叉树</h3><p><img src="http://p15qizl76.bkt.clouddn.com/blog/180327/mif6Lg5jHL.png?imageslim" alt="mark"></p>
+<h4 id="递归方法-3"><a href="#递归方法-3" class="headerlink" title="递归方法"></a>递归方法</h4><p>【思路】先翻转左子树，再翻转右子树，然后对整个树进行翻转</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::invertTree(BiNode *node)&#123;</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    swap(node-&gt;lchild,node-&gt;rchild);</span><br><span class="line">    invertTree(node-&gt;lchild);</span><br><span class="line">    invertTree(node-&gt;rchild);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="非递归方法-3"><a href="#非递归方法-3" class="headerlink" title="非递归方法"></a>非递归方法</h4><p>【思路】</p>
+<p>与二叉树的层序遍历类似，需要queue实现</p>
+<p>把根结点入队列，从队列中取出，交换左右孩子结点。若存在则分别将左右孩子结点入队，以此类推直到队列中没有结点则停止。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BiTree::invertTreeNonRec(BiNode *node)&#123;</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    <span class="built_in">queue</span>&lt;BiNode *&gt; q;</span><br><span class="line">    q.push(node);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        BiNode *cur=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        BiNode *tmp=cur-&gt;lchild;</span><br><span class="line">        cur-&gt;lchild=cur-&gt;rchild;</span><br><span class="line">        cur-&gt;rchild=tmp;</span><br><span class="line">        <span class="keyword">if</span>(cur-&gt;lchild != <span class="literal">NULL</span>)</span><br><span class="line">            q.push(cur-&gt;lchild);</span><br><span class="line">        <span class="keyword">if</span>(cur-&gt;rchild != <span class="literal">NULL</span>)</span><br><span class="line">            q.push(cur-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="表达式求值"><a href="#表达式求值" class="headerlink" title="表达式求值"></a>表达式求值</h2><h3 id="中缀表达式"><a href="#中缀表达式" class="headerlink" title="中缀表达式"></a>中缀表达式</h3><p>【概念】</p>
+<p>中缀表达式是指运算符在运算数中间。</p>
+<p>【思路】</p>
+<p>需要两个栈：操作数栈和操作符栈</p>
+<ul>
+<li>如果是数字，压入操作数栈。</li>
+<li>如果是操作符<ul>
+<li>当前是加减法<ul>
+<li>若栈顶是加减乘除，则计算栈内直到操作符栈顶不是加减乘除或为空，压栈。</li>
+<li>否则直接压栈。</li>
+</ul>
+</li>
+<li>当前是乘除法<ul>
+<li>若栈顶是乘除，计算直到操作符栈顶不是乘除或者为空，压栈。</li>
+<li>否则直接压栈。</li>
+</ul>
+</li>
+<li>当前是左括号，压栈。</li>
+<li>当前是右括号，计算直到遇到左括号。</li>
+</ul>
+</li>
+</ul>
+<p>当所有的分析完后，循环计算栈顶直到操作符栈为空，此时操作数栈里只有一个元素，即最后的结果。</p>
+<p>【范例】</p>
+<p><code>1 + 2 *（3 + 4 * 5）</code></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>计算过程</td>
+<td>数栈</td>
+<td>操作符栈</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1、2</td>
+<td>+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1、2</td>
+<td>+、*</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1、2、（</td>
+<td>+、*</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1、2、（、3</td>
+<td>+、*</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1、2、（、3</td>
+<td>+、*、+</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1、2、（、3、4</td>
+<td>+、*、+</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1、2、（、3、4</td>
+<td>+、<em>、+、</em></td>
+</tr>
+<tr>
+<td>10.1</td>
+<td>1、2、（、3、4、5</td>
+<td>+、<em>、+、</em></td>
+</tr>
+<tr>
+<td>10.2</td>
+<td>1、2、（、3、20</td>
+<td>+、*、+</td>
+</tr>
+<tr>
+<td>11</td>
+<td>1、2、23</td>
+<td>+、*</td>
+</tr>
+<tr>
+<td>12</td>
+<td>1、46</td>
+<td>+</td>
+</tr>
+<tr>
+<td>13</td>
+<td>47</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://blog.csdn.net/wangzengdi/article/details/47023653" target="_blank" rel="external">https://blog.csdn.net/wangzengdi/article/details/47023653</a></p>
+<p><a href="https://segmentfault.com/a/1190000005659574" target="_blank" rel="external">https://segmentfault.com/a/1190000005659574</a></p>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="乘积最大子序列"><a href="#乘积最大子序列" class="headerlink" title="乘积最大子序列"></a>乘积最大子序列</h3><p>【题目描述】</p>
+<p>找出一个序列中乘积最大的连续子序列（至少包含一个数）</p>
+<p>【思路】</p>
+<ul>
+<li><code>data[i]</code>：第i个数据</li>
+</ul>
+<ul>
+<li><code>dp1[i]</code>：以第i个数据结尾的连续子序列最大乘积</li>
+<li><code>dp2[i]</code>：以第i个数据结尾的连续子序列最小乘积</li>
+<li>状态转移方程<ul>
+<li><code>dp1[i]=max(data[i],max(dp1[i-1] * data[i],dp2[i-1] * data[i]));</code></li>
+<li><code>dp2[i]=min(data[i],min(dp1[i-1] * data[i],dp2[i-1] * data[i]));</code></li>
+</ul>
+</li>
+<li>边界条件<ul>
+<li><code>dp1[0]=data[0];</code></li>
+<li><code>dp2[0]=data[0];</code></li>
+</ul>
+</li>
+<li>最后遍历<code>dp1</code>得到最大值即可</li>
+</ul>
+<p>【题解】</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">max</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;<span class="keyword">return</span> a&gt;b?a:b;&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">min</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;<span class="keyword">return</span> a&lt;b?a:b;&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=nums.size();</span><br><span class="line">    <span class="keyword">if</span>(len==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; dp1(len);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; dp2(len);</span><br><span class="line">    <span class="comment">//边界条件</span></span><br><span class="line">    dp1[<span class="number">0</span>]=nums[<span class="number">0</span>];</span><br><span class="line">    dp2[<span class="number">0</span>]=nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</span><br><span class="line">        dp1[i]=max(nums[i],max(dp1[i<span class="number">-1</span>]*nums[i],dp2[i<span class="number">-1</span>]*nums[i]));</span><br><span class="line">        dp2[i]=min(nums[i],min(dp1[i<span class="number">-1</span>]*nums[i],dp2[i<span class="number">-1</span>]*nums[i]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> index=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)</span><br><span class="line">        <span class="keyword">if</span>(dp1[i]&gt;dp1[index])</span><br><span class="line">            index=i;</span><br><span class="line">    <span class="keyword">return</span> dp1[index];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag">#算法</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/algorithm-xiaomi2015/" rel="next" title="【算法】小米2015暑假实习笔试题">
+                <i class="fa fa-chevron-left"></i> 【算法】小米2015暑假实习笔试题
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/algorithm-offer/" rel="prev" title="【算法】剑指Offer总结">
+                【算法】剑指Offer总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">84</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">标签云</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/rss2.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/tianwenyu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查找"><span class="nav-text">查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二分查找"><span class="nav-text">二分查找</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序"><span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快排"><span class="nav-text">快排</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序"><span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆排"><span class="nav-text">堆排</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Trie树"><span class="nav-text">Trie树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树"><span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#树结点结构"><span class="nav-text">树结点结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建二叉树"><span class="nav-text">创建二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前序遍历"><span class="nav-text">前序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#递归方法"><span class="nav-text">递归方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非递归方法"><span class="nav-text">非递归方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中序遍历"><span class="nav-text">中序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#递归方法-1"><span class="nav-text">递归方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非递归方法-1"><span class="nav-text">非递归方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后序遍历"><span class="nav-text">后序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#递归方法-2"><span class="nav-text">递归方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非递归方法-2"><span class="nav-text">非递归方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层序遍历"><span class="nav-text">层序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度优先遍历"><span class="nav-text">深度优先遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广度优先遍历"><span class="nav-text">广度优先遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求深度"><span class="nav-text">求深度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求两个节点距离"><span class="nav-text">求两个节点距离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#翻转二叉树"><span class="nav-text">翻转二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#递归方法-3"><span class="nav-text">递归方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非递归方法-3"><span class="nav-text">非递归方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表达式求值"><span class="nav-text">表达式求值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中缀表达式"><span class="nav-text">中缀表达式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划"><span class="nav-text">动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#乘积最大子序列"><span class="nav-text">乘积最大子序列</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/BearD01001/hexo-theme-nextd">
+    NexTD
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+    <link rel='stylesheet' href='https://imsun.github.io/gitment/style/default.css'>
+    <style>
+        .gitment-editor-avatar {
+            border-bottom: none !important;
+        }
+        .gitment-container a:hover {
+            text-decoration: none !important;
+        }
+        .gitment-markdown a,
+        .gitment-footer-project-link {
+            color: #555 !important;
+        }
+        .gitment-footer-project-link:hover,
+        .gitment-editor-logout-link:hover,
+        .gitment-editor-footer-tip:hover,
+        .gitment-header-issue-link:hover,
+        .gitment-comment-name:hover,
+        .gitment-markdown a:hover {
+            color: #222 !important;
+        }
+    </style>
+    <script src='https://imsun.github.io/gitment/dist/gitment.browser.js'></script>
+    <script type='text/javascript'>
+        (function() {
+            var id = window.location.pathname.replace(/(\/$)/g, '');
+            var owner = 'tianwenyu';
+            var repo = 'tianwenyu.github.io';
+            var clientId = '7e6796bf4bd74a25333f';
+            var clientSecret = 'd190223868b2175fbce4094e6485195cef7d3e8a';
+
+            var gitment = new Gitment({
+                id: id,
+                owner: owner,
+                repo: repo,
+                oauth: {
+                    client_id: clientId,
+                    client_secret: clientSecret,
+                },
+            });
+            gitment.render('comments');
+        })();
+    </script>
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').fadeToggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ decodeURIComponent(data_url) +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').fadeOut(function() {
+          $(".popoverlay").remove();
+          $('body').css('overflow', '');
+      });
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
