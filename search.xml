@@ -61,11 +61,11 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Windows10下Docker搭建深度学习框架]]></title>
-    <url>%2Fdocker-deeplearning%2F</url>
-    <content type="text"><![CDATA[概述DeepoDeepo是一个几乎包含所有流行深度学习框架的Docker映像，拥有一个完整的可复制的深度学习研究环境。它涵盖了 theano tensorflow sonnet pytorch keras lasagne mxnet cntk chainer caffe torch 安装直接从Docker Hub下载Deepo镜像。Github地址 CPU版本 docker pull ufoym/deepo:cpu GPU版本 docker pull ufoym/deepo 运行打开powershell执行以下命令，以bash方式运行该容器。 docker run -it ufoym/deepo:cpu bash DL-docker包含的框架及系统依赖 Ubuntu 14.04 CUDA 7.5 (GPU version only) cuDNN v4 (GPU version only) Tensorflow Caffe Theano Keras Lasagne Torch (includes nn, cutorch, cunn and cuDNN bindings) iPython/Jupyter Notebook (including iTorch kernel) Numpy, SciPy, Pandas, Scikit Learn, Matplotlib A few common libraries used for deep learning 安装 cpu版本 docker pull floydhub/dl-docker:cpu 运行docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder floydhub/dl-docker:cpu bash 运行以上命令后，会连接到bash，执行jupyter notebook。 然后在Windows的浏览器中输入localhost:8888，会连接到该容器的Jupyter notebook]]></content>
+    <title><![CDATA[Windows10下Docker简明教程]]></title>
+    <url>%2Fwindows-docker%2F</url>
+    <content type="text"><![CDATA[概述Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。 Docker通常用于如下场景： web应用的自动化打包和发布； 自动化测试和持续集成、发布； 在服务型环境中部署和调整数据库或其他的后台应用； 从头编译或者扩展现有的OpenShift或Cloud Foundry平台来搭建自己的PaaS环境。 内部结构 Docker使用C/S架构模式，Docker客户端会与Docker守护进程通信。Docker守护进程会处理复杂繁重的任务，例如建立、运行、发布你的 Docker 容器。Docker 客户端和守护进程可以运行在同一个系统上，当然你也可以使用 Docker 客户端去连接一个远程的 Docker 守护进程。Docker 客户端和守护进程之间通过 socket 或者 RESTful API 进行通信。 Docker分为三种部件： Docker镜像-Docker Images Docker容器-Docker Containers Docker仓库-Docker Registeries Docker镜像Docker运行容器前需要本地存在对应的镜像。Docker镜像可以用来创建Docker容器，一个镜像可以包含一个完整的操作系统环境和用户需要的其他应用程序。 Docker镜像是只可读的，一个镜像可以创建多个容器。 通俗说，Images是已经打包好的环境文件，我们运行的时候把Images加载运行在本地容器中，你在这个容器中可以进行一些修改重新打包成新镜像上传。 分层存储因为镜像包含操作系统完整的root文件系统，其体积往往是巨大的，因此Docker设计时，就充分利用Union FS技术，将其设计为分层存储的架构。 分层存储的特征使得镜像并非像一个ISO类似的打包文件，而是由一组文件系统组成。 Docker容器Docker利用容器来开发、运行应用。容器是镜像创建的实例，可以被开始、启动、停止、删除。每个容器都是相互隔离的。 Docker仓库仓库是集中存放镜像文件的场所。每个仓库中包含了多个镜像，每个镜像有不同的标签。 最大的公开仓库是DockerHub)，因为墙的原因，可以使用DaoCloud、阿里云)加速下载。 安装 Win10版本Docker安装以下版本Docker Community Edition 17.12.0-ce Win10之前版本安装Docker ToolBox，官方文档 安装之前，需要开启Windows10的Hpyer-V。 控制面板-程序-启用或关闭Windows功能 本文以Docker Community Edition为例，开启Hpyer-V后直接安装Docker Community Edition即可。 安装成功后，运行cmd,执行docker version，安装成功则显示下图 设置Docker任务栏鲸鱼图标右键-Settings打开设置界面 Shared Drivers：可以将主机（即Windows）中的驱动器共享到Docker Container中 Advanced：用于配置运行Docker Daemon的虚拟机环境的CPU和内存和镜像路径 Network：配置Docker的网络环境 Proxies：代理的配置 Docker Daemon：使用JSON格式的设置，对Docker Daemon进行设置，类似于在Linux中利用conf文件对Docker设置。 修改CPU数目及内存点击Advanced，如下图修改参数即可 修改代理Docker Hub速度较慢，修改为阿里云镜像。 登陆容器Hub服务，找到以下链接 点击Daemon设置镜像，直接在Registry mirrors中填写阿里云的镜像地址，点击Apply重启应用即可。 更改镜像默认存储路径打开Docker的Settings，点击Advanced，在Images and volumes VHD location选择新的路径。重启后即可更新设置。 常用命令查看Docker版本docker version 查看本机已安装镜像docker images 查看所有容器docker ps -a 拉取镜像docker pull Name:Tag 【例】 docker pull sameersbn/redmine:latest 删除单个容器docker rm Name/ID 删除所有的容器docker rm docker ps -a -q 停止、启动、杀死一个容器docker stop Name/IDdocker start Name/IDdocker kill Name/ID 参考 【Docker】windows10 docker 使用 Docker on Windows初体验 Docker for Windows使用简介 Docker的Windows容器初体验]]></content>
       <categories>
-        <category>深度学习</category>
+        <category>运维技术</category>
       </categories>
       <tags>
         <tag>Windows</tag>
@@ -73,11 +73,11 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Windows10下Docker简明教程]]></title>
-    <url>%2Fwindows-docker%2F</url>
-    <content type="text"><![CDATA[概述Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。 Docker通常用于如下场景： web应用的自动化打包和发布； 自动化测试和持续集成、发布； 在服务型环境中部署和调整数据库或其他的后台应用； 从头编译或者扩展现有的OpenShift或Cloud Foundry平台来搭建自己的PaaS环境。 内部结构 Docker使用C/S架构模式，Docker客户端会与Docker守护进程通信。Docker守护进程会处理复杂繁重的任务，例如建立、运行、发布你的 Docker 容器。Docker 客户端和守护进程可以运行在同一个系统上，当然你也可以使用 Docker 客户端去连接一个远程的 Docker 守护进程。Docker 客户端和守护进程之间通过 socket 或者 RESTful API 进行通信。 Docker分为三种部件： Docker镜像-Docker Images Docker容器-Docker Containers Docker仓库-Docker Registeries Docker镜像Docker运行容器前需要本地存在对应的镜像。Docker镜像可以用来创建Docker容器，一个镜像可以包含一个完整的操作系统环境和用户需要的其他应用程序。 Docker镜像是只可读的，一个镜像可以创建多个容器。 通俗说，Images是已经打包好的环境文件，我们运行的时候把Images加载运行在本地容器中，你在这个容器中可以进行一些修改重新打包成新镜像上传。 分层存储因为镜像包含操作系统完整的root文件系统，其体积往往是巨大的，因此Docker设计时，就充分利用Union FS技术，将其设计为分层存储的架构。 分层存储的特征使得镜像并非像一个ISO类似的打包文件，而是由一组文件系统组成。 Docker容器Docker利用容器来开发、运行应用。容器是镜像创建的实例，可以被开始、启动、停止、删除。每个容器都是相互隔离的。 Docker仓库仓库是集中存放镜像文件的场所。每个仓库中包含了多个镜像，每个镜像有不同的标签。 最大的公开仓库是DockerHub)，因为墙的原因，可以使用DaoCloud、阿里云)加速下载。 安装 Win10版本Docker安装以下版本Docker Community Edition 17.12.0-ce Win10之前版本安装Docker ToolBox，官方文档 安装之前，需要开启Windows10的Hpyer-V。 控制面板-程序-启用或关闭Windows功能 本文以Docker Community Edition为例，开启Hpyer-V后直接安装Docker Community Edition即可。 安装成功后，运行cmd,执行docker version，安装成功则显示下图 设置Docker任务栏鲸鱼图标右键-Settings打开设置界面 Shared Drivers：可以将主机（即Windows）中的驱动器共享到Docker Container中 Advanced：用于配置运行Docker Daemon的虚拟机环境的CPU和内存和镜像路径 Network：配置Docker的网络环境 Proxies：代理的配置 Docker Daemon：使用JSON格式的设置，对Docker Daemon进行设置，类似于在Linux中利用conf文件对Docker设置。 修改CPU数目及内存点击Advanced，如下图修改参数即可 修改代理Docker Hub速度较慢，修改为阿里云镜像。 登陆容器Hub服务，找到以下链接 点击Daemon设置镜像，直接在Registry mirrors中填写阿里云的镜像地址，点击Apply重启应用即可。 更改镜像默认存储路径打开Docker的Settings，点击Advanced，在Images and volumes VHD location选择新的路径。重启后即可更新设置。 常用命令查看Docker版本docker version 查看本机已安装镜像docker images 查看所有容器docker ps -a 拉取镜像docker pull Name:Tag 【例】 docker pull sameersbn/redmine:latest 删除单个容器docker rm Name/ID 删除所有的容器docker rm docker ps -a -q 停止、启动、杀死一个容器docker stop Name/IDdocker start Name/IDdocker kill Name/ID 参考 【Docker】windows10 docker 使用 Docker on Windows初体验 Docker for Windows使用简介 Docker的Windows容器初体验]]></content>
+    <title><![CDATA[Windows10下Docker搭建深度学习框架]]></title>
+    <url>%2Fdocker-deeplearning%2F</url>
+    <content type="text"><![CDATA[概述DeepoDeepo是一个几乎包含所有流行深度学习框架的Docker映像，拥有一个完整的可复制的深度学习研究环境。它涵盖了 theano tensorflow sonnet pytorch keras lasagne mxnet cntk chainer caffe torch 安装直接从Docker Hub下载Deepo镜像。Github地址 CPU版本 docker pull ufoym/deepo:cpu GPU版本 docker pull ufoym/deepo 运行打开powershell执行以下命令，以bash方式运行该容器。 docker run -it ufoym/deepo:cpu bash DL-docker包含的框架及系统依赖 Ubuntu 14.04 CUDA 7.5 (GPU version only) cuDNN v4 (GPU version only) Tensorflow Caffe Theano Keras Lasagne Torch (includes nn, cutorch, cunn and cuDNN bindings) iPython/Jupyter Notebook (including iTorch kernel) Numpy, SciPy, Pandas, Scikit Learn, Matplotlib A few common libraries used for deep learning 安装 cpu版本 docker pull floydhub/dl-docker:cpu 运行docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder floydhub/dl-docker:cpu bash 运行以上命令后，会连接到bash，执行jupyter notebook。 然后在Windows的浏览器中输入localhost:8888，会连接到该容器的Jupyter notebook]]></content>
       <categories>
-        <category>运维技术</category>
+        <category>深度学习</category>
       </categories>
       <tags>
         <tag>Windows</tag>
@@ -395,17 +395,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Windows下Git 2.15.0安装、配置]]></title>
-    <url>%2Fwindows-git%2F</url>
-    <content type="text"><![CDATA[安装下载链接:http://git-scm.com/download 安装 配置 用户名和邮箱地址的作用：用户名和邮箱地址是本地Git客户端的一个变量，不随Git库而改变。每次Commit都会用用户名和邮箱地址记录。 git config --global user.name "xxxx"git config --global user.email "xxxx"]]></content>
-      <categories>
-        <category>工具教程</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Intellij Idea 码云教程]]></title>
     <url>%2Fintellij-mayun%2F</url>
     <content type="text"><![CDATA[1.点击导航栏 VCS -&gt; Import into Version Control -&gt; 托管项目到码云 2.输入码云帐号密码，点击login。 3.勾选private，点击托管按钮。 4.点击OK。 5.在项目上右键 -&gt;Git -&gt;Commit Directory 6.填写Commit Message（养成良好编码习惯），点击Commit按钮 如果没有定义Git的用户名，点击Commit会弹出此弹窗，输入 name和email 点击 Set and Commit即可。 8.项目右键 -&gt; Git -&gt; Repository -&gt; Push 9.点击Push。 10.登录码云查看。到此，项目上传码云成功！~ 注意：（private勾选后项目并未成为私有项目，需要到码云网页上进行私有设置）]]></content>
@@ -415,6 +404,17 @@
       <tags>
         <tag>Intellij</tag>
         <tag>码云</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Windows下Git 2.15.0安装、配置]]></title>
+    <url>%2Fwindows-git%2F</url>
+    <content type="text"><![CDATA[安装下载链接:http://git-scm.com/download 安装 配置 用户名和邮箱地址的作用：用户名和邮箱地址是本地Git客户端的一个变量，不随Git库而改变。每次Commit都会用用户名和邮箱地址记录。 git config --global user.name "xxxx"git config --global user.email "xxxx"]]></content>
+      <categories>
+        <category>工具教程</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -476,17 +476,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Could not get lock /var/lib/dpkg/lock - open 解决方法]]></title>
-    <url>%2Flinux-lock%2F</url>
-    <content type="text"><![CDATA[出现此问题的原因是另外一个线程使用apt-get下载，结束现场呢个即可。1.搜索所有的线程ps -A | grep apt-get得到如图所示结果 结束线程数字就是线程号，结束线程即可sudo kill 1358]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Ubuntu下pip3的安装、升级、卸载]]></title>
     <url>%2Fubuntu-pip3%2F</url>
     <content type="text"><![CDATA[安装sudo apt-get install python3-pip 升级sudo pip3 install --upgrade pip 卸载sudo apt-get remove python3-pip]]></content>
@@ -496,6 +485,17 @@
       <tags>
         <tag>Linux</tag>
         <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Could not get lock /var/lib/dpkg/lock - open 解决方法]]></title>
+    <url>%2Flinux-lock%2F</url>
+    <content type="text"><![CDATA[出现此问题的原因是另外一个线程使用apt-get下载，结束现场呢个即可。1.搜索所有的线程ps -A | grep apt-get得到如图所示结果 结束线程数字就是线程号，结束线程即可sudo kill 1358]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -534,14 +534,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Notepad++中代码格式化插件NppAStyle]]></title>
-    <url>%2Fnotepad-nppastyle%2F</url>
-    <content type="text"><![CDATA[工具/原料 Windows7 Notepad++ NppAStyle(Notepad++的一个插件) 方法/步骤 直接在插件扩展中安装 下载Notepad++并安装NppExec插件。 插件—&gt;Plugin Manager—&gt;show Plugin Manager—&gt;安装NppAStyle插件。 自己下载dll插件 或者直接下载NppAStyle插件。登录NppAStyle网站下载，网址： http://sourceforge.net/projects/nppastyle/files/ 我们选择下载NppAStyle_bin_0.10.02.14.zip这个文件。 ​ 解压 下载后我们打开这个压缩文件，发现有两个文件夹ansi和unicode(ansi是标准编码，支持语言少；unicode是通用编码，支持更多的语言)。 打开unicode文件夹，将里面的NppAStyle.dll解压出来，将NppAStyle.dll放置到Notepad++安装目录下的plugins文件夹下。 ​ 重启Notepad++看NppAStyle是否安装成功，看到如图所示的信息就说明安装成功。 ​ 配置NppAStyle。 点击菜单栏中的”插件”—&gt;”NppAStyle”—&gt;”options”，在代码风格中选择java。 ​ 点击菜单栏中的”插件”—&gt;”NppAStyle”—&gt;”Format code”（或者按快捷键Alt+f），欣赏格式化后的代码风格。 ​ ​ 体验不同的代码风格并选择自己中意的某种代码风格。 重复第4步骤，例如将代码风格选中ANSI，按下快捷键Alt+f，欣赏格式化后的代码风格，并与第5步骤中格式化后的代码风格相比较。 ​ ​ 特别要注意：目前NppAStyle插件只支持格式化C、C++、C#、Java这四种编程语言的代码。]]></content>
+    <title><![CDATA[Windows上自动设置java环境变量的脚本]]></title>
+    <url>%2Fwindows-java-script%2F</url>
+    <content type="text"><![CDATA[代码这里默认设置了java jdk的安装路径为C:\Program Files\Java\jdk1.7.0_71，如果你的jdk安装路径不在此，可在执行此命令的时候，会有提示输入jdk安装路径，输入即可。 首先粘贴命令如下： 下载地址 @echo off:: TODO:设置java环境变量:: Author: Gwtcolor 02::设置java的安装路径，可方便切换不同的版本set input=set /p "input=请输入java的jdk路径（或回车默认路径为C:\Program Files\Java\jdk1.7.0_71）:"if defined input (echo jdk已设置) else (set input=C:\Program Files\Java\jdk1.7.0_71)echo jdk路径为%input%set javaPath=%input%::如果有的话，先删除JAVA_HOMEwmic ENVIRONMENT where "name='JAVA_HOME'" delete::如果有的话，先删除ClASS_PATH wmic ENVIRONMENT where "name='CLASS_PATH'" delete::创建JAVA_HOMEwmic ENVIRONMENT create name="JAVA_HOME",username="&lt;system&gt;",VariableValue="%javaPath%"::创建CLASS_PATHwmic ENVIRONMENT create name="CLASS_PATH",username="&lt;system&gt;",VariableValue=".;%%JAVA_HOME%%\lib\tools.jar;%%JAVA_HOME%%\lib\dt.jar;"::在环境变量path中，剔除掉变量java_home中的字符，回显剩下的字符串call set xx=%Path%;%JAVA_HOME%\jre\bin;%JAVA_HOME%\bin::echo %xx%::将返回显的字符重新赋值到path中wmic ENVIRONMENT where "name='Path' and username='&lt;system&gt;'" set VariableValue="%xx%"pause 解释下面就解释下命令 @echo off 是关闭回显的，不会显示命令信息 on打开会显示命令信息 color 02是设置输出文本颜色的，这里是控制命令台输出绿颜色 set /p “input=请输入命令信息” 是用来接收控制台输入的文本信息的 if else 是用来做判断 if defined input 是用来判断用户是否输入信息，回车的话，则表示未定义input的值 echo “输出信息” 是用来显示信息的 set javaPath=%input% 是用来吧变量input的值赋值给javaPath变量的 wmic 是提供了批处理的命令，可以方便的操作环境变量值 删除某一环境变量 就使用 wmic ENVIRONMENT where “name=’JAVA_HOME’” delete命令 创建某一环境变量 使用 wmic ENVIRONMENT create name=”JAVA_HOME”,username=”“,VariableValue=”%javaPath%”命令 修改某一环境变量 使用 wmic ENVIRONMENT where “name=’Path’ and username=’‘“ set VariableValue=”value” 注意事项 在上述批处理脚本命令中，要严格注意空格和大小写等的输入，不然执行不成功的 要以管理员方式运行命令，不然提示拒绝执行命令的提示]]></content>
       <categories>
-        <category>IDE</category>
+        <category>运维技术</category>
       </categories>
       <tags>
-        <tag>Notepad++</tag>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -556,14 +556,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Windows上自动设置java环境变量的脚本]]></title>
-    <url>%2Fwindows-java-script%2F</url>
-    <content type="text"><![CDATA[代码这里默认设置了java jdk的安装路径为C:\Program Files\Java\jdk1.7.0_71，如果你的jdk安装路径不在此，可在执行此命令的时候，会有提示输入jdk安装路径，输入即可。 首先粘贴命令如下： 下载地址 @echo off:: TODO:设置java环境变量:: Author: Gwtcolor 02::设置java的安装路径，可方便切换不同的版本set input=set /p "input=请输入java的jdk路径（或回车默认路径为C:\Program Files\Java\jdk1.7.0_71）:"if defined input (echo jdk已设置) else (set input=C:\Program Files\Java\jdk1.7.0_71)echo jdk路径为%input%set javaPath=%input%::如果有的话，先删除JAVA_HOMEwmic ENVIRONMENT where "name='JAVA_HOME'" delete::如果有的话，先删除ClASS_PATH wmic ENVIRONMENT where "name='CLASS_PATH'" delete::创建JAVA_HOMEwmic ENVIRONMENT create name="JAVA_HOME",username="&lt;system&gt;",VariableValue="%javaPath%"::创建CLASS_PATHwmic ENVIRONMENT create name="CLASS_PATH",username="&lt;system&gt;",VariableValue=".;%%JAVA_HOME%%\lib\tools.jar;%%JAVA_HOME%%\lib\dt.jar;"::在环境变量path中，剔除掉变量java_home中的字符，回显剩下的字符串call set xx=%Path%;%JAVA_HOME%\jre\bin;%JAVA_HOME%\bin::echo %xx%::将返回显的字符重新赋值到path中wmic ENVIRONMENT where "name='Path' and username='&lt;system&gt;'" set VariableValue="%xx%"pause 解释下面就解释下命令 @echo off 是关闭回显的，不会显示命令信息 on打开会显示命令信息 color 02是设置输出文本颜色的，这里是控制命令台输出绿颜色 set /p “input=请输入命令信息” 是用来接收控制台输入的文本信息的 if else 是用来做判断 if defined input 是用来判断用户是否输入信息，回车的话，则表示未定义input的值 echo “输出信息” 是用来显示信息的 set javaPath=%input% 是用来吧变量input的值赋值给javaPath变量的 wmic 是提供了批处理的命令，可以方便的操作环境变量值 删除某一环境变量 就使用 wmic ENVIRONMENT where “name=’JAVA_HOME’” delete命令 创建某一环境变量 使用 wmic ENVIRONMENT create name=”JAVA_HOME”,username=”“,VariableValue=”%javaPath%”命令 修改某一环境变量 使用 wmic ENVIRONMENT where “name=’Path’ and username=’‘“ set VariableValue=”value” 注意事项 在上述批处理脚本命令中，要严格注意空格和大小写等的输入，不然执行不成功的 要以管理员方式运行命令，不然提示拒绝执行命令的提示]]></content>
+    <title><![CDATA[Notepad++中代码格式化插件NppAStyle]]></title>
+    <url>%2Fnotepad-nppastyle%2F</url>
+    <content type="text"><![CDATA[工具/原料 Windows7 Notepad++ NppAStyle(Notepad++的一个插件) 方法/步骤 直接在插件扩展中安装 下载Notepad++并安装NppExec插件。 插件—&gt;Plugin Manager—&gt;show Plugin Manager—&gt;安装NppAStyle插件。 自己下载dll插件 或者直接下载NppAStyle插件。登录NppAStyle网站下载，网址： http://sourceforge.net/projects/nppastyle/files/ 我们选择下载NppAStyle_bin_0.10.02.14.zip这个文件。 ​ 解压 下载后我们打开这个压缩文件，发现有两个文件夹ansi和unicode(ansi是标准编码，支持语言少；unicode是通用编码，支持更多的语言)。 打开unicode文件夹，将里面的NppAStyle.dll解压出来，将NppAStyle.dll放置到Notepad++安装目录下的plugins文件夹下。 ​ 重启Notepad++看NppAStyle是否安装成功，看到如图所示的信息就说明安装成功。 ​ 配置NppAStyle。 点击菜单栏中的”插件”—&gt;”NppAStyle”—&gt;”options”，在代码风格中选择java。 ​ 点击菜单栏中的”插件”—&gt;”NppAStyle”—&gt;”Format code”（或者按快捷键Alt+f），欣赏格式化后的代码风格。 ​ ​ 体验不同的代码风格并选择自己中意的某种代码风格。 重复第4步骤，例如将代码风格选中ANSI，按下快捷键Alt+f，欣赏格式化后的代码风格，并与第5步骤中格式化后的代码风格相比较。 ​ ​ 特别要注意：目前NppAStyle插件只支持格式化C、C++、C#、Java这四种编程语言的代码。]]></content>
       <categories>
-        <category>运维技术</category>
+        <category>IDE</category>
       </categories>
       <tags>
-        <tag>Windows</tag>
+        <tag>Notepad++</tag>
       </tags>
   </entry>
   <entry>
