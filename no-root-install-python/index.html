@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="下载Python  wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz  解压  tar -xvf Python-3.6.3.tar.zx  进入到解压后的文件夹  cd Python-3.6.3  ./configure --prefix=&apos;Your Install Director&apos; m">
+<meta name="description" content="下载Python wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz  解压 tar -xvf Python-3.6.3.tar.zx  进入到解压后的文件夹 cd Python-3.6.3  ./configure --prefix=&amp;#39;Your Install Director&amp;#39;  make &amp;amp">
 <meta name="keywords" content="Linux,Ubuntu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="无Root权限中Ubuntu安装Python">
 <meta property="og:url" content="https://tianwenyu.github.io/no-root-install-python/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="下载Python  wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz  解压  tar -xvf Python-3.6.3.tar.zx  进入到解压后的文件夹  cd Python-3.6.3  ./configure --prefix=&apos;Your Install Director&apos; m">
+<meta property="og:description" content="下载Python wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz  解压 tar -xvf Python-3.6.3.tar.zx  进入到解压后的文件夹 cd Python-3.6.3  ./configure --prefix=&amp;#39;Your Install Director&amp;#39;  make &amp;amp">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-07-26T09:37:57.697Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="无Root权限中Ubuntu安装Python">
-<meta name="twitter:description" content="下载Python  wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz  解压  tar -xvf Python-3.6.3.tar.zx  进入到解压后的文件夹  cd Python-3.6.3  ./configure --prefix=&apos;Your Install Director&apos; m">
+<meta name="twitter:description" content="下载Python wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz  解压 tar -xvf Python-3.6.3.tar.zx  进入到解压后的文件夹 cd Python-3.6.3  ./configure --prefix=&amp;#39;Your Install Director&amp;#39;  make &amp;amp">
 
 
 
@@ -360,37 +360,34 @@
       
 
       
-        <ol style="list-style-type: decimal">
-<li>下载Python</li>
-</ol>
+        <ol>
+<li><p>下载Python</p>
 <p><code>wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz</code></p>
-<ol start="2" style="list-style-type: decimal">
-<li>解压</li>
-</ol>
+</li>
+<li><p>解压</p>
 <p><code>tar -xvf Python-3.6.3.tar.zx</code></p>
-<ol start="3" style="list-style-type: decimal">
-<li>进入到解压后的文件夹</li>
-</ol>
+</li>
+<li><p>进入到解压后的文件夹</p>
 <p><code>cd Python-3.6.3</code></p>
-<ol start="4" style="list-style-type: decimal">
-<li><p><code>./configure --prefix='Your Install Director'</code></p></li>
-<li><p><code>make &amp;&amp; make install</code></p></li>
-<li><p>添加路径,编辑<code>~/.bashrc</code></p></li>
-</ol>
+</li>
+<li><p><code>./configure --prefix=&#39;Your Install Director&#39;</code></p>
+</li>
+<li><p><code>make &amp;&amp; make install</code></p>
+</li>
+<li><p>添加路径,编辑<code>~/.bashrc</code></p>
 <p><code>vim ~/.bashrc</code></p>
-<ol start="7" style="list-style-type: decimal">
-<li>在文件最后添加</li>
-</ol>
+</li>
+<li><p>在文件最后添加</p>
 <p><code>export PATH=/Your Install Path:$PATH</code>，如<code>export PATH=/usr/local/bin/:$PATH</code></p>
-<ol start="8" style="list-style-type: decimal">
-<li>创建别名，编辑<code>~/.bashrc</code></li>
-</ol>
+</li>
+<li><p>创建别名，编辑<code>~/.bashrc</code></p>
 <p><code>vim ~/.bashrc</code></p>
-<ol start="9" style="list-style-type: decimal">
-<li>在文件最后添加</li>
-</ol>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">alias</span> python=<span class="string">'Your python path'</span></span><br><span class="line"><span class="built_in">alias</span> pip=<span class="string">'Your pip path'</span></span><br></pre></td></tr></table></figure></p>
+</li>
+<li><p>在文件最后添加</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">alias</span> python=<span class="string">'Your python path'</span></span><br><span class="line"><span class="built_in">alias</span> pip=<span class="string">'Your pip path'</span></span><br></pre></td></tr></table></figure>
 <p>​</p>
+</li>
+</ol>
 
         
       

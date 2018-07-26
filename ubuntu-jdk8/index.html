@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="下载JDK8 http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 因为是在虚拟机中运行Ubuntu，所以JDK8文件是下载在Windows系统中，需要设置共享文件夹，把文件复制到Downloads文件夹下。">
+<meta name="description" content="下载JDK8http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html  因为是在虚拟机中运行Ubuntu，所以JDK8文件是下载在Windows系统中，需要设置共享文件夹，把文件复制到Downloads文件夹下。">
 <meta name="keywords" content="VirtualBox,Ubuntu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VirtualBox中Ubuntu 17.10 安装JDK8">
 <meta property="og:url" content="https://tianwenyu.github.io/ubuntu-jdk8/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="下载JDK8 http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 因为是在虚拟机中运行Ubuntu，所以JDK8文件是下载在Windows系统中，需要设置共享文件夹，把文件复制到Downloads文件夹下。">
+<meta property="og:description" content="下载JDK8http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html  因为是在虚拟机中运行Ubuntu，所以JDK8文件是下载在Windows系统中，需要设置共享文件夹，把文件复制到Downloads文件夹下。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-25T10:25:22.730Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VirtualBox中Ubuntu 17.10 安装JDK8">
-<meta name="twitter:description" content="下载JDK8 http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 因为是在虚拟机中运行Ubuntu，所以JDK8文件是下载在Windows系统中，需要设置共享文件夹，把文件复制到Downloads文件夹下。">
+<meta name="twitter:description" content="下载JDK8http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html  因为是在虚拟机中运行Ubuntu，所以JDK8文件是下载在Windows系统中，需要设置共享文件夹，把文件复制到Downloads文件夹下。">
 
 
 
@@ -360,20 +360,23 @@
       
 
       
-        <ol style="list-style-type: decimal">
-<li><p>下载JDK8 <code>http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</code></p></li>
-<li><p>因为是在虚拟机中运行Ubuntu，所以JDK8文件是下载在Windows系统中，需要设置共享文件夹，把文件复制到<code>Downloads</code>文件夹下。</p></li>
-</ol>
-<p><a id="more"></a></p>
-<ol start="3" style="list-style-type: decimal">
-<li><p>解压文件 <code>cd Downloads/</code> <code>tar -zxvf jdk-8u151-linux-x64.gz</code></p></li>
-<li><p>将解压的文件夹<code>jdk1.8.0_151</code>移动到<code>/usr/</code> <code>sudo mv jdk1.8.0_151/ /usr/</code></p></li>
-<li><p>配置系统环境变量，编辑<code>/etc/profile</code>文件，在文件的末尾添加以下内容 <code>sudo vim /etc/profile</code></p></li>
+        <ol>
+<li><p>下载JDK8<br><code>http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</code></p>
+</li>
+<li><p>因为是在虚拟机中运行Ubuntu，所以JDK8文件是下载在Windows系统中，需要设置共享文件夹，把文件复制到<code>Downloads</code>文件夹下。</p>
+<a id="more"></a>
+</li>
+<li><p>解压文件<br><code>cd Downloads/</code><br><code>tar -zxvf jdk-8u151-linux-x64.gz</code></p>
+</li>
+<li><p>将解压的文件夹<code>jdk1.8.0_151</code>移动到<code>/usr/</code><br><code>sudo mv jdk1.8.0_151/ /usr/</code></p>
+</li>
+<li><p>配置系统环境变量，编辑<code>/etc/profile</code>文件，在文件的末尾添加以下内容<br><code>sudo vim /etc/profile</code></p>
+</li>
 </ol>
 <figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">JAVA_HOME</span>=/usr/jdk1.8.0_151  #jdk主目录</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">JRE_HOME</span>=<span class="variable">$JAVA_HOME</span>/jre #jre目录</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">CLASSPATH</span>=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib #CLASSPATH目录</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">PATH</span>=<span class="variable">$PATH</span>:$JAVA_HOME/bin:$JRE_HOME/bin #将jdk的可执行文件目录添加到系统环境目录中1234</span><br></pre></td></tr></table></figure>
-<ol style="list-style-type: decimal">
-<li>更新配置 <code>source /etc/profile</code></li>
-<li>查看是否安装成功 <code>java -version</code></li>
+<ol>
+<li>更新配置<br><code>source /etc/profile</code></li>
+<li>查看是否安装成功<br><code>java -version</code></li>
 </ol>
 
         
@@ -409,16 +412,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ubuntu-pip3/" rel="next" title="Ubuntu下pip3的安装、升级、卸载">
-                <i class="fa fa-chevron-left"></i> Ubuntu下pip3的安装、升级、卸载
+              <a href="/ubuntu-sklearn/" rel="next" title="Ubuntu 17.10安装sklearn">
+                <i class="fa fa-chevron-left"></i> Ubuntu 17.10安装sklearn
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ubuntu-sklearn/" rel="prev" title="Ubuntu 17.10安装sklearn">
-                Ubuntu 17.10安装sklearn <i class="fa fa-chevron-right"></i>
+              <a href="/ubuntu-intellij/" rel="prev" title="Ubuntu中安装Intellij Idea">
+                Ubuntu中安装Intellij Idea <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

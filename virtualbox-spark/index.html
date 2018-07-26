@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="前言 Spark的搭建依赖于Hadoop，因此本文基于之前分布式Hadoop环境，JDK、Hadoop等已安装好， 系统环境  虚拟机：VirtualBox Linux：Ubuntu 16.04 LTS HAdoop 2.7.5 IDE：Intellij IDEA JDK 1.8.0_151 Scala-2.12.4 Spark-2.2.1">
+<meta name="description" content="前言Spark的搭建依赖于Hadoop，因此本文基于之前分布式Hadoop环境，JDK、Hadoop等已安装好， 系统环境 虚拟机：VirtualBox Linux：Ubuntu 16.04 LTS HAdoop 2.7.5 IDE：Intellij IDEA JDK 1.8.0_151 Scala-2.12.4 Spark-2.2.1">
 <meta name="keywords" content="VirtualBox,Spark">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【分布式编程】三——基于VirtualBox的Spark完全分布式环境">
 <meta property="og:url" content="https://tianwenyu.github.io/virtualbox-spark/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="前言 Spark的搭建依赖于Hadoop，因此本文基于之前分布式Hadoop环境，JDK、Hadoop等已安装好， 系统环境  虚拟机：VirtualBox Linux：Ubuntu 16.04 LTS HAdoop 2.7.5 IDE：Intellij IDEA JDK 1.8.0_151 Scala-2.12.4 Spark-2.2.1">
+<meta property="og:description" content="前言Spark的搭建依赖于Hadoop，因此本文基于之前分布式Hadoop环境，JDK、Hadoop等已安装好， 系统环境 虚拟机：VirtualBox Linux：Ubuntu 16.04 LTS HAdoop 2.7.5 IDE：Intellij IDEA JDK 1.8.0_151 Scala-2.12.4 Spark-2.2.1">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180115/e6k62ke67K.png?imageslim">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180115/JBJiB7BK7A.png?imageslim">
@@ -104,7 +104,7 @@
 <meta property="og:updated_time" content="2018-01-22T13:57:15.554Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【分布式编程】三——基于VirtualBox的Spark完全分布式环境">
-<meta name="twitter:description" content="前言 Spark的搭建依赖于Hadoop，因此本文基于之前分布式Hadoop环境，JDK、Hadoop等已安装好， 系统环境  虚拟机：VirtualBox Linux：Ubuntu 16.04 LTS HAdoop 2.7.5 IDE：Intellij IDEA JDK 1.8.0_151 Scala-2.12.4 Spark-2.2.1">
+<meta name="twitter:description" content="前言Spark的搭建依赖于Hadoop，因此本文基于之前分布式Hadoop环境，JDK、Hadoop等已安装好， 系统环境 虚拟机：VirtualBox Linux：Ubuntu 16.04 LTS HAdoop 2.7.5 IDE：Intellij IDEA JDK 1.8.0_151 Scala-2.12.4 Spark-2.2.1">
 <meta name="twitter:image" content="http://p15qizl76.bkt.clouddn.com/blog/180115/e6k62ke67K.png?imageslim">
 
 
@@ -368,10 +368,8 @@
       
 
       
-        <h2 id="前言">前言</h2>
-<p>Spark的搭建依赖于Hadoop，因此本文基于之前<a href="https://tianwenyu.github.io/virtualbox-haddop/">分布式Hadoop环境</a>，JDK、Hadoop等已安装好，</p>
-<h2 id="系统环境">系统环境</h2>
-<ul>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Spark的搭建依赖于Hadoop，因此本文基于之前<a href="https://tianwenyu.github.io/virtualbox-haddop/">分布式Hadoop环境</a>，JDK、Hadoop等已安装好，</p>
+<h2 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h2><ul>
 <li>虚拟机：VirtualBox</li>
 <li>Linux：Ubuntu 16.04 LTS</li>
 <li>HAdoop 2.7.5</li>
@@ -381,122 +379,83 @@
 <li>Spark-2.2.1</li>
 </ul>
 <a id="more"></a>
-<h2 id="操作步骤">操作步骤</h2>
-<h3 id="安装scala">安装Scala</h3>
-<ol style="list-style-type: decimal">
-<li><p>下载<a href="https://downloads.lightbend.com/scala/2.12.4/scala-2.12.4.tgz" target="_blank" rel="external">Scala-2.12.4</a></p></li>
-<li><p>解压到当前目录</p></li>
-</ol>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -zxvf scala-2.12.4.tgz</span><br></pre></td></tr></table></figure></p>
-<ol start="3" style="list-style-type: decimal">
-<li>将解压后的文件夹移动到<code>/usr</code>下</li>
-</ol>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mv scala-2.12.4/ /usr/</span><br></pre></td></tr></table></figure></p>
-<ol start="4" style="list-style-type: decimal">
-<li>配置环境变量</li>
-</ol>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br></pre></td></tr></table></figure></p>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="安装Scala"><a href="#安装Scala" class="headerlink" title="安装Scala"></a>安装Scala</h3><ol>
+<li><p>下载<a href="https://downloads.lightbend.com/scala/2.12.4/scala-2.12.4.tgz" target="_blank" rel="external">Scala-2.12.4</a></p>
+</li>
+<li><p>解压到当前目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -zxvf scala-2.12.4.tgz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将解压后的文件夹移动到<code>/usr</code>下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mv scala-2.12.4/ /usr/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置环境变量</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br></pre></td></tr></table></figure>
 <p>添加如下代码，路径根据情况自己修改</p>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> SCALA_HOME=/usr/scala-2.12.4</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$SCALA_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
-<ol start="5" style="list-style-type: decimal">
-<li>更新环境变量配置</li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> SCALA_HOME=/usr/scala-2.12.4</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$SCALA_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新环境变量配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证是否安装成功</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scala -version</span><br></pre></td></tr></table></figure>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180115/e6k62ke67K.png?imageslim" alt=""></p>
+</li>
 </ol>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure></p>
-<ol start="6" style="list-style-type: decimal">
-<li>验证是否安装成功</li>
-</ol>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scala -version</span><br></pre></td></tr></table></figure></p>
-<div class="figure">
-<img src="http://p15qizl76.bkt.clouddn.com/blog/180115/e6k62ke67K.png?imageslim">
-
-</div>
-<h3 id="安装spark">安装Spark</h3>
-<ol style="list-style-type: decimal">
-<li>下载<a href="http://spark.apache.org/downloads.html" target="_blank" rel="external">Spark</a>，由于Spark基于Hadoop，且之前已经安装好Hadoop，所以下载没有绑定Hadoop的版本，所以选择<a href="http://mirrors.hust.edu.cn/apache/spark/spark-2.2.1/spark-2.2.1-bin-without-hadoop.tgz" target="_blank" rel="external">spark-2.2.1-bin-without-hadoop.tgz</a></li>
-</ol>
-<div class="figure">
-<img src="http://p15qizl76.bkt.clouddn.com/blog/180115/JBJiB7BK7A.png?imageslim" alt="mark">
-<p class="caption">mark</p>
-</div>
-<ol start="2" style="list-style-type: decimal">
-<li>解压到当前目录</li>
-</ol>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -zxvf spark-2.2.1-bin-without-hadoop.tgz</span><br></pre></td></tr></table></figure></p>
-<ol start="3" style="list-style-type: decimal">
-<li>将解压后的文件夹移动到<code>/usr/local/</code></li>
-</ol>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mv spark-2.2.1-bin-without-hadoop/ /usr/</span><br></pre></td></tr></table></figure></p>
-<ol start="4" style="list-style-type: decimal">
-<li>配置环境变量</li>
-</ol>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装Spark"><a href="#安装Spark" class="headerlink" title="安装Spark"></a>安装Spark</h3><ol>
+<li><p>下载<a href="http://spark.apache.org/downloads.html" target="_blank" rel="external">Spark</a>，由于Spark基于Hadoop，且之前已经安装好Hadoop，所以下载没有绑定Hadoop的版本，所以选择<a href="http://mirrors.hust.edu.cn/apache/spark/spark-2.2.1/spark-2.2.1-bin-without-hadoop.tgz" target="_blank" rel="external">spark-2.2.1-bin-without-hadoop.tgz</a></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180115/JBJiB7BK7A.png?imageslim" alt="mark"></p>
+</li>
+<li><p>解压到当前目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -zxvf spark-2.2.1-bin-without-hadoop.tgz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将解压后的文件夹移动到<code>/usr/local/</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mv spark-2.2.1-bin-without-hadoop/ /usr/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置环境变量</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br></pre></td></tr></table></figure>
 <p>添加以下代码</p>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> SPARK_HOME=/usr/spark-2.2.1-bin-without-hadoop</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$SPARK_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$SPARK_HOME</span>/sbin</span><br></pre></td></tr></table></figure></p>
-<ol start="5" style="list-style-type: decimal">
-<li>更新环境变量配置</li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> SPARK_HOME=/usr/spark-2.2.1-bin-without-hadoop</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$SPARK_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$SPARK_HOME</span>/sbin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新环境变量配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure></p>
-<h3 id="spark配置">Spark配置</h3>
-<p>【注】此处以<code>master</code>主机为例，其他从机作相应更改</p>
-<h4 id="配置spark-env.sh">配置<code>spark-env.sh</code></h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/spark-2.2.1-bin-without-hadoop/conf/</span><br><span class="line">sudo cp spark-env.sh.template spark-env.sh</span><br><span class="line">sudo vim spark-env.sh</span><br></pre></td></tr></table></figure>
+<h3 id="Spark配置"><a href="#Spark配置" class="headerlink" title="Spark配置"></a>Spark配置</h3><p>【注】此处以<code>master</code>主机为例，其他从机作相应更改</p>
+<h4 id="配置spark-env-sh"><a href="#配置spark-env-sh" class="headerlink" title="配置spark-env.sh"></a>配置<code>spark-env.sh</code></h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/spark-2.2.1-bin-without-hadoop/conf/</span><br><span class="line">sudo cp spark-env.sh.template spark-env.sh</span><br><span class="line">sudo vim spark-env.sh</span><br></pre></td></tr></table></figure>
 <p>添加以下代码</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> SPARK_HOME=/usr/spark-2.2.1-bin-without-hadoop</span><br><span class="line"><span class="built_in">export</span> SPARK_DIST_CLASSPATH=$(/usr/hadoop-2.7.5/bin/hadoop classpath)</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/jdk1.8.0_151</span><br><span class="line"><span class="built_in">export</span> SCALA_HOME=/usr/scala-2.12.4</span><br><span class="line"><span class="built_in">export</span> HADOOP_HOME=/usr/hadoop-2.7.5</span><br><span class="line"><span class="built_in">export</span> HADOOP_CONF_DIR=/usr/hadoop-2.7.5/etc/hadoop</span><br><span class="line"><span class="built_in">export</span> SPARK_MASTER_IP=master</span><br><span class="line"><span class="built_in">export</span> SPARK_MASTER_HOST=master</span><br><span class="line"><span class="built_in">export</span> SPARK_LOCAL_IP=master</span><br><span class="line"><span class="built_in">export</span> SPARK_WORKER_MEMEORY=1g</span><br><span class="line"><span class="built_in">export</span> SPARK_EXECUTOR_MEMEORY=1g</span><br><span class="line"><span class="built_in">export</span> SPARK_DRIVER_MEMORY=1g</span><br><span class="line"><span class="built_in">export</span> SPARK_WORKER_CORES=1</span><br></pre></td></tr></table></figure>
 <p>【注】</p>
 <ul>
 <li><code>SPARK_LOCAL_IP</code>为本地地址，从机需要更改为自己的IP</li>
 </ul>
-<h4 id="配置slaves">配置<code>slaves</code></h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo cp slaves.template slaves</span><br><span class="line">sudo vim slaves</span><br></pre></td></tr></table></figure>
+<h4 id="配置slaves"><a href="#配置slaves" class="headerlink" title="配置slaves"></a>配置<code>slaves</code></h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo cp slaves.template slaves</span><br><span class="line">sudo vim slaves</span><br></pre></td></tr></table></figure>
 <p>添加所有从机的主机名</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node1</span><br><span class="line">node2</span><br></pre></td></tr></table></figure>
-<h3 id="启动集群">启动集群</h3>
-<p>因为Spark基于Hadoop，所以需要先启动Hadoop。</p>
+<h3 id="启动集群"><a href="#启动集群" class="headerlink" title="启动集群"></a>启动集群</h3><p>因为Spark基于Hadoop，所以需要先启动Hadoop。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">start-all.sh</span><br></pre></td></tr></table></figure>
 <p>再启动Spark，进入到Spark安装目录下的<code>sbin</code>文件夹</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/spark-2.2.1-bin-without-hadoop/sbin</span><br></pre></td></tr></table></figure>
 <p>执行<code>sbin</code>文件夹下的<code>start-all.sh</code>，若直接执行<code>start-all.sh</code>，启动的是Hadoop</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./start-all.sh</span><br></pre></td></tr></table></figure>
-<h3 id="查看集群">查看集群</h3>
-<h4 id="查看进程">查看进程</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">jps</span><br></pre></td></tr></table></figure>
+<h3 id="查看集群"><a href="#查看集群" class="headerlink" title="查看集群"></a>查看集群</h3><h4 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">jps</span><br></pre></td></tr></table></figure>
 <p>主机上显示以下进程</p>
-<div class="figure">
-<img src="http://p15qizl76.bkt.clouddn.com/blog/180116/laek5CEcGf.png?imageslim" alt="mark">
-<p class="caption">mark</p>
-</div>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180116/laek5CEcGf.png?imageslim" alt="mark"></p>
 <p>从机显示以下进程</p>
-<div class="figure">
-<img src="http://p15qizl76.bkt.clouddn.com/blog/180116/8ab821igFG.png?imageslim" alt="mark">
-<p class="caption">mark</p>
-</div>
-<h4 id="通过web查看状态">通过Web查看状态</h4>
-<p>在主机<code>master</code>上打开浏览器，访问<code>http://localhost:8080</code></p>
-<div class="figure">
-<img src="http://p15qizl76.bkt.clouddn.com/blog/180116/4igD0E0HI2.png?imageslim" alt="mark">
-<p class="caption">mark</p>
-</div>
-<h4 id="运行pyspark">运行pyspark</h4>
-<p>进入到spark安装目录下的<code>bin</code>文件夹</p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180116/8ab821igFG.png?imageslim" alt="mark"></p>
+<h4 id="通过Web查看状态"><a href="#通过Web查看状态" class="headerlink" title="通过Web查看状态"></a>通过Web查看状态</h4><p>在主机<code>master</code>上打开浏览器，访问<code>http://localhost:8080</code></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180116/4igD0E0HI2.png?imageslim" alt="mark"></p>
+<h4 id="运行pyspark"><a href="#运行pyspark" class="headerlink" title="运行pyspark"></a>运行pyspark</h4><p>进入到spark安装目录下的<code>bin</code>文件夹</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/spark-2.2.1-bin-without-hadoop/bin/</span><br></pre></td></tr></table></figure>
 <p>运行<code>pyspark</code></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./pyspark</span><br></pre></td></tr></table></figure>
-<div class="figure">
-<img src="http://p15qizl76.bkt.clouddn.com/blog/180116/4kfiDg4IfL.png?imageslim" alt="mark">
-<p class="caption">mark</p>
-</div>
-<h4 id="运行spark-shell">运行spark-shell</h4>
-<p>进入到spark安装目录下的<code>bin</code>文件夹</p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180116/4kfiDg4IfL.png?imageslim" alt="mark"></p>
+<h4 id="运行spark-shell"><a href="#运行spark-shell" class="headerlink" title="运行spark-shell"></a>运行spark-shell</h4><p>进入到spark安装目录下的<code>bin</code>文件夹</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/spark-2.2.1-bin-without-hadoop/bin/</span><br></pre></td></tr></table></figure>
 <p>运行<code>spark-shell</code></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./sparkshell</span><br></pre></td></tr></table></figure>
-<div class="figure">
-<img src="http://p15qizl76.bkt.clouddn.com/blog/180116/9DKJiIi12F.png?imageslim" alt="mark">
-<p class="caption">mark</p>
-</div>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180116/9DKJiIi12F.png?imageslim" alt="mark"></p>
 <p>以上，证明spark配置成功。</p>
-<h3 id="关闭集群">关闭集群</h3>
-<p>同样进入到Spark安装目录下的<code>sbin</code>文件夹</p>
+<h3 id="关闭集群"><a href="#关闭集群" class="headerlink" title="关闭集群"></a>关闭集群</h3><p>同样进入到Spark安装目录下的<code>sbin</code>文件夹</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/spark-2.2.1-bin-without-hadoop/sbin</span><br><span class="line">./stop-all.sh</span><br></pre></td></tr></table></figure>
 
         
@@ -680,7 +639,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统环境"><span class="nav-text">系统环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作步骤"><span class="nav-text">操作步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装scala"><span class="nav-text">安装Scala</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装spark"><span class="nav-text">安装Spark</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spark配置"><span class="nav-text">Spark配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置spark-env.sh"><span class="nav-text">配置spark-env.sh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置slaves"><span class="nav-text">配置slaves</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动集群"><span class="nav-text">启动集群</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看集群"><span class="nav-text">查看集群</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看进程"><span class="nav-text">查看进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过web查看状态"><span class="nav-text">通过Web查看状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行pyspark"><span class="nav-text">运行pyspark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行spark-shell"><span class="nav-text">运行spark-shell</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭集群"><span class="nav-text">关闭集群</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统环境"><span class="nav-text">系统环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作步骤"><span class="nav-text">操作步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Scala"><span class="nav-text">安装Scala</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Spark"><span class="nav-text">安装Spark</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spark配置"><span class="nav-text">Spark配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置spark-env-sh"><span class="nav-text">配置spark-env.sh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置slaves"><span class="nav-text">配置slaves</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动集群"><span class="nav-text">启动集群</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看集群"><span class="nav-text">查看集群</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看进程"><span class="nav-text">查看进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过Web查看状态"><span class="nav-text">通过Web查看状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行pyspark"><span class="nav-text">运行pyspark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行spark-shell"><span class="nav-text">运行spark-shell</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭集群"><span class="nav-text">关闭集群</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

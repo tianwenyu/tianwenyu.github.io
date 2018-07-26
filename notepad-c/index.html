@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="安装MinGW编译器 若安装过CodeBlocks，只需要将绝对路径MinGW/bin添加到环境变量path中。 若未安装任何编译器，先安装编译器，并将bin文件夹的绝对路径添加到环境变量path中。 安装NppExec插件 之前文章Notepad++编译运行Java中有安装过程，在此不再重复 配置C/C++编译器">
+<meta name="description" content="安装MinGW编译器若安装过CodeBlocks，只需要将绝对路径MinGW/bin添加到环境变量path中。 若未安装任何编译器，先安装编译器，并将bin文件夹的绝对路径添加到环境变量path中。 安装NppExec插件之前文章Notepad++编译运行Java中有安装过程，在此不再重复 配置C/C++编译器">
 <meta name="keywords" content="Notepad++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Notepad++编译、运行C&#x2F;C++">
 <meta property="og:url" content="https://tianwenyu.github.io/notepad-c/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="安装MinGW编译器 若安装过CodeBlocks，只需要将绝对路径MinGW/bin添加到环境变量path中。 若未安装任何编译器，先安装编译器，并将bin文件夹的绝对路径添加到环境变量path中。 安装NppExec插件 之前文章Notepad++编译运行Java中有安装过程，在此不再重复 配置C/C++编译器">
+<meta property="og:description" content="安装MinGW编译器若安装过CodeBlocks，只需要将绝对路径MinGW/bin添加到环境变量path中。 若未安装任何编译器，先安装编译器，并将bin文件夹的绝对路径添加到环境变量path中。 安装NppExec插件之前文章Notepad++编译运行Java中有安装过程，在此不再重复 配置C/C++编译器">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/171225/3bF2a3h9D6.png?imageslim">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/171225/IEDAL5eiih.png?imageslim">
@@ -103,7 +103,7 @@
 <meta property="og:updated_time" content="2017-12-25T09:56:08.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Notepad++编译、运行C&#x2F;C++">
-<meta name="twitter:description" content="安装MinGW编译器 若安装过CodeBlocks，只需要将绝对路径MinGW/bin添加到环境变量path中。 若未安装任何编译器，先安装编译器，并将bin文件夹的绝对路径添加到环境变量path中。 安装NppExec插件 之前文章Notepad++编译运行Java中有安装过程，在此不再重复 配置C/C++编译器">
+<meta name="twitter:description" content="安装MinGW编译器若安装过CodeBlocks，只需要将绝对路径MinGW/bin添加到环境变量path中。 若未安装任何编译器，先安装编译器，并将bin文件夹的绝对路径添加到环境变量path中。 安装NppExec插件之前文章Notepad++编译运行Java中有安装过程，在此不再重复 配置C/C++编译器">
 <meta name="twitter:image" content="http://p15qizl76.bkt.clouddn.com/blog/171225/3bF2a3h9D6.png?imageslim">
 
 
@@ -365,60 +365,38 @@
       
 
       
-        <h2 id="安装mingw编译器">安装<code>MinGW</code>编译器</h2>
-<p>若安装过<code>CodeBlocks</code>，只需要将绝对路径<code>MinGW/bin</code>添加到环境变量<code>path</code>中。</p>
+        <h2 id="安装MinGW编译器"><a href="#安装MinGW编译器" class="headerlink" title="安装MinGW编译器"></a>安装<code>MinGW</code>编译器</h2><p>若安装过<code>CodeBlocks</code>，只需要将绝对路径<code>MinGW/bin</code>添加到环境变量<code>path</code>中。</p>
 <p>若未安装任何编译器，先安装编译器，并将<code>bin</code>文件夹的绝对路径添加到环境变量<code>path</code>中。</p>
-<h2 id="安装nppexec插件">安装<code>NppExec</code>插件</h2>
-<p>之前文章<code>Notepad++编译运行Java</code>中有安装过程，在此不再重复</p>
-<h2 id="配置cc编译器">配置C/C++编译器</h2>
-<a id="more"></a>
-<h3 id="配置c编译器">配置C编译器</h3>
-<ol style="list-style-type: decimal">
-<li><p>打开<code>Plugins-&gt;NppExec--&gt;Execute</code></p></li>
-<li><p>在对话框中输入</p></li>
-</ol>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmd /c <span class="string">"gcc -o <span class="variable">$(CURRENT_DIRECTORY)</span>\$(NAME_PART) <span class="variable">$(FULL_CURRENT_PATH)</span> &amp;&amp; CLS &amp;&amp; pushd <span class="variable">$(CURRENT_DIRECTORY)</span> &amp;&amp; <span class="variable">$(NAME_PART)</span>.exe"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="安装NppExec插件"><a href="#安装NppExec插件" class="headerlink" title="安装NppExec插件"></a>安装<code>NppExec</code>插件</h2><p>之前文章<code>Notepad++编译运行Java</code>中有安装过程，在此不再重复</p>
+<h2 id="配置C-C-编译器"><a href="#配置C-C-编译器" class="headerlink" title="配置C/C++编译器"></a>配置C/C++编译器</h2><a id="more"></a>
+<h3 id="配置C编译器"><a href="#配置C编译器" class="headerlink" title="配置C编译器"></a>配置C编译器</h3><ol>
+<li><p>打开<code>Plugins-&gt;NppExec--&gt;Execute</code></p>
+</li>
+<li><p>在对话框中输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmd /c <span class="string">"gcc -o <span class="variable">$(CURRENT_DIRECTORY)</span>\$(NAME_PART) <span class="variable">$(FULL_CURRENT_PATH)</span> &amp;&amp; CLS &amp;&amp; pushd <span class="variable">$(CURRENT_DIRECTORY)</span> &amp;&amp; <span class="variable">$(NAME_PART)</span>.exe"</span></span><br></pre></td></tr></table></figure>
 <p>点击<code>Save</code>保存，命名为<code>Run C</code></p>
-<div class="figure">
-<img src="http://p15qizl76.bkt.clouddn.com/blog/171225/3bF2a3h9D6.png?imageslim" alt="mark">
-<p class="caption">mark</p>
-</div>
-<ol start="3" style="list-style-type: decimal">
-<li>将上述保存的命令添加到<code>Macros</code>中。</li>
+</li>
 </ol>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/171225/3bF2a3h9D6.png?imageslim" alt="mark"></p>
+<ol start="3">
+<li><p>将上述保存的命令添加到<code>Macros</code>中。</p>
 <p>点击<code>Plugins-&gt;NppExec-&gt;Advanced Options</code></p>
 <p>在<code>Associated script</code>中选择<code>Run  C</code></p>
-<div class="figure">
-<img src="http://p15qizl76.bkt.clouddn.com/blog/171225/IEDAL5eiih.png?imageslim" alt="mark">
-<p class="caption">mark</p>
-</div>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/171225/IEDAL5eiih.png?imageslim" alt="mark"></p>
 <p>点击<code>Add/Modify</code>添加到<code>Menu Items</code>中，勾选<code>Place to the Macros submenu</code></p>
-<div class="figure">
-<img src="http://p15qizl76.bkt.clouddn.com/blog/171225/jfd4HLgadI.png?imageslim" alt="mark">
-<p class="caption">mark</p>
-</div>
-<ol start="4" style="list-style-type: decimal">
-<li>点击<code>Macros</code>，此时已经有<code>Run C</code>，点击<code>Macros-&gt;Modify Shortcut/Delete Macro</code></li>
-</ol>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/171225/jfd4HLgadI.png?imageslim" alt="mark"></p>
+</li>
+<li><p>点击<code>Macros</code>，此时已经有<code>Run C</code>，点击<code>Macros-&gt;Modify Shortcut/Delete Macro</code></p>
 <p>打开后点击<code>Plugin Commands</code>,为<code>Run C</code>设置快捷键</p>
-<div class="figure">
-<img src="http://p15qizl76.bkt.clouddn.com/blog/171225/60BaDmJHHj.png?imageslim" alt="mark">
-<p class="caption">mark</p>
-</div>
-<p>### 配置C++编译器</p>
-<p>步骤同上，第二步输入替换为</p>
-<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmd /c <span class="string">"g++ -o <span class="variable">$(CURRENT_DIRECTORY)</span>\$(NAME_PART) <span class="variable">$(FULL_CURRENT_PATH)</span> &amp;&amp; CLS &amp;&amp; pushd <span class="variable">$(CURRENT_DIRECTORY)</span> &amp;&amp; <span class="variable">$(NAME_PART)</span>.exe"</span></span><br></pre></td></tr></table></figure></p>
-<p>### 删除<code>NppExec</code>中的命令脚本</p>
-<p>点击<code>Plugins-&gt;NppExec-&gt;Execute</code>,点击<code>Save...</code></p>
-<div class="figure">
-<img src="http://p15qizl76.bkt.clouddn.com/blog/171225/7JL607BlD8.png?imageslim" alt="mark">
-<p class="caption">mark</p>
-</div>
-<p>​ 删除点击<code>Delete</code></p>
-<div class="figure">
-<img src="http://p15qizl76.bkt.clouddn.com/blog/171225/DABhgK4f8L.png?imageslim" alt="mark">
-<p class="caption">mark</p>
-</div>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/171225/60BaDmJHHj.png?imageslim" alt="mark"></p>
+<h3 id="配置C-编译器"><a href="#配置C-编译器" class="headerlink" title="配置C++编译器"></a>配置C++编译器</h3><p>步骤同上，第二步输入替换为</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmd /c <span class="string">"g++ -o <span class="variable">$(CURRENT_DIRECTORY)</span>\$(NAME_PART) <span class="variable">$(FULL_CURRENT_PATH)</span> &amp;&amp; CLS &amp;&amp; pushd <span class="variable">$(CURRENT_DIRECTORY)</span> &amp;&amp; <span class="variable">$(NAME_PART)</span>.exe"</span></span><br></pre></td></tr></table></figure>
+<h3 id="删除NppExec中的命令脚本"><a href="#删除NppExec中的命令脚本" class="headerlink" title="删除NppExec中的命令脚本"></a>删除<code>NppExec</code>中的命令脚本</h3><p>点击<code>Plugins-&gt;NppExec-&gt;Execute</code>,点击<code>Save...</code></p>
+</li>
+</ol>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/171225/7JL607BlD8.png?imageslim" alt="mark"></p>
+<p>​    删除点击<code>Delete</code></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/171225/DABhgK4f8L.png?imageslim" alt="mark"></p>
 
         
       
@@ -599,7 +577,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装mingw编译器"><span class="nav-text">安装MinGW编译器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装nppexec插件"><span class="nav-text">安装NppExec插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置cc编译器"><span class="nav-text">配置C/C++编译器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置c编译器"><span class="nav-text">配置C编译器</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装MinGW编译器"><span class="nav-text">安装MinGW编译器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装NppExec插件"><span class="nav-text">安装NppExec插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置C-C-编译器"><span class="nav-text">配置C/C++编译器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置C编译器"><span class="nav-text">配置C编译器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置C-编译器"><span class="nav-text">配置C++编译器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除NppExec中的命令脚本"><span class="nav-text">删除NppExec中的命令脚本</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

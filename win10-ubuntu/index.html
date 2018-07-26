@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="准备工作  ubuntu-17.04-desktop-amd64.iso EasyBCD 2.3 一个单独的分区（磁盘管理器中删除卷，但是不格式化，具体操作过程类似下述开辟临时分区） 【注】使用Win+X选择打开磁盘管理器">
+<meta name="description" content="准备工作 ubuntu-17.04-desktop-amd64.iso  EasyBCD 2.3  一个单独的分区（磁盘管理器中删除卷，但是不格式化，具体操作过程类似下述开辟临时分区）【注】使用Win+X选择打开磁盘管理器">
 <meta name="keywords" content="Linux,Ubuntu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Win10 Ubuntu双系统双硬盘 硬盘安装">
 <meta property="og:url" content="https://tianwenyu.github.io/win10-ubuntu/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="准备工作  ubuntu-17.04-desktop-amd64.iso EasyBCD 2.3 一个单独的分区（磁盘管理器中删除卷，但是不格式化，具体操作过程类似下述开辟临时分区） 【注】使用Win+X选择打开磁盘管理器">
+<meta property="og:description" content="准备工作 ubuntu-17.04-desktop-amd64.iso  EasyBCD 2.3  一个单独的分区（磁盘管理器中删除卷，但是不格式化，具体操作过程类似下述开辟临时分区）【注】使用Win+X选择打开磁盘管理器">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20171014140505761?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171014140547368?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
@@ -113,7 +113,7 @@
 <meta property="og:updated_time" content="2017-12-25T09:56:08.194Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Win10 Ubuntu双系统双硬盘 硬盘安装">
-<meta name="twitter:description" content="准备工作  ubuntu-17.04-desktop-amd64.iso EasyBCD 2.3 一个单独的分区（磁盘管理器中删除卷，但是不格式化，具体操作过程类似下述开辟临时分区） 【注】使用Win+X选择打开磁盘管理器">
+<meta name="twitter:description" content="准备工作 ubuntu-17.04-desktop-amd64.iso  EasyBCD 2.3  一个单独的分区（磁盘管理器中删除卷，但是不格式化，具体操作过程类似下述开辟临时分区）【注】使用Win+X选择打开磁盘管理器">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20171014140505761?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -377,81 +377,80 @@
       
 
       
-        <h2 id="准备工作">准备工作</h2>
-<ol style="list-style-type: decimal">
-<li><p>ubuntu-17.04-desktop-amd64.iso</p></li>
-<li><p>EasyBCD 2.3</p></li>
-<li><p>一个单独的分区（<strong>磁盘管理器中删除卷，但是不格式化</strong>，具体操作过程类似下述开辟临时分区） 【注】使用<code>Win+X</code>选择打开<code>磁盘管理器</code></p></li>
+        <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
+<li><p>ubuntu-17.04-desktop-amd64.iso</p>
+</li>
+<li><p>EasyBCD 2.3</p>
+</li>
+<li><p>一个单独的分区（<strong>磁盘管理器中删除卷，但是不格式化</strong>，具体操作过程类似下述开辟临时分区）<br>【注】使用<code>Win+X</code>选择打开<code>磁盘管理器</code></p>
+<a id="more"></a>
+</li>
 </ol>
-<p><a id="more"></a></p>
-<h2 id="安装过程">安装过程</h2>
-<h3 id="开辟一个临时分区">开辟一个临时分区</h3>
-<ol style="list-style-type: decimal">
-<li>打开<code>磁盘管理器</code>,找一个分区，右键点击<code>压缩卷</code>。 【注】不要选择要安装Linux系统分区分出一个临时分区，否则后面合并的时候会从基本磁盘转变为动态磁盘。后续处理会变得麻烦。 <img src="http://img.blog.csdn.net/20171014140505761?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"> <img src="http://img.blog.csdn.net/20171014140547368?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
-<li>输入压缩空间，与系统镜像文件相同就可以。会得到一个未分配分区。 <img src="http://img.blog.csdn.net/20171014140614532?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
-<li>右键点击新建卷，格式化为<code>FAT32</code>格式。 <img src="http://img.blog.csdn.net/20171014140657916?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"> <img src="http://img.blog.csdn.net/20171014140713680?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"> <img src="http://img.blog.csdn.net/20171014140730835?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
-<li>最后安装完成系统后，可以在创建的临时分区上右键点击<code>删除卷</code>，会得到一个未分配的分区空间，再在想要合并的分区上右键点击<code>扩展卷</code>。 <img src="http://img.blog.csdn.net/20171014140908765?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"> <img src="http://img.blog.csdn.net/20171014140924741?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"> <img src="http://img.blog.csdn.net/20171014140937519?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"> <img src="http://img.blog.csdn.net/20171014140955461?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
+<h2 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h2><h3 id="开辟一个临时分区"><a href="#开辟一个临时分区" class="headerlink" title="开辟一个临时分区"></a>开辟一个临时分区</h3><ol>
+<li>打开<code>磁盘管理器</code>,找一个分区，右键点击<code>压缩卷</code>。<br>【注】不要选择要安装Linux系统分区分出一个临时分区，否则后面合并的时候会从基本磁盘转变为动态磁盘。后续处理会变得麻烦。<br><img src="http://img.blog.csdn.net/20171014140505761?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171014140547368?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
+<li>输入压缩空间，与系统镜像文件相同就可以。会得到一个未分配分区。<br><img src="http://img.blog.csdn.net/20171014140614532?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
+<li>右键点击新建卷，格式化为<code>FAT32</code>格式。<br><img src="http://img.blog.csdn.net/20171014140657916?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171014140713680?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171014140730835?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
+<li>最后安装完成系统后，可以在创建的临时分区上右键点击<code>删除卷</code>，会得到一个未分配的分区空间，再在想要合并的分区上右键点击<code>扩展卷</code>。<br><img src="http://img.blog.csdn.net/20171014140908765?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171014140924741?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171014140937519?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171014140955461?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
 </ol>
-<h3 id="安装easybcd-2.3">安装EasyBCD 2.3</h3>
-<ol style="list-style-type: decimal">
+<h3 id="安装EasyBCD-2-3"><a href="#安装EasyBCD-2-3" class="headerlink" title="安装EasyBCD 2.3"></a>安装EasyBCD 2.3</h3><ol>
 <li><code>添加新条目--&gt;NeoGrub</code></li>
-<li>点击<code>安装</code> <img src="http://img.blog.csdn.net/20160525003717208?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></li>
-<li>点击<code>配置</code> <img src="http://img.blog.csdn.net/20160525003723633?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></li>
+<li>点击<code>安装</code><br><img src="http://img.blog.csdn.net/20160525003717208?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></li>
+<li>点击<code>配置</code><br><img src="http://img.blog.csdn.net/20160525003723633?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></li>
 <li>在打开的<code>menu.lst</code>文件中输入以下内容</li>
 </ol>
 <figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">title Install</span><br><span class="line">root (hdM,N) </span><br><span class="line">kernel (hdM,N)/vmlinuz<span class="selector-class">.efi</span> boot=casper iso-scan/filename=/linux<span class="selector-class">.iso</span> ro quiet splash locale=zh_CN<span class="selector-class">.UTF-8</span> </span><br><span class="line">initrd (hdM,N)/initrd.lz</span><br><span class="line">title reboot</span><br><span class="line">reboot</span><br><span class="line">title halt</span><br><span class="line">halt12345678</span><br></pre></td></tr></table></figure>
-<p>【注】 1. <code>hdM</code>是指第几块硬盘，我的是第二块硬盘所以是<code>hd1</code>，从0开始 <code>N</code>是指存放的第几个分区 2. <code>linux.iso</code>是指你要安装的Linux系统镜像，要与实际镜像文件相同。 . 若在安装过程启动的过程中卡住。把<code>quiet splash</code>改成<code>nomodeset</code></p>
-<h3 id="复制镜像文件到临时分区">复制镜像文件到临时分区</h3>
-<ol style="list-style-type: decimal">
+<p>【注】 </p>
+<ol>
+<li><code>hdM</code>是指第几块硬盘，我的是第二块硬盘所以是<code>hd1</code>，从0开始<br><code>N</code>是指存放的第几个分区 </li>
+<li><code>linux.iso</code>是指你要安装的Linux系统镜像，要与实际镜像文件相同。<br>\3. 若在安装过程启动的过程中卡住。把<code>quiet splash</code>改成<code>nomodeset</code></li>
+</ol>
+<h3 id="复制镜像文件到临时分区"><a href="#复制镜像文件到临时分区" class="headerlink" title="复制镜像文件到临时分区"></a>复制镜像文件到临时分区</h3><ol>
 <li>将镜像文件命名为<code>linux.iso</code></li>
-<li>复制到临时分区根目录下，解压缩出<code>casper</code>中的<code>initrd.lz</code>和<code>vmlinuz.efi</code>文件。 【注】若<code>casper</code>文件夹中的<code>vmlinuz.efi</code>文件没有<code>efi</code>后缀，重命名文件加上后缀即可。</li>
+<li>复制到临时分区根目录下，解压缩出<code>casper</code>中的<code>initrd.lz</code>和<code>vmlinuz.efi</code>文件。<br>【注】若<code>casper</code>文件夹中的<code>vmlinuz.efi</code>文件没有<code>efi</code>后缀，重命名文件加上后缀即可。</li>
 </ol>
-<h3 id="重启电脑">重启电脑</h3>
-<ol style="list-style-type: decimal">
-<li>选择NeoGrub <img src="http://img.blog.csdn.net/20160525003729036?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"> 【注】 若不能选择NeoGrub，进行如下更改。 打开EasyBCD，<code>编辑引导菜单--&gt;等待用户选择</code> <img src="http://img.blog.csdn.net/20160525003736008?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></li>
-<li>选择<code>Install</code> <img src="http://img.blog.csdn.net/20160525003743693?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"> 【注】 若出现找不到文件的错误，返回到上一级目录，按<code>e</code>进行修改，修改<code>(hdM,N)</code>修改N的数值，以便找到文件。</li>
+<h3 id="重启电脑"><a href="#重启电脑" class="headerlink" title="重启电脑"></a>重启电脑</h3><ol>
+<li>选择NeoGrub<br><img src="http://img.blog.csdn.net/20160525003729036?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"><br>【注】<br>若不能选择NeoGrub，进行如下更改。<br>打开EasyBCD，<code>编辑引导菜单--&gt;等待用户选择</code><br><img src="http://img.blog.csdn.net/20160525003736008?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></li>
+<li>选择<code>Install</code><br><img src="http://img.blog.csdn.net/20160525003743693?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"><br>【注】<br>若出现找不到文件的错误，返回到上一级目录，按<code>e</code>进行修改，修改<code>(hdM,N)</code>修改N的数值，以便找到文件。</li>
 </ol>
-<h3 id="安装系统">安装系统</h3>
-<ol style="list-style-type: decimal">
-<li><code>Ctrl+Alt+T</code>打开终端，卸载镜像 <code>sudo umount -l /isodevice</code></li>
-<li>点击<code>安装Ubuntu</code>按钮，进行安装 【注】建议拔掉网线，关闭Wifi，会加速安装速度。</li>
-<li>分区操作，选择<code>Something else</code> <img src="http://img.blog.csdn.net/20160604012741408?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></li>
-<li>选择空余的<code>free space</code> 双硬盘需要按以下格式分区，不然安装后会卡在启动界面。</li>
+<h3 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h3><ol>
+<li><code>Ctrl+Alt+T</code>打开终端，卸载镜像<br><code>sudo umount -l /isodevice</code></li>
+<li>点击<code>安装Ubuntu</code>按钮，进行安装<br>【注】建议拔掉网线，关闭Wifi，会加速安装速度。</li>
+<li>分区操作，选择<code>Something else</code><br><img src="http://img.blog.csdn.net/20160604012741408?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="img"></li>
+<li>选择空余的<code>free space</code><br>双硬盘需要按以下格式分区，不然安装后会卡在启动界面。</li>
 </ol>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>挂载点</th>
 <th>分区类型</th>
 <th>文件系统类型</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>/</td>
 <td>逻辑分区</td>
 <td>Ext4</td>
 </tr>
-<tr class="even">
+<tr>
 <td>/boot</td>
 <td>逻辑分区</td>
 <td>Ext4</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>/home</td>
 <td>逻辑分区</td>
 <td>Ext4</td>
 </tr>
-<tr class="even">
+<tr>
 <td>swap</td>
 <td>逻辑分区</td>
 <td>Swap area</td>
 </tr>
 </tbody>
 </table>
-<p>【注】双硬盘双系统都应该是逻辑分区 . 安装完成</p>
-<h3 id="删除linux系统">删除Linux系统</h3>
-<p>目前的方法不太安全，进入Win10磁盘管理器，直接将Linux系统的分区<code>删除卷</code>,会得到一个未分配分区，然后<code>新建简单卷</code>。 此种方法会重新开机找不到引导项，需要进入pe系统，修复引导项即可。</p>
+<p>【注】双硬盘双系统都应该是逻辑分区<br>\5. 安装完成</p>
+<h3 id="删除Linux系统"><a href="#删除Linux系统" class="headerlink" title="删除Linux系统"></a>删除Linux系统</h3><p>目前的方法不太安全，进入Win10磁盘管理器，直接将Linux系统的分区<code>删除卷</code>,会得到一个未分配分区，然后<code>新建简单卷</code>。<br>此种方法会重新开机找不到引导项，需要进入pe系统，修复引导项即可。</p>
 
         
       
@@ -486,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/win10-diskgenius-partition/" rel="next" title="Win10利用DiskGenius重建分区表">
-                <i class="fa fa-chevron-left"></i> Win10利用DiskGenius重建分区表
+              <a href="/hdware-dynamic2basic/" rel="next" title="安全的将动态磁盘转为基本磁盘">
+                <i class="fa fa-chevron-left"></i> 安全的将动态磁盘转为基本磁盘
               </a>
             
           </div>
@@ -634,7 +633,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装过程"><span class="nav-text">安装过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开辟一个临时分区"><span class="nav-text">开辟一个临时分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装easybcd-2.3"><span class="nav-text">安装EasyBCD 2.3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制镜像文件到临时分区"><span class="nav-text">复制镜像文件到临时分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重启电脑"><span class="nav-text">重启电脑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装系统"><span class="nav-text">安装系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除linux系统"><span class="nav-text">删除Linux系统</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装过程"><span class="nav-text">安装过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开辟一个临时分区"><span class="nav-text">开辟一个临时分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装EasyBCD-2-3"><span class="nav-text">安装EasyBCD 2.3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制镜像文件到临时分区"><span class="nav-text">复制镜像文件到临时分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重启电脑"><span class="nav-text">重启电脑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装系统"><span class="nav-text">安装系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除Linux系统"><span class="nav-text">删除Linux系统</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

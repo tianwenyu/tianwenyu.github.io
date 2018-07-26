@@ -86,20 +86,20 @@
 
 
 
-<meta name="description" content="安装Virtual Box增强功能包，若已安装，跳过该步骤。 在物理机设置一个共享文件夹，如F:/share/linux">
+<meta name="description" content="安装Virtual Box增强功能包，若已安装，跳过该步骤。  在物理机设置一个共享文件夹，如F:/share/linux">
 <meta name="keywords" content="Linux,VirtualBox">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VirtualBox中Linux设置共享文件夹">
 <meta property="og:url" content="https://tianwenyu.github.io/linux-share-dir/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="安装Virtual Box增强功能包，若已安装，跳过该步骤。 在物理机设置一个共享文件夹，如F:/share/linux">
+<meta property="og:description" content="安装Virtual Box增强功能包，若已安装，跳过该步骤。  在物理机设置一个共享文件夹，如F:/share/linux">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/171225/d5Jk68C4J1.png?imageslim">
 <meta property="og:image" content="http://img.blog.csdn.net/20171012170912680?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:updated_time" content="2018-01-05T09:24:03.076Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VirtualBox中Linux设置共享文件夹">
-<meta name="twitter:description" content="安装Virtual Box增强功能包，若已安装，跳过该步骤。 在物理机设置一个共享文件夹，如F:/share/linux">
+<meta name="twitter:description" content="安装Virtual Box增强功能包，若已安装，跳过该步骤。  在物理机设置一个共享文件夹，如F:/share/linux">
 <meta name="twitter:image" content="http://p15qizl76.bkt.clouddn.com/blog/171225/d5Jk68C4J1.png?imageslim">
 
 
@@ -363,30 +363,33 @@
       
 
       
-        <ol style="list-style-type: decimal">
-<li><p>安装Virtual Box增强功能包，若已安装，跳过该步骤。</p></li>
-<li><p>在物理机设置一个共享文件夹，如<code>F:/share/linux</code></p></li>
+        <ol>
+<li><p>安装Virtual Box增强功能包，若已安装，跳过该步骤。</p>
+</li>
+<li><p>在物理机设置一个共享文件夹，如<code>F:/share/linux</code></p>
+<a id="more"></a>
+</li>
+<li><p>点击VirtualBox状态栏上<code>设备——共享文件夹</code><br><img src="http://p15qizl76.bkt.clouddn.com/blog/171225/d5Jk68C4J1.png?imageslim" alt="mark"></p>
+</li>
+<li><p>添加共享文件夹，这里共享文件夹名称为<code>share</code>，后面步骤会用到，选择<code>固定分配</code>和<code>自动挂载</code>。<br><img src="http://img.blog.csdn.net/20171012170912680?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+</li>
+<li><p>进入Linux，打开终端，创建挂载点目录，这里为<code>/mnt/shared</code></p>
+</li>
 </ol>
-<p><a id="more"></a></p>
-<ol start="3" style="list-style-type: decimal">
-<li><p>点击VirtualBox状态栏上<code>设备——共享文件夹</code> <img src="http://p15qizl76.bkt.clouddn.com/blog/171225/d5Jk68C4J1.png?imageslim" alt="mark"></p></li>
-<li><p>添加共享文件夹，这里共享文件夹名称为<code>share</code>，后面步骤会用到，选择<code>固定分配</code>和<code>自动挂载</code>。 <img src="http://img.blog.csdn.net/20171012170912680?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGl3ZWVueQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p></li>
-<li><p>进入Linux，打开终端，创建挂载点目录，这里为<code>/mnt/shared</code></p></li>
+<p><code>sudo mkdir /mnt/shared</code> </p>
+<ol start="6">
+<li>挂载共享文件夹，这里的<code>share</code>就是上面步骤4中的共享文件夹名称<code>share</code> </li>
 </ol>
-<p><code>sudo mkdir /mnt/shared</code></p>
-<ol start="6" style="list-style-type: decimal">
-<li>挂载共享文件夹，这里的<code>share</code>就是上面步骤4中的共享文件夹名称<code>share</code></li>
+<p><code>sudo mount -t vboxsf share /mnt/shared</code> </p>
+<ol start="7">
+<li>设置自动挂载，可以在<code>/etc/fstab</code>中添加一项 </li>
 </ol>
-<p><code>sudo mount -t vboxsf share /mnt/shared</code></p>
-<ol start="7" style="list-style-type: decimal">
-<li>设置自动挂载，可以在<code>/etc/fstab</code>中添加一项</li>
-</ol>
-<p><code>sudo vim /etc/fstab</code> <code>share /mnt/shared vboxsf rw,gid=110,uid=1100,auto 0 0</code></p>
-<ol start="8" style="list-style-type: decimal">
-<li>卸载挂载点命令</li>
+<p><code>sudo vim /etc/fstab</code><br><code>share /mnt/shared vboxsf rw,gid=110,uid=1100,auto 0 0</code> </p>
+<ol start="8">
+<li>卸载挂载点命令 </li>
 </ol>
 <p><code>sudo umount -f /mnt/shared</code></p>
-<ol start="9" style="list-style-type: decimal">
+<ol start="9">
 <li>共享文件可以在<code>/mnt/shared</code>中查看</li>
 </ol>
 

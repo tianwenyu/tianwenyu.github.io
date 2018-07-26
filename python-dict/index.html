@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="字典常用操作 定义空字典 dic=&amp;#123;&amp;#125;">
+<meta name="description" content="字典常用操作定义空字典dic=&amp;#123;&amp;#125;">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Python Trick】Python中字典常用方法">
 <meta property="og:url" content="https://tianwenyu.github.io/python-dict/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="字典常用操作 定义空字典 dic=&amp;#123;&amp;#125;">
+<meta property="og:description" content="字典常用操作定义空字典dic=&amp;#123;&amp;#125;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-02-27T07:28:34.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Python Trick】Python中字典常用方法">
-<meta name="twitter:description" content="字典常用操作 定义空字典 dic=&amp;#123;&amp;#125;">
+<meta name="twitter:description" content="字典常用操作定义空字典dic=&amp;#123;&amp;#125;">
 
 
 
@@ -358,21 +358,13 @@
       
 
       
-        <h2 id="字典常用操作">字典常用操作</h2>
-<h3 id="定义空字典">定义空字典</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic=&#123;&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="字典常用操作"><a href="#字典常用操作" class="headerlink" title="字典常用操作"></a>字典常用操作</h2><h3 id="定义空字典"><a href="#定义空字典" class="headerlink" title="定义空字典"></a>定义空字典</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic=&#123;&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="键值对的添加">键值对的添加</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic[<span class="string">'name'</span>]=<span class="string">'zhangsan'</span></span><br></pre></td></tr></table></figure>
-<h2 id="字典遍历">字典遍历</h2>
-<p>通过<code>items()</code>方法返回的元组列表进行序列解包</p>
+<h3 id="键值对的添加"><a href="#键值对的添加" class="headerlink" title="键值对的添加"></a>键值对的添加</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic[<span class="string">'name'</span>]=<span class="string">'zhangsan'</span></span><br></pre></td></tr></table></figure>
+<h2 id="字典遍历"><a href="#字典遍历" class="headerlink" title="字典遍历"></a>字典遍历</h2><p>通过<code>items()</code>方法返回的元组列表进行序列解包</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> key,value <span class="keyword">in</span> dic.items():</span><br><span class="line">    print(<span class="string">'&#123;&#125;:&#123;&#125;'</span>.format(key,value))</span><br><span class="line">    <span class="comment">#print('%s:%s' %(key,value))</span></span><br></pre></td></tr></table></figure>
-<h2 id="字典排序">字典排序</h2>
-<h3 id="字典按键排序">字典按键排序</h3>
-<h4 id="第一类">第一类</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic=&#123;</span><br><span class="line">    <span class="string">"key1"</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">"key2"</span>: <span class="number">6</span>,</span><br><span class="line">    <span class="string">"key3"</span>: <span class="number">4</span>,</span><br><span class="line">    <span class="string">"key4"</span>: <span class="number">3</span>,</span><br><span class="line">&#125;</span><br><span class="line">print(key,dic[key] <span class="keyword">for</span> key <span class="keyword">in</span> sorted(dic.keys))</span><br></pre></td></tr></table></figure>
-<h4 id="第二类">第二类</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic=&#123;</span><br><span class="line">    <span class="string">"key1"</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">"key2"</span>: <span class="number">6</span>,</span><br><span class="line">    <span class="string">"key3"</span>: <span class="number">4</span>,</span><br><span class="line">    <span class="string">"key4"</span>: <span class="number">3</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#升序排序</span></span><br><span class="line">dic=dict(sorted(dic.items(),key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>]))</span><br><span class="line"><span class="comment">#降序排序</span></span><br><span class="line">dic=dict(sorted(dic.itmes(),key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>],reverse=<span class="keyword">True</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="字典排序"><a href="#字典排序" class="headerlink" title="字典排序"></a>字典排序</h2><h3 id="字典按键排序"><a href="#字典按键排序" class="headerlink" title="字典按键排序"></a>字典按键排序</h3><h4 id="第一类"><a href="#第一类" class="headerlink" title="第一类"></a>第一类</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic=&#123;</span><br><span class="line">    <span class="string">"key1"</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">"key2"</span>: <span class="number">6</span>,</span><br><span class="line">    <span class="string">"key3"</span>: <span class="number">4</span>,</span><br><span class="line">    <span class="string">"key4"</span>: <span class="number">3</span>,</span><br><span class="line">&#125;</span><br><span class="line">print(key,dic[key] <span class="keyword">for</span> key <span class="keyword">in</span> sorted(dic.keys))</span><br></pre></td></tr></table></figure>
+<h4 id="第二类"><a href="#第二类" class="headerlink" title="第二类"></a>第二类</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic=&#123;</span><br><span class="line">    <span class="string">"key1"</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">"key2"</span>: <span class="number">6</span>,</span><br><span class="line">    <span class="string">"key3"</span>: <span class="number">4</span>,</span><br><span class="line">    <span class="string">"key4"</span>: <span class="number">3</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#升序排序</span></span><br><span class="line">dic=dict(sorted(dic.items(),key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>]))</span><br><span class="line"><span class="comment">#降序排序</span></span><br><span class="line">dic=dict(sorted(dic.itmes(),key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>],reverse=<span class="keyword">True</span>))</span><br></pre></td></tr></table></figure>
 <p><code>sorted(iterable,key,reverse)</code></p>
 <ul>
 <li><code>iterable</code>参数代表可以迭代的对象，例如可以是<code>dict.items()</code>，<code>dict.keys()</code></li>
@@ -381,17 +373,16 @@
 </ul>
 <p><code>dic=dict(sorted(dic.items(),key=lambda x:x[0]))</code></p>
 <ul>
-<li><p><code>dic.items()</code>将<code>dic</code>转换为可迭代对象，迭代对象的元素为该字典元素，将其转换为元组</p></li>
-<li><p>key参数对应的lambda表达式即选取元组中的第一个元素作为比较参数，即键。</p></li>
-</ul>
+<li><p><code>dic.items()</code>将<code>dic</code>转换为可迭代对象，迭代对象的元素为该字典元素，将其转换为元组</p>
+</li>
+<li><p>key参数对应的lambda表达式即选取元组中的第一个元素作为比较参数，即键。</p>
 <p><code>lambda x:y</code>x表示输出参数，y表示lambda函数的返回值.</p>
-<ul>
-<li><code>sorted()</code>函数返回值是list类型。</li>
+</li>
+<li><p><code>sorted()</code>函数返回值是list类型。</p>
+</li>
 </ul>
-<h3 id="字典按值排序并输出top-k个元素">字典按值排序并输出Top K个元素</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic=&#123;</span><br><span class="line">    <span class="string">"key1"</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">"key2"</span>: <span class="number">6</span>,</span><br><span class="line">    <span class="string">"key3"</span>: <span class="number">4</span>,</span><br><span class="line">    <span class="string">"key4"</span>: <span class="number">3</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#升序排序</span></span><br><span class="line">dic=dict(sorted(dic.items(),key=<span class="keyword">lambda</span> x:x[<span class="number">1</span>]))</span><br><span class="line"><span class="comment">#降序排序</span></span><br><span class="line">dic=dict(sorted(dic.itmes(),key=<span class="keyword">lambda</span> x:x[<span class="number">1</span>],reverse=<span class="keyword">True</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出Top K个</span></span><br><span class="line">cnt=<span class="number">0</span></span><br><span class="line">k=<span class="number">10</span></span><br><span class="line"><span class="keyword">for</span> key,value <span class="keyword">in</span> dic.items():</span><br><span class="line">    cnt+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> cnt&gt;k:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    print(<span class="string">'&#123;&#125;:&#123;&#125;'</span>.format(key,value))</span><br></pre></td></tr></table></figure>
-<h2 id="字典对象写入json文件">字典对象写入Json文件</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">dic=&#123;</span><br><span class="line">    <span class="string">"key1"</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">"key2"</span>: <span class="number">6</span>,</span><br><span class="line">    <span class="string">"key3"</span>: <span class="number">4</span>,</span><br><span class="line">    <span class="string">"key4"</span>: <span class="number">3</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#中文字符需要设置ensure_ascii属性为False，否则输出为ASII码</span></span><br><span class="line">data=json.dumps(dic,ensure_ascii=<span class="keyword">False</span>)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'xxx.json'</span>,<span class="string">'w'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(data)</span><br></pre></td></tr></table></figure>
+<h3 id="字典按值排序并输出Top-K个元素"><a href="#字典按值排序并输出Top-K个元素" class="headerlink" title="字典按值排序并输出Top K个元素"></a>字典按值排序并输出Top K个元素</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic=&#123;</span><br><span class="line">    <span class="string">"key1"</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">"key2"</span>: <span class="number">6</span>,</span><br><span class="line">    <span class="string">"key3"</span>: <span class="number">4</span>,</span><br><span class="line">    <span class="string">"key4"</span>: <span class="number">3</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#升序排序</span></span><br><span class="line">dic=dict(sorted(dic.items(),key=<span class="keyword">lambda</span> x:x[<span class="number">1</span>]))</span><br><span class="line"><span class="comment">#降序排序</span></span><br><span class="line">dic=dict(sorted(dic.itmes(),key=<span class="keyword">lambda</span> x:x[<span class="number">1</span>],reverse=<span class="keyword">True</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出Top K个</span></span><br><span class="line">cnt=<span class="number">0</span></span><br><span class="line">k=<span class="number">10</span></span><br><span class="line"><span class="keyword">for</span> key,value <span class="keyword">in</span> dic.items():</span><br><span class="line">    cnt+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> cnt&gt;k:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    print(<span class="string">'&#123;&#125;:&#123;&#125;'</span>.format(key,value))</span><br></pre></td></tr></table></figure>
+<h2 id="字典对象写入Json文件"><a href="#字典对象写入Json文件" class="headerlink" title="字典对象写入Json文件"></a>字典对象写入Json文件</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">dic=&#123;</span><br><span class="line">    <span class="string">"key1"</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">"key2"</span>: <span class="number">6</span>,</span><br><span class="line">    <span class="string">"key3"</span>: <span class="number">4</span>,</span><br><span class="line">    <span class="string">"key4"</span>: <span class="number">3</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#中文字符需要设置ensure_ascii属性为False，否则输出为ASII码</span></span><br><span class="line">data=json.dumps(dic,ensure_ascii=<span class="keyword">False</span>)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'xxx.json'</span>,<span class="string">'w'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(data)</span><br></pre></td></tr></table></figure>
 
         
       
@@ -424,16 +415,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/windows-pip/" rel="next" title="Windows下pip更换源地址">
-                <i class="fa fa-chevron-left"></i> Windows下pip更换源地址
+              <a href="/whu-plants/" rel="next" title="武大植物分布">
+                <i class="fa fa-chevron-left"></i> 武大植物分布
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/whu-plants/" rel="prev" title="武大植物分布">
-                武大植物分布 <i class="fa fa-chevron-right"></i>
+              <a href="/windows-jupyter-notebook/" rel="prev" title="Windows下安装Jupyter Notebook">
+                Windows下安装Jupyter Notebook <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -572,7 +563,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字典常用操作"><span class="nav-text">字典常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义空字典"><span class="nav-text">定义空字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键值对的添加"><span class="nav-text">键值对的添加</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典遍历"><span class="nav-text">字典遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典排序"><span class="nav-text">字典排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字典按键排序"><span class="nav-text">字典按键排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一类"><span class="nav-text">第一类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二类"><span class="nav-text">第二类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典按值排序并输出top-k个元素"><span class="nav-text">字典按值排序并输出Top K个元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典对象写入json文件"><span class="nav-text">字典对象写入Json文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字典常用操作"><span class="nav-text">字典常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义空字典"><span class="nav-text">定义空字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键值对的添加"><span class="nav-text">键值对的添加</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典遍历"><span class="nav-text">字典遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典排序"><span class="nav-text">字典排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字典按键排序"><span class="nav-text">字典按键排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一类"><span class="nav-text">第一类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二类"><span class="nav-text">第二类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典按值排序并输出Top-K个元素"><span class="nav-text">字典按值排序并输出Top K个元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典对象写入Json文件"><span class="nav-text">字典对象写入Json文件</span></a></li></ol></div>
             
           </div>
         </section>

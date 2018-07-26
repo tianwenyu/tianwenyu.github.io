@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="指令的--help选项 --help选项显示命令的大致用法 ##man命令 man xxx">
+<meta name="description" content="##指令的–help选项--help选项显示命令的大致用法 ##man命令man xxx">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux帮助说明">
 <meta property="og:url" content="https://tianwenyu.github.io/linux-help/index.html">
 <meta property="og:site_name" content="Wenyu&#39;s Blog">
-<meta property="og:description" content="指令的--help选项 --help选项显示命令的大致用法 ##man命令 man xxx">
+<meta property="og:description" content="##指令的–help选项--help选项显示命令的大致用法 ##man命令man xxx">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-25T07:15:51.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux帮助说明">
-<meta name="twitter:description" content="指令的--help选项 --help选项显示命令的大致用法 ##man命令 man xxx">
+<meta name="twitter:description" content="##指令的–help选项--help选项显示命令的大致用法 ##man命令man xxx">
 
 
 
@@ -358,14 +358,17 @@
       
 
       
-        <h2 id="指令的--help选项">指令的--help选项</h2>
-<p><code>--help</code>选项显示命令的大致用法 ##man命令 <code>man xxx</code> <a id="more"></a> * <code>man page</code>常用键 | 按键 | 说明 | | | ----------- | ---------------------------------------- | ---- | | 空格键 | 向下翻页 | | | [page down] | 向下翻页 | | | [page up] | 向上翻页 | | | [home] | 去到第一页 | | | [end] | 去到最后一页 | | | /string | 向下搜索string这个字符串 | | | ?string | 向上搜索string这个字符串 | | | n,N | 利用<code>/</code>或<code>?</code>来搜寻字符串时，可以用<code>n</code>继续下一个搜寻（不论是<code>/</code>或<code>?</code>，用<code>N</code>反向搜寻 | | | q | 退出此次man page | |</p>
+        <p>##指令的–help选项<br><code>--help</code>选项显示命令的大致用法</p>
+<p>##man命令<br><code>man xxx</code><br><a id="more"></a></p>
 <ul>
-<li>可以使用<code>man man</code>命令获得更详细的说明</li>
-<li>可以使用<code>man -f</code>命令查找更多信息，如<code>man -f man</code>。 【注】此命令只能查找完整名称的命令。</li>
-<li>也可以使用<code>man -k</code>命令查找更多信息，如<code>man -k man</code>。 【注】此命令可以查找关键词，即模糊查找。</li>
-<li>man查询后的数字含义 | 代号 | 含义 | | ----- | ---------------------------------------- | | <strong>1</strong> | <strong>用户在shell环境中可以操作的指令或可执行文件，即一般用户可用</strong> | | 2 | 系统核心可呼叫的函数与工具 | | 3 | 一些常用的函数（function）与函数库（library），大部份分为c的函数库（lib从） | | 4 | 装置文件的说明，通常在/dev下的文件 | | <strong>5</strong> | <strong>配置文件或某些文件的格式</strong> | | 6 | 游戏 | | 7 | 惯例与协议，如Linux文件系统、网络协议、ASCII code等的说明 | | <strong>8</strong> | <strong>系统管理员可用的管理指令</strong> | | 9 | 跟kernel有关的文件 |</li>
-<li>man page 构成 | 代号 | 说明 | | | ------------ | ------------------------- | ---- | | NAME | 简短的指令，数据说明 | | | SYNOPSIS（大纲） | 简短的指令语法（syntax）简介 | | | DESCRIPSION | 较为完整的说明 | | | OPTIONS | 针对SYNOPSIS部分中，列举所有可用的选项说明 | | | SEE ALSO | 可以参考的，跟这个指令或数据有关的其他说明 | | ##info page 与<code>man page</code>的区别： <code>info page</code>将文件数据拆成一个个的段落，每个段落用自己的页面来编写，并且在每个页面中还有类似网页的超链接跳到各个不同的页面中，每个独立的页面被称为一个节点(node) | 按键 | 说明 | | | ----------- | ---------------------------- | ---- | | 空格键 | 向下翻页 | | | [page down] | 向下翻页 | | | [page up] | 向上翻页 | | | [tab] | 在node之间移动，有node的地方，通常会以<code>*</code>显示 | | | [enter] | 当光标在node上面时，进入该node | | | b | 移动光标到该info画面中的第一个node处 | | | e | 移动光标到该info画面中的最后一个node处 | | | n | 前往下一个node处 | | | p | 前往上一个node处 | | | u | 向上移动一层 | | | s(/) | 在info page中搜寻 | | | h,? | 显示求助选单 | | | q | 结束这次info page | |</li>
+<li><p><code>man page</code>常用键<br>| 按键          | 说明                                       |      |<br>| ———– | —————————————- | —- |<br>| 空格键         | 向下翻页                                     |      |<br>| [page down] | 向下翻页                                     |      |<br>| [page up]   | 向上翻页                                     |      |<br>| [home]      | 去到第一页                                    |      |<br>| [end]       | 去到最后一页                                   |      |<br>| /string     | 向下搜索string这个字符串                          |      |<br>| ?string     | 向上搜索string这个字符串                          |      |<br>| n,N         | 利用<code>/</code>或<code>?</code>来搜寻字符串时，可以用<code>n</code>继续下一个搜寻（不论是<code>/</code>或<code>?</code>，用<code>N</code>反向搜寻 |      |<br>| q           | 退出此次man page                             |      |</p>
+</li>
+<li><p>可以使用<code>man man</code>命令获得更详细的说明</p>
+</li>
+<li>可以使用<code>man -f</code>命令查找更多信息，如<code>man -f man</code>。<br>【注】此命令只能查找完整名称的命令。</li>
+<li>也可以使用<code>man -k</code>命令查找更多信息，如<code>man -k man</code>。<br>【注】此命令可以查找关键词，即模糊查找。</li>
+<li>man查询后的数字含义<br>| 代号    | 含义                                       |<br>| —– | —————————————- |<br>| <strong>1</strong> | <strong>用户在shell环境中可以操作的指令或可执行文件，即一般用户可用</strong>     |<br>| 2     | 系统核心可呼叫的函数与工具                            |<br>| 3     | 一些常用的函数（function）与函数库（library），大部份分为c的函数库（lib从） |<br>| 4     | 装置文件的说明，通常在/dev下的文件                      |<br>| <strong>5</strong> | <strong>配置文件或某些文件的格式</strong>                         |<br>| 6     | 游戏                                       |<br>| 7     | 惯例与协议，如Linux文件系统、网络协议、ASCII code等的说明     |<br>| <strong>8</strong> | <strong>系统管理员可用的管理指令</strong>                         |<br>| 9     | 跟kernel有关的文件                             |</li>
+<li>man page 构成<br>| 代号           | 说明                        |      |<br>| ———— | ————————- | —- |<br>| NAME         | 简短的指令，数据说明                |      |<br>| SYNOPSIS（大纲） | 简短的指令语法（syntax）简介         |      |<br>| DESCRIPSION  | 较为完整的说明                   |      |<br>| OPTIONS      | 针对SYNOPSIS部分中，列举所有可用的选项说明 |      |<br>| SEE ALSO     | 可以参考的，跟这个指令或数据有关的其他说明     |      |<br>##info page<br>与<code>man page</code>的区别：<br><code>info page</code>将文件数据拆成一个个的段落，每个段落用自己的页面来编写，并且在每个页面中还有类似网页的超链接跳到各个不同的页面中，每个独立的页面被称为一个节点(node)<br>| 按键          | 说明                           |      |<br>| ———– | —————————- | —- |<br>| 空格键         | 向下翻页                         |      |<br>| [page down] | 向下翻页                         |      |<br>| [page up]   | 向上翻页                         |      |<br>| [tab]       | 在node之间移动，有node的地方，通常会以<code>*</code>显示 |      |<br>| [enter]     | 当光标在node上面时，进入该node          |      |<br>| b           | 移动光标到该info画面中的第一个node处       |      |<br>| e           | 移动光标到该info画面中的最后一个node处      |      |<br>| n           | 前往下一个node处                   |      |<br>| p           | 前往上一个node处                   |      |<br>| u           | 向上移动一层                       |      |<br>| s(/)        | 在info page中搜寻                |      |<br>| h,?         | 显示求助选单                       |      |<br>| q           | 结束这次info page                |      |</li>
 </ul>
 
         
@@ -547,7 +550,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#指令的--help选项"><span class="nav-text">指令的--help选项</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

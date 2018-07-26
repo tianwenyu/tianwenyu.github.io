@@ -343,13 +343,11 @@
       
         
           
-            <h1 id="安装python">1.安装python</h1>
-<ol style="list-style-type: decimal">
+            <h1 id="1-安装python"><a href="#1-安装python" class="headerlink" title="1.安装python"></a>1.安装python</h1><ol>
 <li>建议更改安装路径到<code>c:\python</code>，可以方便notepad++调用。</li>
 <li>安装时选项建议选择<code>add path</code>，可以自动配置</li>
 </ol>
-<h1 id="配置notepad">2.配置notepad++</h1>
-<ol style="list-style-type: decimal">
+<h1 id="2-配置notepad"><a href="#2-配置notepad" class="headerlink" title="2.配置notepad++"></a>2.配置notepad++</h1><ol>
 <li><code>run</code>–&gt;<code>run</code></li>
 <li>填入命令<code>cmd /k c:\python\python.exe &quot;$(FULL_CURRENT_PATH)&quot; &amp; ECHO. &amp; PAUSE &amp; EXIT</code></li>
 </ol>
@@ -464,7 +462,7 @@
 
       
         
-          <ol style="list-style-type: decimal">
+          <ol>
 <li><code>Plugins--&gt;Plugin Manager--&gt;Show Plugin Manager</code></li>
 <li>安装<code>NppExec</code></li>
 <li><code>Plugins--&gt;NppExec</code></li>
@@ -583,8 +581,7 @@
 
       
         
-          <h3 id="背景">背景</h3>
-<p>将两个txt文件通过两者共有的某一项进行关联，类似于数据库中的不同表通过id相关联。 txt1:<code>#checkins(userID/venueID/time/offset)</code> txt2:#<code>pois(venueID/latitude/longtitude/words/country)</code> 通过共有项<code>venueID</code>，将<code>txt1</code>的数据以及<code>txt2</code>的数据关联起来，写入一个新的文件<code>txt3</code>。 格式如<code>userID/venueID/time/offset/latitude/longitude/words/country</code></p>
+          <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>将两个txt文件通过两者共有的某一项进行关联，类似于数据库中的不同表通过id相关联。<br>txt1:<code>#checkins(userID/venueID/time/offset)</code><br>txt2:#<code>pois(venueID/latitude/longtitude/words/country)</code><br>通过共有项<code>venueID</code>，将<code>txt1</code>的数据以及<code>txt2</code>的数据关联起来，写入一个新的文件<code>txt3</code>。<br>格式如<code>userID/venueID/time/offset/latitude/longitude/words/country</code></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/python-txt/" rel="contents">
               阅读全文 &raquo;
@@ -931,39 +928,35 @@
 
       
         
-          <h2 id="常量">常量</h2>
-<h3 id="整型常量integer">整型常量（Integer）</h3>
-<h4 id="整形常量的表示形式">整形常量的表示形式</h4>
-<table>
+          <h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><h3 id="整型常量（Integer）"><a href="#整型常量（Integer）" class="headerlink" title="整型常量（Integer）"></a>整型常量（Integer）</h3><h4 id="整形常量的表示形式"><a href="#整形常量的表示形式" class="headerlink" title="整形常量的表示形式"></a>整形常量的表示形式</h4><table>
 <thead>
-<tr class="header">
+<tr>
 <th>整型常量的表示形式</th>
 <th>特点</th>
 <th>举例</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>十进制</td>
 <td><code>0-9</code>的数字序列组成，数字前可带正负号</td>
 <td>256,-128,0,+7</td>
 </tr>
-<tr class="even">
+<tr>
 <td>八进制</td>
 <td>以<code>0</code>开头，后跟<code>0-7</code>的数字序列组成，<code>0</code>前可带正负号</td>
 <td>021，-017</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>十六进制</td>
 <td>以<code>0x</code>开头，后跟<code>0-9</code>,<code>a-f</code>的数字序列组成</td>
 <td>0x12,-0x1F</td>
 </tr>
 </tbody>
 </table>
-<h4 id="整型常量的类型">整型常量的类型</h4>
-<ul>
+<h4 id="整型常量的类型"><a href="#整型常量的类型" class="headerlink" title="整型常量的类型"></a>整型常量的类型</h4><ul>
 <li>长整形：<code>l</code>，如：-256L，1024l</li>
-<li>无符号整形：<code>u</code>，如：30u，256U， 不能表示成小于0的数，如-30u非法</li>
+<li>无符号整形：<code>u</code>，如：30u，256U，<br>不能表示成小于0的数，如-30u非法</li>
 <li>无符号长整形：<code>lu</code>，30lu
           <div class="post-more-link text-center">
             <a class="btn" href="/C-backup/" rel="contents">
@@ -1079,9 +1072,7 @@
 
       
         
-          <h2 id="gcc编译器">gcc编译器</h2>
-<h3 id="gcc编译流程">gcc编译流程</h3>
-<p><img src="https://dn-anything-about-doc.qbox.me/userid46108labid116time1432263084521?watermark/1/image/aHR0cDovL3N5bC1zdGF0aWMucWluaXVkbi5jb20vaW1nL3dhdGVybWFyay5wbmc=/dissolve/60/gravity/SouthEast/dx/0/dy/10" alt="编译流程"> 【Tips】 * Linux的可执行文件没有Windows那么明显的<code>.exe</code>扩展名，只需向其分配<code>x</code>权限即可。 <code>sudo chmod u+x filename</code> * gcc可以在编译的任何阶段结束，以便检查或使用该阶段的输出。
+          <h2 id="gcc编译器"><a href="#gcc编译器" class="headerlink" title="gcc编译器"></a>gcc编译器</h2><h3 id="gcc编译流程"><a href="#gcc编译流程" class="headerlink" title="gcc编译流程"></a>gcc编译流程</h3><p><img src="https://dn-anything-about-doc.qbox.me/userid46108labid116time1432263084521?watermark/1/image/aHR0cDovL3N5bC1zdGF0aWMucWluaXVkbi5jb20vaW1nL3dhdGVybWFyay5wbmc=/dissolve/60/gravity/SouthEast/dx/0/dy/10" alt="编译流程"><br>【Tips】<br>* Linux的可执行文件没有Windows那么明显的<code>.exe</code>扩展名，只需向其分配<code>x</code>权限即可。<br><code>sudo chmod u+x filename</code><br>* gcc可以在编译的任何阶段结束，以便检查或使用该阶段的输出。<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/linux-C/" rel="contents">
               阅读全文 &raquo;
@@ -1197,7 +1188,7 @@
       
         
           
-            <p><img src="http://p15qizl76.bkt.clouddn.com/blog/180101/G58kEC7Bmh.png?imageslim"> <img src="http://p15qizl76.bkt.clouddn.com/blog/180101/b9Hg2IJA4H.png?imageslim"></p>
+            <p><img src="http://p15qizl76.bkt.clouddn.com/blog/180101/G58kEC7Bmh.png?imageslim" alt=""><br><img src="http://p15qizl76.bkt.clouddn.com/blog/180101/b9Hg2IJA4H.png?imageslim" alt=""></p>
 
           
         
@@ -1309,12 +1300,13 @@
 
       
         
-          <h1 id="sudo命令详解"><code>sudo</code>命令详解</h1>
-<h2 id="susu-和sudo区别"><code>su</code>、<code>su-</code>和<code>sudo</code>区别</h2>
-<p>Linux中许多操作需要具有<code>root</code>用户权限才能执行，因此提供了<code>su</code>、<code>su-</code>、<code>sudo</code>命令使得用户具有<code>root</code>权限。</p>
-<h3 id="su与su-区别"><code>su</code>与<code>su-</code>区别</h3>
-<p><code>su</code>命令用于切换当前用户身份到其他用户身份，切换时需要被切换用户的密码 格式：<code>su [参数] username</code> 【注】如果只是<code>su</code>命令，不带有username，则默认切换到<code>root</code>用户，<code>su-</code>同上。 <code>su</code>与<code>su-</code>区别： * <code>su</code>切换到其他用户，但是不切换环境变量 * <code>su -</code>完整的切换一个用户环境,退出需要使用<code>exit</code>命令</p>
-<p>如果使用以上两个命令，建议使用<code>su-</code>
+          <h1 id="sudo命令详解"><a href="#sudo命令详解" class="headerlink" title="sudo命令详解"></a><code>sudo</code>命令详解</h1><h2 id="su、su-和sudo区别"><a href="#su、su-和sudo区别" class="headerlink" title="su、su-和sudo区别"></a><code>su</code>、<code>su-</code>和<code>sudo</code>区别</h2><p>Linux中许多操作需要具有<code>root</code>用户权限才能执行，因此提供了<code>su</code>、<code>su-</code>、<code>sudo</code>命令使得用户具有<code>root</code>权限。</p>
+<h3 id="su与su-区别"><a href="#su与su-区别" class="headerlink" title="su与su-区别"></a><code>su</code>与<code>su-</code>区别</h3><p><code>su</code>命令用于切换当前用户身份到其他用户身份，切换时需要被切换用户的密码<br>格式：<code>su [参数] username</code><br>【注】如果只是<code>su</code>命令，不带有username，则默认切换到<code>root</code>用户，<code>su-</code>同上。<br><code>su</code>与<code>su-</code>区别： </p>
+<ul>
+<li><code>su</code>切换到其他用户，但是不切换环境变量 </li>
+<li><code>su -</code>完整的切换一个用户环境,退出需要使用<code>exit</code>命令</li>
+</ul>
+<p>如果使用以上两个命令，建议使用<code>su-</code><br>
           <div class="post-more-link text-center">
             <a class="btn" href="/sudo/" rel="contents">
               阅读全文 &raquo;
@@ -1429,8 +1421,8 @@
 
       
         
-          <p>fastestmirror是yum的一个加速插件，这里是插件提示信息是插件不能用了。 步骤：</p>
-<p>1.修改插件的配置文件 <code># vi /etc/yum/pluginconf.d/fastestmirror.conf</code> 【Tips】：用<code>Tab</code>可补全 将<code>enabled=1</code>改为<code>enabled=0</code>
+          <p>fastestmirror是yum的一个加速插件，这里是插件提示信息是插件不能用了。<br>步骤：</p>
+<p>1.修改插件的配置文件<br><code># vi /etc/yum/pluginconf.d/fastestmirror.conf</code><br>【Tips】：用<code>Tab</code>可补全<br>将<code>enabled=1</code>改为<code>enabled=0</code><br>
           <div class="post-more-link text-center">
             <a class="btn" href="/centos-yum-fastestmirror/" rel="contents">
               阅读全文 &raquo;
@@ -1545,8 +1537,8 @@
 
       
         
-          <p>【注】执行命令时先进入root 1.安装需要的环境 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum groupinstall <span class="string">"Development Tools"</span></span><br><span class="line">sudo yum install kernel-devel</span><br></pre></td></tr></table></figure></p>
-<p>【注】如果出现<code>yum Loaded plugins:fastestmirror</code>问题，请参考<a href="http://blog.csdn.net/tiweeny/article/details/73333806" target="_blank" rel="external">CentOS下yum命令出现Loaded plugins: fastestmirror</a>
+          <p>【注】执行命令时先进入root<br>1.安装需要的环境<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum groupinstall <span class="string">"Development Tools"</span></span><br><span class="line">sudo yum install kernel-devel</span><br></pre></td></tr></table></figure></p>
+<p>【注】如果出现<code>yum Loaded plugins:fastestmirror</code>问题，请参考<a href="http://blog.csdn.net/tiweeny/article/details/73333806" target="_blank" rel="external">CentOS下yum命令出现Loaded plugins: fastestmirror</a><br>
           <div class="post-more-link text-center">
             <a class="btn" href="/centos-virtualbox/" rel="contents">
               阅读全文 &raquo;
@@ -1661,10 +1653,9 @@
 
       
         
-          <h2 id="提示符">提示符</h2>
-<ul>
-<li><code>$</code>为一般账户，<code>#</code>为root账号 ## 快捷键</li>
-<li><code>tab</code>可作为 （1）命令补齐 （2）档名补齐 （3）参数项补齐</li>
+          <h2 id="提示符"><a href="#提示符" class="headerlink" title="提示符"></a>提示符</h2><ul>
+<li><code>$</code>为一般账户，<code>#</code>为root账号<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2></li>
+<li><code>tab</code>可作为<br>（1）命令补齐<br>（2）档名补齐<br>（3）参数项补齐</li>
 <li><code>ctrl+z</code>暂停正在运行的程序</li>
 <li><code>ctrl+c</code>终止正在运行的程序</li>
 <li><code>ctrl+r</code>搜索输入过的命令</li>
@@ -1784,8 +1775,8 @@
 
       
         
-          <h2 id="指令的--help选项">指令的--help选项</h2>
-<p><code>--help</code>选项显示命令的大致用法 ##man命令 <code>man xxx</code>
+          <p>##指令的–help选项<br><code>--help</code>选项显示命令的大致用法</p>
+<p>##man命令<br><code>man xxx</code><br>
           <div class="post-more-link text-center">
             <a class="btn" href="/linux-help/" rel="contents">
               阅读全文 &raquo;
@@ -1902,8 +1893,8 @@
         
           
             <p>【注】</p>
-<p><strong><font='red'>Idea 2017.3以后版本无法使用该网址激活，该网址支持2017.3以下版本，如2017.2.4等 </font='red'></strong></p>
-<p>进入ide主页面，help-register-license server,然后输入 http://idea.iteblog.com/key.php（注意：php要小写）即可~ 如下图， <img src="http://img.blog.csdn.net/20170209165010618?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmd3ZW53dTI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="pic"></p>
+<p><strong>&lt;font=’red’&gt;Idea 2017.3以后版本无法使用该网址激活，该网址支持2017.3以下版本，如2017.2.4等 </strong></p>
+<p>进入ide主页面，help-register-license server,然后输入 <a href="http://idea.iteblog.com/key.php（注意：php要小写）即可" target="_blank" rel="external">http://idea.iteblog.com/key.php（注意：php要小写）即可</a>~<br>如下图，<br><img src="http://img.blog.csdn.net/20170209165010618?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmd3ZW53dTI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="pic"></p>
 
           
         
@@ -2016,7 +2007,7 @@
       
         
           
-            <p>Lua中没有continue，通过另一种方式实现了continue的功能 <figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> var=exp1,exp2 <span class="keyword">do</span> </span><br><span class="line">	<span class="keyword">while</span> <span class="literal">true</span> <span class="keyword">do</span> </span><br><span class="line">		<span class="keyword">if</span> condition expressions  <span class="keyword">do</span></span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		<span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">		other statements</span><br><span class="line">		...</span><br><span class="line">		...</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+            <p>Lua中没有continue，通过另一种方式实现了continue的功能<br><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> var=exp1,exp2 <span class="keyword">do</span> </span><br><span class="line">	<span class="keyword">while</span> <span class="literal">true</span> <span class="keyword">do</span> </span><br><span class="line">		<span class="keyword">if</span> condition expressions  <span class="keyword">do</span></span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		<span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">		other statements</span><br><span class="line">		...</span><br><span class="line">		...</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
 
           
         
