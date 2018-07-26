@@ -120,17 +120,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[【Python Trick】Python中字典常用方法]]></title>
-    <url>%2Fpython-dict%2F</url>
-    <content type="text"><![CDATA[字典常用操作定义空字典dic=&#123;&#125; 键值对的添加dic['name']='zhangsan' 字典遍历通过items()方法返回的元组列表进行序列解包 for key,value in dic.items(): print('&#123;&#125;:&#123;&#125;'.format(key,value)) #print('%s:%s' %(key,value)) 字典排序字典按键排序第一类dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;print(key,dic[key] for key in sorted(dic.keys)) 第二类dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#升序排序dic=dict(sorted(dic.items(),key=lambda x:x[0]))#降序排序dic=dict(sorted(dic.itmes(),key=lambda x:x[0],reverse=True)) sorted(iterable,key,reverse) iterable参数代表可以迭代的对象，例如可以是dict.items()，dict.keys() key参数是一个函数，用来选取参与比较的元素 reverse参数用来指定是升序还是降序 dic=dict(sorted(dic.items(),key=lambda x:x[0])) dic.items()将dic转换为可迭代对象，迭代对象的元素为该字典元素，将其转换为元组 key参数对应的lambda表达式即选取元组中的第一个元素作为比较参数，即键。 lambda x:yx表示输出参数，y表示lambda函数的返回值. sorted()函数返回值是list类型。 字典按值排序并输出Top K个元素dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#升序排序dic=dict(sorted(dic.items(),key=lambda x:x[1]))#降序排序dic=dict(sorted(dic.itmes(),key=lambda x:x[1],reverse=True))#输出Top K个cnt=0k=10for key,value in dic.items(): cnt+=1 if cnt&gt;k: break print('&#123;&#125;:&#123;&#125;'.format(key,value)) 字典对象写入Json文件import jsondic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#中文字符需要设置ensure_ascii属性为False，否则输出为ASII码data=json.dumps(dic,ensure_ascii=False)with open('xxx.json','w',encoding='utf-8') as f: f.write(data)]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[武大植物分布]]></title>
     <url>%2Fwhu-plants%2F</url>
     <content type="text"><![CDATA[文理学部李达塑像 樟树 蝴蝶花：4月，鸢尾科 鸢尾 吉祥草：百合科，秋花 南天竹：小檗科 锦绣杜鹃：杜鹃科 麦冬：百合科，6月开花 池衫 羊蹄：蓼科，酸模属 车前 蛇莓：蔷薇科，果不能吃 扬子毛茛 何首乌：蓼科 鸡矢藤：蓼科 海仙花 紫丁香 厚萼凌霄：位于亭子，6月开花 紫荆：苏木亚科，早春 工学部世纪广场 二球悬铃木 樟树 棕榈 复羽叶栾树 洋玉兰：常绿乔木，椭圆形革质叶 玉兰（白玉兰）：落叶乔木，先叶开花 结香：瑞香科，早春开花，先叶开花，花香久闻头疼 苏铁（铁树）：裸子植物，苏铁科 鹅观草：位于世纪广场草丛，下同 棒头草 雀麦 菵草 看麦娘 瓶尔小草：蕨类，此类是野生，不属于武大常规品种 绶草（盘龙参）：兰科，此类是野生，不属于武大常规品种 医学部广场 雪松 桂花（木犀） 樟树 池衫 细叶结缕草：位于广场草地，下同 狗牙根 早熟禾：早春开花 救荒野豌豆：荚果，比下类野豌豆果长 四籽野豌豆：荚果， 匍茎通泉草：玄参科，通泉草属，二唇形花 直立婆婆纳：玄参科 垂丝海棠：，蔷薇科苹果亚科苹果属，不位于广场，下同 贴梗海棠：灌木状，木瓜属，结果 槐树：豆科 喜树：珙桐科 信部星湖园 孝顺竹：丛生，禾本科 君迁子（黑枣）： 旱柳：星湖周围，下同 垂柳 榔榆：榆科，秋花秋果 朴树：榔榆旁边 木瓜：蔷薇科，树皮类似迷彩服 臭椿：苦木科 侧柏：柏科 柏木 武大牌坊入口区 金叶女贞 大叶黄杨 樟树 人文馆 桂花 圆柏 海桐 含笑 大叶黄杨 龙爪槐 桃花：距离人文馆稍远处，下同 梅花 山茶 紫薇 情人坡 池衫 山茶 垂丝海棠 贴梗海棠 湖北海棠 木瓜 茶港教工宿舍区小游园 枇杷 桂树 西区教工宿舍小游园 广玉兰 桂树 雪松 棕榈 小叶女贞 大叶黄杨 紫藤 中心湖区 秤锤树 杜仲 榔榆 朴树 小叶栎 皂荚 毛竹 紫叶李 绣球荚蒾 红继木 鸡爪槭 红枫 蝴蝶花 麦冬 酢浆草 珞珈山枫园路 水杉 枫树 棕榈 桂树 石楠 柑橘 鸡爪槭 紫叶李 老图书馆王世杰塑像 银杏 黑松 刺柏 黄连木 石榴 海桐 王星拱塑像 女贞 棕榈 海桐 法国冬青 西侧入口 石榴 南天竹 桂树 石榴 桑树 落木石楠 朴树 东侧入口 石楠 英国梧桐 龙柏 棕榈 侧柏 广玉兰 大楼前与老斋舍接邻草地 大叶黄杨 油茶 石榴 侧柏 棕榈 柑橘 黑松 红檵木 狗牙根 老斋舍顶从东到西的种植槽 龙柏 椤木石楠 竹 木槿 紫藤 圆柏 刺柏 行政楼行政楼内左右两侧的绿化圃 龙柏 吉祥草 行政楼东侧 对节白蜡 樱花基于《珞珈山原色植物图谱》 240号红花高盆樱：2月底至三月初开花，位于梅园校医院 241号尾叶樱桃：3-4月开花，位于行政楼旁，即绿樱，橘黄色果 242号大岛樱：3-4月开花，鲲鹏广场后的花园有几株 243号东京樱花：4月开花，奥场周围，樱花大道，黑果 244号垂枝樱花：3月底至四月初开花，晚樱，位于枫园14舍，岔路口通往枫园食堂。枫园三舍南侧路边、樱园南坡绿地（即情人坡） 245号日本晚樱：4月开花，教五周围，樱花大道和梅操之间情人坡，鲲鹏广场 信部星湖东侧： 山樱花：又称福岛樱或青肤樱，4月初开花，花期15-20天，位于校医院前、教四前、樱园入口路旁、樱园南坡绿地（下沉花园） 绿线学府路 樟树：行道树 金叶女贞：位于花坛 大叶黄杨：位于花坛 科技路 广玉兰：生科院到教四楼行道树 银杏：生科院到教四楼行道树 大叶黄杨 英国梧桐：教四到樱园路行道树 综述用途分类行道树 银杏 雪松 池衫 水杉 三角枫 枫树 梅树 桂树 女贞 樟树 广玉兰 英国梧桐 垂柳 石楠 樱树 园景树 樱树 圆柏 龙柏 重阳木 拐枣 榉树 榔榆 朴树 三角枫 雪松 杜英 水杉 乌桕 复羽叶栾树 梧桐 国槐 石楠 白玉兰 棕榈 黄连木 花灌类 红枫 紫薇 卫矛 紫叶桃 紫叶李 海桐 金丝桃 八角金盘 南天竹 竹叶椒 杜鹃 云南黄馨 月季 火棘 枸骨 绿篱类 马甲子 栀子 十大功劳 金心黄杨 雀舌黄杨 紫叶小檗 法国冬青 花坛花境类 月季 杜鹃 葱兰 一串红 一串蓝 火棘 重瓣棣棠 石蒜 大花马齿苋 夜来香 柳叶马鞭草 矮亚菊 山茶 夹竹桃 结香 木槿 中华绣线菊 凤尾鸡冠花 金盏菊 雏菊 金鸡菊 玉簪 萱草 美人蕉 锦带花 金钟花 观赏特性观形树 樟树 桂花 银杏 池衫 水杉 马尾松 雪松 侧柏 龙柏 广玉兰 英国梧桐 石楠 椤木石楠 红檵木 垂柳 朴树 大叶黄杨 三角枫 鸡爪槭 女贞 白花泡棢 榔榆 日本冷杉 黑松 金钱松 杉木 日本柳杉 落羽杉 日本花柏 罗汉松 鹅掌楸 粗榧 润楠 合欢 黄杨 雀舌黄杨 交让木 旱柳 胡桃 化香 卫矛 珊瑚朴 榆树 榉树 乌桕 重阳木 南酸枣 黄连木 盐肤木 中华槭 金钟花 白蜡树 十大功劳 紫薇 毛泡桐 七叶树 观花树春 含笑 白玉兰 桃 湖北海棠 李 梅 樱 麻叶绣线菊 中华绣线菊 重瓣棣棠 紫荆 瑞香 连翘 金钟花 探春花 云南黄馨 毛泡桐 白花泡桐 夏 广玉兰 金樱子 小果蔷薇 山合欢 合欢 绣球 山茱萸 荚蒾 红檵木 栾树 栀子 金丝桃 六月雪 春夏 紫藤 锦鸡儿 忍冬 锦带花 芜花 石楠 夏秋 白兰 糯米条 六道木 木槿 木芙蓉 多花勾儿茶 夹竹桃 牡荆 石榴 锦葵 秋 决明 冬春 腊梅 油茶 四季 月季 杜鹃 桂花 观叶树木春 山麻秆 石楠 秋 金钱松 落羽杉 水杉 池衫 银杏 鹅掌楸 榔榆 朴树 榆树 榉树 美国地锦 三角枫 鸡爪槭 中华槭 英国梧桐 重阳木 七叶树 四季 紫叶桃 紫叶李 特殊叶形 紫荆 八角枫 八角金盘 黄杨 雀舌黄杨 锦熟黄杨 旱柳 垂柳 海桐 爬山虎 美国地锦 大叶黄杨 夹竹桃 苏铁 杂集 秤锤树：位于未名湖畔东南角 大叶黄杨：位于梅园花坛 鹅掌楸：花期4-5月，枫园五舍、工学部网球场、珞珈广场 含笑：花期4-6月，位于标本馆前、校医院前花坛 红花酢浆草：校园花坛广布 红花石蒜：位于樱花大道至标本馆一带 海桐：花期4-5月，人文馆周边 合欢：珞珈山庄背面山坡、鲲鹏广场 花木兰：学校行道树 金丝桃：花期7-8月，梅园花坛 金银花：又名忍冬，花期4-6月，路旁、山坡灌丛、疏林中 鸡冠花：花期8-10月，花坛栽培 郁李：位于樱园 鸢尾：梅园花坛 棕榈：茶港教工生活区行道树 水杉：茶港教工生活区行道树 马尾松：南三区教工宿舍区 石榴：南三区教工宿舍区 女贞：狮子山、行政楼 枫树：枫园、奥场、珞珈广场 枫香树：枫园 桑树：信部、樱顶 樱花大道旁8棵银杏是20世纪30年代珞珈山建校初期栽植 罗汉松：育才路 绿樱：行政楼前 美人梅：梅园，梅和紫叶李杂交 阿拉伯婆婆纳： 柞树：武大附小花坛旁 南酸枣：武大梅园，名木]]></content>
@@ -139,6 +128,17 @@
       </categories>
       <tags>
         <tag>杂七杂八</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Python Trick】Python中字典常用方法]]></title>
+    <url>%2Fpython-dict%2F</url>
+    <content type="text"><![CDATA[字典常用操作定义空字典dic=&#123;&#125; 键值对的添加dic['name']='zhangsan' 字典遍历通过items()方法返回的元组列表进行序列解包 for key,value in dic.items(): print('&#123;&#125;:&#123;&#125;'.format(key,value)) #print('%s:%s' %(key,value)) 字典排序字典按键排序第一类dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;print(key,dic[key] for key in sorted(dic.keys)) 第二类dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#升序排序dic=dict(sorted(dic.items(),key=lambda x:x[0]))#降序排序dic=dict(sorted(dic.itmes(),key=lambda x:x[0],reverse=True)) sorted(iterable,key,reverse) iterable参数代表可以迭代的对象，例如可以是dict.items()，dict.keys() key参数是一个函数，用来选取参与比较的元素 reverse参数用来指定是升序还是降序 dic=dict(sorted(dic.items(),key=lambda x:x[0])) dic.items()将dic转换为可迭代对象，迭代对象的元素为该字典元素，将其转换为元组 key参数对应的lambda表达式即选取元组中的第一个元素作为比较参数，即键。 lambda x:yx表示输出参数，y表示lambda函数的返回值. sorted()函数返回值是list类型。 字典按值排序并输出Top K个元素dic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#升序排序dic=dict(sorted(dic.items(),key=lambda x:x[1]))#降序排序dic=dict(sorted(dic.itmes(),key=lambda x:x[1],reverse=True))#输出Top K个cnt=0k=10for key,value in dic.items(): cnt+=1 if cnt&gt;k: break print('&#123;&#125;:&#123;&#125;'.format(key,value)) 字典对象写入Json文件import jsondic=&#123; "key1": 5, "key2": 6, "key3": 4, "key4": 3,&#125;#中文字符需要设置ensure_ascii属性为False，否则输出为ASII码data=json.dumps(dic,ensure_ascii=False)with open('xxx.json','w',encoding='utf-8') as f: f.write(data)]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -281,6 +281,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Hexo之Indigo主题配置]]></title>
+    <url>%2Fhexo-indigo%2F</url>
+    <content type="text"><![CDATA[正文宽度加宽/themes/indigo/source/css/_partial/variable.less 把@contentWidth: 960px改成@contentWidth: 90% 同时config文件中修改cdn:false Header高度调整 themes/indigo/source/css/_partial/header.less` 修改content-header下的 .content-header &#123; //min-height: 210px; margin-left: -240px; //padding: 104px 16px 48px 256px; padding: 50px 16px 5px 256px; color: @textPrimaryColor; background: @primaryColor; text-shadow: 0 1px 1px rgba(0, 0, 0, .2); 把min-height注释掉 修改padding:50px 16px 5px 256px; 根据https://github.com/OhYee/hexo-theme-indigo/tree/OhYee更改 同时调整themes/indigo/source/css/_partial/article.less .post-card &#123; //margin-top: -150px; margin-top: 0px; min-height: 100px; padding: 35px; background: #fff; border-radius: 4px; box-shadow: 0 10px 30px rgba(0, 0, 0, .2); .post-meta &#123; margin-top: 8px; &#125;&#125; 修改margin-top: 0px 更改主题若是想要更改其他版本主题，如本主题其他人修改的主题，可以直接放到/themes文件夹下，重命名。再在./config.yml里更改主题。]]></content>
+      <categories>
+        <category>个人建站</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【评论文本分类】1.爬取评论数据]]></title>
     <url>%2Ftext-classification%2F</url>
     <content type="text"><![CDATA[环境配置 Ubuntu 16.04 Python 3.5 技术框架 Scrapy Selenium PhantomJS 需求目标对网址http://liuyan.cjn.cn/index.html进行数据爬取 本文爬虫有三层爬取，爬取结构层次如图所示， 主页面 列表页面，需要利用selenium+phantomJS模拟点击加载更多按钮 详情页面 把主页面中的红框中的各区（功能区）、政府部门、法检及其他单位等作为一级类保存，然后依次爬取一级类中各个分类 进入到列表页面，因为此页面是动态加载，并且是简介列表，因此需要加载完所有列表进入到详情页面。 进入到详情页面，爬取相应内容。 设计方案动态爬取数据一般有两种方法 分析包，构造Request 通过模拟浏览器行为加载页面 通过尝试，第一种方法对于此网站不适合，采用第二种方法。 采用Scrapy+Selenium+PhantomJS来进行动态网页的爬取。 SeleniumSelenium是一个自动化测试工具，本文用到的是其Webdriver，用其来操作浏览器，可以操作多种主流浏览器，如Chrome，Firefox等，下文中的PhantomJS是一种无界面的浏览器。 PhantomJSPhantomJS是一个无界面浏览器，提供JavaScript接口。通过这个工具，可以进行页面的加载、解析、操作等。 爬取方案 先爬取主页面各个主类（如各区（功能区）、政府部门等）下的子类链接，如（江岸区、江夏区等） 按照先前爬取的子类链接依次打开跳转到列表界面，然后利用Selenium+PhantomJS模拟浏览器动态加载完全部列表，解析出所有列表的链接，跳转到详情页面 进入到详情页面，解析所要提取的内容 详细步骤安装Scrapysudo pip3 install scrapy 安装PhantomJS 安装PhantomJS sudo apt-get install phantomjs apt-get会安装不完整，需要安装以下 sudo apt-get install nodejssudo apt-get install nodejs-legacysudo apt-get install npmsudo npm -g install phantomjs-prebuilt 安装Seleniumsudo pip3 install selenium 使用Scrapy 创建新工程 scrapy startproject xxxx 编辑items.py文件 from scrapy import Itemfrom scrapy import Field class MessageboardspiderItem(Item): # define the fields for your item here like: dir_name=Field() url=Field() title=Field() domain=Field() type=Field() content=Field()​ 3. 编写Spider 流程： - 先通过scrapy爬取`主页面`上的所有子分类链接， - 然后依次利用`PhantomJS`模拟点击`列表页面`的`加载更多`按钮，动态加载所有列表项，然后保存网页源码，抽取出其中的列表项的链接，进入`详情页面` 此两过程的代码都在`parse(self,response)`方法中 - 通过`parse_detailed_remark(self,response)`方法，解析出需要的内容 【注】目前版本爬取`主页面`上不同的主类需要手动改动`baseDir`与`self.start_urls` ```python import os import stat import scrapy import time from selenium import webdriver from scrapy.selector import Selector from scrapy.http import HtmlResponse from messageBoardSpider.items import MessageboardspiderItem baseDir = '/home/t/dataset/msgBoard/department/' #爬取不同主分类，需要手动改动 baseUrl='http://liuyan.cjn.cn' global subclass_name global brower class DistrictSpider(scrapy.Spider): name='spider' def __init__(self): global brower self.start_urls=['http://liuyan.cjn.cn/forum/list?fid=4'] #爬取不同主分类，需要手动改动 brower=webdriver.PhantomJS() #创建PhantomJS浏览器 def parse(self,response): global brower global subclass_name subclasses=response.xpath('/html/body/div[7]/ul/li/b/a') #解析出所有子分类 for subclass in subclasses: #逐条解析子分类 subclass_name=subclass.xpath('text()').extract() #解析 #make district directory self.mkdirs(baseDir+subclass_name[0]) #extrat new link link=subclass.xpath('@href').extract() #解析出子类的链接 #joint link link=str(baseUrl+link[0].split('..')[1]) #拼接链接 brower.get(link) #利用PhantomJS打开链接 #进行动态解析，直到没有'加载更多'按钮之后停止 while True: try: more=brower.find_element_by_id('show_more') #找到'加载更多'按钮 time.sleep(0.5) more.click() time.sleep(0.5) except: with open(baseDir+subclass_name[0]+'/web_page.txt','w',encoding='utf-8') as f: f.write(brower.page_source) print('ending') break #对加载完后的源码进行解析，解析出列表标题 items=brower.find_elements_by_xpath('//*[@id="list_content"]/li/h2/b/a') for item in items: #解析出列表标题链接 title_link=item.get_attribute('href') print(title_link+'.........') yield scrapy.Request(url=title_link,callback=self.parse_detailed_remark) #解析详情页面 def parse_detailed_remark(self,response): global subclass_name item=MessageboardspiderItem() item['dir_name']=subclass_name[0] item['url']=response.url item['title']=response.xpath('/html/body/div[6]/h2/b/text()').extract() item['domain']=response.xpath('/html/body/div[6]/h3/em[1]/a/text()').extract() item['type']=response.xpath('/html/body/div[6]/h3/em[2]/a/text()').extract() item['content']=response.xpath('//*[@id="zoom"]/text()').extract() yield item def mkdirs(self,path): if not os.path.exists(path): os.makedirs(path) os.chmod(path,stat.S_IRWXU|stat.S_IRWXG|stat.S_IRWXO) 编辑pipelines.py文件 import jsonimport codecsbaseDir = '/home/t/dataset/msgBoard/department/'class DistrictPipeline(object): def process_item(self, item, spider): with codecs.open(baseDir+item['dir_name']+'/data.json','a+',encoding='utf-8') as f: self.file=f line=json.dumps(dict(item),ensure_ascii=False)+'\n' self.file.write(line) return item 编辑settings.py文件 编辑pipelines的设置，把如下内容的注释去掉即可 #ITEM_PIPELINES = &#123;# 'messageBoardSpider.pipelines.DistrictPipeline': 300,#&#125; 运行爬虫 在项目根目录下新建一个main.py文件，运行爬虫执行该文件即可。 from scrapy.cmdline import executeexecute(['scrapy','crawl','spider']) 【注】execute([&#39;scrapy&#39;,&#39;crawl&#39;,&#39;spider&#39;]) 其中spider是爬虫名，按需更改即可。]]></content>
@@ -302,17 +313,6 @@
         <tag>Linux</tag>
         <tag>VirtualBox</tag>
         <tag>LVS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hexo之Indigo主题配置]]></title>
-    <url>%2Fhexo-indigo%2F</url>
-    <content type="text"><![CDATA[正文宽度加宽/themes/indigo/source/css/_partial/variable.less 把@contentWidth: 960px改成@contentWidth: 90% 同时config文件中修改cdn:false Header高度调整 themes/indigo/source/css/_partial/header.less` 修改content-header下的 .content-header &#123; //min-height: 210px; margin-left: -240px; //padding: 104px 16px 48px 256px; padding: 50px 16px 5px 256px; color: @textPrimaryColor; background: @primaryColor; text-shadow: 0 1px 1px rgba(0, 0, 0, .2); 把min-height注释掉 修改padding:50px 16px 5px 256px; 根据https://github.com/OhYee/hexo-theme-indigo/tree/OhYee更改 同时调整themes/indigo/source/css/_partial/article.less .post-card &#123; //margin-top: -150px; margin-top: 0px; min-height: 100px; padding: 35px; background: #fff; border-radius: 4px; box-shadow: 0 10px 30px rgba(0, 0, 0, .2); .post-meta &#123; margin-top: 8px; &#125;&#125; 修改margin-top: 0px 更改主题若是想要更改其他版本主题，如本主题其他人修改的主题，可以直接放到/themes文件夹下，重命名。再在./config.yml里更改主题。]]></content>
-      <categories>
-        <category>个人建站</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -418,17 +418,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PyCharm设置]]></title>
-    <url>%2Fpycharm-config%2F</url>
-    <content type="text"><![CDATA[使用Tab缩进Editor-&gt;Code Style-&gt;Python-&gt;Tabs and Indents勾选Use tab character和Smart tabs 取消自动更新Appearance&amp;Behavior-&gt;System Settings-&gt;Updates勾掉Automatically check updates for和Use secure connection]]></content>
-      <categories>
-        <category>IDE</category>
-      </categories>
-      <tags>
-        <tag>PyCharm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Intellij idea使用教程]]></title>
     <url>%2Fintellij-tutorial%2F</url>
     <content type="text"><![CDATA[快捷键设置 如 Gif 所示，在没有对 Ctrl + D 快捷键进行修改前，此快捷键将是用来复制并黏贴所选的内容的，但是黏贴的位置是补充在原来的位置后，我个人不喜欢这种风格，我喜欢复制所选的行数完整内容，所以进行了修改，修改后的效果如上图 Gif 演示。 如Gif 所示，默认 Ctrl + 空格 快捷键是基础代码提示、补充快捷键，但是由于我们中文系统基本这个快捷键都被输入法占用了，所以我们发现不管怎么按都是没有提示代码效果的，原因就是在此。我个人建议修改此快捷键为 Ctrl + 逗号。 Ctrl 快捷键 介绍 Ctrl+, 代码补全，自定义 Ctrl+F 当前文件文本查找 Ctrl+R 当前文件文本替换 Ctrl+Y 删除光标所在行或选中行 Ctrl+D 复制光标所在行 Ctrl+U 前往光标所在方法的父类方法或接口 Ctrl+E 显示最近打开的文件记录列表 Ctrl+J 插入自定义动态代码模板 Ctrl+P 方法参数提示 Ctrl+W 递进式选择代码块。 Ctrl+Q 光标所在的变量、类名、方法名上显示文档内容 Ctrl+N 根据输入的类名查找类文件 Alt 快捷键 介绍 Alt+Enter 快速修复 Alt+Insert 代码自动生成，如set/get方法，构造函数 Alt+前方向键 当前光标跳转到当前文件的前一个方法名位置 Alt+后方向键 当前光标跳转到当前文件的后一个方法名位置 Alt+1 显示/隐藏 导航栏 Shift 快捷键 介绍 Shift+F6 重命名文件/文件夹 Shift+Tab 取消缩进 Shift+End 使光标到当前行尾位置 Shift+Home 使光标到当前行首位置 Shift+滚轮滚动 当前文件的横向滚动 Shift+Enter 开始新的一行 Ctrl+Alt 快捷键 介绍 Ctrl+Alt+L 格式化代码，可以对当前文件和整个包目录使用 Ctrl+Alt+O 优化导入的类 Ctrl+Alt+I 光标所在行代码缩进 Ctrl+Alt+S 打开系统设置 Ctrl+Shift 快捷键 介绍 Ctrl+Shift+F 查找整个项目 Ctril+Shift+R 在整个项目范围内替换 Ctrl+Shift+J 自动将下一行合并到当前行末尾 Ctrl+Shift+Z 取消撤销 Ctrl+Shift+W 递进式取消选择代码快 Ctrl+Shift+T 对当前类生成单元测试类 Ctrl+Shift+C 复制当前文件磁盘路径到剪切板 Ctrl+Shift+B 跳转到类型声明处 Ctrl+Shift+/ 代码块注释 Ctrl+Shift+Space 智能代码提示 Ctrl+Shift+Enter 自动结束代码，行末自动添加分号` Ctrl+Shift+Backspace 退回到上次修改的地方 Ctrl+Shift+Alt 快捷键 介绍 Ctrl+Shift+Alt+S 打开当前项目设置 其他 快捷键 介绍 F2 跳转到下一个高亮错误或警告位置 F4 编辑源 Shift连按两次 弹出Search Everywhere 常用设置 如Gif 所示，我们可以勾选此设置后，增加 Ctrl + 鼠标滚轮 快捷键来控制代码字体大小显示。Editor-&gt;General-&gt;Change font size(Zoom) with Ctrl+Mouse Wheel 可以勾选此设置后，增加 Ctrl + 鼠标滚轮 快捷键来控制图片的大小显示。Editor-&gt;Images-&gt;Zoom image with mouse wheel(Ctrl+Mouse Wheel) 显示方法线Eidtor-&gt;General-&gt;Apperance-&gt;Show method separators 如Gif 所示，即使我们项目没有使用版本控制功能，IntelliJ IDEA 也给我们提供了本地文件历史记录。除了简单的记录之外，我们还可以给当前版本加标签。 如Gif 所示，IntelliJ IDEA 自带模拟请求工具 Rest Client，在开发时用来模拟请求是非常好用的。 如Gif 所示，IntelliJ IDEA 的自定义 TODO 功能非常好用，强烈建议平时开发要经常使用上。 如图箭头所示，在 Debug 状态下，如果我们要批量删除断点，可以点击图上箭头所示的按钮，然后选中要删除的断点按断点上面的减号进行删除。 如图所示，不管是用 IntelliJ IDEA 打开新文件，或是在安装本地插件，在弹出的窗口中，图 1 按钮支持快速定位到系统桌面目录，图 2 按钮支持快速定位到当前项目目录。 如图所示，默认 IntelliJ IDEA 对于 Java 代码的单行注释是把注释的斜杠放在行数的最开头，我个人觉得这样的单行注释非常丑，整个代码风格很难看，所以一般会设置为单行注释的两个斜杠跟随在代码的头部。Editor-&gt;Code Style-&gt;Java-&gt;Code Generation-&gt;Line comment at fisrt勾掉 如图 Gif 所示，对于横向太长的代码我们可以进行软分行查看。软分行引起的分行效果是 IntelliJ IDEA 设置的，本质代码是没有真的分行的。 如图箭头所示，该设置可以增加 Ctrl + E 弹出层显示的记录文件个数。 默认 IntelliJ IDEA 是没有开启自动帮你生成 serialVersionUID 的，需要我们自行设置。如图第一张，需要先勾选：Serializable class without serialVersionUID如图第二张，在已经继承了 Serializable 接口的类名上，把光标放在类名上（必须这样做），按 Alt + Enter，即可提示帮你生成 serialVersionUID 功能。 如图 gif 演示的：Load/Unload Modules 是 2017.2 引入的新特性，对于多模块的项目开发 Unload 部分少用到的模块可以减少计算机 CPU 和内存的消耗。]]></content>
@@ -440,6 +429,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[PyCharm设置]]></title>
+    <url>%2Fpycharm-config%2F</url>
+    <content type="text"><![CDATA[使用Tab缩进Editor-&gt;Code Style-&gt;Python-&gt;Tabs and Indents勾选Use tab character和Smart tabs 取消自动更新Appearance&amp;Behavior-&gt;System Settings-&gt;Updates勾掉Automatically check updates for和Use secure connection]]></content>
+      <categories>
+        <category>IDE</category>
+      </categories>
+      <tags>
+        <tag>PyCharm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Ubuntu中安装Intellij Idea]]></title>
     <url>%2Fubuntu-intellij%2F</url>
     <content type="text"><![CDATA[下载Intellij Idea 解压到/opt下sudo tar -zxvf ideaIU-2017.2.5.tar.gz -C /opt 进入IDEA文件夹的bin目录cd /opt/idea-IU-172.4343.14/bin 启动IDEA./idea.sh]]></content>
@@ -448,18 +448,6 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[VirtualBox中Ubuntu 17.10 安装JDK8]]></title>
-    <url>%2Fubuntu-jdk8%2F</url>
-    <content type="text"><![CDATA[下载JDK8http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 因为是在虚拟机中运行Ubuntu，所以JDK8文件是下载在Windows系统中，需要设置共享文件夹，把文件复制到Downloads文件夹下。 解压文件cd Downloads/tar -zxvf jdk-8u151-linux-x64.gz 将解压的文件夹jdk1.8.0_151移动到/usr/sudo mv jdk1.8.0_151/ /usr/ 配置系统环境变量，编辑/etc/profile文件，在文件的末尾添加以下内容sudo vim /etc/profile export JAVA_HOME=/usr/jdk1.8.0_151 #jdk主目录export JRE_HOME=$JAVA_HOME/jre #jre目录export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib #CLASSPATH目录export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin #将jdk的可执行文件目录添加到系统环境目录中1234 更新配置source /etc/profile 查看是否安装成功java -version]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>VirtualBox</tag>
         <tag>Ubuntu</tag>
       </tags>
   </entry>
@@ -476,14 +464,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Ubuntu下pip3的安装、升级、卸载]]></title>
-    <url>%2Fubuntu-pip3%2F</url>
-    <content type="text"><![CDATA[安装sudo apt-get install python3-pip 升级sudo pip3 install --upgrade pip 卸载sudo apt-get remove python3-pip]]></content>
+    <title><![CDATA[VirtualBox中Ubuntu 17.10 安装JDK8]]></title>
+    <url>%2Fubuntu-jdk8%2F</url>
+    <content type="text"><![CDATA[下载JDK8http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 因为是在虚拟机中运行Ubuntu，所以JDK8文件是下载在Windows系统中，需要设置共享文件夹，把文件复制到Downloads文件夹下。 解压文件cd Downloads/tar -zxvf jdk-8u151-linux-x64.gz 将解压的文件夹jdk1.8.0_151移动到/usr/sudo mv jdk1.8.0_151/ /usr/ 配置系统环境变量，编辑/etc/profile文件，在文件的末尾添加以下内容sudo vim /etc/profile export JAVA_HOME=/usr/jdk1.8.0_151 #jdk主目录export JRE_HOME=$JAVA_HOME/jre #jre目录export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib #CLASSPATH目录export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin #将jdk的可执行文件目录添加到系统环境目录中1234 更新配置source /etc/profile 查看是否安装成功java -version]]></content>
       <categories>
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>VirtualBox</tag>
         <tag>Ubuntu</tag>
       </tags>
   </entry>
@@ -496,6 +484,18 @@
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ubuntu下pip3的安装、升级、卸载]]></title>
+    <url>%2Fubuntu-pip3%2F</url>
+    <content type="text"><![CDATA[安装sudo apt-get install python3-pip 升级sudo pip3 install --upgrade pip 卸载sudo apt-get remove python3-pip]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -545,17 +545,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Notepad++中代码格式化插件NppAStyle]]></title>
-    <url>%2Fnotepad-nppastyle%2F</url>
-    <content type="text"><![CDATA[工具/原料 Windows7 Notepad++ NppAStyle(Notepad++的一个插件) 方法/步骤 直接在插件扩展中安装 下载Notepad++并安装NppExec插件。 插件—-&gt;Plugin Manager—-&gt;show Plugin Manager—-&gt;安装NppAStyle插件。 自己下载dll插件 或者直接下载NppAStyle插件。登录NppAStyle网站下载，网址： http://sourceforge.net/projects/nppastyle/files/ 我们选择下载NppAStyle_bin_0.10.02.14.zip这个文件。 ​ 解压 下载后我们打开这个压缩文件，发现有两个文件夹ansi和unicode(ansi是标准编码，支持语言少；unicode是通用编码，支持更多的语言)。 打开unicode文件夹，将里面的NppAStyle.dll解压出来，将NppAStyle.dll放置到Notepad++安装目录下的plugins文件夹下。 ​ 重启Notepad++看NppAStyle是否安装成功，看到如图所示的信息就说明安装成功。 ​ 配置NppAStyle。 点击菜单栏中的”插件”—-&gt;”NppAStyle”—-&gt;”options”，在代码风格中选择java。 ​ 点击菜单栏中的”插件”—-&gt;”NppAStyle”—-&gt;”Format code”（或者按快捷键Alt+f），欣赏格式化后的代码风格。 ​ ​ 体验不同的代码风格并选择自己中意的某种代码风格。 重复第4步骤，例如将代码风格选中ANSI，按下快捷键Alt+f，欣赏格式化后的代码风格，并与第5步骤中格式化后的代码风格相比较。 ​ ​ 特别要注意：目前NppAStyle插件只支持格式化C、C++、C#、Java这四种编程语言的代码。]]></content>
-      <categories>
-        <category>IDE</category>
-      </categories>
-      <tags>
-        <tag>Notepad++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Windows上自动设置java环境变量的脚本]]></title>
     <url>%2Fwindows-java-script%2F</url>
     <content type="text"><![CDATA[代码这里默认设置了java jdk的安装路径为C:\Program Files\Java\jdk1.7.0_71，如果你的jdk安装路径不在此，可在执行此命令的时候，会有提示输入jdk安装路径，输入即可。 首先粘贴命令如下： 下载地址 @echo off:: TODO:设置java环境变量:: Author: Gwtcolor 02::设置java的安装路径，可方便切换不同的版本set input=set /p "input=请输入java的jdk路径（或回车默认路径为C:\Program Files\Java\jdk1.7.0_71）:"if defined input (echo jdk已设置) else (set input=C:\Program Files\Java\jdk1.7.0_71)echo jdk路径为%input%set javaPath=%input%::如果有的话，先删除JAVA_HOMEwmic ENVIRONMENT where "name='JAVA_HOME'" delete::如果有的话，先删除ClASS_PATH wmic ENVIRONMENT where "name='CLASS_PATH'" delete::创建JAVA_HOMEwmic ENVIRONMENT create name="JAVA_HOME",username="&lt;system&gt;",VariableValue="%javaPath%"::创建CLASS_PATHwmic ENVIRONMENT create name="CLASS_PATH",username="&lt;system&gt;",VariableValue=".;%%JAVA_HOME%%\lib\tools.jar;%%JAVA_HOME%%\lib\dt.jar;"::在环境变量path中，剔除掉变量java_home中的字符，回显剩下的字符串call set xx=%Path%;%JAVA_HOME%\jre\bin;%JAVA_HOME%\bin::echo %xx%::将返回显的字符重新赋值到path中wmic ENVIRONMENT where "name='Path' and username='&lt;system&gt;'" set VariableValue="%xx%"pause 解释下面就解释下命令 @echo off 是关闭回显的，不会显示命令信息 on打开会显示命令信息 color 02是设置输出文本颜色的，这里是控制命令台输出绿颜色 set /p “input=请输入命令信息” 是用来接收控制台输入的文本信息的 if else 是用来做判断 if defined input 是用来判断用户是否输入信息，回车的话，则表示未定义input的值 echo “输出信息” 是用来显示信息的 set javaPath=%input% 是用来吧变量input的值赋值给javaPath变量的 wmic 是提供了批处理的命令，可以方便的操作环境变量值 删除某一环境变量 就使用 wmic ENVIRONMENT where “name=’JAVA_HOME’” delete命令 创建某一环境变量 使用 wmic ENVIRONMENT create name=”JAVA_HOME”,username=”“,VariableValue=”%javaPath%”命令 修改某一环境变量 使用 wmic ENVIRONMENT where “name=’Path’ and username=’‘“ set VariableValue=”value” 注意事项 在上述批处理脚本命令中，要严格注意空格和大小写等的输入，不然执行不成功的 要以管理员方式运行命令，不然提示拒绝执行命令的提示]]></content>
@@ -564,6 +553,17 @@
       </categories>
       <tags>
         <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Notepad++中代码格式化插件NppAStyle]]></title>
+    <url>%2Fnotepad-nppastyle%2F</url>
+    <content type="text"><![CDATA[工具/原料 Windows7 Notepad++ NppAStyle(Notepad++的一个插件) 方法/步骤 直接在插件扩展中安装 下载Notepad++并安装NppExec插件。 插件—-&gt;Plugin Manager—-&gt;show Plugin Manager—-&gt;安装NppAStyle插件。 自己下载dll插件 或者直接下载NppAStyle插件。登录NppAStyle网站下载，网址： http://sourceforge.net/projects/nppastyle/files/ 我们选择下载NppAStyle_bin_0.10.02.14.zip这个文件。 ​ 解压 下载后我们打开这个压缩文件，发现有两个文件夹ansi和unicode(ansi是标准编码，支持语言少；unicode是通用编码，支持更多的语言)。 打开unicode文件夹，将里面的NppAStyle.dll解压出来，将NppAStyle.dll放置到Notepad++安装目录下的plugins文件夹下。 ​ 重启Notepad++看NppAStyle是否安装成功，看到如图所示的信息就说明安装成功。 ​ 配置NppAStyle。 点击菜单栏中的”插件”—-&gt;”NppAStyle”—-&gt;”options”，在代码风格中选择java。 ​ 点击菜单栏中的”插件”—-&gt;”NppAStyle”—-&gt;”Format code”（或者按快捷键Alt+f），欣赏格式化后的代码风格。 ​ ​ 体验不同的代码风格并选择自己中意的某种代码风格。 重复第4步骤，例如将代码风格选中ANSI，按下快捷键Alt+f，欣赏格式化后的代码风格，并与第5步骤中格式化后的代码风格相比较。 ​ ​ 特别要注意：目前NppAStyle插件只支持格式化C、C++、C#、Java这四种编程语言的代码。]]></content>
+      <categories>
+        <category>IDE</category>
+      </categories>
+      <tags>
+        <tag>Notepad++</tag>
       </tags>
   </entry>
   <entry>
@@ -615,18 +615,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Win10利用DiskGenius重建分区表]]></title>
-    <url>%2Fwin10-diskgenius-partition%2F</url>
-    <content type="text"><![CDATA[安装DiskGenius 工具--&gt;搜索已丢失的分区界面如下： 开始搜索后，如果找到一个分区，会提示你忽略还是保留。【注】搜索到的第一个结果一般是系统盘C盘，这个结果需要忽略，否则后面无法找到其他分区。后面搜索到的分区需要确认其中是否为你原来分区中保存的文件之后才选择保留。 搜索完成后，点击硬盘--&gt;保存分区表.win10系统保存为GUID格式。]]></content>
-      <categories>
-        <category>运维技术</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-        <tag>DiskGenius</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[VirtualBox Ubuntu 16.04安装Tensorflow]]></title>
     <url>%2Ftensorflow-ubuntu-install%2F</url>
     <content type="text"><![CDATA[1.安装python-pip和python-devsudo apt-get install python-pip python-dev2.安装Tensroflow sudo pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.8.0-cp27-none-linux_x86_64.whl 【注】如果有错误，可以尝试使用上述命令重新安装 3.安装完成。出现以下界面表示安装完成。 测试 $ python&gt;&gt;&gt;import tensorflow as tf&gt;&gt;&gt;hello=tf.constant('hello')&gt;&gt;&gt;sess=tf.Session()&gt;&gt;&gt;print(sess.run(hello))hello&gt;&gt;&gt;a=tf.constant(10)&gt;&gt;&gt;b=tf.constant(32)&gt;&gt;&gt;print(sess.run(a+b))4212345678910 5.安装IDE安装的IDE为Komodo Edit链接：http://komodoide.com/download/edit-linux64/#解压缩后界面如下：安装步骤： 进入到该文件解压缩的文件夹中 运行./install.sh,界面如下：]]></content>
@@ -637,6 +625,18 @@
         <tag>VirtualBox</tag>
         <tag>Ubuntu</tag>
         <tag>Tensorflow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Win10利用DiskGenius重建分区表]]></title>
+    <url>%2Fwin10-diskgenius-partition%2F</url>
+    <content type="text"><![CDATA[安装DiskGenius 工具--&gt;搜索已丢失的分区界面如下： 开始搜索后，如果找到一个分区，会提示你忽略还是保留。【注】搜索到的第一个结果一般是系统盘C盘，这个结果需要忽略，否则后面无法找到其他分区。后面搜索到的分区需要确认其中是否为你原来分区中保存的文件之后才选择保留。 搜索完成后，点击硬盘--&gt;保存分区表.win10系统保存为GUID格式。]]></content>
+      <categories>
+        <category>运维技术</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>DiskGenius</tag>
       </tags>
   </entry>
   <entry>
