@@ -1,0 +1,1254 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.useso.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="NLP,序列标注," />
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="Wenyu's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="[TOC] 概述结构化学习(Structured Learning)">
+<meta name="keywords" content="NLP,序列标注">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率图模型：HMM和CRF">
+<meta property="og:url" content="https://tianwenyu.github.io/graph-model/index.html">
+<meta property="og:site_name" content="Wenyu&#39;s Blog">
+<meta property="og:description" content="[TOC] 概述结构化学习(Structured Learning)">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180802/0iH3DCfcmh.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180802/Aif9mc0bEh.png?imageslim">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-714c1843f78b6aecdb0c57cdd08e1c6a_hd.jpg">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180731/EBKEcdjI4L.png?imageslim">
+<meta property="og:image" content="https://wenlongshen.github.io/img/post/2016_12_18_hmm_1.jpg">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180802/GAeimIBcKl.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180802/h27F8h2DJa.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180802/Igm6kgaJ9g.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180804/bGih4aH209.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180804/da4gbb89fL.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180804/dIC8iDA81b.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180804/gc84BHlACd.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180804/GLm61bB03b.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180804/FE9bF1La6E.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180804/KKjDga94ch.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180802/EhLc387L0m.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180804/ljgl16F7Ja.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180804/kJlFjHgId1.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180804/A5mFm0DaFI.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180804/3m9Dg2m70A.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180804/h4c19DF97f.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180804/I9bD4mcid5.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180804/HAKF3cbKg7.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180731/gaD4FjE78m.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180731/L0fBmEHlDb.png?imageslim">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1371984-2e1239ff7cbe21de.PNG?imageMogr2/auto-orient/">
+<meta property="og:updated_time" content="2018-08-05T10:17:14.218Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="概率图模型：HMM和CRF">
+<meta name="twitter:description" content="[TOC] 概述结构化学习(Structured Learning)">
+<meta name="twitter:image" content="http://p15qizl76.bkt.clouddn.com/blog/180802/0iH3DCfcmh.png?imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://tianwenyu.github.io/graph-model/"/>
+
+  <title> 概率图模型：HMM和CRF | Wenyu's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div style="display: none;">
+    <script src="//s6.cnzz.com/stat.php?id=1271854965&web_id=1271854965" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader" style="background-image: url('/images/home_bg.jpg');">
+      <div class="header-inner"><a class="site-home" href="/">Wenyu's Blog</a>
+
+<div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <div href="/"  class="brand">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wenyu's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </div>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            博文归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签云
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <input type="text" id="local-search-input">
+ <span class="search-icon fa fa-search"></span>
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+      <div class="header-post"> 
+  <div class="post-header">
+      <div class="tags">
+      
+        <a href="/tags/NLP/" rel="tag" title="NLP">NLP</a>
+      
+        <a href="/tags/序列标注/" rel="tag" title="序列标注">序列标注</a>
+      
+      </div>
+      <h1>概率图模型：HMM和CRF</h1>
+      <h2 class="subtitle"></h2>
+      <div class="post-time">
+        <span class="post-meta-item-text">发表于 </span>
+        <time itemprop="dateCreated" datetime="2018-04-25T19:29:36+08:00" content="2018-04-25" title="2018-04-25 19:29:36">
+          2018-04-25
+        </time>
+      </div>
+  </div>
+ </div>
+    </header>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                概率图模型：HMM和CRF
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-25T19:29:36+08:00" content="2018-04-25">
+              2018-04-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          <!-- 
+            
+           -->
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="结构化学习-Structured-Learning"><a href="#结构化学习-Structured-Learning" class="headerlink" title="结构化学习(Structured Learning)"></a>结构化学习(Structured Learning)</h3><a id="more"></a>
+<p>概率图模型属于结构化学习的一种，把$F(x,y)$换成了概率。</p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180802/0iH3DCfcmh.png?imageslim" alt="mark"></p>
+<p>结构化学习中有三个问题：</p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180802/Aif9mc0bEh.png?imageslim" alt="mark"></p>
+<h3 id="概率图模型-Graphical-Model"><a href="#概率图模型-Graphical-Model" class="headerlink" title="概率图模型(Graphical Model)"></a>概率图模型(Graphical Model)</h3><p><img src="https://pic3.zhimg.com/80/v2-714c1843f78b6aecdb0c57cdd08e1c6a_hd.jpg" alt="img"></p>
+<h2 id="隐马尔科夫模型-Hidden-Markov-Model"><a href="#隐马尔科夫模型-Hidden-Markov-Model" class="headerlink" title="隐马尔科夫模型(Hidden Markov Model)"></a>隐马尔科夫模型(Hidden Markov Model)</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>【定义】</p>
+<ul>
+<li><p>HMM(Hidden Markov Model)是一个概率模型，用来描述一个系统隐藏状态的转移概率和观测状态（隐藏状态的表现）的发射概率。</p>
+</li>
+<li><p>HMM是关于时序的概率模型,描述由一个隐藏的马尔科夫链生成不可观测的状态随机序列,再由各个状态生成观测随机序列的过程.</p>
+<ul>
+<li><p><code>Hidden</code>：说明状态的不可见性，即隐藏状态。</p>
+</li>
+<li><p><code>Markov</code>：说明状态和状态之间是Markov Chain。</p>
+<p>Markov Chain服从Markov性质——无记忆性：任一时刻的状态只依赖于前一时刻，而不受更往前时刻的状态的影响。</p>
+</li>
+<li><p><code>隐藏状态</code>：指一些外界不便于观察（或观察不到）的状态。</p>
+</li>
+<li><p><code>观测状态</code>：指可以观察到的，由隐藏状态产生的外在表现特点。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>【五个要素】</p>
+<ul>
+<li>观测状态</li>
+<li>隐藏状态</li>
+<li>初始概率</li>
+<li>转移概率</li>
+<li>发射概率</li>
+</ul>
+<p><strong>注：概率都可以用矩阵表示出</strong></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180731/EBKEcdjI4L.png?imageslim" alt="mark"></p>
+<p><img src="https://wenlongshen.github.io/img/post/2016_12_18_hmm_1.jpg" alt="img"></p>
+<p>【三个假设】</p>
+<ul>
+<li>齐次马尔可夫假设：又叫一阶马尔可夫假设，即任意时刻的状态只依赖前一时刻的状态，与其他时刻无关。</li>
+<li>观测独立性假设：任意时刻的观测只依赖于该时刻的状态，与其他状态无关。</li>
+<li>参数不变性假设：五个要素不随时间的变化而改变，即在整个训练过程中一直保持不变。</li>
+</ul>
+<p>【三个问题】</p>
+<ul>
+<li><p>Scoring（概率计算问题）</p>
+<ul>
+<li>问题描述：在已知模型参数和观测序列的条件下，求给定观测序列出现的概率。即得到概率公式。</li>
+<li><p>解决算法</p>
+<ul>
+<li><p>暴力算法：O($T*N^T$)</p>
+<p>I的遍历个数为$N^T$，加和符号中有$2^T$,T是观测状态的数目</p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180802/GAeimIBcKl.png?imageslim" alt="mark"></p>
+<p>​</p>
+</li>
+<li><p>前向算法：O($T*N^2$)</p>
+</li>
+<li><p>后向算法：O($T*N^2$)</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Matching(Decoding)：</p>
+<ul>
+<li><p>问题描述：已知模型参数和观测序列，求观测序列对应的最可能的状态序列。即计算概率最大的状态序列。</p>
+</li>
+<li><p>解决算法</p>
+<ul>
+<li><p>近似算法$\to$贪心思想$\to$局部最优</p>
+<p>此算法思想是在观测O的前提下每个时刻t选择该时刻概率最大的状态。</p>
+</li>
+<li><p>维特比算法$\to$动态规划</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Training：Baum-Welch算法</p>
+<ul>
+<li>问题描述：已知观测序列，估计模型参数。</li>
+<li>解决算法<ul>
+<li>监督学习算法</li>
+<li>非监督学习算法：Baum-Welch算法(EM)算法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180802/h27F8h2DJa.png?imageslim" alt="mark"></p>
+<p>【资料】</p>
+<ul>
+<li><a href="https://www.cnblogs.com/liuwu265/p/4732797.html" target="_blank" rel="external">隐马尔可夫模型（HMM）原理</a></li>
+</ul>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p><img src="http://p15qizl76.bkt.clouddn.com/blog/180802/Igm6kgaJ9g.png?imageslim" alt="mark"></p>
+<h3 id="三个基本问题求解算法"><a href="#三个基本问题求解算法" class="headerlink" title="三个基本问题求解算法"></a>三个基本问题求解算法</h3><h4 id="概率计算问题"><a href="#概率计算问题" class="headerlink" title="概率计算问题"></a>概率计算问题</h4><p><img src="http://p15qizl76.bkt.clouddn.com/blog/180804/bGih4aH209.png?imageslim" alt="mark"></p>
+<ul>
+<li>第一行是隐藏状态序列</li>
+<li>第二行是观测状态序列</li>
+</ul>
+<h5 id="前向算法"><a href="#前向算法" class="headerlink" title="前向算法"></a>前向算法</h5><p>【定义】</p>
+<p>给定隐马尔科夫模型$\lambda$,当第t个时刻的状态为i时，前面的时刻分别观测到$y_1,y_2,…,y_t$的概率称为前向概率。 $\alpha_t(i)=P(y_1,y_2,…,y_t,q_t=i|\lambda)$。</p>
+<p>【输入输出】</p>
+<ul>
+<li>输入：隐马尔科夫模型$\lambda$，观测序列$Y$</li>
+<li>输出：观测序列概率$p(Y|\lambda)$</li>
+</ul>
+<p>【步骤】</p>
+<ol>
+<li><p><strong>初值</strong></p>
+<script type="math/tex; mode=display">
+\alpha_1(i)=\pi_i b_{iy_1}\qquad i=1,2,...,N</script><p>其中，$\pi$是初始状态概率向量，$b_{iy_1}$是观测概率矩阵（即发射概率矩阵）$B$的对应第i个隐藏状态观测到观测状态$y_1$的概率。</p>
+</li>
+<li><p><strong>递推</strong></p>
+<script type="math/tex; mode=display">
+对于t=1,2,...,T-1\\
+\alpha_{t+1}(i)=(\sum_{j=1}^N\alpha_t(j)a_{ji}){b_{iy_{t+1}}}</script><p>注：t+1时刻的前向概率$\alpha_{t+1}(i)$的求法是：所有t时刻的隐藏状态转移到t+1时刻的隐藏状态的概率之和与t时刻的发射概率的乘积。</p>
+<p>解：</p>
+<ul>
+<li>t时刻的状态为j的前向概率是$\alpha<em>t(j)$，现在时刻t状态为j的概率已知，乘上状态j转移到状态i的转移概率就是t+1时刻的状态为i的概率，即$\alpha_t(j)a</em>{ji}$</li>
+<li>由状态到观测，乘上状态i得到观测$y<em>{t+1}$的概率$b</em>{iy_{t+1}}$</li>
+</ul>
+</li>
+<li><p><strong>最终</strong></p>
+<script type="math/tex; mode=display">
+P(Y|\lambda)=\sum_{i=1}^N \alpha_T(i)</script><p>注：</p>
+<ul>
+<li>如果令前向概率中的t=T,即$\alpha_i(T)=P(y_1,y_2,…,y_T,q_T=i|\lambda)$，即最后一个时刻位于第i个状态时，观测到$y_1,y_2,…,y_T$的概率，即$P(Y,I|\lambda)$</li>
+<li>因此，如果对$\alpha<em>T(i)$的<code>i</code>求和，即$\alpha_T(1)+\alpha_T(2)+…+\alpha_T(N)$，则是观测序列的概率$P(Y|\lambda)$，因此则可以求得观测序列的概率$P(Y|\lambda)=\sum</em>{i=1}^T\alpha_T(i)=\alpha_T(1)+\alpha_T(2)+…+\alpha_T(N)$</li>
+</ul>
+</li>
+</ol>
+<h5 id="后向算法"><a href="#后向算法" class="headerlink" title="后向算法"></a>后向算法</h5><p>【定义】</p>
+<p>给定隐马尔科夫模型$\lambda$,当第t个时刻的状态为i时，后面的时刻分别观测到$y<em>{t+1},y</em>{t+2},…,y<em>T$的概率称为后向概率。 $\beta_t(i)=P(y</em>{t+1},y_{t+2},…,y_T|q_t=i,\lambda)$。</p>
+<p>【输入输出】</p>
+<ul>
+<li>输入：隐马尔科夫模型$\lambda$，观测序列$Y$</li>
+<li>输出：观测序列概率$p(Y|\lambda)$</li>
+</ul>
+<p>【步骤】</p>
+<ol>
+<li><p><strong>初值</strong></p>
+<script type="math/tex; mode=display">
+\beta_T(i)=1</script><p>注：因为T时刻之后已经没有任何时刻，不需要观测任何序列，因此概率为1.</p>
+</li>
+<li><p><strong>递推</strong></p>
+<script type="math/tex; mode=display">
+对于t=T-1,T-2,...,1\\
+\beta_t(i)=\sum_{j=1}^N(a_{ij} {b_{jy_{t+1}}} {\beta_{t+1}(j)})</script><p>注：根据t+1时刻的后向概率计算t时刻的后向概率$\beta_t(i)$。</p>
+<p>$\beta<em>t(i)$=$\sum$(第t时刻位于第i个状态转移到第t+1时刻位于第j个状态的概率$a</em>{ij}$ <em> 第t+1个时刻第j个状态的发射概率$b<em>jy</em>{t+1}$ </em> 第t+1个时刻的后向概率)</p>
+</li>
+<li><p><strong>最终</strong></p>
+<script type="math/tex; mode=display">
+P(Y|\lambda)=\sum_{i=1}^N{\pi_i}{b_iy_1}\beta_1(i)</script></li>
+</ol>
+<h5 id="前向后向概率的关系"><a href="#前向后向概率的关系" class="headerlink" title="前向后向概率的关系"></a>前向后向概率的关系</h5><p>拥有所有观测时，第t时刻第i个状态的概率=t时刻的前向概率*t时刻的后向概率,即</p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180804/da4gbb89fL.png?imageslim" alt="mark"></p>
+<h4 id="预测问题-解码问题"><a href="#预测问题-解码问题" class="headerlink" title="预测问题(解码问题)"></a>预测问题(解码问题)</h4><h5 id="Viterbi算法"><a href="#Viterbi算法" class="headerlink" title="Viterbi算法"></a>Viterbi算法</h5><p>【思想】</p>
+<ol>
+<li>先从前向后推出一步步路径的最大可能，最终会得到一个从起点连接每一个终点的m条路径（假设有m个终点）</li>
+<li>确定终点之后反过来选择前面的路径</li>
+<li>确定最优路径</li>
+</ol>
+<p>简言之：</p>
+<p><strong>每个子部分只存储最优子路径，而不是暴力枚举所有路径来获得最优路径。</strong></p>
+<ul>
+<li>从开始状态之后每走一步，就记录下到达改状态的所有路径的概率的最大值。</li>
+<li>然后以此最大值为基准继续向后推进。</li>
+</ul>
+<p>【输入输出】</p>
+<p>输入：模型$\lambda=(A,B,\pi)$和观测$O=(o_1,o_2,…,o_T)$</p>
+<p>输出：最优路径$I^<em>=(i_1^</em>,i_2^<em>,…,i_T^</em>)$</p>
+<p>【定义】</p>
+<ul>
+<li><p>变量$\delta_t(i)$：在时刻t状态为i的所有路径中概率的最大值。</p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180804/dIC8iDA81b.png?imageslim" alt="mark"></p>
+<p>由定义可得变量$\delta$的递推公式</p>
+<script type="math/tex; mode=display">
+\delta_{t+1}(i)=\max_{i_1,i_2,...,i_t}P(i_{t+1}=i,i_t,...,i_1,o_{t+1},...,o_1|\lambda)\\
+=\max_{1\leq j \leq N}[\delta_t(j)a_{ji}]b_i(o_{t+1}), \qquad i=1,2,...,N;t=1,2,...,T-1</script></li>
+</ul>
+<ul>
+<li><p>变量$\psi<em>t(i)$：在时刻t状态为i的所有单个路径$(i_1,i_2,…,i</em>{t-1},i)$中概率最大的路径的第t-1个结点。</p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180804/gc84BHlACd.png?imageslim" alt="mark"></p>
+<p>​</p>
+</li>
+</ul>
+<p>【步骤】</p>
+<ol>
+<li><p>初始化</p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180804/GLm61bB03b.png?imageslim" alt="mark"></p>
+</li>
+<li><p>递推</p>
+<p>对$t=2,3,…,T$</p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180804/FE9bF1La6E.png?imageslim" alt="mark"></p>
+</li>
+<li><p>终止</p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180804/KKjDga94ch.png?imageslim" alt="mark"></p>
+</li>
+<li><p>最优路径回溯</p>
+<script type="math/tex; mode=display">
+对t=T-1,T-2,...,1\\
+i_t^*=\psi_{t+1}(i_{t+1}^*)</script></li>
+</ol>
+<p>求得最优路径$I^<em>=(i_1^</em>,i_2^<em>,…,i_T^</em>)$</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>标注偏好(Label Bias Problem)</li>
+</ul>
+<p>模型在为输入序列打标签的时候，会存在偏心问题，会倾向于选择某些标签，导致最终的序列并不是概率最大的序列。</p>
+<p>【原因】</p>
+<p>HMM的状态转移概率的计算方式对于每一步的状态转移都会进行归一化。</p>
+<p>CRF对其改进，在全局进行归一化：</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h4 id="POS-Tagging"><a href="#POS-Tagging" class="headerlink" title="POS Tagging"></a>POS Tagging</h4><p>根据观察到的句子x，找到隐藏的词性序列$y$，即找到最大概率的词性序列$\hat{y}=argmaxP(x,y)$</p>
+<p>通过穷举的方式找到最大序列并不现实，因此选用Viterbi算法。</p>
+<h2 id="条件随机场"><a href="#条件随机场" class="headerlink" title="条件随机场"></a>条件随机场</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><ul>
+<li><code>条件</code>：指条件概率。</li>
+</ul>
+<ul>
+<li><p><code>随机场</code>：</p>
+<ul>
+<li><p>随机场包含两个要素：位置和相空间。当给每一个位置中按照某种分布随机赋予相空间的一个值之后，其全体就叫做随机场。</p>
+</li>
+<li><p>由若干个位置组成的整体，当给每一个位置中按照某种分布随机赋予一个值之后，其全体就叫做随机场。</p>
+<p>举词性标注的例子：假如有一个十个词形成的句子需要做词性标注。这十个词每个词的词性可以在已知的词性集合（名词，动词…)中去选择。当我们为每个词选择完词性后，这就形成了一个随机场。</p>
+</li>
+</ul>
+</li>
+<li><p><code>马尔科夫随机场</code>：<strong>马尔科夫随机场是随机场的特例，它假设随机场中某一个位置的赋值仅仅与和它相邻的位置的赋值有关，和与其不相邻的位置的赋值无关。</strong></p>
+<p>举词性标注的例子：如果我们假设所有词的词性只和它相邻的词的词性有关时，这个随机场就特化成一个马尔科夫随机场。比如第三个词的词性除了与自己本身的位置有关外，只与第二个词和第四个词的词性有关。</p>
+</li>
+</ul>
+<p>【三个问题】</p>
+<ul>
+<li>概率计算问题：前向-后向算法</li>
+<li>学习问题：<ul>
+<li>梯度下降法</li>
+<li>拟牛顿法（BFGS算法）</li>
+</ul>
+</li>
+<li>预测问题（解码问题）：Viterbi算法</li>
+</ul>
+<h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p><img src="http://p15qizl76.bkt.clouddn.com/blog/180802/EhLc387L0m.png?imageslim" alt="mark"></p>
+<p>【表示形式】</p>
+<ul>
+<li><p><strong>普通形式</strong></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180804/ljgl16F7Ja.png?imageslim" alt="mark"></p>
+</li>
+<li><p><strong>向量内积形式</strong></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180804/kJlFjHgId1.png?imageslim" alt="mark"></p>
+</li>
+</ul>
+<p>其中，$Z(x)$是归一化因子。</p>
+<h3 id="三个基本问题求解算法-1"><a href="#三个基本问题求解算法-1" class="headerlink" title="三个基本问题求解算法"></a>三个基本问题求解算法</h3><h4 id="计算概率问题：前向-后向算法"><a href="#计算概率问题：前向-后向算法" class="headerlink" title="计算概率问题：前向-后向算法"></a>计算概率问题：前向-后向算法</h4><p><img src="http://p15qizl76.bkt.clouddn.com/blog/180804/A5mFm0DaFI.png?imageslim" alt="mark"></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180804/3m9Dg2m70A.png?imageslim" alt="mark"></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180804/h4c19DF97f.png?imageslim" alt="mark"></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180804/I9bD4mcid5.png?imageslim" alt="mark"></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180804/HAKF3cbKg7.png?imageslim" alt="mark"></p>
+<h4 id="学习问题"><a href="#学习问题" class="headerlink" title="学习问题"></a>学习问题</h4><h4 id="预测问题（解码问题）：Viterbi算法"><a href="#预测问题（解码问题）：Viterbi算法" class="headerlink" title="预测问题（解码问题）：Viterbi算法"></a>预测问题（解码问题）：Viterbi算法</h4><p>预测问题就是从多个候选标注中挑选出来一种标注概率最高的。由于归一化因子不影响值的比较，所以只需要比较分子部分的『非规范化概率』。</p>
+<p>【定义】</p>
+<p>变量$\delta_i(l)$：到位置i的各个标记$l=1,2,…,m$的非规范化概率的最大值。</p>
+<script type="math/tex; mode=display">
+\delta_i(l)=\max_{1 \leq j \leq m}\{\delta_{i-1}(j)+w \bullet F_i(y_{i-1}=j,y_i=l,x) \}, \qquad l=1,2,...,m</script><p>变量$\psi_i(l)$：非规范化概率最大值的路径</p>
+<script type="math/tex; mode=display">
+\psi _i(l)=arg \max_{1 \leq j \leq m} \{ \delta_{i-1}+w \bullet F_i(y_{i-1}=j,y_i=l,x)\}, l=1,2,...,m</script><p>【输入输出】</p>
+<p>输入：特征向量F(y,x)和权值向量w,观测序列$x=(x_1,x_2,…,x_n)$</p>
+<p>输出：最优路径$y^<em>=(y_1^</em>,y_2^<em>,…,y_n^</em>)$</p>
+<p>【步骤】</p>
+<ol>
+<li><p><strong>初始化</strong></p>
+<script type="math/tex; mode=display">
+\delta_1(j)=w \bullet F_1(y_0=start,y_1=j,x), \qquad j=1,2,...,m</script><p>注：求出各位置1的各个标记j=1,2,…,m的非规范化概率</p>
+</li>
+<li><p><strong>递推</strong></p>
+<script type="math/tex; mode=display">
+对i=2,3,...,n\\
+\delta_i(l)=\max_{1 \leq j \leq m}\{\delta_{i-1}(j)+w \bullet F_i(y_{i-1}=j,y_i=l,x) \}, \qquad l=1,2,...,m \\
+\psi _i(l)=arg \max_{1 \leq j \leq m} \{ \delta_{i-1}+w \bullet F_i(y_{i-1}=j,y_i=l,x)\}, l=1,2,...,m</script><p>注：</p>
+<ul>
+<li>$\delta_i(l)$：到位置i的各个标记$l=1,2,…,m$的非规范化概率的最大值</li>
+<li>$\psi_i(l)$：非规范化概率最大值的路径</li>
+</ul>
+</li>
+<li><p><strong>终止</strong></p>
+<script type="math/tex; mode=display">
+\max_y(w \bullet F(y,x))=\max_{1\leq j \leq m}\delta_n(j) \\ 
+y_n^*=arg \max_{i \leq j \leq m} \delta_n(j)</script><p>注：</p>
+<ul>
+<li>直到i=n时终止，求得非规范化概率的最大值为$\max<em>y(w \bullet F(y,x))=\max</em>{1\leq j \leq m}\delta_n(j) $</li>
+<li>最优路径的终点：$y<em>n^*=arg \max</em>{i \leq j \leq m} \delta_n(j)$</li>
+</ul>
+</li>
+<li><p><strong>返回路径</strong></p>
+<script type="math/tex; mode=display">
+y_i^*=\psi_{i+1}(y_{i+1}^*), \qquad i=n-1,n-2,...,1 \\
+求得最优路径y^*=(y_1^*,y_2^*,...,y_n^*)</script></li>
+</ol>
+<p>其中</p>
+<script type="math/tex; mode=display">
+w=(w1,w2,...,w_k)^T \\
+F(y,x)=(f_1(y,x),f_2(y,x),...,f_K(y,x))^T\\
+f_k(y,x)=\sum_{i=1}^n f_k(y_{i-1},y_i,x,i), \qquad k=1,2,...,K</script><h3 id="关系演变"><a href="#关系演变" class="headerlink" title="关系演变"></a>关系演变</h3><p><img src="http://p15qizl76.bkt.clouddn.com/blog/180731/gaD4FjE78m.png?imageslim" alt="mark"></p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>CRF是对序列建模，模型假设考虑了标签之间的依赖关系（转移特征），最终输出的条件概率是某条序列的条件概率。<ul>
+<li>采用分类器的方法，建模时没有考虑标签之间的依赖关系，模型训练时的目标函数也是为了提高分类准确率。</li>
+</ul>
+</li>
+<li>CRF着眼于局部最优解</li>
+</ul>
+<h2 id="线性链条件随机场"><a href="#线性链条件随机场" class="headerlink" title="线性链条件随机场"></a>线性链条件随机场</h2><p><img src="http://p15qizl76.bkt.clouddn.com/blog/180731/L0fBmEHlDb.png?imageslim" alt="mark"></p>
+<h3 id="处理流程"><a href="#处理流程" class="headerlink" title="处理流程"></a>处理流程</h3><ol>
+<li>对输入序列的每一个token，根据当前token和前一个token的特征计算状态函数得分和转移函数得分之和，这一步会产生多种可能的路径，每一步会得到一个矩阵</li>
+<li>重复步骤1直到序列结束</li>
+<li>利用维特比算法求得最优序列</li>
+</ol>
+<h3 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h3><p>【特征函数】</p>
+<p>特征函数接受四个参数：</p>
+<ul>
+<li>s：表示一个句子</li>
+<li>i：表示句子s中的第i个单词</li>
+<li>l_i：表示给第i个单词标注的词性</li>
+<li>l_{i-1}：表示给第i-1个单词标注的词性</li>
+</ul>
+<p>输出值是0或1。</p>
+<ul>
+<li>0表示要评分的标注序列不符合这个特征。</li>
+<li>1表示要评分的标注序列符合这个特征。</li>
+</ul>
+<p>【概率】</p>
+<p>定义好一组特征函数后，给每个特征函数$f_j$赋予一个权重$\lambda_j$。</p>
+<p>只要有一个句子$s$，一个标注序列$l$，则可以利用定义的特征函数集对$l$评分。</p>
+<script type="math/tex; mode=display">
+score(l|s)=\sum_{j=1}^m \sum_{i=1}^n \lambda_j f_j(s,i,l_i,l_{i-1})</script><p>上式中有两个求和，外面的求和用来求每一个特征函数$f_j$评分值的和，里面的求和用来求句子中每个位置的单词的特征值的和。</p>
+<p>对这个分数进行<strong>指数化</strong>和<strong>归一化</strong>，则可以得到标注序列$l$的概率值$p(l|s)$</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1371984-2e1239ff7cbe21de.PNG?imageMogr2/auto-orient/" alt=""></p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
+<li>HMM：生成式模型。CRF：判别式模型。</li>
+<li>HMM：概率有向图。CRF：概率无向图。</li>
+<li>HMM：局部最优。CRF：全局最优。</li>
+<li>HMM：导致label bias问题。CRF：概率归一化合理。</li>
+</ul>
+
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NLP/" rel="tag">#NLP</a>
+          
+            <a href="/tags/序列标注/" rel="tag">#序列标注</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/match-LSTM-Pointer-Network/" rel="next" title="Match-LSTM和Pointer Net">
+                <i class="fa fa-chevron-left"></i> Match-LSTM和Pointer Net
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="" />
+          <p class="site-author-name" itemprop="name"></p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">78</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">标签云</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/rss2.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/tianwenyu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#结构化学习-Structured-Learning"><span class="nav-text">结构化学习(Structured Learning)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#概率图模型-Graphical-Model"><span class="nav-text">概率图模型(Graphical Model)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐马尔科夫模型-Hidden-Markov-Model"><span class="nav-text">隐马尔科夫模型(Hidden Markov Model)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三个基本问题求解算法"><span class="nav-text">三个基本问题求解算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概率计算问题"><span class="nav-text">概率计算问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#前向算法"><span class="nav-text">前向算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#后向算法"><span class="nav-text">后向算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#前向后向概率的关系"><span class="nav-text">前向后向概率的关系</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预测问题-解码问题"><span class="nav-text">预测问题(解码问题)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Viterbi算法"><span class="nav-text">Viterbi算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用"><span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#POS-Tagging"><span class="nav-text">POS Tagging</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件随机场"><span class="nav-text">条件随机场</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-1"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理-1"><span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三个基本问题求解算法-1"><span class="nav-text">三个基本问题求解算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算概率问题：前向-后向算法"><span class="nav-text">计算概率问题：前向-后向算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#学习问题"><span class="nav-text">学习问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预测问题（解码问题）：Viterbi算法"><span class="nav-text">预测问题（解码问题）：Viterbi算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系演变"><span class="nav-text">关系演变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-text">优点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性链条件随机场"><span class="nav-text">线性链条件随机场</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#处理流程"><span class="nav-text">处理流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理-2"><span class="nav-text">原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-text">区别</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/BearD01001/hexo-theme-nextd">
+    NexTD
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+    <link rel='stylesheet' href='https://imsun.github.io/gitment/style/default.css'>
+    <style>
+        .gitment-editor-avatar {
+            border-bottom: none !important;
+        }
+        .gitment-container a:hover {
+            text-decoration: none !important;
+        }
+        .gitment-markdown a,
+        .gitment-footer-project-link {
+            color: #555 !important;
+        }
+        .gitment-footer-project-link:hover,
+        .gitment-editor-logout-link:hover,
+        .gitment-editor-footer-tip:hover,
+        .gitment-header-issue-link:hover,
+        .gitment-comment-name:hover,
+        .gitment-markdown a:hover {
+            color: #222 !important;
+        }
+    </style>
+    <script src='https://imsun.github.io/gitment/dist/gitment.browser.js'></script>
+    <script type='text/javascript'>
+        (function() {
+            var id = window.location.pathname.replace(/(\/$)/g, '');
+            var owner = 'tianwenyu';
+            var repo = 'tianwenyu.github.io';
+            var clientId = '7e6796bf4bd74a25333f';
+            var clientSecret = 'd190223868b2175fbce4094e6485195cef7d3e8a';
+
+            var gitment = new Gitment({
+                id: id,
+                owner: owner,
+                repo: repo,
+                oauth: {
+                    client_id: clientId,
+                    client_secret: clientSecret,
+                },
+            });
+            gitment.render('comments');
+        })();
+    </script>
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').fadeToggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ decodeURIComponent(data_url) +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').fadeOut(function() {
+          $(".popoverlay").remove();
+          $('body').css('overflow', '');
+      });
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[概率图模型：HMM和CRF]]></title>
+    <url>%2Fgraph-model%2F</url>
+    <content type="text"><![CDATA[[TOC] 概述结构化学习(Structured Learning) 概率图模型属于结构化学习的一种，把$F(x,y)$换成了概率。 结构化学习中有三个问题： 概率图模型(Graphical Model) 隐马尔科夫模型(Hidden Markov Model)简介【定义】 HMM(Hidden Markov Model)是一个概率模型，用来描述一个系统隐藏状态的转移概率和观测状态（隐藏状态的表现）的发射概率。 HMM是关于时序的概率模型,描述由一个隐藏的马尔科夫链生成不可观测的状态随机序列,再由各个状态生成观测随机序列的过程. Hidden：说明状态的不可见性，即隐藏状态。 Markov：说明状态和状态之间是Markov Chain。 Markov Chain服从Markov性质——无记忆性：任一时刻的状态只依赖于前一时刻，而不受更往前时刻的状态的影响。 隐藏状态：指一些外界不便于观察（或观察不到）的状态。 观测状态：指可以观察到的，由隐藏状态产生的外在表现特点。 【五个要素】 观测状态 隐藏状态 初始概率 转移概率 发射概率 注：概率都可以用矩阵表示出 【三个假设】 齐次马尔可夫假设：又叫一阶马尔可夫假设，即任意时刻的状态只依赖前一时刻的状态，与其他时刻无关。 观测独立性假设：任意时刻的观测只依赖于该时刻的状态，与其他状态无关。 参数不变性假设：五个要素不随时间的变化而改变，即在整个训练过程中一直保持不变。 【三个问题】 Scoring（概率计算问题） 问题描述：在已知模型参数和观测序列的条件下，求给定观测序列出现的概率。即得到概率公式。 解决算法 暴力算法：O($T*N^T$) I的遍历个数为$N^T$，加和符号中有$2^T$,T是观测状态的数目 ​ 前向算法：O($T*N^2$) 后向算法：O($T*N^2$) Matching(Decoding)： 问题描述：已知模型参数和观测序列，求观测序列对应的最可能的状态序列。即计算概率最大的状态序列。 解决算法 近似算法$\to$贪心思想$\to$局部最优 此算法思想是在观测O的前提下每个时刻t选择该时刻概率最大的状态。 维特比算法$\to$动态规划 Training：Baum-Welch算法 问题描述：已知观测序列，估计模型参数。 解决算法 监督学习算法 非监督学习算法：Baum-Welch算法(EM)算法 【资料】 隐马尔可夫模型（HMM）原理 原理 三个基本问题求解算法概率计算问题 第一行是隐藏状态序列 第二行是观测状态序列 前向算法【定义】 给定隐马尔科夫模型$\lambda$,当第t个时刻的状态为i时，前面的时刻分别观测到$y_1,y_2,…,y_t$的概率称为前向概率。 $\alpha_t(i)=P(y_1,y_2,…,y_t,q_t=i|\lambda)$。 【输入输出】 输入：隐马尔科夫模型$\lambda$，观测序列$Y$ 输出：观测序列概率$p(Y|\lambda)$ 【步骤】 初值 \alpha_1(i)=\pi_i b_{iy_1}\qquad i=1,2,...,N其中，$\pi$是初始状态概率向量，$b_{iy_1}$是观测概率矩阵（即发射概率矩阵）$B$的对应第i个隐藏状态观测到观测状态$y_1$的概率。 递推 对于t=1,2,...,T-1\\ \alpha_{t+1}(i)=(\sum_{j=1}^N\alpha_t(j)a_{ji}){b_{iy_{t+1}}}注：t+1时刻的前向概率$\alpha_{t+1}(i)$的求法是：所有t时刻的隐藏状态转移到t+1时刻的隐藏状态的概率之和与t时刻的发射概率的乘积。 解： t时刻的状态为j的前向概率是$\alphat(j)$，现在时刻t状态为j的概率已知，乘上状态j转移到状态i的转移概率就是t+1时刻的状态为i的概率，即$\alpha_t(j)a{ji}$ 由状态到观测，乘上状态i得到观测$y{t+1}$的概率$b{iy_{t+1}}$ 最终 P(Y|\lambda)=\sum_{i=1}^N \alpha_T(i)注： 如果令前向概率中的t=T,即$\alpha_i(T)=P(y_1,y_2,…,y_T,q_T=i|\lambda)$，即最后一个时刻位于第i个状态时，观测到$y_1,y_2,…,y_T$的概率，即$P(Y,I|\lambda)$ 因此，如果对$\alphaT(i)$的i求和，即$\alpha_T(1)+\alpha_T(2)+…+\alpha_T(N)$，则是观测序列的概率$P(Y|\lambda)$，因此则可以求得观测序列的概率$P(Y|\lambda)=\sum{i=1}^T\alpha_T(i)=\alpha_T(1)+\alpha_T(2)+…+\alpha_T(N)$ 后向算法【定义】 给定隐马尔科夫模型$\lambda$,当第t个时刻的状态为i时，后面的时刻分别观测到$y{t+1},y{t+2},…,yT$的概率称为后向概率。 $\beta_t(i)=P(y{t+1},y_{t+2},…,y_T|q_t=i,\lambda)$。 【输入输出】 输入：隐马尔科夫模型$\lambda$，观测序列$Y$ 输出：观测序列概率$p(Y|\lambda)$ 【步骤】 初值 \beta_T(i)=1注：因为T时刻之后已经没有任何时刻，不需要观测任何序列，因此概率为1. 递推 对于t=T-1,T-2,...,1\\ \beta_t(i)=\sum_{j=1}^N(a_{ij} {b_{jy_{t+1}}} {\beta_{t+1}(j)})注：根据t+1时刻的后向概率计算t时刻的后向概率$\beta_t(i)$。 $\betat(i)$=$\sum$(第t时刻位于第i个状态转移到第t+1时刻位于第j个状态的概率$a{ij}$ 第t+1个时刻第j个状态的发射概率$bjy{t+1}$ 第t+1个时刻的后向概率) 最终 P(Y|\lambda)=\sum_{i=1}^N{\pi_i}{b_iy_1}\beta_1(i) 前向后向概率的关系拥有所有观测时，第t时刻第i个状态的概率=t时刻的前向概率*t时刻的后向概率,即 预测问题(解码问题)Viterbi算法【思想】 先从前向后推出一步步路径的最大可能，最终会得到一个从起点连接每一个终点的m条路径（假设有m个终点） 确定终点之后反过来选择前面的路径 确定最优路径 简言之： 每个子部分只存储最优子路径，而不是暴力枚举所有路径来获得最优路径。 从开始状态之后每走一步，就记录下到达改状态的所有路径的概率的最大值。 然后以此最大值为基准继续向后推进。 【输入输出】 输入：模型$\lambda=(A,B,\pi)$和观测$O=(o_1,o_2,…,o_T)$ 输出：最优路径$I^=(i_1^,i_2^,…,i_T^)$ 【定义】 变量$\delta_t(i)$：在时刻t状态为i的所有路径中概率的最大值。 由定义可得变量$\delta$的递推公式 \delta_{t+1}(i)=\max_{i_1,i_2,...,i_t}P(i_{t+1}=i,i_t,...,i_1,o_{t+1},...,o_1|\lambda)\\ =\max_{1\leq j \leq N}[\delta_t(j)a_{ji}]b_i(o_{t+1}), \qquad i=1,2,...,N;t=1,2,...,T-1 变量$\psit(i)$：在时刻t状态为i的所有单个路径$(i_1,i_2,…,i{t-1},i)$中概率最大的路径的第t-1个结点。 ​ 【步骤】 初始化 递推 对$t=2,3,…,T$ 终止 最优路径回溯 对t=T-1,T-2,...,1\\ i_t^*=\psi_{t+1}(i_{t+1}^*) 求得最优路径$I^=(i_1^,i_2^,…,i_T^)$ 缺点 标注偏好(Label Bias Problem) 模型在为输入序列打标签的时候，会存在偏心问题，会倾向于选择某些标签，导致最终的序列并不是概率最大的序列。 【原因】 HMM的状态转移概率的计算方式对于每一步的状态转移都会进行归一化。 CRF对其改进，在全局进行归一化： 应用POS Tagging根据观察到的句子x，找到隐藏的词性序列$y$，即找到最大概率的词性序列$\hat{y}=argmaxP(x,y)$ 通过穷举的方式找到最大序列并不现实，因此选用Viterbi算法。 条件随机场简介 条件：指条件概率。 随机场： 随机场包含两个要素：位置和相空间。当给每一个位置中按照某种分布随机赋予相空间的一个值之后，其全体就叫做随机场。 由若干个位置组成的整体，当给每一个位置中按照某种分布随机赋予一个值之后，其全体就叫做随机场。 举词性标注的例子：假如有一个十个词形成的句子需要做词性标注。这十个词每个词的词性可以在已知的词性集合（名词，动词…)中去选择。当我们为每个词选择完词性后，这就形成了一个随机场。 马尔科夫随机场：马尔科夫随机场是随机场的特例，它假设随机场中某一个位置的赋值仅仅与和它相邻的位置的赋值有关，和与其不相邻的位置的赋值无关。 举词性标注的例子：如果我们假设所有词的词性只和它相邻的词的词性有关时，这个随机场就特化成一个马尔科夫随机场。比如第三个词的词性除了与自己本身的位置有关外，只与第二个词和第四个词的词性有关。 【三个问题】 概率计算问题：前向-后向算法 学习问题： 梯度下降法 拟牛顿法（BFGS算法） 预测问题（解码问题）：Viterbi算法 原理 【表示形式】 普通形式 向量内积形式 其中，$Z(x)$是归一化因子。 三个基本问题求解算法计算概率问题：前向-后向算法 学习问题预测问题（解码问题）：Viterbi算法预测问题就是从多个候选标注中挑选出来一种标注概率最高的。由于归一化因子不影响值的比较，所以只需要比较分子部分的『非规范化概率』。 【定义】 变量$\delta_i(l)$：到位置i的各个标记$l=1,2,…,m$的非规范化概率的最大值。 \delta_i(l)=\max_{1 \leq j \leq m}\{\delta_{i-1}(j)+w \bullet F_i(y_{i-1}=j,y_i=l,x) \}, \qquad l=1,2,...,m变量$\psi_i(l)$：非规范化概率最大值的路径 \psi _i(l)=arg \max_{1 \leq j \leq m} \{ \delta_{i-1}+w \bullet F_i(y_{i-1}=j,y_i=l,x)\}, l=1,2,...,m【输入输出】 输入：特征向量F(y,x)和权值向量w,观测序列$x=(x_1,x_2,…,x_n)$ 输出：最优路径$y^=(y_1^,y_2^,…,y_n^)$ 【步骤】 初始化 \delta_1(j)=w \bullet F_1(y_0=start,y_1=j,x), \qquad j=1,2,...,m注：求出各位置1的各个标记j=1,2,…,m的非规范化概率 递推 对i=2,3,...,n\\ \delta_i(l)=\max_{1 \leq j \leq m}\{\delta_{i-1}(j)+w \bullet F_i(y_{i-1}=j,y_i=l,x) \}, \qquad l=1,2,...,m \\ \psi _i(l)=arg \max_{1 \leq j \leq m} \{ \delta_{i-1}+w \bullet F_i(y_{i-1}=j,y_i=l,x)\}, l=1,2,...,m注： $\delta_i(l)$：到位置i的各个标记$l=1,2,…,m$的非规范化概率的最大值 $\psi_i(l)$：非规范化概率最大值的路径 终止 \max_y(w \bullet F(y,x))=\max_{1\leq j \leq m}\delta_n(j) \\ y_n^*=arg \max_{i \leq j \leq m} \delta_n(j)注： 直到i=n时终止，求得非规范化概率的最大值为$\maxy(w \bullet F(y,x))=\max{1\leq j \leq m}\delta_n(j) $ 最优路径的终点：$yn^*=arg \max{i \leq j \leq m} \delta_n(j)$ 返回路径 y_i^*=\psi_{i+1}(y_{i+1}^*), \qquad i=n-1,n-2,...,1 \\ 求得最优路径y^*=(y_1^*,y_2^*,...,y_n^*) 其中 w=(w1,w2,...,w_k)^T \\ F(y,x)=(f_1(y,x),f_2(y,x),...,f_K(y,x))^T\\ f_k(y,x)=\sum_{i=1}^n f_k(y_{i-1},y_i,x,i), \qquad k=1,2,...,K关系演变 优点 CRF是对序列建模，模型假设考虑了标签之间的依赖关系（转移特征），最终输出的条件概率是某条序列的条件概率。 采用分类器的方法，建模时没有考虑标签之间的依赖关系，模型训练时的目标函数也是为了提高分类准确率。 CRF着眼于局部最优解 线性链条件随机场 处理流程 对输入序列的每一个token，根据当前token和前一个token的特征计算状态函数得分和转移函数得分之和，这一步会产生多种可能的路径，每一步会得到一个矩阵 重复步骤1直到序列结束 利用维特比算法求得最优序列 原理【特征函数】 特征函数接受四个参数： s：表示一个句子 i：表示句子s中的第i个单词 l_i：表示给第i个单词标注的词性 l_{i-1}：表示给第i-1个单词标注的词性 输出值是0或1。 0表示要评分的标注序列不符合这个特征。 1表示要评分的标注序列符合这个特征。 【概率】 定义好一组特征函数后，给每个特征函数$f_j$赋予一个权重$\lambda_j$。 只要有一个句子$s$，一个标注序列$l$，则可以利用定义的特征函数集对$l$评分。 score(l|s)=\sum_{j=1}^m \sum_{i=1}^n \lambda_j f_j(s,i,l_i,l_{i-1})上式中有两个求和，外面的求和用来求每一个特征函数$f_j$评分值的和，里面的求和用来求句子中每个位置的单词的特征值的和。 对这个分数进行指数化和归一化，则可以得到标注序列$l$的概率值$p(l|s)$ 区别 HMM：生成式模型。CRF：判别式模型。 HMM：概率有向图。CRF：概率无向图。 HMM：局部最优。CRF：全局最优。 HMM：导致label bias问题。CRF：概率归一化合理。]]></content>
+      <categories>
+        <category>NLP</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+        <tag>序列标注</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Match-LSTM和Pointer Net]]></title>
     <url>%2Fmatch-LSTM-Pointer-Network%2F</url>
     <content type="text"><![CDATA[Match-LSTM简介Match-LSTM是由(Wang &amp; Jiang,2016)发表在NAACL的论文提出，用于解决NLI(Natural Language Inference，文本蕴含)问题。 premise：前提，代表上下文 hypothesis：假设，代表一个陈述性的结论 文本蕴含问题：给定一个premise（前提），根据这个premise去判断相应的hypothesis（假说）正确与否，如果从这个premise中能够推断出这个hypothesis，那么就判断为entailment（蕴含），否则就是contradiction（矛盾）。 Word-by-Word AttentionMatch-LSTM是在Rocktaschel et al. (2015)提出的word-by-word attention的基础上进行了改进，先解释一下Rocktaschel et al. (2015)提出的基本模型 用LSTM处理premise和hypothesis，(用premise的最后一个输出初始化hypothesis的LSTM)，得到它们的隐层输出。 其中， $h_j^s(1 \le j \le M )$是premise的输入序列经过LSTM之后得到的隐层输出。 $h_{k}^{t}(1\leq k\leq N)$是hypothesis的隐层输出向量。 word-by-word attention的意思是为每个hypothesis中的词引入一个 $a_k$ ,用于表示hypothesis，并称这个 $a_k$ 向量为attention向量，具体公式如下： 这里的attention权重$a_{kj}$表示hypothesis中第k个词和premise中第j个词之间的关系。 $hj^s$ 是premise的隐层输出，$h_k^t$ 是hypothesis的隐层输出，$h{k-1}^a$ 是将输入一个RNN之后得到的隐层状态。 最后利用$h_N^a$和$h_N^t$来预测label：y，即判断premise和hypothesis之间的关系。 模型以下为结构图： 用两个LSTM处理premise和hypothesis序列。得到两个隐状态$h^s$和$h^t$(s对应前提，t对应假设)。 用下面的公式计算注意力向量$a_k$,这里计算得到的$e$经过归一化和加权求和得到假设$h^t$对前提$h^s$在每个时刻的注意力向量$a_k$，即attention过程。 上式中$h^m$的计算，用下面的公式计算，其中输入$m_k$是$[a_k,h_k^t]$的拼接，即把$m_k$输入到LSTM中。 把最后时刻的$h^m$即$h_N^m$作为输出以预测label。 【简化版】 将premise和hypothesis两句话输入到两个LSTM中，用对应LSTM的隐层输出premise和hypothesis中每个位置对应上下文信息的一种表示，分别对应图中的$H^s$和$h^t$ 对于hypothesis中的某个词的表示$h^t_i$与premise中每个词的表示$H^s$计算得到一个权重向量，然后再对premise中的词进行加权求和，得到hypothesis的$h^t_i$在每个时刻对应的注意力向量$a_i$,即(attention过程) 把hypothesis中该词的表示$h^t_i$和其对应的attention的上下文向量$a_i$拼接在一起，输入到一个LSTM中，最后时刻的$h^m$即$h_N^m$作为输出以预测label。 与Word-to-Word Attention区别 两者的主要区别就是计算$e_{kj}$的不同。 这里用$h^m$代替了$h^a$。 之前的$h^m$是利用RNN得到的,$h^a$是用mLSTM得到的。 为了得到premise跟hypothesis之间的matching关系，用LSTM对它们进行建模，作者认为LSTM能够将premise和hypothesis之间重要的match关系进行保留，忽略不重要的match关系。具体公式如下: ​ 最后利用$h_N^m$来预测。 Pointer Net简介Pointer Network是Vinyals et al.(2015)在NIPS发表的论文中提出的，是为了实现从输入序列中找到相应的tokens来作为输出，其他的阅读理解任务中，可能只需要用输入序列构建一个词典，再从这个候选词典中找到概率最大的一个词作为答案，然而SQuAD数据集的输出答案的长度是变化的，因而无法采用构建词典的方式，而pointer net是利用attention作为pointer，从输入序列中选择一个位置，并将这个位置所指向的词作为输出。对pointer net有兴趣的话，可以参看这个链接进行学习:Pointer net。AS-Reader、AoA-Reader和R-Net等模型都用了PtrNet作为输出层的结构。 原理Pointer是从一个输入序列中选点的一种方法，是Attention的变体。它不像Attention那样把输入信息编码成一个context vector,而是将attention转化为一个pointer，来选择输入序列中的元素。 与Attention区别 Attention：公式如下，前两个公式是整合encoder和decoder的隐式状态，学出来encoder、decoder隐式状态与当前输出的权重关系a，然后根据权重关系a和隐式状态e得到context vector用来预测下一个输出。 Pointer Net：公式如下，Pointer没有最后一个公式，即将权重关系a和隐式状态整合为context vector，而是直接通过softmax，指向输入序列选择中最有可能是输出的元素。 模型结构 论文中提出了两个模型，且都包含以下三个部分： 用LSTM对question和passage进行预处理。 用match-LSTM对question和passage进行match。 利用Pointer Net从passage中选择tokens作为答案。 两个模型的区别在于在于第三部分，由于pointer net没有限定所指向的位置必须是连续的，所以第一个模型sequence model直接将答案在passage中出现的位置序号作为答案序列$a=\left( a{1} ,a{2},… \right) $，第二个模型只预测答案的起始位置跟终止位置，即$a=\left(a{s} ,a{e} \right)$。 LSTM Preprocessing Layer用单向LSTM对passage和question进行预处理。 Match-LSTM Layer这里将question当做premise，将passage当做hypothesis，用标准的word-by-word attention得到attention向量，具体公式如下： 其中， $\vec{h}_{i-1}^r \in R^l$是经过单向m-LSTM得到的隐层输出。 $\vec{\alpha_{i,j}}$表示passage中的第i个词和question中的第j个词之间的匹配关系。然后用$\overline{\alpha}$对question的隐层输出进行加权，并将其跟passage的隐层输出进行拼接，得到一个新的向量，并输入到m-LSTM中，得到$\bar{H^r}$，具体公式如下： 再从另一个方向进行相同的处理,将两者进行合并，得到最后的输出向量$H^{r} $ Answer Pointer LayerThe Sequence Model 由于这个模型是生成答案的位置序列$a=(a{1} ,a{2},…)$，每个元素表示的是这个词在passage中位置，其取值范围在1到P+1之间，当出现了P+1时，则答案生成终止。因此在$H^{r}$的最后中加入了一列0向量，用来表示终止词，得到$\bar{H} ^{r} $。 这里再次用到了attention方法去得到向量$\betak \in R^{(P+1)}$,$\beta{k,j}$表示选择passage中的第j个词作为答案序列的第k个词的概率，$\beta_{k,(P+1)}$表示在第k个位置停止答案生成的概率。公式如下： 其中，$h_k^a$也是经过一个LSTM的输出。 模型生成答案的概率公式如下： 损失函数如下： The Boundary Model因为boundary model只需要生成答案的起始和终止位置，因此不用在最后加入一个零向量来表示答案生成结束。生成答案序列的概率模型如下： 其余部分与上个模型相同。]]></content>
@@ -61,11 +73,11 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Windows10下Docker简明教程]]></title>
-    <url>%2Fwindows-docker%2F</url>
-    <content type="text"><![CDATA[概述Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。 Docker通常用于如下场景： web应用的自动化打包和发布； 自动化测试和持续集成、发布； 在服务型环境中部署和调整数据库或其他的后台应用； 从头编译或者扩展现有的OpenShift或Cloud Foundry平台来搭建自己的PaaS环境。 内部结构 Docker使用C/S架构模式，Docker客户端会与Docker守护进程通信。Docker守护进程会处理复杂繁重的任务，例如建立、运行、发布你的 Docker 容器。Docker 客户端和守护进程可以运行在同一个系统上，当然你也可以使用 Docker 客户端去连接一个远程的 Docker 守护进程。Docker 客户端和守护进程之间通过 socket 或者 RESTful API 进行通信。 Docker分为三种部件： Docker镜像-Docker Images Docker容器-Docker Containers Docker仓库-Docker Registeries Docker镜像Docker运行容器前需要本地存在对应的镜像。Docker镜像可以用来创建Docker容器，一个镜像可以包含一个完整的操作系统环境和用户需要的其他应用程序。 Docker镜像是只可读的，一个镜像可以创建多个容器。 通俗说，Images是已经打包好的环境文件，我们运行的时候把Images加载运行在本地容器中，你在这个容器中可以进行一些修改重新打包成新镜像上传。 分层存储因为镜像包含操作系统完整的root文件系统，其体积往往是巨大的，因此Docker设计时，就充分利用Union FS技术，将其设计为分层存储的架构。 分层存储的特征使得镜像并非像一个ISO类似的打包文件，而是由一组文件系统组成。 Docker容器Docker利用容器来开发、运行应用。容器是镜像创建的实例，可以被开始、启动、停止、删除。每个容器都是相互隔离的。 Docker仓库仓库是集中存放镜像文件的场所。每个仓库中包含了多个镜像，每个镜像有不同的标签。 最大的公开仓库是DockerHub)，因为墙的原因，可以使用DaoCloud、阿里云)加速下载。 安装 Win10版本Docker安装以下版本Docker Community Edition 17.12.0-ce Win10之前版本安装Docker ToolBox，官方文档 安装之前，需要开启Windows10的Hpyer-V。 控制面板-程序-启用或关闭Windows功能 本文以Docker Community Edition为例，开启Hpyer-V后直接安装Docker Community Edition即可。 安装成功后，运行cmd,执行docker version，安装成功则显示下图 设置Docker任务栏鲸鱼图标右键-Settings打开设置界面 Shared Drivers：可以将主机（即Windows）中的驱动器共享到Docker Container中 Advanced：用于配置运行Docker Daemon的虚拟机环境的CPU和内存和镜像路径 Network：配置Docker的网络环境 Proxies：代理的配置 Docker Daemon：使用JSON格式的设置，对Docker Daemon进行设置，类似于在Linux中利用conf文件对Docker设置。 修改CPU数目及内存点击Advanced，如下图修改参数即可 修改代理Docker Hub速度较慢，修改为阿里云镜像。 登陆容器Hub服务，找到以下链接 点击Daemon设置镜像，直接在Registry mirrors中填写阿里云的镜像地址，点击Apply重启应用即可。 更改镜像默认存储路径打开Docker的Settings，点击Advanced，在Images and volumes VHD location选择新的路径。重启后即可更新设置。 常用命令查看Docker版本docker version 查看本机已安装镜像docker images 查看所有容器docker ps -a 拉取镜像docker pull Name:Tag 【例】 docker pull sameersbn/redmine:latest 删除单个容器docker rm Name/ID 删除所有的容器docker rm docker ps -a -q 停止、启动、杀死一个容器docker stop Name/IDdocker start Name/IDdocker kill Name/ID 参考 【Docker】windows10 docker 使用 Docker on Windows初体验 Docker for Windows使用简介 Docker的Windows容器初体验]]></content>
+    <title><![CDATA[Windows10下Docker搭建深度学习框架]]></title>
+    <url>%2Fdocker-deeplearning%2F</url>
+    <content type="text"><![CDATA[概述DeepoDeepo是一个几乎包含所有流行深度学习框架的Docker映像，拥有一个完整的可复制的深度学习研究环境。它涵盖了 theano tensorflow sonnet pytorch keras lasagne mxnet cntk chainer caffe torch 安装直接从Docker Hub下载Deepo镜像。Github地址 CPU版本 docker pull ufoym/deepo:cpu GPU版本 docker pull ufoym/deepo 运行打开powershell执行以下命令，以bash方式运行该容器。 docker run -it ufoym/deepo:cpu bash DL-docker包含的框架及系统依赖 Ubuntu 14.04 CUDA 7.5 (GPU version only) cuDNN v4 (GPU version only) Tensorflow Caffe Theano Keras Lasagne Torch (includes nn, cutorch, cunn and cuDNN bindings) iPython/Jupyter Notebook (including iTorch kernel) Numpy, SciPy, Pandas, Scikit Learn, Matplotlib A few common libraries used for deep learning 安装 cpu版本 docker pull floydhub/dl-docker:cpu 运行docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder floydhub/dl-docker:cpu bash 运行以上命令后，会连接到bash，执行jupyter notebook。 然后在Windows的浏览器中输入localhost:8888，会连接到该容器的Jupyter notebook]]></content>
       <categories>
-        <category>运维技术</category>
+        <category>深度学习</category>
       </categories>
       <tags>
         <tag>Windows</tag>
@@ -73,11 +85,11 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Windows10下Docker搭建深度学习框架]]></title>
-    <url>%2Fdocker-deeplearning%2F</url>
-    <content type="text"><![CDATA[概述DeepoDeepo是一个几乎包含所有流行深度学习框架的Docker映像，拥有一个完整的可复制的深度学习研究环境。它涵盖了 theano tensorflow sonnet pytorch keras lasagne mxnet cntk chainer caffe torch 安装直接从Docker Hub下载Deepo镜像。Github地址 CPU版本 docker pull ufoym/deepo:cpu GPU版本 docker pull ufoym/deepo 运行打开powershell执行以下命令，以bash方式运行该容器。 docker run -it ufoym/deepo:cpu bash DL-docker包含的框架及系统依赖 Ubuntu 14.04 CUDA 7.5 (GPU version only) cuDNN v4 (GPU version only) Tensorflow Caffe Theano Keras Lasagne Torch (includes nn, cutorch, cunn and cuDNN bindings) iPython/Jupyter Notebook (including iTorch kernel) Numpy, SciPy, Pandas, Scikit Learn, Matplotlib A few common libraries used for deep learning 安装 cpu版本 docker pull floydhub/dl-docker:cpu 运行docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder floydhub/dl-docker:cpu bash 运行以上命令后，会连接到bash，执行jupyter notebook。 然后在Windows的浏览器中输入localhost:8888，会连接到该容器的Jupyter notebook]]></content>
+    <title><![CDATA[Windows10下Docker简明教程]]></title>
+    <url>%2Fwindows-docker%2F</url>
+    <content type="text"><![CDATA[概述Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。 Docker通常用于如下场景： web应用的自动化打包和发布； 自动化测试和持续集成、发布； 在服务型环境中部署和调整数据库或其他的后台应用； 从头编译或者扩展现有的OpenShift或Cloud Foundry平台来搭建自己的PaaS环境。 内部结构 Docker使用C/S架构模式，Docker客户端会与Docker守护进程通信。Docker守护进程会处理复杂繁重的任务，例如建立、运行、发布你的 Docker 容器。Docker 客户端和守护进程可以运行在同一个系统上，当然你也可以使用 Docker 客户端去连接一个远程的 Docker 守护进程。Docker 客户端和守护进程之间通过 socket 或者 RESTful API 进行通信。 Docker分为三种部件： Docker镜像-Docker Images Docker容器-Docker Containers Docker仓库-Docker Registeries Docker镜像Docker运行容器前需要本地存在对应的镜像。Docker镜像可以用来创建Docker容器，一个镜像可以包含一个完整的操作系统环境和用户需要的其他应用程序。 Docker镜像是只可读的，一个镜像可以创建多个容器。 通俗说，Images是已经打包好的环境文件，我们运行的时候把Images加载运行在本地容器中，你在这个容器中可以进行一些修改重新打包成新镜像上传。 分层存储因为镜像包含操作系统完整的root文件系统，其体积往往是巨大的，因此Docker设计时，就充分利用Union FS技术，将其设计为分层存储的架构。 分层存储的特征使得镜像并非像一个ISO类似的打包文件，而是由一组文件系统组成。 Docker容器Docker利用容器来开发、运行应用。容器是镜像创建的实例，可以被开始、启动、停止、删除。每个容器都是相互隔离的。 Docker仓库仓库是集中存放镜像文件的场所。每个仓库中包含了多个镜像，每个镜像有不同的标签。 最大的公开仓库是DockerHub)，因为墙的原因，可以使用DaoCloud、阿里云)加速下载。 安装 Win10版本Docker安装以下版本Docker Community Edition 17.12.0-ce Win10之前版本安装Docker ToolBox，官方文档 安装之前，需要开启Windows10的Hpyer-V。 控制面板-程序-启用或关闭Windows功能 本文以Docker Community Edition为例，开启Hpyer-V后直接安装Docker Community Edition即可。 安装成功后，运行cmd,执行docker version，安装成功则显示下图 设置Docker任务栏鲸鱼图标右键-Settings打开设置界面 Shared Drivers：可以将主机（即Windows）中的驱动器共享到Docker Container中 Advanced：用于配置运行Docker Daemon的虚拟机环境的CPU和内存和镜像路径 Network：配置Docker的网络环境 Proxies：代理的配置 Docker Daemon：使用JSON格式的设置，对Docker Daemon进行设置，类似于在Linux中利用conf文件对Docker设置。 修改CPU数目及内存点击Advanced，如下图修改参数即可 修改代理Docker Hub速度较慢，修改为阿里云镜像。 登陆容器Hub服务，找到以下链接 点击Daemon设置镜像，直接在Registry mirrors中填写阿里云的镜像地址，点击Apply重启应用即可。 更改镜像默认存储路径打开Docker的Settings，点击Advanced，在Images and volumes VHD location选择新的路径。重启后即可更新设置。 常用命令查看Docker版本docker version 查看本机已安装镜像docker images 查看所有容器docker ps -a 拉取镜像docker pull Name:Tag 【例】 docker pull sameersbn/redmine:latest 删除单个容器docker rm Name/ID 删除所有的容器docker rm docker ps -a -q 停止、启动、杀死一个容器docker stop Name/IDdocker start Name/IDdocker kill Name/ID 参考 【Docker】windows10 docker 使用 Docker on Windows初体验 Docker for Windows使用简介 Docker的Windows容器初体验]]></content>
       <categories>
-        <category>深度学习</category>
+        <category>运维技术</category>
       </categories>
       <tags>
         <tag>Windows</tag>
@@ -97,6 +109,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Windows下安装Jupyter Notebook]]></title>
+    <url>%2Fwindows-jupyter-notebook%2F</url>
+    <content type="text"><![CDATA[简介文学编程文学编程(Literate Programming)是由Donald Knuth提出的编程方法。传统的结构化编程，人要按照计算机的逻辑顺序来编写代码，而文学编程则可以让人们按照自己的逻辑来开发程序。 Jupyter NotebookJupyter Notebook是一个交互式笔记本，支持运行40多种编程语言。它的本质是一个Web应用程序，便于创建和共享文学化程序文档，支持实时代码、数学方程、可视化和markdown。 Jupyter Notebook优点： 适合数据分析 支持多语言 分享便捷 远程运行 交互式展示 安装安装Anaconda即自带，不需要安装 启动点击Jupyter Notebook即可启动，或在cmd中输入jupyter notebook 默认地址为http:localhost:8888 使用更改Jupyter Notebook工作空间最新版Ipython和Jupyter配置文件是分开的，需要分别配置文件。 打开cmd输入命令jupyter notebook --generate-config 【注】-config之前没有空格 打开该目录下的文件，改文件夹路径 【注】若存在编码问题，可改成f://file//jupyter_notebook 启动Jupyter Notebook 新建Notebook点击new创建新的Notebook 界面 菜单栏各项功能概述 File Save and Checkpoint 保存并记录点，类似于不同版本 Revert to Checkpoint返回到某一记录点 View Toggle Header是否显示头部信息，包括文件名和上次保存时间 Toggle ToolBar是否显示工具栏 Kernel Change kernel更换内核环境 Notebook文档由一系列单元(cell),主要有两种形式的单元： 代码状态单元：编写代码的区域，使用Shift+Enter运行代码，结果显示在本单元下方。代码单元左边有In[1]：类似的序列标记，方便人们查看代码的执行次序。 Markdown状态单元：编写文本的区域，使用Shift+Enter显示格式化的文本。 模式 编辑模式：编辑文本和代码。选中单元按Enter进入编辑模式，单元左侧显示绿色竖线 命令模式：执行输入的命令。按Esc进入命令模式，单元左侧显示蓝色竖线 快捷键命令模式 查看快捷键：H 执行当前单元，并自动跳到下一个单元：Shift+Enter 执行当前单元，不自动跳到下一个单元：Ctrl+Enter 进入编辑模式：Enter 进入命令模式：Esc 删除当前单元：双击D 变为代码状态：Y 变为Markdown状态：M 在下方插入新单元：B 剪切选中单元：X 复制选中单元：C 粘贴到下方单元：V 选中上方单元：J 选中下方单元：K 恢复删除的最后一个单元：Z 保存当前Notebook：Ctrl+S 编辑模式 代码缩进或补全：Tab 代码提示：Shift+Tab 注释：Ctrl+/ Magic命令Magic命令以%或%%开头 %：行命令 %%：单元命令。必须出现在单元第一行。 以下为常用Magic命令 %lsmagic：列举所有Magic命令 %magic：查看Magic命令说明 %timeit：代码运行时间 %matplotlib inline：显示matplotlib包生成的图形 使用技巧运行Python文件运行以下命令 %run xxx.py 【注】xxx.py是当前工作空间下的一个python文件 导入代码运行以下命令 %load xxx.py 【注】xxx.py是当前工作空间下的一个python文件 重置单元格序号重置单元格In[x]序号 点击Kernel-Restart即可。 使用Seaborn绘图需要使用%matplotlib inline命令。]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>Notebook</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Ubuntu下安装Anaconda]]></title>
     <url>%2Fubuntu-ancaconda%2F</url>
     <content type="text"><![CDATA[Anaconda安装下载使用Python3.6版本的Anaconda 5.1，点击下载 安装 进入到下载后的文件目录，执行 bash Anaconda3-5.1.0-Linux-x86_64.sh 根据提示输入回车 查看注册信息，一直回车到输入yes 输入安装目录路径，默认回车即可 是否加入环境变量，输入yes 安装成功后，新打开一个终端输入以下命令查看版本号 anaconda -V 使用Jupyter Notebook输入以下命令则能够使用Jupyter Notebook ipython notebook]]></content>
@@ -106,17 +129,6 @@
       <tags>
         <tag>Ubuntu</tag>
         <tag>Anaconda</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Windows下安装Jupyter Notebook]]></title>
-    <url>%2Fwindows-jupyter-notebook%2F</url>
-    <content type="text"><![CDATA[简介文学编程文学编程(Literate Programming)是由Donald Knuth提出的编程方法。传统的结构化编程，人要按照计算机的逻辑顺序来编写代码，而文学编程则可以让人们按照自己的逻辑来开发程序。 Jupyter NotebookJupyter Notebook是一个交互式笔记本，支持运行40多种编程语言。它的本质是一个Web应用程序，便于创建和共享文学化程序文档，支持实时代码、数学方程、可视化和markdown。 Jupyter Notebook优点： 适合数据分析 支持多语言 分享便捷 远程运行 交互式展示 安装安装Anaconda即自带，不需要安装 启动点击Jupyter Notebook即可启动，或在cmd中输入jupyter notebook 默认地址为http:localhost:8888 使用更改Jupyter Notebook工作空间最新版Ipython和Jupyter配置文件是分开的，需要分别配置文件。 打开cmd输入命令jupyter notebook --generate-config 【注】-config之前没有空格 打开该目录下的文件，改文件夹路径 【注】若存在编码问题，可改成f://file//jupyter_notebook 启动Jupyter Notebook 新建Notebook点击new创建新的Notebook 界面 菜单栏各项功能概述 File Save and Checkpoint 保存并记录点，类似于不同版本 Revert to Checkpoint返回到某一记录点 View Toggle Header是否显示头部信息，包括文件名和上次保存时间 Toggle ToolBar是否显示工具栏 Kernel Change kernel更换内核环境 Notebook文档由一系列单元(cell),主要有两种形式的单元： 代码状态单元：编写代码的区域，使用Shift+Enter运行代码，结果显示在本单元下方。代码单元左边有In[1]：类似的序列标记，方便人们查看代码的执行次序。 Markdown状态单元：编写文本的区域，使用Shift+Enter显示格式化的文本。 模式 编辑模式：编辑文本和代码。选中单元按Enter进入编辑模式，单元左侧显示绿色竖线 命令模式：执行输入的命令。按Esc进入命令模式，单元左侧显示蓝色竖线 快捷键命令模式 查看快捷键：H 执行当前单元，并自动跳到下一个单元：Shift+Enter 执行当前单元，不自动跳到下一个单元：Ctrl+Enter 进入编辑模式：Enter 进入命令模式：Esc 删除当前单元：双击D 变为代码状态：Y 变为Markdown状态：M 在下方插入新单元：B 剪切选中单元：X 复制选中单元：C 粘贴到下方单元：V 选中上方单元：J 选中下方单元：K 恢复删除的最后一个单元：Z 保存当前Notebook：Ctrl+S 编辑模式 代码缩进或补全：Tab 代码提示：Shift+Tab 注释：Ctrl+/ Magic命令Magic命令以%或%%开头 %：行命令 %%：单元命令。必须出现在单元第一行。 以下为常用Magic命令 %lsmagic：列举所有Magic命令 %magic：查看Magic命令说明 %timeit：代码运行时间 %matplotlib inline：显示matplotlib包生成的图形 使用技巧运行Python文件运行以下命令 %run xxx.py 【注】xxx.py是当前工作空间下的一个python文件 导入代码运行以下命令 %load xxx.py 【注】xxx.py是当前工作空间下的一个python文件 重置单元格序号重置单元格In[x]序号 点击Kernel-Restart即可。 使用Seaborn绘图需要使用%matplotlib inline命令。]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>Notebook</tag>
       </tags>
   </entry>
   <entry>
@@ -142,6 +154,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[【Python Trick】Python的switch-case实现]]></title>
+    <url>%2Fpython-switch%2F</url>
+    <content type="text"><![CDATA[前言在Python中，并没有实现switch-case语句，通过if-elif实现会显得麻烦，因此通过以下方式实现该语句功能。 实现方式通过字典实现以如下情景为例，将百分制分数转换为五分制分数。如100%转换为5，80%转换为4等。 def foo(score): return &#123; '100%':5, '80%':4, '60%':3, '40%':2, '20%':1, '0%':0 &#125;.get(score)print(foo('100%')) #输出5print(foo('80%')) #输出4 通过匿名函数实现def foo(score,x): return&#123; '100%':lambda x:x+5, '80%':lambda x:x+4, '60%':lambda x:x+3, '40%':lambda x:x+2, '20%':lambda x:x+1, '0%':lambda x:x+0, &#125;[score](x) print(foo('100%',0)) #输出5print(foo('80%',0)) #输出4]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Windows下pip更换源地址]]></title>
     <url>%2Fwindows-pip%2F</url>
     <content type="text"><![CDATA[打开cmd，输入 echo %APPDATA% 进入到显示的路径中 进入该路径，新建pip文件夹，然后在该文件夹下新建pip.ini 编辑pip.ini，输入以下内容，即把源地址改为阿里云地址。 [global]timeout = 6000index-url = http://mirrors.aliyun.com/pypi/simple/[install]trusted-host=mirrors.aliyun.com ​]]></content>
@@ -151,17 +174,6 @@
       <tags>
         <tag>Windows</tag>
         <tag>pip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[【Python Trick】Python的switch-case实现]]></title>
-    <url>%2Fpython-switch%2F</url>
-    <content type="text"><![CDATA[前言在Python中，并没有实现switch-case语句，通过if-elif实现会显得麻烦，因此通过以下方式实现该语句功能。 实现方式通过字典实现以如下情景为例，将百分制分数转换为五分制分数。如100%转换为5，80%转换为4等。 def foo(score): return &#123; '100%':5, '80%':4, '60%':3, '40%':2, '20%':1, '0%':0 &#125;.get(score)print(foo('100%')) #输出5print(foo('80%')) #输出4 通过匿名函数实现def foo(score,x): return&#123; '100%':lambda x:x+5, '80%':lambda x:x+4, '60%':lambda x:x+3, '40%':lambda x:x+2, '20%':lambda x:x+1, '0%':lambda x:x+0, &#125;[score](x) print(foo('100%',0)) #输出5print(foo('80%',0)) #输出4]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -418,17 +430,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PyCharm设置]]></title>
-    <url>%2Fpycharm-config%2F</url>
-    <content type="text"><![CDATA[使用Tab缩进Editor-&gt;Code Style-&gt;Python-&gt;Tabs and Indents勾选Use tab character和Smart tabs 取消自动更新Appearance&amp;Behavior-&gt;System Settings-&gt;Updates勾掉Automatically check updates for和Use secure connection]]></content>
-      <categories>
-        <category>IDE</category>
-      </categories>
-      <tags>
-        <tag>PyCharm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Intellij idea使用教程]]></title>
     <url>%2Fintellij-tutorial%2F</url>
     <content type="text"><![CDATA[快捷键设置 如 Gif 所示，在没有对 Ctrl + D 快捷键进行修改前，此快捷键将是用来复制并黏贴所选的内容的，但是黏贴的位置是补充在原来的位置后，我个人不喜欢这种风格，我喜欢复制所选的行数完整内容，所以进行了修改，修改后的效果如上图 Gif 演示。 如Gif 所示，默认 Ctrl + 空格 快捷键是基础代码提示、补充快捷键，但是由于我们中文系统基本这个快捷键都被输入法占用了，所以我们发现不管怎么按都是没有提示代码效果的，原因就是在此。我个人建议修改此快捷键为 Ctrl + 逗号。 Ctrl 快捷键 介绍 Ctrl+, 代码补全，自定义 Ctrl+F 当前文件文本查找 Ctrl+R 当前文件文本替换 Ctrl+Y 删除光标所在行或选中行 Ctrl+D 复制光标所在行 Ctrl+U 前往光标所在方法的父类方法或接口 Ctrl+E 显示最近打开的文件记录列表 Ctrl+J 插入自定义动态代码模板 Ctrl+P 方法参数提示 Ctrl+W 递进式选择代码块。 Ctrl+Q 光标所在的变量、类名、方法名上显示文档内容 Ctrl+N 根据输入的类名查找类文件 Alt 快捷键 介绍 Alt+Enter 快速修复 Alt+Insert 代码自动生成，如set/get方法，构造函数 Alt+前方向键 当前光标跳转到当前文件的前一个方法名位置 Alt+后方向键 当前光标跳转到当前文件的后一个方法名位置 Alt+1 显示/隐藏 导航栏 Shift 快捷键 介绍 Shift+F6 重命名文件/文件夹 Shift+Tab 取消缩进 Shift+End 使光标到当前行尾位置 Shift+Home 使光标到当前行首位置 Shift+滚轮滚动 当前文件的横向滚动 Shift+Enter 开始新的一行 Ctrl+Alt 快捷键 介绍 Ctrl+Alt+L 格式化代码，可以对当前文件和整个包目录使用 Ctrl+Alt+O 优化导入的类 Ctrl+Alt+I 光标所在行代码缩进 Ctrl+Alt+S 打开系统设置 Ctrl+Shift 快捷键 介绍 Ctrl+Shift+F 查找整个项目 Ctril+Shift+R 在整个项目范围内替换 Ctrl+Shift+J 自动将下一行合并到当前行末尾 Ctrl+Shift+Z 取消撤销 Ctrl+Shift+W 递进式取消选择代码快 Ctrl+Shift+T 对当前类生成单元测试类 Ctrl+Shift+C 复制当前文件磁盘路径到剪切板 Ctrl+Shift+B 跳转到类型声明处 Ctrl+Shift+/ 代码块注释 Ctrl+Shift+Space 智能代码提示 Ctrl+Shift+Enter 自动结束代码，行末自动添加分号` Ctrl+Shift+Backspace 退回到上次修改的地方 Ctrl+Shift+Alt 快捷键 介绍 Ctrl+Shift+Alt+S 打开当前项目设置 其他 快捷键 介绍 F2 跳转到下一个高亮错误或警告位置 F4 编辑源 Shift连按两次 弹出Search Everywhere 常用设置 如Gif 所示，我们可以勾选此设置后，增加 Ctrl + 鼠标滚轮 快捷键来控制代码字体大小显示。Editor-&gt;General-&gt;Change font size(Zoom) with Ctrl+Mouse Wheel 可以勾选此设置后，增加 Ctrl + 鼠标滚轮 快捷键来控制图片的大小显示。Editor-&gt;Images-&gt;Zoom image with mouse wheel(Ctrl+Mouse Wheel) 显示方法线Eidtor-&gt;General-&gt;Apperance-&gt;Show method separators 如Gif 所示，即使我们项目没有使用版本控制功能，IntelliJ IDEA 也给我们提供了本地文件历史记录。除了简单的记录之外，我们还可以给当前版本加标签。 如Gif 所示，IntelliJ IDEA 自带模拟请求工具 Rest Client，在开发时用来模拟请求是非常好用的。 如Gif 所示，IntelliJ IDEA 的自定义 TODO 功能非常好用，强烈建议平时开发要经常使用上。 如图箭头所示，在 Debug 状态下，如果我们要批量删除断点，可以点击图上箭头所示的按钮，然后选中要删除的断点按断点上面的减号进行删除。 如图所示，不管是用 IntelliJ IDEA 打开新文件，或是在安装本地插件，在弹出的窗口中，图 1 按钮支持快速定位到系统桌面目录，图 2 按钮支持快速定位到当前项目目录。 如图所示，默认 IntelliJ IDEA 对于 Java 代码的单行注释是把注释的斜杠放在行数的最开头，我个人觉得这样的单行注释非常丑，整个代码风格很难看，所以一般会设置为单行注释的两个斜杠跟随在代码的头部。Editor-&gt;Code Style-&gt;Java-&gt;Code Generation-&gt;Line comment at fisrt勾掉 如图 Gif 所示，对于横向太长的代码我们可以进行软分行查看。软分行引起的分行效果是 IntelliJ IDEA 设置的，本质代码是没有真的分行的。 如图箭头所示，该设置可以增加 Ctrl + E 弹出层显示的记录文件个数。 默认 IntelliJ IDEA 是没有开启自动帮你生成 serialVersionUID 的，需要我们自行设置。如图第一张，需要先勾选：Serializable class without serialVersionUID如图第二张，在已经继承了 Serializable 接口的类名上，把光标放在类名上（必须这样做），按 Alt + Enter，即可提示帮你生成 serialVersionUID 功能。 如图 gif 演示的：Load/Unload Modules 是 2017.2 引入的新特性，对于多模块的项目开发 Unload 部分少用到的模块可以减少计算机 CPU 和内存的消耗。]]></content>
@@ -440,6 +441,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[PyCharm设置]]></title>
+    <url>%2Fpycharm-config%2F</url>
+    <content type="text"><![CDATA[使用Tab缩进Editor-&gt;Code Style-&gt;Python-&gt;Tabs and Indents勾选Use tab character和Smart tabs 取消自动更新Appearance&amp;Behavior-&gt;System Settings-&gt;Updates勾掉Automatically check updates for和Use secure connection]]></content>
+      <categories>
+        <category>IDE</category>
+      </categories>
+      <tags>
+        <tag>PyCharm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Ubuntu中安装Intellij Idea]]></title>
     <url>%2Fubuntu-intellij%2F</url>
     <content type="text"><![CDATA[下载Intellij Idea 解压到/opt下sudo tar -zxvf ideaIU-2017.2.5.tar.gz -C /opt 进入IDEA文件夹的bin目录cd /opt/idea-IU-172.4343.14/bin 启动IDEA./idea.sh]]></content>
@@ -448,18 +460,6 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[VirtualBox中Ubuntu 17.10 安装JDK8]]></title>
-    <url>%2Fubuntu-jdk8%2F</url>
-    <content type="text"><![CDATA[下载JDK8http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 因为是在虚拟机中运行Ubuntu，所以JDK8文件是下载在Windows系统中，需要设置共享文件夹，把文件复制到Downloads文件夹下。 解压文件cd Downloads/tar -zxvf jdk-8u151-linux-x64.gz 将解压的文件夹jdk1.8.0_151移动到/usr/sudo mv jdk1.8.0_151/ /usr/ 配置系统环境变量，编辑/etc/profile文件，在文件的末尾添加以下内容sudo vim /etc/profile export JAVA_HOME=/usr/jdk1.8.0_151 #jdk主目录export JRE_HOME=$JAVA_HOME/jre #jre目录export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib #CLASSPATH目录export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin #将jdk的可执行文件目录添加到系统环境目录中1234 更新配置source /etc/profile 查看是否安装成功java -version]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>VirtualBox</tag>
         <tag>Ubuntu</tag>
       </tags>
   </entry>
@@ -476,14 +476,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Could not get lock /var/lib/dpkg/lock - open 解决方法]]></title>
-    <url>%2Flinux-lock%2F</url>
-    <content type="text"><![CDATA[出现此问题的原因是另外一个线程使用apt-get下载，结束现场呢个即可。1.搜索所有的线程ps -A | grep apt-get得到如图所示结果 结束线程数字就是线程号，结束线程即可sudo kill 1358]]></content>
+    <title><![CDATA[VirtualBox中Ubuntu 17.10 安装JDK8]]></title>
+    <url>%2Fubuntu-jdk8%2F</url>
+    <content type="text"><![CDATA[下载JDK8http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 因为是在虚拟机中运行Ubuntu，所以JDK8文件是下载在Windows系统中，需要设置共享文件夹，把文件复制到Downloads文件夹下。 解压文件cd Downloads/tar -zxvf jdk-8u151-linux-x64.gz 将解压的文件夹jdk1.8.0_151移动到/usr/sudo mv jdk1.8.0_151/ /usr/ 配置系统环境变量，编辑/etc/profile文件，在文件的末尾添加以下内容sudo vim /etc/profile export JAVA_HOME=/usr/jdk1.8.0_151 #jdk主目录export JRE_HOME=$JAVA_HOME/jre #jre目录export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib #CLASSPATH目录export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin #将jdk的可执行文件目录添加到系统环境目录中1234 更新配置source /etc/profile 查看是否安装成功java -version]]></content>
       <categories>
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>VirtualBox</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -496,6 +497,17 @@
       <tags>
         <tag>Linux</tag>
         <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Could not get lock /var/lib/dpkg/lock - open 解决方法]]></title>
+    <url>%2Flinux-lock%2F</url>
+    <content type="text"><![CDATA[出现此问题的原因是另外一个线程使用apt-get下载，结束现场呢个即可。1.搜索所有的线程ps -A | grep apt-get得到如图所示结果 结束线程数字就是线程号，结束线程即可sudo kill 1358]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -534,6 +546,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Notepad++没有插件管理器(Plugin Manager)的原因以及解决方法]]></title>
+    <url>%2Fnotepad-plugin-error%2F</url>
+    <content type="text"><![CDATA[今天想下几个notepad++的插件玩玩，结果发现根本就没有插件管理器。 后来上官网发现了这样一句话Note that the most of plugins (including Plugin Manager) are not yet available in x64 于是重新安装了一个32位的版本]]></content>
+      <categories>
+        <category>IDE</category>
+      </categories>
+      <tags>
+        <tag>Notepad++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Windows上自动设置java环境变量的脚本]]></title>
     <url>%2Fwindows-java-script%2F</url>
     <content type="text"><![CDATA[代码这里默认设置了java jdk的安装路径为C:\Program Files\Java\jdk1.7.0_71，如果你的jdk安装路径不在此，可在执行此命令的时候，会有提示输入jdk安装路径，输入即可。 首先粘贴命令如下： 下载地址 @echo off:: TODO:设置java环境变量:: Author: Gwtcolor 02::设置java的安装路径，可方便切换不同的版本set input=set /p "input=请输入java的jdk路径（或回车默认路径为C:\Program Files\Java\jdk1.7.0_71）:"if defined input (echo jdk已设置) else (set input=C:\Program Files\Java\jdk1.7.0_71)echo jdk路径为%input%set javaPath=%input%::如果有的话，先删除JAVA_HOMEwmic ENVIRONMENT where "name='JAVA_HOME'" delete::如果有的话，先删除ClASS_PATH wmic ENVIRONMENT where "name='CLASS_PATH'" delete::创建JAVA_HOMEwmic ENVIRONMENT create name="JAVA_HOME",username="&lt;system&gt;",VariableValue="%javaPath%"::创建CLASS_PATHwmic ENVIRONMENT create name="CLASS_PATH",username="&lt;system&gt;",VariableValue=".;%%JAVA_HOME%%\lib\tools.jar;%%JAVA_HOME%%\lib\dt.jar;"::在环境变量path中，剔除掉变量java_home中的字符，回显剩下的字符串call set xx=%Path%;%JAVA_HOME%\jre\bin;%JAVA_HOME%\bin::echo %xx%::将返回显的字符重新赋值到path中wmic ENVIRONMENT where "name='Path' and username='&lt;system&gt;'" set VariableValue="%xx%"pause 解释下面就解释下命令 @echo off 是关闭回显的，不会显示命令信息 on打开会显示命令信息 color 02是设置输出文本颜色的，这里是控制命令台输出绿颜色 set /p “input=请输入命令信息” 是用来接收控制台输入的文本信息的 if else 是用来做判断 if defined input 是用来判断用户是否输入信息，回车的话，则表示未定义input的值 echo “输出信息” 是用来显示信息的 set javaPath=%input% 是用来吧变量input的值赋值给javaPath变量的 wmic 是提供了批处理的命令，可以方便的操作环境变量值 删除某一环境变量 就使用 wmic ENVIRONMENT where “name=’JAVA_HOME’” delete命令 创建某一环境变量 使用 wmic ENVIRONMENT create name=”JAVA_HOME”,username=”“,VariableValue=”%javaPath%”命令 修改某一环境变量 使用 wmic ENVIRONMENT where “name=’Path’ and username=’‘“ set VariableValue=”value” 注意事项 在上述批处理脚本命令中，要严格注意空格和大小写等的输入，不然执行不成功的 要以管理员方式运行命令，不然提示拒绝执行命令的提示]]></content>
@@ -548,17 +571,6 @@
     <title><![CDATA[Notepad++中代码格式化插件NppAStyle]]></title>
     <url>%2Fnotepad-nppastyle%2F</url>
     <content type="text"><![CDATA[工具/原料 Windows7 Notepad++ NppAStyle(Notepad++的一个插件) 方法/步骤 直接在插件扩展中安装 下载Notepad++并安装NppExec插件。 插件—-&gt;Plugin Manager—-&gt;show Plugin Manager—-&gt;安装NppAStyle插件。 自己下载dll插件 或者直接下载NppAStyle插件。登录NppAStyle网站下载，网址： http://sourceforge.net/projects/nppastyle/files/ 我们选择下载NppAStyle_bin_0.10.02.14.zip这个文件。 ​ 解压 下载后我们打开这个压缩文件，发现有两个文件夹ansi和unicode(ansi是标准编码，支持语言少；unicode是通用编码，支持更多的语言)。 打开unicode文件夹，将里面的NppAStyle.dll解压出来，将NppAStyle.dll放置到Notepad++安装目录下的plugins文件夹下。 ​ 重启Notepad++看NppAStyle是否安装成功，看到如图所示的信息就说明安装成功。 ​ 配置NppAStyle。 点击菜单栏中的”插件”—-&gt;”NppAStyle”—-&gt;”options”，在代码风格中选择java。 ​ 点击菜单栏中的”插件”—-&gt;”NppAStyle”—-&gt;”Format code”（或者按快捷键Alt+f），欣赏格式化后的代码风格。 ​ ​ 体验不同的代码风格并选择自己中意的某种代码风格。 重复第4步骤，例如将代码风格选中ANSI，按下快捷键Alt+f，欣赏格式化后的代码风格，并与第5步骤中格式化后的代码风格相比较。 ​ ​ 特别要注意：目前NppAStyle插件只支持格式化C、C++、C#、Java这四种编程语言的代码。]]></content>
-      <categories>
-        <category>IDE</category>
-      </categories>
-      <tags>
-        <tag>Notepad++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Notepad++没有插件管理器(Plugin Manager)的原因以及解决方法]]></title>
-    <url>%2Fnotepad-plugin-error%2F</url>
-    <content type="text"><![CDATA[今天想下几个notepad++的插件玩玩，结果发现根本就没有插件管理器。 后来上官网发现了这样一句话Note that the most of plugins (including Plugin Manager) are not yet available in x64 于是重新安装了一个32位的版本]]></content>
       <categories>
         <category>IDE</category>
       </categories>
@@ -708,17 +720,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[【Python】两个txt文件通过某一字段关联]]></title>
-    <url>%2Fpython-txt%2F</url>
-    <content type="text"><![CDATA[背景将两个txt文件通过两者共有的某一项进行关联，类似于数据库中的不同表通过id相关联。txt1:#checkins(userID/venueID/time/offset)txt2:#pois(venueID/latitude/longtitude/words/country)通过共有项venueID，将txt1的数据以及txt2的数据关联起来，写入一个新的文件txt3。格式如userID/venueID/time/offset/latitude/longitude/words/country 思路将txt2文件的venueID作为字典的key，然后将latitude,longtitude,words,country写入一个列表里作为字典的值。 比对txt1中的venueID，相同则直接将txt1的此行写入txt3，同时将字典中的venueID对应的值——latitude,longtitude,words,country写入txt3 代码f1=open('f:\checkins.txt','r')f2=open('f:\pois.txt','r')fout=open('f:\dataset.txt','a+')dicc=dict()for line in f2: #将pois.txt截取出各个字段，写入字典中,key为venueID,value为[latitude,longitutde,words,country] line=line.strip().split('\t') values=[] latitude=line[1] longitutde=line[2] words=line[3] country=line[4] values.append(latitude) values.append(longitutde) values.append(words) values.append(country) dicc[line[0]]=values #venueID:[latitude,longitutde,words,country]#venueID_list=[]for line1 in f1: venueID=line1.split('\t')[1] if(dicc.get(venueID) != None): #if(venueID not in venueID_list): #去掉重复，不需要则注释掉 #venueID_list.append(venueID) fout.write(line1.strip('\n')+'\t'+dicc[venueID][0]+'\t'+dicc[venueID][1]+'\t'+dicc[venueID][2]+'\t'+dicc[venueID][3]) fout.write('\n')f1.close()f2.close()fout.close()]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Notepad++编译、运行Java]]></title>
     <url>%2Fnotepad-java%2F</url>
     <content type="text"><![CDATA[Plugins--&gt;Plugin Manager--&gt;Show Plugin Manager 安装NppExec Plugins--&gt;NppExec 输入以下参数 NPP_SAVE cd "$(CURRENT_DIRECTORY)" javac.exe "$(FILE_NAME)" java.exe "$(NAME_PART)" 1234 5.定义快捷键5.1 Plugins--&gt;NppExec--&gt;Advanced Options5.2 Associated script选择保存的脚本名5.3 点击Add/Modify5.4 勾选Place to the Macros submenu5.5点击OK 重启Notepad++ Run--&gt;Modify Shortcut/Delete Command--&gt;Plugin Command7.1找到自定的脚本名，更改快捷键]]></content>
@@ -727,6 +728,17 @@
       </categories>
       <tags>
         <tag>Notepad++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【Python】两个txt文件通过某一字段关联]]></title>
+    <url>%2Fpython-txt%2F</url>
+    <content type="text"><![CDATA[背景将两个txt文件通过两者共有的某一项进行关联，类似于数据库中的不同表通过id相关联。txt1:#checkins(userID/venueID/time/offset)txt2:#pois(venueID/latitude/longtitude/words/country)通过共有项venueID，将txt1的数据以及txt2的数据关联起来，写入一个新的文件txt3。格式如userID/venueID/time/offset/latitude/longitude/words/country 思路将txt2文件的venueID作为字典的key，然后将latitude,longtitude,words,country写入一个列表里作为字典的值。 比对txt1中的venueID，相同则直接将txt1的此行写入txt3，同时将字典中的venueID对应的值——latitude,longtitude,words,country写入txt3 代码f1=open('f:\checkins.txt','r')f2=open('f:\pois.txt','r')fout=open('f:\dataset.txt','a+')dicc=dict()for line in f2: #将pois.txt截取出各个字段，写入字典中,key为venueID,value为[latitude,longitutde,words,country] line=line.strip().split('\t') values=[] latitude=line[1] longitutde=line[2] words=line[3] country=line[4] values.append(latitude) values.append(longitutde) values.append(words) values.append(country) dicc[line[0]]=values #venueID:[latitude,longitutde,words,country]#venueID_list=[]for line1 in f1: venueID=line1.split('\t')[1] if(dicc.get(venueID) != None): #if(venueID not in venueID_list): #去掉重复，不需要则注释掉 #venueID_list.append(venueID) fout.write(line1.strip('\n')+'\t'+dicc[venueID][0]+'\t'+dicc[venueID][1]+'\t'+dicc[venueID][2]+'\t'+dicc[venueID][3]) fout.write('\n')f1.close()f2.close()fout.close()]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -771,8 +783,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>C</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>

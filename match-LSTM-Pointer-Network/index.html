@@ -104,8 +104,8 @@
 <meta property="og:image" content="http://7xpqrs.com1.z0.glb.clouddn.com/Flel3Uqro1-XL15roShCUDOZkjdN">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180726/8LDBA8gm3j.png?imageslim">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180726/BfD0AiDH9d.png?imageslim">
-<meta property="og:image" content="https://pic3.zhimg.com/v2-47ce21ac6d194d9639a246b6fe963ba1_r.jpg">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-9371dcf2cd059363f8401efa28ff223e_hd.jpg">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180806/dhhK9mbj4J.png?imageslim">
+<meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180806/a9GCEbE9ID.png?imageslim">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180726/4gHACA8k69.png?imageslim">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180726/H8F4LCdkkb.png?imageslim">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180726/L3ge3E42aC.png?imageslim">
@@ -119,7 +119,7 @@
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180726/mkC2al6bIK.png?imageslim">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=H%5E%7Br%7D+">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180726/g81CbgI0LE.png?imageslim">
-<meta property="og:updated_time" content="2018-07-27T09:18:31.871Z">
+<meta property="og:updated_time" content="2018-08-05T16:14:54.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Match-LSTM和Pointer Net">
 <meta name="twitter:description" content="Match-LSTM简介Match-LSTM是由(Wang &amp;amp; Jiang,2016)发表在NAACL的论文提出，用于解决NLI(Natural Language Inference，文本蕴含)问题。  premise：前提，代表上下文 hypothesis：假设，代表一个陈述性的结论">
@@ -451,10 +451,10 @@
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>Pointer是从一个输入序列中选点的一种方法，是Attention的变体。它不像Attention那样把输入信息编码成一个context vector,而是将attention转化为一个pointer，来选择输入序列中的元素。</p>
 <h4 id="与Attention区别"><a href="#与Attention区别" class="headerlink" title="与Attention区别"></a>与Attention区别</h4><ul>
 <li><p>Attention：公式如下，前两个公式是整合encoder和decoder的隐式状态，学出来encoder、decoder隐式状态与当前输出的权重关系a，然后根据权重关系a和隐式状态e得到context vector用来预测下一个输出。</p>
-<p><img src="https://pic3.zhimg.com/v2-47ce21ac6d194d9639a246b6fe963ba1_r.jpg" alt="img"></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180806/dhhK9mbj4J.png?imageslim" alt="mark"></p>
 </li>
 <li><p>Pointer Net：公式如下，Pointer没有最后一个公式，即将权重关系a和隐式状态整合为context vector，而是直接通过softmax，指向输入序列选择中最有可能是输出的元素。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-9371dcf2cd059363f8401efa28ff223e_hd.jpg" alt=""></p>
+<p><img src="http://p15qizl76.bkt.clouddn.com/blog/180806/a9GCEbE9ID.png?imageslim" alt="mark"></p>
 </li>
 </ul>
 <h3 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="http://p15qizl76.bkt.clouddn.com/blog/180726/4gHACA8k69.png?imageslim" alt="mark"></p>
@@ -541,6 +541,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/graph-model/" rel="prev" title="概率图模型：HMM和CRF">
+                概率图模型：HMM和CRF <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -607,7 +611,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -624,7 +628,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">标签云</span>
               </a>
             </div>
