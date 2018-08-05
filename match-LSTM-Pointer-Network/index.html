@@ -117,9 +117,8 @@
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180726/3LcCBb438h.png?imageslim">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180726/eb26ikFe4l.png?imageslim">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180726/mkC2al6bIK.png?imageslim">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=H%5E%7Br%7D+">
 <meta property="og:image" content="http://p15qizl76.bkt.clouddn.com/blog/180726/g81CbgI0LE.png?imageslim">
-<meta property="og:updated_time" content="2018-08-05T16:14:54.105Z">
+<meta property="og:updated_time" content="2018-08-05T17:02:43.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Match-LSTM和Pointer Net">
 <meta name="twitter:description" content="Match-LSTM简介Match-LSTM是由(Wang &amp;amp; Jiang,2016)发表在NAACL的论文提出，用于解决NLI(Natural Language Inference，文本蕴含)问题。  premise：前提，代表上下文 hypothesis：假设，代表一个陈述性的结论">
@@ -464,7 +463,7 @@
 <li>用match-LSTM对question和passage进行match。</li>
 <li>利用Pointer Net从passage中选择tokens作为答案。</li>
 </ul>
-<p>两个模型的区别在于在于第三部分，由于pointer net没有限定所指向的位置必须是连续的，所以第一个模型sequence model直接将答案在passage中出现的位置序号作为答案序列$a=\left( a<em>{1} ,a</em>{2},… \right) $，第二个模型只预测答案的起始位置跟终止位置，即$a=\left(a<em>{s} ,a</em>{e} \right)$。</p>
+<p>两个模型的区别在于在于第三部分，由于pointer net没有限定所指向的位置必须是连续的，所以第一个模型sequence model直接将答案在passage中出现的位置序号作为答案序列$a=( a<em>{1} ,a</em>{2},… ) $，第二个模型只预测答案的起始位置跟终止位置，即$a=(a<em>{s} ,a</em>{e})$。</p>
 <h4 id="LSTM-Preprocessing-Layer"><a href="#LSTM-Preprocessing-Layer" class="headerlink" title="LSTM Preprocessing Layer"></a>LSTM Preprocessing Layer</h4><p>用单向LSTM对passage和question进行预处理。</p>
 <p><img src="http://p15qizl76.bkt.clouddn.com/blog/180726/H8F4LCdkkb.png?imageslim" alt="mark"></p>
 <h4 id="Match-LSTM-Layer"><a href="#Match-LSTM-Layer" class="headerlink" title="Match-LSTM Layer"></a>Match-LSTM Layer</h4><p>这里将question当做premise，将passage当做hypothesis，用标准的word-by-word attention得到attention向量，具体公式如下：</p>
@@ -496,7 +495,7 @@
 <p><img src="http://p15qizl76.bkt.clouddn.com/blog/180726/mkC2al6bIK.png?imageslim" alt="mark"></p>
 </li>
 </ul>
-<h5 id="The-Boundary-Model"><a href="#The-Boundary-Model" class="headerlink" title="The Boundary Model"></a>The Boundary Model</h5><p>因为boundary model只需要生成答案的起始和终止位置，因此不用在<img src="https://www.zhihu.com/equation?tex=H%5E%7Br%7D+" alt="H^{r} ">最后加入一个零向量来表示答案生成结束。生成答案序列的概率模型如下：</p>
+<h5 id="The-Boundary-Model"><a href="#The-Boundary-Model" class="headerlink" title="The Boundary Model"></a>The Boundary Model</h5><p>因为boundary model只需要生成答案的起始和终止位置，因此不用在$H^{r}$最后加入一个零向量来表示答案生成结束。生成答案序列的概率模型如下：</p>
 <p><img src="http://p15qizl76.bkt.clouddn.com/blog/180726/g81CbgI0LE.png?imageslim" alt="mark"></p>
 <p>其余部分与上个模型相同。</p>
 
